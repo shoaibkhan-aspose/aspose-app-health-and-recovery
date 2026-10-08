@@ -53,6 +53,10 @@ details.f > summary::-webkit-details-marker { display: none }
 .ftitle { font-weight: 600; min-width: 0 }
 .fpages { font: 500 13px var(--mono); color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums }
 .fsub { grid-column: 2 / 4; font-size: 13px; color: var(--muted) }
+.tag { font: 600 11px var(--body); letter-spacing: .04em; text-transform: uppercase; padding: 1px 6px; border-radius: 4px; border: 1px solid currentColor }
+.tag.new { color: var(--accent) } .tag.unverified { color: var(--muted); border-style: dashed }
+.fnote { background: var(--tint); border-radius: 6px; padding: 8px 10px }
+.resolved { margin: 0; padding-left: 20px; display: grid; gap: 4px; font-size: 14px }
 .fbody { padding: 0 14px 14px; display: grid; gap: 8px; font-size: 14px; min-width: 0 }
 .fbody dl { margin: 0; display: grid; grid-template-columns: 90px 1fr; gap: 6px 12px }
 .fbody dt { color: var(--muted) } .fbody dd { margin: 0; min-width: 0; overflow-wrap: anywhere }
@@ -93,13 +97,16 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
 
   <section aria-labelledby="s-find">
     <h2 id="s-find">Findings <small>ranked by severity, then pages affected</small></h2>
+    <p class="lede">Two sources: <b>Discovery</b> findings come from code and are re-checked on every run; <b>manual review</b> findings were spotted by hand. Findings marked <span class="tag unverified">unverified</span> were seen once and must be re-checked by an automated audit before anyone acts on them.</p>
     <div class="filters">
+      <label for="f-src">Source</label><select id="f-src"></select>
       <label for="f-type">Type</label><select id="f-type"></select>
       <label for="f-host">Subdomain</label><select id="f-host"></select>
       <label for="f-dim">Dimension</label><select id="f-dim"></select>
       <span class="count" id="f-count"></span>
     </div>
     <div class="findings" id="findings"></div>
+    <div id="resolved-wrap" hidden><h3>Resolved in this run</h3><ul class="resolved" id="resolved"></ul></div>
   </section>
 
   <section aria-labelledby="s-hosts">
@@ -127,7 +134,9 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
   const R = JSON.parse(document.getElementById("data").textContent);
   const NOTES = R._notes || [];
   const ORDER = ["broken", "incorrect", "not_optimized", "improvable"];
-  const LABEL = { broken: "Broken", incorrect: "Incorrect", not_optimized: "Not optimized", improvable: "Improvable" };
+  const LABEL = { broken: "Broken", incorrect: "Incorrect", not_optimized: "Not optimized", improvable: "Improvable",
+    discovery: "Discovery", seed: "Manual review" };
+  const NEW = new Set((R._changes && R._changes.new) || []);
   const fmt = n => (n == null ? "–" : Number(n).toLocaleString("en-US"));
   const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const $ = id => document.getElementById(id);
@@ -148,39 +157,48 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
     `<div class="tile"><b>${fmt(hosts.length)}</b><span>hosts checked</span></div>`,
     `<div class="tile"><b>${fmt(totalUrls)}</b><span>unique URLs in sitemaps</span></div>`,
     ...ORDER.map(t => `<div class="tile ${t}"><b>${byType[t]}</b><span>${LABEL[t].toLowerCase()} findings</span></div>`),
+    `<div class="tile"><b>${findings.filter(f => f.status === "unverified").length}</b><span>to re-check (unverified)</span></div>`,
   ].join("");
   if (NOTES.length) { $("notes").hidden = false; $("notes-list").innerHTML = NOTES.map(n => `<li>${esc(n)}</li>`).join(""); }
 
   // findings + filters
   const opts = (id, values, all) => { $(id).innerHTML = `<option value="">${all}</option>` + values.map(v => `<option value="${esc(v)}">${esc(LABEL[v] || v)}</option>`).join(""); };
+  opts("f-src", [...new Set(findings.map(f => f.source || "discovery"))].sort(), "All sources");
   opts("f-type", ORDER.filter(t => byType[t]), "All types");
   opts("f-host", [...new Set(findings.map(f => f.subdomain))].sort(), "All subdomains");
   opts("f-dim", [...new Set(findings.map(f => f.dimension))].sort(), "All dimensions");
-  try { const saved = JSON.parse(localStorage.getItem("disc-filters") || "{}"); for (const k of ["f-type", "f-host", "f-dim"]) if (saved[k] && [...$(k).options].some(o => o.value === saved[k])) $(k).value = saved[k]; } catch (e) {}
+  try { const saved = JSON.parse(localStorage.getItem("disc-filters") || "{}"); for (const k of ["f-src", "f-type", "f-host", "f-dim"]) if (saved[k] && [...$(k).options].some(o => o.value === saved[k])) $(k).value = saved[k]; } catch (e) {}
 
   function renderFindings() {
-    const t = $("f-type").value, h = $("f-host").value, d = $("f-dim").value;
-    try { localStorage.setItem("disc-filters", JSON.stringify({ "f-type": t, "f-host": h, "f-dim": d })); } catch (e) {}
-    const list = findings.filter(f => (!t || f.type === t) && (!h || f.subdomain === h) && (!d || f.dimension === d));
+    const src = $("f-src").value, t = $("f-type").value, h = $("f-host").value, d = $("f-dim").value;
+    try { localStorage.setItem("disc-filters", JSON.stringify({ "f-src": src, "f-type": t, "f-host": h, "f-dim": d })); } catch (e) {}
+    const list = findings.filter(f => (!src || (f.source || "discovery") === src) && (!t || f.type === t) && (!h || f.subdomain === h) && (!d || f.dimension === d));
     $("f-count").textContent = `${list.length} of ${findings.length}`;
     $("findings").innerHTML = list.map(f => `
       <details class="f sev-${f.type}">
         <summary>
           <span class="pill">${LABEL[f.type]}</span>
-          <span class="ftitle">${esc(f.title)}</span>
+          <span class="ftitle">${esc(f.title)} ${NEW.has(f.id) ? '<span class="tag new">new</span>' : ""} ${f.status === "unverified" ? '<span class="tag unverified">unverified</span>' : ""}</span>
           <span class="fpages">${f.affected_pages ? fmt(f.affected_pages) + " pages" : ""}</span>
-          <span class="fsub">${esc(f.subdomain)} · ${esc(f.dimension)} · <span class="mono">${esc(f.id)}</span></span>
+          <span class="fsub">${esc(f.subdomain)} · ${esc(f.dimension)} · ${esc(LABEL[f.source || "discovery"])} · <span class="mono">${esc(f.id)}</span></span>
         </summary>
         <div class="fbody"><dl>
           <dt>Observed</dt><dd>${esc(f.evidence.observed)}</dd>
           <dt>Expected</dt><dd>${esc(f.evidence.expected)}</dd>
           <dt>Evidence</dt><dd><ul class="urls">${f.evidence.urls.map(u => `<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(u)}</a></li>`).join("")}</ul></dd>
           <dt>Template</dt><dd class="mono">${esc(f.template)}</dd>
-        </dl></div>
+          ${f.verification ? `<dt>Checked</dt><dd>${esc(f.verification.how)}${f.status === "unverified" ? ". Re-check: " + esc(f.verification.recheck) : ""}</dd>` : ""}
+          ${f.first_seen_run ? `<dt>First seen</dt><dd class="mono">${esc(f.first_seen_run)}</dd>` : ""}
+        </dl>${(f.notes || []).map(n => `<div class="fnote"><b>Note.</b> ${esc(n)}</div>`).join("")}</div>
       </details>`).join("") || `<p class="dim">No findings match these filters.</p>`;
   }
-  for (const id of ["f-type", "f-host", "f-dim"]) $(id).addEventListener("change", renderFindings);
+  for (const id of ["f-src", "f-type", "f-host", "f-dim"]) $(id).addEventListener("change", renderFindings);
   renderFindings();
+  const resolved = (R._changes && R._changes.resolved) || [];
+  if (resolved.length) {
+    $("resolved-wrap").hidden = false;
+    $("resolved").innerHTML = resolved.map(f => `<li><span class="mono">${esc(f.id)}</span> ${esc(f.title)} <span class="dim">(${esc(f.subdomain)})</span></li>`).join("");
+  }
 
   // hosts
   const robotsCell = r => r.error ? `<span class="bad">${esc(r.error)}</span>`
@@ -225,6 +243,6 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
       return `<tr><td class="mono">${esc(g.path)}</td><td>${gs}</td><td class="n">${fmt(g.gsc_discovered)}</td><td>${live}</td><td class="n">${fmt(g.live_urls)}</td></tr>`;
     }).join("") + `</tbody>`;
 
-  $("foot").textContent = `Generated from discovery run ${R.run_id}. Read-only audit: nothing on any site was changed. Each finding lists URLs anyone can open to re-check it. "Pages" counts URLs listed in the affected sitemaps; impact from Search Console and GA4 is added in the prioritization step.`;
+  $("foot").textContent = `Generated from discovery run ${R.run_id} and the findings store${R._changes && R._changes.first_run ? " (first run, so nothing is marked new yet)" : ""}. Read-only audit: nothing on any site was changed. Each finding lists URLs anyone can open to re-check it. "Pages" counts URLs listed in the affected sitemaps; impact from Search Console and GA4 is added in the prioritization step.`;
 })();
 </script>

@@ -6,7 +6,7 @@ Domain-agnostic agents that audit a web property, report what is broken, not opt
 
 **Owner:** SK. This file is the master brief. A copy lives in the claude.ai Project "aspose.app Health Recovery Agents"; Claude Code in VS Code cannot write to it, so when this file changes meaningfully, tell SK so he can refresh the Project copy.
 
-**Keep this file current:** when a decision is made, a fact is confirmed or a build step finishes, update the relevant section (Status, Seed observations, Open items) in the same session.
+**Keep this file current:** when a decision is made, a fact is confirmed or a build step finishes, update the relevant section (Status, Seed findings, Open items) in the same session. New issues found by hand go into `tenants/aspose.app.seed-findings.yaml`, never only into prose.
 
 ## Current phase: 1, AUDIT ONLY
 
@@ -93,6 +93,9 @@ Done:
   - Findings are grouped per host, or per section folder on hosts with configured sections (products), so one template fix = one finding.
   - Sample run (www + products pdf/words/omr, 80 sitemaps, ~80 s) confirmed: products robots.txt 404; root `/sitemap.xml` and both omr sitemaps 404 live (GSC: Couldn't fetch); www robots.txt has no `Sitemap:` line, www sitemaps have no lastmod; pdf language sitemaps have no hreflang; words sitemaps have full hreflang (40 langs, 19,320 URLs = GSC count) but **33 of 36 words sitemaps (14,880 URLs) carry the same lastmod 2024-02-13** (new).
 
+- **Seed findings documented (2026-10-08):** `tenants/aspose.app.seed-findings.yaml` (29 manual findings, 11 verified, 1 note) + `tests/test_seed_findings.py`. See section Seed findings. Reviewed by Claude Code the same day: crawl-02 and intl-04 verified from discovery data; crawl-03 and content-03 half-confirmed (sitemap side); intl-05 rewritten (websites sitemaps have 38 uneven languages, not 6); fix channels aligned to `FIX_CHANNELS`; seed-crawl-01 turned into a note on the discovery robots finding.
+- **Findings store built (2026-10-08):** `FindingsStore` in `core/findings.py` (`data/findings.sqlite`, gitignored). Stable key per finding (`<dimension>/<check>/<subdomain>/<template>` for code findings, `seed/<id>` for seeds) → one permanent id (`crawl-0001`, seeds keep `seed-…`). Tracks first/last seen run, resolves findings a later run no longer reports (only within that run's hosts/sections; a run stopped by `--max-sitemaps` resolves nothing), reopens them if they return, keeps an event log (new/resolved/reopened per run), attaches seed `notes` to findings by key. `discover.py` imports the seed file and its run automatically; `scripts/findings.py` (`import-seed`, `import-discovery`, `list`, `summary`); `build_report.py` reads findings from the store (source filter, unverified and new tags, notes, resolved list). Discovery findings now carry a `check` name. 27 offline tests pass.
+
 Not done yet:
 - GSC properties for www and forum (none exist or none shared; the service account sees only the 5 URL-prefix properties).
 - `agents/`, `mcp_servers/` are empty packages.
@@ -108,6 +111,7 @@ ruff check .
 set -a; source .env; set +a            # loads GOOGLE_APPLICATION_CREDENTIALS (key outside the repo)
 python scripts/check_access.py --tenant aspose.app
 python scripts/discover.py             # all hosts; --hosts/--sections/--max-sitemaps for samples
+python scripts/findings.py summary     # findings store: summary | list | import-seed | import-discovery <json>
 python scripts/build_report.py <run json> --notes reports/discovery-notes.txt --out reports/discovery-latest.html
 ```
 
@@ -240,7 +244,58 @@ Every finding needs evidence a human can re-check. No finding without a URL and 
 - **Run 6 (after fixes):** slides recovered via corrected child URLs (24,752); products 747,694 URLs, total ~794k; 89 findings. Report page built by `scripts/build_report.py` (template `scripts/templates/discovery_report.html`), takeaways in `reports/discovery-notes.txt` (gitignored).
 - Discovery fixes after run 3: double-slash child check (fetches the corrected URL too); parse/redirect/empty checks only on real sitemaps (robots, GSC, child), not on guessed URLs; duplicate findings grouped per host unless the host has sections.
 
-## Seed observations (unverified unless marked, re-check before reporting)
+## Seed findings (manual review, 2026-10-07..08)
+
+Issues found by hand in the claude.ai session (live pages, sitemaps, products repo) that discovery code does not produce. **Source of truth: `tenants/aspose.app.seed-findings.yaml`** (confirmed finding schema + a `verification` block). `tests/test_seed_findings.py` validates it. 29 findings, 11 verified, plus `notes` (cause/context attached to a discovery finding by its key).
+
+Rules:
+- `status: open` = verified in repo and/or live; `status: unverified` = seen once by a web fetcher. Re-check before any report.
+- Each entry's `verification.recheck` names the auditor check that must detect it automatically. Build those checks; when an auditor reproduces a seed finding, keep the auditor's finding and mark the seed `superseded_by: <id>`.
+- The findings store imports this file on every `discover.py` run (or `scripts/findings.py import-seed`). The file stays the source of truth for seed status; a seed removed from the file is marked resolved.
+- A cause or context for a discovery finding goes under `notes:` with `applies_to: <dimension>/<check>/<subdomain>/<template>`, not as a new finding.
+- Not repeated here (already found by discovery): robots.txt 404s, broken family sitemaps, sitemap hreflang/lastmod, slides double slash, imaging duplicate entries, email soft 404.
+
+Highlights:
+- **Verified copy errors on products hubs:** `/pdf/` title+H1 "edit **test** PDF"; `/svg/` and `/svg/family/` titles and descriptions describe **Photoshop PSD** (copied from psd); finance title "Free App **for for** finance - **Hanlde**"; omr "**Recoginze**".
+- Hub titles sell "Solutions"/"On Premise APIs" on a free-apps site; each family has two near-duplicate hubs (`/<family>/` and `/<family>/family/`).
+- App pages: locale versions without hreflang (sample `/pdf/conversion`).
+- Other hosts: forum Diagram category says "Microsoft Project"; forum legal links go to `company.aspose.app`; websites alt text "aspose.org" for aspose.net; `user-scalable=no` on websites/releases/blog; about cites "1.17M visits in January 2021"; outdated WordPress 5.7.2 and Discourse 3.1.1.
+
+| ID | Host | Finding | Verified |
+|---|---|---|---|
+| `seed-onpage-01` | products | PDF hub title and H1 contain the stray word 'test' | yes |
+| `seed-onpage-02` | products | SVG hub pages carry Photoshop (PSD) titles and meta descriptions copied from the psd hub | yes |
+| `seed-onpage-03` | products | Finance hub title has typos; family page title describes APIs, not free apps | yes |
+| `seed-onpage-04` | products | OMR family page title misspells 'Recognize' | yes |
+| `seed-content-01` | products | Hub titles and H2s talk about 'Solutions' and 'On Premise APIs' on a free-apps site | yes |
+| `seed-content-02` | products | Each family has two near-duplicate hub pages: /<family>/ and /<family>/family/ | no |
+| `seed-intl-01` | products | App pages have locale versions but no hreflang tags | no |
+| `seed-intl-02` | products | Hub pages emit no hreflang; theme logic exists but is limited to /svg/, /html/, /total/ | yes |
+| `seed-intl-03` | products | Language coverage differs widely between families | yes |
+| `seed-crawl-02` | products | PDF sitemap index lists llms.xml, a sitemap whose only URL is /pdf/llms.txt | yes |
+| `seed-crawl-03` | products | PDF splitter URL differs between sitemap and hub links | no |
+| `seed-content-03` | products | Near-duplicate imaging conversion pages for the same JPEG 2000 target | no |
+| `seed-intl-04` | www | www English sitemap is built differently from the other 35 language sitemaps | yes |
+| `seed-platform-01` | products | products config still carries a retired Universal Analytics ID | yes |
+| `seed-platform-02` | products | Hugo versions differ across hosts (products/websites 0.110, about 0.135) | no |
+| `seed-platform-03` | blog | Blog runs WordPress 5.7.2 (2021), long out of support | no |
+| `seed-platform-04` | forum | Forum runs Discourse 3.1.1 | no |
+| `seed-content-04` | blog | Blog is barely updated and shows empty categories | no |
+| `seed-cross-01` | forum | Forum footer legal links point to company.aspose.app | no |
+| `seed-content-05` | forum | Forum Diagram category description says Microsoft Project instead of Visio | no |
+| `seed-onpage-05` | websites | aspose.net entry uses 'aspose.org' as image alt text | no |
+| `seed-intl-05` | websites | websites sitemaps cover 38 languages very unevenly; about covers 13 evenly | yes |
+| `seed-cross-02` | websites | Home links for aspose.com and aspose.ai point to metrics.* hosts | no |
+| `seed-ux-01` | websites | Viewport disables zoom (user-scalable=no) on websites, releases and blog | no |
+| `seed-onpage-06` | releases | Releases homepage has no canonical and no meta description | no |
+| `seed-onpage-07` | about | about and websites homepages show no meta description | no |
+| `seed-content-06` | about | About page cites a 2021 traffic figure and a one-entry timeline | no |
+| `seed-cross-03` | about | About links to websites.aspose.com instead of websites.aspose.app | no |
+| `seed-ai-01` | products | Only about (and /pdf/) offer llms.txt; other hosts have none | no |
+
+## Background notes (earlier claude.ai session)
+
+Context gathered before discovery existed. The issues in it are tracked in `tenants/aspose.app.seed-findings.yaml` or in discovery findings; keep this section for background only.
 
 - products, **verified live and in repo:** `/pdf/` title and H1 read "Free Online Apps to view, convert, edit **test** PDF" (`content/pdf/_index.md`).
 - products: `/robots.txt` and `/sitemap.xml` returned 404 to a web fetcher; confirm with curl from the Mac. robots.txt and sitemaps are per host, so www's files do not cover products.
@@ -281,14 +336,14 @@ Every finding needs evidence a human can re-check. No finding without a URL and 
 ## Next steps (in order)
 
 1. ~~Run `check_access.py`~~ Done 2026-10-08 (see Status). All 5 URL-prefix properties are readable. Remaining gap: www and forum (and any other hosts Discovery finds) have no GSC property; a Domain property would cover them all. Not blocking step 2.
-2. **Discovery (inventory)**: done. Latest clean run: **run 6** (550 sitemaps, ~794k unique URLs, 89 findings). Shared report: https://claude.ai/artifact/MUUTzbXEymKq4tw5mmmPA5 (private; SK shares via its Share menu). To refresh: `discover.py` → `build_report.py <run json> --notes reports/discovery-notes.txt --out reports/discovery-latest.html` → republish that file. Original spec:
+2. **Discovery (inventory)**: done. Latest clean run: **run 7** (2026-10-08; same results as run 6, first run in the findings store: 89 discovery + 29 seed = 118 findings, 18 unverified). Shared report: https://claude.ai/artifact/MUUTzbXEymKq4tw5mmmPA5 (private; SK shares via its Share menu). To refresh: `discover.py` → `build_report.py <run json> --notes reports/discovery-notes.txt --out reports/discovery-latest.html` → republish that file. Original spec:
    - Fetch robots.txt and root sitemap per host; probe `/<family>/sitemap.xml` for all 29 families plus every path in `gsc_sitemaps_snapshot`.
    - Recurse sitemap indexes; handle `.xml.gz` (words) and BOMs; record per sitemap: URL, status, type, child count, URL count, lastmod spread, hreflang presence.
    - Normalise URLs to an inventory: host, family, language (from path), tool/template pattern (`/<family>/<tool>`, `/<family>/conversion/<fmt>`, `/<family>/conversion/<src>-to-<dst>`, `/<family>/<lang>/<tool>`).
    - Store in SQLite (`data/inventory.sqlite`, gitignored). Polite: identifiable user agent, rate limit, retries, respect robots.txt, skip excluded hosts.
    - Output: per-family / per-language URL counts vs the GSC snapshot; sitemap problems as findings.
-3. **Findings store** (`core/findings.py`, SQLite) using the confirmed schema.
-4. **`mcp_servers/gsc`** (FastMCP, stdio, read-only) wrapping `core/gsc.py`; register with Claude Code.
+3. ~~Findings store~~ Done 2026-10-08 (see Status). Report rebuilt locally from the store after run 7 (`reports/discovery-latest.html`); **republish to the shared link only when SK says so**.
+4. **`mcp_servers/gsc`** (FastMCP, stdio, read-only) wrapping `core/gsc.py`; register in a project `.mcp.json` (key path from `GOOGLE_APPLICATION_CREDENTIALS`, never in the file); needs `pip install -e ".[mcp]"`. Agreed tools: `list_properties`, `search_performance` (dimensions page/query/country/device/date + filters, row-capped), `page_performance`, `compare_periods`, `list_sitemaps`, `inspect_url` (URL Inspection, 2,000/day/property, sampling only). Offline tests with a fake client. Then demo on real questions (slides clicks since the sitemap broke; `/pdf/split` vs `/pdf/splitter`; clicks of families without hreflang).
 5. **Crawl auditor** on a sample per template (status, canonical, hreflang, title/H1/meta, robots meta), then the other dimensions.
 6. **LangGraph** run graph once 2+ auditors exist; Prioritizer and Reporter after that.
 
@@ -299,4 +354,5 @@ Every finding needs evidence a human can re-check. No finding without a URL and 
 - GA4: 241k sessions with an empty hostName (205k organic) and spam/foreign hosts. Ask who owns the GA4 setup whether a hostname filter exists.
 - Page indexing (indexed vs discovered) per family: needs SK's export from GSC → Indexing → Pages, or URL Inspection sampling.
 - SK checking: who owns routing/CDN for products.aspose.app, and where the app pages are built. Not blocking Phase 1: audit runs on the live site; repos are needed for root cause and Phase 2, requested only for the highest-impact families.
-- Full subdomain list to be produced by Discovery.
+- Host list: Discovery covers the 12 known hosts (7 from SK + 5 seen in GA4); sitemaps reference no other aspose.app hosts. Not yet done: DNS / certificate-transparency enumeration to find hosts nothing links to.
+- SK to decide: should metrics.aspose.app (3,780 usage/subscription pages in sitemaps) and status.aspose.app (150 incident URLs) be indexed at all?

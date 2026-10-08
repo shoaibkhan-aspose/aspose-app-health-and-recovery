@@ -25,9 +25,11 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT))
 
 from core.discovery.fetch import DEFAULT_USER_AGENT, PoliteFetcher  # noqa: E402
-from core.discovery.run import discover  # noqa: E402
+from core.discovery.run import discover, import_report  # noqa: E402
 from core.discovery.store import InventoryStore  # noqa: E402
+from core.findings import FindingsStore  # noqa: E402
 from core.tenant import load_tenant  # noqa: E402
+from scripts.findings import DEFAULT_STORE, import_seed, print_changes  # noqa: E402
 
 
 def _csv(value: str | None) -> list[str] | None:
@@ -84,6 +86,7 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--user-agent", default=os.environ.get("AUDIT_USER_AGENT", DEFAULT_USER_AGENT))
     ap.add_argument("--db", default=str(REPO_ROOT / "data" / "inventory.sqlite"))
     ap.add_argument("--out-dir", default=str(REPO_ROOT / "reports"))
+    ap.add_argument("--findings-store", default=str(DEFAULT_STORE), help="'' to skip the findings store")
     ap.add_argument("--quiet", action="store_true", help="no per-sitemap progress lines")
     args = ap.parse_args(argv)
 
@@ -106,6 +109,11 @@ def main(argv: list[str] | None = None) -> int:
 
     print_summary(report)
     print(f"\nInventory: {args.db} (run {report['run_id']})\nFull report: {out_file}")
+    if args.findings_store:
+        fstore = FindingsStore(args.findings_store)
+        import_seed(fstore, tenant.property)
+        print(f"\nFindings store: {args.findings_store}")
+        print_changes(import_report(fstore, report))
     return 0
 
 

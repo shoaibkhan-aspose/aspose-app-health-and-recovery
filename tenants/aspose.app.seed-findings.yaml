@@ -1,0 +1,798 @@
+tenant: aspose.app
+source: 'Manual review in the claude.ai session (2026-10-07..08): web fetches of live pages, sitemaps and the products.aspose.app repo. Not produced by code.'
+rules:
+- status 'unverified' = seen once by a web fetcher or inferred; an auditor must re-check before it goes into a report
+- status 'open' = verified (repo file, live page and/or discovery data)
+- every entry names the auditor check that should detect it automatically ('verification.recheck')
+- issues already found by discovery are NOT repeated here; a cause or context for one goes under 'notes', keyed by the discovery finding key (<dimension>/<check>/<subdomain>/<template>)
+- fix_channel is one of core.findings.FIX_CHANNELS or null (unknown)
+findings:
+- id: seed-onpage-01
+  tenant: aspose.app
+  subdomain: products.aspose.app
+  template: family-hub
+  dimension: onpage
+  type: incorrect
+  title: PDF hub title and H1 contain the stray word 'test'
+  evidence:
+    urls:
+    - https://products.aspose.app/pdf/
+    observed: 'title and H1: ''Free Online Apps to view, convert, edit test PDF'' (content/pdf/_index.md, title + h1 shortcode)'
+    expected: '''Free Online Apps to view, convert, edit PDF'''
+  affected_pages: 1
+  impact:
+    clicks_28d: 0
+    impressions_28d: 0
+    score: 0
+  effort: S
+  fix_tier: 1
+  fix_channel: git-pr
+  status: open
+  detected_at: '2026-10-08'
+  verification:
+    verified: true
+    how: live page fetch + repo file
+    recheck: 'crawl auditor: title/H1 typo check'
+- id: seed-onpage-02
+  tenant: aspose.app
+  subdomain: products.aspose.app
+  template: family-hub
+  dimension: onpage
+  type: incorrect
+  title: SVG hub pages carry Photoshop (PSD) titles and meta descriptions copied from the psd hub
+  evidence:
+    urls:
+    - https://products.aspose.app/svg/
+    - https://products.aspose.app/svg/family/
+    observed: /svg/ title 'Create, Edit or Convert PSD & PSB files to PDF & image formats', description about Photoshop files; /svg/family/ title 'Free Online Viewer & Converter Apps for Photoshop Files',
+      description 'View or convert Photoshop PSD & PSB files online…' (content/svg/_index.md, content/svg/family/_index.md). H1s correctly say SVG.
+    expected: SVG-specific title and description matching the H1
+  affected_pages: 2
+  impact:
+    clicks_28d: 0
+    impressions_28d: 0
+    score: 0
+  effort: S
+  fix_tier: 1
+  fix_channel: git-pr
+  status: open
+  detected_at: '2026-10-08'
+  verification:
+    verified: true
+    how: repo files; live not yet fetched
+    recheck: 'crawl auditor: title vs H1 topic mismatch; confirm live'
+- id: seed-onpage-03
+  tenant: aspose.app
+  subdomain: products.aspose.app
+  template: family-hub
+  dimension: onpage
+  type: incorrect
+  title: Finance hub title has typos; family page title describes APIs, not free apps
+  evidence:
+    urls:
+    - https://products.aspose.app/finance/
+    - https://products.aspose.app/finance/family/
+    observed: /finance/ title 'Free App for for finance - Hanlde  XBRL and iXBRL Formats' (double 'for', 'Hanlde', double space); /finance/family/ title 'Global Digital Financial Reporting APIs - Aspose'
+    expected: Spelling-correct title about free XBRL/iXBRL apps
+  affected_pages: 2
+  impact:
+    clicks_28d: 0
+    impressions_28d: 0
+    score: 0
+  effort: S
+  fix_tier: 1
+  fix_channel: git-pr
+  status: open
+  detected_at: '2026-10-08'
+  verification:
+    verified: true
+    how: repo files
+    recheck: 'crawl auditor: spelling check on titles'
+- id: seed-onpage-04
+  tenant: aspose.app
+  subdomain: products.aspose.app
+  template: family-hub
+  dimension: onpage
+  type: incorrect
+  title: OMR family page title misspells 'Recognize'
+  evidence:
+    urls:
+    - https://products.aspose.app/omr/family/
+    observed: title 'Free Online Apps to Generate And Recoginze OMR Files'
+    expected: '''…Generate and Recognize OMR Files'''
+  affected_pages: 1
+  impact:
+    clicks_28d: 0
+    impressions_28d: 0
+    score: 0
+  effort: S
+  fix_tier: 1
+  fix_channel: git-pr
+  status: open
+  detected_at: '2026-10-08'
+  verification:
+    verified: true
+    how: repo file
+    recheck: 'crawl auditor: spelling check'
+- id: seed-content-01
+  tenant: aspose.app
+  subdomain: products.aspose.app
+  template: family-hub
+  dimension: content
+  type: improvable
+  title: Hub titles and H2s talk about 'Solutions' and 'On Premise APIs' on a free-apps site
+  evidence:
+    urls:
+    - https://products.aspose.app/html/
+    - https://products.aspose.app/svg/
+    - https://products.aspose.app/finance/
+    - https://products.aspose.app/ebook/family/
+    observed: e.g. html title 'Free Apps, On Premise & Cloud APIs for HTML Manipulation'; svg/finance H2 'On Premise APIs and free apps…'; ebook family title 'Aspose.eBook Product Family'; many /<family>/
+      titles are '<Format> File Format Solution'
+    expected: Titles that match free-app search intent (e.g. 'Free Online <Format> Converter, Viewer & Editor')
+  affected_pages: 29
+  impact:
+    clicks_28d: 0
+    impressions_28d: 0
+    score: 0
+  effort: M
+  fix_tier: 2
+  fix_channel: git-pr
+  status: open
+  detected_at: '2026-10-08'
+  verification:
+    verified: true
+    how: repo files
+    recheck: 'content auditor (LLM): intent match per hub'
+- id: seed-content-02
+  tenant: aspose.app
+  subdomain: products.aspose.app
+  template: family-hub
+  dimension: content
+  type: not_optimized
+  title: 'Each family has two near-duplicate hub pages: /<family>/ and /<family>/family/'
+  evidence:
+    urls:
+    - https://products.aspose.app/pdf/
+    - https://products.aspose.app/pdf/family/
+    observed: 29 families x 2 hub pages (59 _index.md); e.g. /pdf/ 'Free Online Apps to view, convert, edit test PDF' vs /pdf/family/ 'Free Online Apps to view, convert, edit PDF'
+    expected: One canonical hub per family, or clearly different intents and canonicals
+  affected_pages: 58
+  impact:
+    clicks_28d: 0
+    impressions_28d: 0
+    score: 0
+  effort: M
+  fix_tier: 3
+  fix_channel: git-pr
+  status: unverified
+  detected_at: '2026-10-08'
+  verification:
+    verified: false
+    how: repo files; canonicals and GSC overlap not checked
+    recheck: 'crawl auditor: canonical of both; GSC queries per pair for cannibalization'
+- id: seed-intl-01
+  tenant: aspose.app
+  subdomain: products.aspose.app
+  template: app-page
+  dimension: intl
+  type: broken
+  title: App pages have locale versions but no hreflang tags
+  evidence:
+    urls:
+    - https://products.aspose.app/pdf/conversion
+    - https://products.aspose.app/pdf/de/conversion
+    - https://products.aspose.app/pdf/fr/conversion
+    observed: '/pdf/conversion: canonical present, no <link rel=alternate hreflang>; locale versions only linked from the language menu'
+    expected: Reciprocal hreflang (+ x-default) on every locale version
+  affected_pages: 0
+  impact:
+    clicks_28d: 0
+    impressions_28d: 0
+    score: 0
+  effort: M
+  fix_tier: 2
+  fix_channel: null
+  status: unverified
+  detected_at: '2026-10-08'
+  verification:
+    verified: false
+    how: web fetch converted to text; raw HTML not checked
+    recheck: 'intl auditor: parse raw <head> on a sample per family and template'
+- id: seed-intl-02
+  tenant: aspose.app
+  subdomain: products.aspose.app
+  template: family-hub
+  dimension: intl
+  type: not_optimized
+  title: Hub pages emit no hreflang; theme logic exists but is limited to /svg/, /html/, /total/
+  evidence:
+    urls:
+    - https://products.aspose.app/pdf/
+    observed: themes/lutsk-aspose-theme/layouts/partials/alt-links.html only runs for Permalinks containing /svg/, /html/ or /total/; hubs have no translations configured
+    expected: Hreflang wherever translated hub pages exist
+  affected_pages: 58
+  impact:
+    clicks_28d: 0
+    impressions_28d: 0
+    score: 0
+  effort: M
+  fix_tier: 2
+  fix_channel: git-pr
+  status: open
+  detected_at: '2026-10-08'
+  verification:
+    verified: true
+    how: repo code
+    recheck: intl auditor
+- id: seed-intl-03
+  tenant: aspose.app
+  subdomain: products.aspose.app
+  template: family-sitemaps
+  dimension: intl
+  type: improvable
+  title: Language coverage differs widely between families
+  evidence:
+    urls:
+    - https://products.aspose.app/imaging/sitemap.xml
+    - https://products.aspose.app/words/sitemap.xml
+    - https://products.aspose.app/cells/sitemap.xml
+    - https://products.aspose.app/pdf/sitemap.xml
+    observed: imaging 52 languages, words 40, cells 37, pdf 29 (from sitemaps)
+    expected: A deliberate, consistent language set per family, driven by demand
+  affected_pages: 0
+  impact:
+    clicks_28d: 0
+    impressions_28d: 0
+    score: 0
+  effort: L
+  fix_tier: 3
+  fix_channel: null
+  status: open
+  detected_at: '2026-10-08'
+  verification:
+    verified: true
+    how: sitemap fetches; discovery data has full per-family counts
+    recheck: 'discovery: language count per section'
+- id: seed-crawl-02
+  tenant: aspose.app
+  subdomain: products.aspose.app
+  template: family-sitemaps
+  dimension: crawl
+  type: improvable
+  title: PDF sitemap index lists llms.xml, a sitemap whose only URL is /pdf/llms.txt
+  evidence:
+    urls:
+    - https://products.aspose.app/pdf/sitemap.xml
+    - https://products.aspose.app/pdf/sitemaps/llms.xml
+    observed: llms.xml is a urlset with one <loc> https://products.aspose.app/pdf/llms.txt (lastmod 2025-09-04, BOM before XML declaration)
+    expected: llms.txt is not a page for the index; remove it from the sitemap or keep it only for AI crawlers via robots/llms conventions
+  affected_pages: 1
+  impact:
+    clicks_28d: 0
+    impressions_28d: 0
+    score: 0
+  effort: S
+  fix_tier: 1
+  fix_channel: null
+  status: open
+  detected_at: '2026-10-08'
+  verification:
+    verified: true
+    how: 'web fetch + discovery run 6 inventory: llms.xml is a urlset with 1 URL (/pdf/llms.txt), BOM, lastmod 2025-09-04'
+    recheck: 'discovery: flag non-HTML URLs in sitemaps'
+- id: seed-crawl-03
+  tenant: aspose.app
+  subdomain: products.aspose.app
+  template: app-page
+  dimension: crawl
+  type: incorrect
+  title: PDF splitter URL differs between sitemap and hub links
+  evidence:
+    urls:
+    - https://products.aspose.app/pdf/split
+    - https://products.aspose.app/pdf/splitter
+    observed: pdf sitemap lists /pdf/split; products homepage and hub link /pdf/splitter
+    expected: One URL; the other 301s to it; sitemap and links agree
+  affected_pages: 1
+  impact:
+    clicks_28d: 0
+    impressions_28d: 0
+    score: 0
+  effort: S
+  fix_tier: 2
+  fix_channel: null
+  status: unverified
+  detected_at: '2026-10-08'
+  verification:
+    verified: false
+    how: sitemap side confirmed by discovery run 6 (lists /pdf/split, not /pdf/splitter); hub links and redirects not checked
+    recheck: 'crawl auditor: status/redirect of both'
+- id: seed-content-03
+  tenant: aspose.app
+  subdomain: products.aspose.app
+  template: conversion-pair
+  dimension: content
+  type: not_optimized
+  title: Near-duplicate imaging conversion pages for the same JPEG 2000 target
+  evidence:
+    urls:
+    - https://products.aspose.app/imaging/conversion/jpg-to-jp2
+    - https://products.aspose.app/imaging/conversion/jpg-to-j2k
+    - https://products.aspose.app/imaging/conversion/jpg-to-jpeg2000
+    observed: three separate URLs for JPEG 2000 variants in imaging/sitemap.en.xml
+    expected: One canonical page per real format intent, or clearly differentiated content
+  affected_pages: 3
+  impact:
+    clicks_28d: 0
+    impressions_28d: 0
+    score: 0
+  effort: M
+  fix_tier: 3
+  fix_channel: null
+  status: unverified
+  detected_at: '2026-10-08'
+  verification:
+    verified: false
+    how: all three URLs confirmed in imaging sitemaps (discovery run 6); content similarity not checked
+    recheck: 'content auditor: duplicate detection + GSC query overlap'
+- id: seed-intl-04
+  tenant: aspose.app
+  subdomain: www.aspose.app
+  template: sitemaps
+  dimension: intl
+  type: incorrect
+  title: www English sitemap is built differently from the other 35 language sitemaps
+  evidence:
+    urls:
+    - https://www.aspose.app/en/sitemap.xml
+    - https://www.aspose.app/fr/sitemap.xml
+    observed: '/fr/sitemap.xml: 1 URL with 36 hreflang alternates; /en/sitemap.xml: all 36 homepages, alternates only on the root entry'
+    expected: Same structure in every language sitemap
+  affected_pages: 1
+  impact:
+    clicks_28d: 0
+    impressions_28d: 0
+    score: 0
+  effort: S
+  fix_tier: 2
+  fix_channel: null
+  status: open
+  detected_at: '2026-10-08'
+  verification:
+    verified: true
+    how: 'web fetch + discovery run 6: /en/sitemap.xml 36 URLs, 1 with hreflang; /fr/sitemap.xml 1 URL with hreflang'
+    recheck: 'discovery: compare structure across sibling sitemaps'
+- id: seed-platform-01
+  tenant: aspose.app
+  subdomain: products.aspose.app
+  template: site-config
+  dimension: platform
+  type: improvable
+  title: products config still carries a retired Universal Analytics ID
+  evidence:
+    urls:
+    - https://products.aspose.app/
+    observed: config.toml [params.gtm] products_app_id = 'UA-3109235-5' (UA retired 2023); tracking runs via GTM
+    expected: Remove dead UA config
+  affected_pages: 0
+  impact:
+    clicks_28d: 0
+    impressions_28d: 0
+    score: 0
+  effort: S
+  fix_tier: 1
+  fix_channel: git-pr
+  status: open
+  detected_at: '2026-10-08'
+  verification:
+    verified: true
+    how: repo file
+    recheck: platform auditor
+- id: seed-platform-02
+  tenant: aspose.app
+  subdomain: products.aspose.app
+  template: site-config
+  dimension: platform
+  type: improvable
+  title: Hugo versions differ across hosts (products/websites 0.110, about 0.135)
+  evidence:
+    urls:
+    - https://products.aspose.app/
+    - https://websites.aspose.app/
+    - https://about.aspose.app/
+    observed: meta generator Hugo 0.110.0 on products and websites, Hugo 0.135.0 on about
+    expected: Supported, aligned generator version
+  affected_pages: 0
+  impact:
+    clicks_28d: 0
+    impressions_28d: 0
+    score: 0
+  effort: M
+  fix_tier: 3
+  fix_channel: null
+  status: unverified
+  detected_at: '2026-10-08'
+  verification:
+    verified: false
+    how: meta generator via web fetch
+    recheck: 'platform auditor: read meta generator per host'
+- id: seed-platform-03
+  tenant: aspose.app
+  subdomain: blog.aspose.app
+  template: site-config
+  dimension: platform
+  type: broken
+  title: Blog runs WordPress 5.7.2 (2021), long out of support
+  evidence:
+    urls:
+    - https://blog.aspose.app/
+    observed: meta generator 'WordPress 5.7.2'
+    expected: Current WordPress with security updates
+  affected_pages: 0
+  impact:
+    clicks_28d: 0
+    impressions_28d: 0
+    score: 0
+  effort: L
+  fix_tier: 3
+  fix_channel: hosting
+  status: unverified
+  detected_at: '2026-10-08'
+  verification:
+    verified: false
+    how: meta generator via web fetch
+    recheck: platform auditor
+- id: seed-platform-04
+  tenant: aspose.app
+  subdomain: forum.aspose.app
+  template: site-config
+  dimension: platform
+  type: improvable
+  title: Forum runs Discourse 3.1.1
+  evidence:
+    urls:
+    - https://forum.aspose.app/
+    observed: meta generator 'Discourse 3.1.1'
+    expected: Current Discourse release
+  affected_pages: 0
+  impact:
+    clicks_28d: 0
+    impressions_28d: 0
+    score: 0
+  effort: M
+  fix_tier: 3
+  fix_channel: hosting
+  status: unverified
+  detected_at: '2026-10-08'
+  verification:
+    verified: false
+    how: meta generator via web fetch
+    recheck: platform auditor
+- id: seed-content-04
+  tenant: aspose.app
+  subdomain: blog.aspose.app
+  template: category
+  dimension: content
+  type: improvable
+  title: Blog is barely updated and shows empty categories
+  evidence:
+    urls:
+    - https://blog.aspose.app/
+    - https://blog.aspose.app/category/3d/
+    - https://blog.aspose.app/category/zip/
+    observed: Only release-note posts since Aug 2024 (latest 2026-02-24); sidebar lists Aspose.3D and Aspose.ZIP categories with 0 articles; 17 archive pages
+    expected: Regular posts targeting app queries; hide or noindex empty categories
+  affected_pages: 0
+  impact:
+    clicks_28d: 0
+    impressions_28d: 0
+    score: 0
+  effort: L
+  fix_tier: 3
+  fix_channel: wordpress-admin
+  status: unverified
+  detected_at: '2026-10-08'
+  verification:
+    verified: false
+    how: homepage fetch
+    recheck: content auditor + crawl auditor (empty archive pages)
+- id: seed-cross-01
+  tenant: aspose.app
+  subdomain: forum.aspose.app
+  template: footer
+  dimension: cross
+  type: broken
+  title: Forum footer legal links point to company.aspose.app
+  evidence:
+    urls:
+    - https://forum.aspose.app/
+    - https://company.aspose.app/legal/tos
+    - https://company.aspose.app/legal/privacy-policy
+    observed: footer Terms of Service and Privacy Policy link to company.aspose.app; legal pages live at about.aspose.app/legal/
+    expected: Links to about.aspose.app/legal/... (or verified working redirects)
+  affected_pages: 0
+  impact:
+    clicks_28d: 0
+    impressions_28d: 0
+    score: 0
+  effort: S
+  fix_tier: 1
+  fix_channel: discourse-admin
+  status: unverified
+  detected_at: '2026-10-08'
+  verification:
+    verified: false
+    how: homepage fetch; link targets not requested
+    recheck: 'crawl auditor: follow cross-host links, record status/redirects'
+- id: seed-content-05
+  tenant: aspose.app
+  subdomain: forum.aspose.app
+  template: category
+  dimension: content
+  type: incorrect
+  title: Forum Diagram category description says Microsoft Project instead of Visio
+  evidence:
+    urls:
+    - https://forum.aspose.app/c/diagram/13
+    observed: '''Get technical support for Microsoft Project file Converter, Viewer and other apps.'' (same text as the Tasks category)'
+    expected: Description about Visio diagram apps
+  affected_pages: 1
+  impact:
+    clicks_28d: 0
+    impressions_28d: 0
+    score: 0
+  effort: S
+  fix_tier: 1
+  fix_channel: discourse-admin
+  status: unverified
+  detected_at: '2026-10-08'
+  verification:
+    verified: false
+    how: categories page fetch
+    recheck: 'content auditor (LLM): category text vs product'
+- id: seed-onpage-05
+  tenant: aspose.app
+  subdomain: websites.aspose.app
+  template: home
+  dimension: onpage
+  type: incorrect
+  title: aspose.net entry uses 'aspose.org' as image alt text
+  evidence:
+    urls:
+    - https://websites.aspose.app/
+    observed: 'logo for the aspose.net entry: alt ''aspose.org'', title ''aspose.net offers .NET SDK Plugins'''
+    expected: alt 'aspose.net'
+  affected_pages: 1
+  impact:
+    clicks_28d: 0
+    impressions_28d: 0
+    score: 0
+  effort: S
+  fix_tier: 1
+  fix_channel: null
+  status: unverified
+  detected_at: '2026-10-08'
+  verification:
+    verified: false
+    how: homepage fetch
+    recheck: 'onpage auditor: alt text vs linked domain'
+- id: seed-intl-05
+  tenant: aspose.app
+  subdomain: websites.aspose.app
+  template: home
+  dimension: intl
+  type: improvable
+  title: websites sitemaps cover 38 languages very unevenly; about covers 13 evenly
+  evidence:
+    urls:
+    - https://websites.aspose.app/sitemap.xml
+    - https://about.aspose.app/sitemap.xml
+    observed: 'websites sitemaps (discovery run 6): 38 language variants; zh, th, ru, fr, de 15 URLs each, es 10, ja and el 5, the other 30 only 1-2 URLs. about: 13 languages, every page in all 13. The
+      websites language menu reportedly offers only en, fr, de, ru, th, zh (web fetch, not re-checked).'
+    expected: A deliberate language set per host; languages with 1-2 pages either completed or dropped
+  affected_pages: 0
+  impact:
+    clicks_28d: 0
+    impressions_28d: 0
+    score: 0
+  effort: M
+  fix_tier: 3
+  fix_channel: null
+  status: open
+  detected_at: '2026-10-08'
+  verification:
+    verified: true
+    how: discovery run 6 language counts; menu claim from an earlier web fetch
+    recheck: 'intl auditor: language sets per host and per section'
+- id: seed-cross-02
+  tenant: aspose.app
+  subdomain: websites.aspose.app
+  template: home
+  dimension: cross
+  type: improvable
+  title: Home links for aspose.com and aspose.ai point to metrics.* hosts
+  evidence:
+    urls:
+    - https://websites.aspose.app/
+    observed: aspose.com entry links to https://metrics.aspose.com/; aspose.ai entry 'Home' links to https://metrics.aspose.ai/
+    expected: Links to www.aspose.com / aspose.ai (unless metrics.* is an intended redirect)
+  affected_pages: 1
+  impact:
+    clicks_28d: 0
+    impressions_28d: 0
+    score: 0
+  effort: S
+  fix_tier: 2
+  fix_channel: null
+  status: unverified
+  detected_at: '2026-10-08'
+  verification:
+    verified: false
+    how: homepage fetch
+    recheck: 'crawl auditor: follow and record redirects'
+- id: seed-ux-01
+  tenant: aspose.app
+  subdomain: websites.aspose.app
+  template: site-wide
+  dimension: ux
+  type: not_optimized
+  title: Viewport disables zoom (user-scalable=no) on websites, releases and blog
+  evidence:
+    urls:
+    - https://websites.aspose.app/
+    - https://releases.aspose.app/
+    - https://blog.aspose.app/
+    observed: meta viewport contains 'user-scalable=no'
+    expected: Allow zoom (WCAG 1.4.4 Resize text); drop user-scalable=no
+  affected_pages: 0
+  impact:
+    clicks_28d: 0
+    impressions_28d: 0
+    score: 0
+  effort: S
+  fix_tier: 1
+  fix_channel: null
+  status: unverified
+  detected_at: '2026-10-08'
+  verification:
+    verified: false
+    how: meta tags via web fetch
+    recheck: 'ux auditor: parse meta viewport per template'
+- id: seed-onpage-06
+  tenant: aspose.app
+  subdomain: releases.aspose.app
+  template: home
+  dimension: onpage
+  type: not_optimized
+  title: Releases homepage has no canonical and no meta description
+  evidence:
+    urls:
+    - https://releases.aspose.app/
+    observed: no <link rel=canonical>, no meta description (only robots and viewport metas)
+    expected: Self canonical and a descriptive meta description
+  affected_pages: 1
+  impact:
+    clicks_28d: 0
+    impressions_28d: 0
+    score: 0
+  effort: S
+  fix_tier: 1
+  fix_channel: null
+  status: unverified
+  detected_at: '2026-10-08'
+  verification:
+    verified: false
+    how: web fetch
+    recheck: onpage auditor
+- id: seed-onpage-07
+  tenant: aspose.app
+  subdomain: about.aspose.app
+  template: home
+  dimension: onpage
+  type: not_optimized
+  title: about and websites homepages show no meta description
+  evidence:
+    urls:
+    - https://about.aspose.app/
+    - https://websites.aspose.app/
+    observed: no meta description in fetched head metadata (products and forum have one)
+    expected: Unique meta description per page
+  affected_pages: 2
+  impact:
+    clicks_28d: 0
+    impressions_28d: 0
+    score: 0
+  effort: S
+  fix_tier: 1
+  fix_channel: null
+  status: unverified
+  detected_at: '2026-10-08'
+  verification:
+    verified: false
+    how: web fetch metadata
+    recheck: onpage auditor
+- id: seed-content-06
+  tenant: aspose.app
+  subdomain: about.aspose.app
+  template: home
+  dimension: content
+  type: incorrect
+  title: About page cites a 2021 traffic figure and a one-entry timeline
+  evidence:
+    urls:
+    - https://about.aspose.app/
+    observed: '''according to SimilarWeb, aspose.app website received 1.17M visits in January 2021''; ''Our story'' lists only 2018'
+    expected: Current figures (GA4 shows ~2.7M sessions/28 days on products alone) and an up-to-date timeline
+  affected_pages: 1
+  impact:
+    clicks_28d: 0
+    impressions_28d: 0
+    score: 0
+  effort: S
+  fix_tier: 1
+  fix_channel: null
+  status: unverified
+  detected_at: '2026-10-08'
+  verification:
+    verified: false
+    how: page fetch
+    recheck: 'content auditor (LLM): stale dates/figures'
+- id: seed-cross-03
+  tenant: aspose.app
+  subdomain: about.aspose.app
+  template: home
+  dimension: cross
+  type: improvable
+  title: About links to websites.aspose.com instead of websites.aspose.app
+  evidence:
+    urls:
+    - https://about.aspose.app/
+    observed: '''Check our websites →'' links to https://websites.aspose.com'
+    expected: Link to the aspose.app sibling (websites.aspose.app), unless intended
+  affected_pages: 1
+  impact:
+    clicks_28d: 0
+    impressions_28d: 0
+    score: 0
+  effort: S
+  fix_tier: 1
+  fix_channel: null
+  status: unverified
+  detected_at: '2026-10-08'
+  verification:
+    verified: false
+    how: page fetch
+    recheck: 'crawl auditor: cross-host link map'
+- id: seed-ai-01
+  tenant: aspose.app
+  subdomain: products.aspose.app
+  template: host-root
+  dimension: ai
+  type: improvable
+  title: Only about (and /pdf/) offer llms.txt; other hosts have none
+  evidence:
+    urls:
+    - https://about.aspose.app/llms.txt
+    - https://products.aspose.app/pdf/llms.txt
+    observed: about has /llms.txt, /llms-full.txt and .md page endpoints; products has /pdf/llms.txt only; other hosts not seen
+    expected: llms.txt per host listing key apps/pages
+  affected_pages: 0
+  impact:
+    clicks_28d: 0
+    impressions_28d: 0
+    score: 0
+  effort: M
+  fix_tier: 2
+  fix_channel: null
+  status: unverified
+  detected_at: '2026-10-08'
+  verification:
+    verified: false
+    how: page fetches; other hosts not probed
+    recheck: 'ai auditor: probe /llms.txt per host and section'
+notes:
+- applies_to: crawl/robots_missing/products.aspose.app/robots.txt
+  note: 'Likely root cause (was seed-crawl-01): the products Hugo build generates robots.txt (config.toml enableRobotsTXT=true), but its template themes/lutsk-aspose-theme/layouts/robots.txt emits only
+    ''User-agent: *'' (no Sitemap line, unchanged since 2024-02-26), and the path-routed host never serves /robots.txt from the Hugo bucket. Fix needs the routing/CDN owner plus a template change listing
+    every family sitemap.'

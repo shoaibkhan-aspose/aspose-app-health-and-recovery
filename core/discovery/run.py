@@ -277,6 +277,8 @@ class Discovery:
                      f"{rec['kind'] or '-'}  children={rec['child_count']} urls={rec['url_count']}")
 
         report = self.summary()
+        report["params"] = {"hosts": self.hosts, "sections": sorted(self.section_filter) or None,
+                            "max_sitemaps": self.max_sitemaps}
         report["requests"] = self.fetcher.requests
         report["duration_s"] = round(time.monotonic() - started, 1)
         report["not_fetched"] = [q[0] for q in self.queue]
@@ -372,24 +374,28 @@ class Discovery:
             url = info["url"]
             if info["status"] is None or info["status"] >= 500:
                 out.append(self._finding(
-                    ids, subdomain=host, template="robots.txt", dimension="crawl", type="broken",
-                    title="robots.txt is unreachable (search engines may stop crawling the host)", urls=[url],
+                    ids, check="robots_unreachable", subdomain=host, template="robots.txt", dimension="crawl",
+                    type="broken", title="robots.txt is unreachable (search engines may stop crawling the host)",
+                    urls=[url],
                     observed=str(info["status"] or info["error"]), expected="HTTP 200, or 404 if intentionally absent",
                     fix_tier=3))
             elif info["status"] != 200:
                 out.append(self._finding(
-                    ids, subdomain=host, template="robots.txt", dimension="crawl", type="improvable",
-                    title="No robots.txt on this host", urls=[url], observed=f"HTTP {info['status']}",
+                    ids, check="robots_missing", subdomain=host, template="robots.txt", dimension="crawl",
+                    type="improvable", title="No robots.txt on this host",
+                    urls=[url], observed=f"HTTP {info['status']}",
                     expected="robots.txt with a Sitemap: line", fix_tier=3))
             elif info["is_html"]:
                 out.append(self._finding(
-                    ids, subdomain=host, template="robots.txt", dimension="crawl", type="incorrect",
-                    title="robots.txt returns an HTML page", urls=[url], observed="HTTP 200 with HTML body",
+                    ids, check="robots_html", subdomain=host, template="robots.txt", dimension="crawl",
+                    type="incorrect", title="robots.txt returns an HTML page",
+                    urls=[url], observed="HTTP 200 with HTML body",
                     expected="plain-text robots.txt", fix_tier=3))
             elif not info["sitemaps"]:
                 out.append(self._finding(
-                    ids, subdomain=host, template="robots.txt", dimension="crawl", type="improvable",
-                    title="robots.txt has no Sitemap: line", urls=[url], observed="no Sitemap: directive",
+                    ids, check="robots_no_sitemap", subdomain=host, template="robots.txt", dimension="crawl",
+                    type="improvable", title="robots.txt has no Sitemap: line",
+                    urls=[url], observed="no Sitemap: directive",
                     expected="Sitemap: line(s) pointing to the host's sitemap(s)", fix_tier=3))
 
         # sitemap checks, grouped per host + sitemap folder so one template fix maps to one finding
@@ -451,7 +457,7 @@ class Discovery:
                 observed += f"; and {len(items) - EXAMPLES} more sitemaps"
             out.append(self._finding(
                 ids, subdomain=host, template=f"sitemap{':' + section if section else ''}", dimension=dimension,
-                type=ftype, title=title + where, urls=[u for u, _, _ in items[:10]], observed=observed,
+                type=ftype, check=check, title=title + where, urls=[u for u, _, _ in items[:10]], observed=observed,
                 expected=expected, affected_pages=sum(p for _, _, p in items), fix_tier=tier))
 
         # coverage: hosts and configured sections with no URLs from any sitemap
@@ -462,7 +468,7 @@ class Discovery:
                 tried = [r["url"] for r in self.records if r["host"] == host][:5] or [f"https://{host}/sitemap.xml"]
                 out.append(self._finding(
                     ids, subdomain=host, template="sitemap", dimension="crawl", type="not_optimized",
-                    title="No working sitemap found for this host", urls=tried,
+                    check="host_no_sitemap", title="No working sitemap found for this host", urls=tried,
                     observed="no sitemap with URLs via robots.txt, /sitemap.xml or known paths",
                     expected="a sitemap listed in robots.txt and submitted in GSC", fix_tier=1))
         stats = self.store.section_stats(self.run_id)
@@ -475,7 +481,8 @@ class Discovery:
                     tried = [r["url"] for r in self.records if r["host"] == host and path_section(r["url"]) == section]
                     out.append(self._finding(
                         ids, subdomain=host, template=f"sitemap:{section}", dimension="crawl", type="broken",
-                        title=f"No working sitemap lists any /{section}/ URL", urls=tried[:5] or [f"https://{host}/{section}/"],
+                        check="section_no_sitemap", title=f"No working sitemap lists any /{section}/ URL",
+                        urls=tried[:5] or [f"https://{host}/{section}/"],
                         observed="0 URLs found under this section in any sitemap",
                         expected="a working sitemap for the section, submitted in GSC", fix_tier=1))
 
@@ -492,14 +499,16 @@ class Discovery:
             where = f" /{section}/" if section else ""
             missing = a["urls"] - a["hreflang"]
             if a["hreflang"] == 0:
-                ftype, title = "not_optimized", f"Localized{where} pages have no hreflang in sitemaps"
+                ftype, check = "not_optimized", "hreflang_none"
+                title = f"Localized{where} pages have no hreflang in sitemaps"
                 urls = self.store.sample_sitemaps(self.run_id, host, section)
             else:
-                ftype, title = "incorrect", f"hreflang in sitemaps covers only some localized{where} pages"
+                ftype, check = "incorrect", "hreflang_partial"
+                title = f"hreflang in sitemaps covers only some localized{where} pages"
                 urls = self.store.sample_urls(self.run_id, host, section, "hreflang_count = 0")
             out.append(self._finding(
                 ids, subdomain=host, template=f"sitemap{':' + section if section else ''}", dimension="intl",
-                type=ftype, title=title, urls=urls,
+                type=ftype, check=check, title=title, urls=urls,
                 observed=f"{len(a['langs'])} language variants, {a['urls']:,} URLs, "
                          f"{a['hreflang']:,} with xhtml:link alternates",
                 expected="hreflang alternates on every localized URL, in sitemaps or page HTML "
@@ -514,7 +523,7 @@ class Discovery:
             where = f" (/{section}/)" if section else ""
             out.append(self._finding(
                 ids, subdomain=host, template=f"sitemap{':' + section if section else ''}", dimension="crawl",
-                type="not_optimized", title=f"URLs listed in more than one sitemap{where}",
+                type="not_optimized", check="cross_sitemap_dups", title=f"URLs listed in more than one sitemap{where}",
                 urls=self.store.sample_urls(self.run_id, host, section, "sitemap_count > 1"),
                 observed=f"{n:,} URLs appear in 2+ sitemaps", expected="each URL in exactly one sitemap",
                 affected_pages=n, fix_tier=1))
@@ -523,3 +532,13 @@ class Discovery:
 
 def discover(tenant, fetcher, store, **kw) -> dict:
     return Discovery(tenant, fetcher, store, **kw).run()
+
+
+def import_report(findings_store, report: dict) -> dict:
+    """Record a discovery report in the findings store. The run's host/section scope limits what can resolve."""
+    params = report.get("params") or {}
+    hosts = params.get("hosts") or list(report["hosts"])
+    if report.get("not_fetched"):
+        hosts = []  # stopped early (--max-sitemaps): absence of a finding proves nothing, so resolve nothing
+    return findings_store.import_run(report["findings"], f"discovery-run{report['run_id']}", "discovery",
+                                     hosts=hosts, sections=params.get("sections"))
