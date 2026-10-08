@@ -29,7 +29,7 @@ def test_qa_hosts_excluded():
 
 
 def test_core_names_no_tenant():
-    for f in (Path(__file__).resolve().parent.parent / "core").glob("*.py"):
+    for f in (Path(__file__).resolve().parent.parent / "core").rglob("*.py"):
         assert "aspose" not in f.read_text().lower(), f"{f.name} names a tenant"
 
 

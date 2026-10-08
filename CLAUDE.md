@@ -67,6 +67,8 @@ Everything runs on SK's Mac (macOS) from VS Code / Claude Code, which has normal
 - Repo: `/Users/Apple/Work/Aspose/GitHub/aspose.app-health-and-recovery/site-health-and-recovery` (remote: GitLab `gitlab.recruitize.ai/.../site-health-and-recovery`, branch `master`, no commits yet).
 - Parent folder `/Users/Apple/Work/Aspose/GitHub/aspose.app-health-and-recovery` also has empty `docs/` and `ClaudeChat/`.
 - products.aspose.app source (read-only): `/Users/Apple/Work/Aspose/GitHub/aspose-app/products.aspose.app`.
+- **Standalone project (SK, 2026-10-08):** do not integrate with `conholdate/blog-team-tools` or its dashboard for now. Everything, including reports and any UI, is built here.
+- **Sharing reports:** `scripts/build_report.py` renders a self-contained HTML page from a run JSON; it is published as a private claude.ai Artifact (free, link shared at SK's discretion). Not on public hosting: the report lists site weaknesses.
 
 ## Status (2026-10-08)
 
@@ -87,6 +89,10 @@ Done:
   - GA4 also shows noise hosts: `politesardine.info` (19,893), `sparklingcattle.com`, `aspose.test`, `about.aspose.org`, `products-aspose-app.translate.goog`, and QA hosts (`products-qa`, `slides-qa-ui-app...k8s.dynabic.com`). Likely ghost/spam or a misplaced tag; a candidate finding (data hygiene, no hostname filter).
   - Hosts not in the tenant YAML: purchase, dashboard, metrics, status, api.products. Discovery should confirm them.
 
+- **Discovery built (2026-10-08):** `core/discovery/` (`fetch` polite GET-only fetcher with robots.txt per RFC 9309, per-host rate limit, retries; `sitemap` parser for XML/gz/BOM/plain-text; `classify` host/section/lang/template; `store` SQLite inventory; `run` orchestration + findings), `core/findings.py` (`make_finding`, schema only; store is step 3), CLI `scripts/discover.py`. Tenant YAML gained `fix_channel` per host, 5 GA4-seen hosts, `discovery.section_sitemaps` and `url_templates`. 20 offline tests pass, ruff clean. Install with `pip install -e ".[dev,crawl]"`.
+  - Findings are grouped per host, or per section folder on hosts with configured sections (products), so one template fix = one finding.
+  - Sample run (www + products pdf/words/omr, 80 sitemaps, ~80 s) confirmed: products robots.txt 404; root `/sitemap.xml` and both omr sitemaps 404 live (GSC: Couldn't fetch); www robots.txt has no `Sitemap:` line, www sitemaps have no lastmod; pdf language sitemaps have no hreflang; words sitemaps have full hreflang (40 langs, 19,320 URLs = GSC count) but **33 of 36 words sitemaps (14,880 URLs) carry the same lastmod 2024-02-13** (new).
+
 Not done yet:
 - GSC properties for www and forum (none exist or none shared; the service account sees only the 5 URL-prefix properties).
 - `agents/`, `mcp_servers/` are empty packages.
@@ -96,11 +102,13 @@ Not done yet:
 ```bash
 python3 --version                      # needs 3.11+
 python3 -m venv .venv && source .venv/bin/activate
-pip install -e ".[dev]"                # extras: mcp, agents, crawl
+pip install -e ".[dev,crawl]"          # extras: mcp, agents, crawl
 pytest                                 # offline, no network or keys needed
 ruff check .
-export GOOGLE_APPLICATION_CREDENTIALS=/absolute/path/outside/repo/sa-key.json
+set -a; source .env; set +a            # loads GOOGLE_APPLICATION_CREDENTIALS (key outside the repo)
 python scripts/check_access.py --tenant aspose.app
+python scripts/discover.py             # all hosts; --hosts/--sections/--max-sitemaps for samples
+python scripts/build_report.py <run json> --notes reports/discovery-notes.txt --out reports/discovery-latest.html
 ```
 
 Conventions:
@@ -214,6 +222,24 @@ Every finding needs evidence a human can re-check. No finding without a URL and 
 - Also planned: Bing Webmaster Tools, CrUX/PageSpeed, server logs, own crawl, optional rank and backlink API.
 - Blog and forum are not Git-driven; they will need API credentials (read-only in Phase 1).
 
+## Discovery results (full run 3, 2026-10-08; verified live)
+
+534 sitemaps, 584 requests, ~15 min at 1 req/s/host. **769,659 unique URLs** in sitemaps: products 722,942, forum 41,891, metrics 3,780, releases 308, about 234, websites 215 (incl. cross-folder), status 150, blog 153, www 36. purchase, dashboard, api.products: no sitemap. No unknown aspose.app hosts referenced in sitemaps.
+
+- **robots.txt:** missing (404) on products, about, websites, dashboard, api.products. purchase returns an HTML page for robots.txt. Present but no `Sitemap:` line on www, blog, metrics, status. Only forum and releases list their sitemap.
+- **products sitemaps vs GSC:** most families match GSC exactly. Differences explained:
+  - **slides:** `/slides/sitemaps/slides.xml` lists its 16 children as `https://products.aspose.app//slides/...` (double slash) → HTTP 503; the single-slash URLs work (24,752 URLs). GSC still says Success/24,804, likely from an older read. Verified with curl.
+  - **imaging:** 229,372 in GSC vs 149,240 unique live; the imaging sitemaps list **80,132 duplicate entries** inside files (GSC counts duplicates).
+  - Broken live: root `/sitemap.xml` 404, `/omr/sitemap.xml` and `/omr/sitemap-percentage.xml` 404 (omr: no working sitemap at all), `/drawing/sitemap.xml` 503 (drawing: none), `/gis/sitemaps/sitemap.xml` 404 (gis still covered by `/gis/static/sitemap/*`), `/video-app/sitemap.xml` 200 but empty.
+  - Small gaps: 3d 44,590 → 43,680 live, psd 13,300 → 12,768, gis 18,178 → 17,739 (sitemaps shrank since GSC read).
+- **hreflang in sitemaps:** full on words, cad, ebook (products), about, metrics, www. Partial: email 22%, finance 2%, websites ~50%. **None on the other 21 products families**, incl. cells (228k), imaging (149k), audio, diagram, video, 3d, pdf. Page HTML still to check in the intl audit.
+- **lastmod:** every URL in a file shares one date (bulk-stamped) in 22 products families; none at all on about, metrics, releases, status, websites, www, total, slides.
+- **Duplicates across sitemaps:** small (diagram 267 via `sitemap_update.xml`, websites folders, www 35, forum 22).
+- **Hosts to ask SK about:** metrics.aspose.app exposes 3,780 usage/subscription pages in 36 languages via sitemap; status.aspose.app lists 150 incident/date-query URLs (`?start_date=`). Should these be indexed at all?
+- **Soft 404 (products):** `/email/sitemap.xml` redirects to `/email/error?code=404`, which returns HTTP 200. Check app error pages for soft 404s in the crawl audit.
+- **Run 6 (after fixes):** slides recovered via corrected child URLs (24,752); products 747,694 URLs, total ~794k; 89 findings. Report page built by `scripts/build_report.py` (template `scripts/templates/discovery_report.html`), takeaways in `reports/discovery-notes.txt` (gitignored).
+- Discovery fixes after run 3: double-slash child check (fetches the corrected URL too); parse/redirect/empty checks only on real sitemaps (robots, GSC, child), not on guessed URLs; duplicate findings grouped per host unless the host has sections.
+
 ## Seed observations (unverified unless marked, re-check before reporting)
 
 - products, **verified live and in repo:** `/pdf/` title and H1 read "Free Online Apps to view, convert, edit **test** PDF" (`content/pdf/_index.md`).
@@ -255,7 +281,7 @@ Every finding needs evidence a human can re-check. No finding without a URL and 
 ## Next steps (in order)
 
 1. ~~Run `check_access.py`~~ Done 2026-10-08 (see Status). All 5 URL-prefix properties are readable. Remaining gap: www and forum (and any other hosts Discovery finds) have no GSC property; a Domain property would cover them all. Not blocking step 2.
-2. **Discovery (inventory)** in `core/discovery/` + CLI `scripts/discover.py`:
+2. **Discovery (inventory)**: done. Latest clean run: **run 6** (550 sitemaps, ~794k unique URLs, 89 findings). Shared report: https://claude.ai/artifact/MUUTzbXEymKq4tw5mmmPA5 (private; SK shares via its Share menu). To refresh: `discover.py` → `build_report.py <run json> --notes reports/discovery-notes.txt --out reports/discovery-latest.html` → republish that file. Original spec:
    - Fetch robots.txt and root sitemap per host; probe `/<family>/sitemap.xml` for all 29 families plus every path in `gsc_sitemaps_snapshot`.
    - Recurse sitemap indexes; handle `.xml.gz` (words) and BOMs; record per sitemap: URL, status, type, child count, URL count, lastmod spread, hreflang presence.
    - Normalise URLs to an inventory: host, family, language (from path), tool/template pattern (`/<family>/<tool>`, `/<family>/conversion/<fmt>`, `/<family>/conversion/<src>-to-<dst>`, `/<family>/<lang>/<tool>`).

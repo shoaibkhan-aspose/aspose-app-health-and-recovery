@@ -18,11 +18,15 @@ reports/       generated output (gitignored)
 
 ```bash
 python3 -m venv .venv && source .venv/bin/activate
-pip install -e ".[dev]"
-cp .env.example .env          # set the key path; the key file stays outside the repo
-export GOOGLE_APPLICATION_CREDENTIALS=/absolute/path/outside/repo/sa-key.json
+pip install -e ".[dev,crawl]"
+cp .env.example .env          # set the key path (quote it if it has spaces); the key file stays outside the repo
+set -a; source .env; set +a
 pytest                        # offline tests
 python scripts/check_access.py --tenant aspose.app
+python scripts/discover.py --hosts products.aspose.app --sections pdf,words   # sample
+python scripts/discover.py                                                  # all hosts
 ```
+
+`discover.py` is read-only and polite (robots.txt respected, 1 request per host per second, QA hosts skipped). It walks robots.txt and sitemaps for every tenant host, stores the URL inventory in `data/inventory.sqlite` and writes a summary plus sitemap findings to `reports/discovery-<date>-run<N>.json`.
 
 `check_access.py` is read-only. It reports which GSC properties the service account can read (with 28-day clicks, top pages and sitemap errors) and which hostnames GA4 tracks, then writes `reports/access-check-<date>.json`.

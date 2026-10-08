@@ -24,16 +24,47 @@ hosts:
     platform: mixed           # Hugo hubs + separate app platform per family
     repo: github.com/Aspose/products.aspose.app   # hubs only
     local_path: /Users/Apple/Work/Aspose/GitHub/aspose-app/products.aspose.app
+    fix_channel: git-pr       # hubs only; app pages: source unknown
   - host: about.aspose.app
     platform: hugo
+    fix_channel: git-pr
   - host: blog.aspose.app
     platform: wordpress
+    fix_channel: wordpress-api
   - host: forum.aspose.app
     platform: discourse
+    fix_channel: discourse-admin
   - host: websites.aspose.app
     platform: hugo
+    fix_channel: git-pr
   - host: releases.aspose.app
     platform: unknown
+  # Seen in GA4 (access check, 2026-10-08); not yet confirmed by SK. All subdomains are in scope.
+  - {host: purchase.aspose.app, platform: unknown, source: ga4}
+  - {host: dashboard.aspose.app, platform: unknown, source: ga4}
+  - {host: metrics.aspose.app, platform: unknown, source: ga4}
+  - {host: status.aspose.app, platform: unknown, source: ga4}
+  - {host: api.products.aspose.app, platform: unknown, source: ga4}
+
+# Discovery: extra sitemap locations to probe beyond robots.txt and /sitemap.xml.
+discovery:
+  section_sitemaps:
+    products.aspose.app:
+      sections: product_families      # key in this file that lists the sections
+      paths: ["/{section}/sitemap.xml"]
+
+# URL templates per host, matched in order against the path with the language segment removed.
+url_templates:
+  products.aspose.app:
+    - {name: family-hub, pattern: '^/(?P<family>[^/]+)/?$'}
+    - {name: family-subhub, pattern: '^/(?P<family>[^/]+)/family/?$'}
+    - {name: conversion-pair, pattern: '^/(?P<family>[^/]+)/conversion/(?P<src>[^/]+)-to-(?P<dst>[^/]+)/?$'}
+    - {name: conversion-format, pattern: '^/(?P<family>[^/]+)/conversion/(?P<fmt>[^/]+)/?$'}
+    - {name: tool-pair, pattern: '^/(?P<family>[^/]+)/(?P<tool>[^/]+)/(?P<src>[^/]+)-to-(?P<dst>[^/]+)/?$'}
+    - {name: tool-variant, pattern: '^/(?P<family>[^/]+)/(?P<tool>[^/]+)/(?P<variant>[^/]+)/?$'}
+    - {name: tool, pattern: '^/(?P<family>[^/]+)/(?P<tool>[^/]+)/?$'}
+  www.aspose.app:
+    - {name: home, pattern: '^/$'}
 
 # products.aspose.app families (/<family>/...), from the homepage.
 product_families:
