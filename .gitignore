@@ -1,0 +1,29 @@
+# Secrets: never commit keys or tokens
+.env
+.env.*
+!.env.example
+*service-account*.json
+*sa-key*.json
+*credentials*.json
+*.pem
+*.p12
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+
+# Generated output
+reports/*
+!reports/.gitkeep
+data/
+
+# OS / editor
+.DS_Store
+.idea/

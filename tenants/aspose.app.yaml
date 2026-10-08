@@ -1,0 +1,85 @@
+# Tenant config: everything specific to aspose.app lives here, nothing in core/ or agents/.
+property: aspose.app
+
+# Hosts matching these patterns are never crawled or checked (SK, 2026-10-08).
+excluded_host_patterns:
+  - "*-qa.*"
+
+gsc_properties:              # URL-prefix properties the service account can read
+  - https://products.aspose.app/
+  - https://about.aspose.app/
+  - https://blog.aspose.app/
+  - https://releases.aspose.app/
+  - https://websites.aspose.app/
+  # www.aspose.app and forum.aspose.app: no property listed yet
+
+ga4_property_id: "253117495"
+
+hosts:
+  - host: www.aspose.app
+    platform: unknown
+    sitemap: https://www.aspose.app/sitemap.xml
+    robots: https://www.aspose.app/robots.txt
+  - host: products.aspose.app
+    platform: mixed           # Hugo hubs + separate app platform per family
+    repo: github.com/Aspose/products.aspose.app   # hubs only
+    local_path: /Users/Apple/Work/Aspose/GitHub/aspose-app/products.aspose.app
+  - host: about.aspose.app
+    platform: hugo
+  - host: blog.aspose.app
+    platform: wordpress
+  - host: forum.aspose.app
+    platform: discourse
+  - host: websites.aspose.app
+    platform: hugo
+  - host: releases.aspose.app
+    platform: unknown
+
+# products.aspose.app families (/<family>/...), from the homepage.
+product_families:
+  [total, words, pdf, cells, email, slides, imaging, barcode, diagram, tasks, ocr, note, cad, "3d", html, gis, zip, page, psd, omr, svg, finance, font, tex, pub, drawing, audio, video, ebook]
+
+# Snapshot of GSC -> Sitemaps for https://products.aspose.app/ (pasted by SK, 2026-10-08).
+# Discovery re-reads live sitemaps; this is the baseline to compare against.
+gsc_sitemaps_snapshot:
+  property: https://products.aspose.app/
+  taken: "2026-10-08"
+  sitemaps:
+    - {path: "/cells/sitemap.xml", type: "Sitemap index", submitted: "2026-08-27", last_read: "2026-10-07", status: "Success", discovered: 228328}
+    - {path: "/pdf/sitemap.xml", type: "Sitemap index", submitted: "2026-07-24", last_read: "2026-09-30", status: "Success", discovered: 9836}
+    - {path: "/barcode/sitemap.xml", type: "Sitemap", submitted: "2026-05-12", last_read: "2026-09-29", status: "Success", discovered: 2080}
+    - {path: "/diagram/sitemap.xml", type: "Sitemap index", submitted: "2026-02-24", last_read: "2026-10-01", status: "Success", discovered: 48934}
+    - {path: "/diagram/sitemap_update.xml", type: "Sitemap", submitted: "2026-02-24", last_read: "2026-09-28", status: "Success", discovered: 270}
+    - {path: "/3d/sitemap.xml", type: "Sitemap", submitted: "2025-03-10", last_read: "2026-10-03", status: "Success", discovered: 44590}
+    - {path: "/html/sitemap.xml", type: "Sitemap", submitted: "2025-03-06", last_read: "2026-10-05", status: "Success", discovered: 4626}
+    - {path: "/svg/sitemap.xml", type: "Sitemap", submitted: "2024-10-14", last_read: "2026-10-06", status: "Success", discovered: 3675}
+    - {path: "/slides/sitemaps/slides.xml", type: "Sitemap index", submitted: "2024-09-02", last_read: "2026-09-29", status: "Success", discovered: 24804}
+    - {path: "/ebook/sitemap.xml", type: "Sitemap index", submitted: "2024-05-22", last_read: "2026-09-28", status: "Success", discovered: 2400}
+    - {path: "/words/sitemap.xml", type: "Sitemap index", submitted: "2024-04-20", last_read: "2026-10-04", status: "Success", discovered: 19320}
+    - {path: "/ocr/sitemap.xml", type: "Sitemap", submitted: "2024-01-15", last_read: "2026-10-01", status: "Success", discovered: 5325}
+    - {path: "/gis/sitemaps/sitemap.xml", type: "Sitemap index", submitted: "2023-10-11", last_read: "2025-04-25", status: "Couldn't fetch", discovered: 0}
+    - {path: "/omr/sitemap-percentage.xml", type: "Sitemap", submitted: "2023-09-21", last_read: "2025-06-05", status: "Couldn't fetch", discovered: 49800}
+    - {path: "/omr/sitemap.xml", type: "Sitemap", submitted: "2023-09-21", last_read: "2025-05-30", status: "Couldn't fetch", discovered: 544}
+    - {path: "/video/sitemap/sitemap.xml", type: "Sitemap", submitted: "2023-07-03", last_read: "2026-10-01", status: "Success", discovered: 46870}
+    - {path: "/audio/sitemap/sitemap.xml", type: "Sitemap index", submitted: "2023-06-08", last_read: "2026-10-02", status: "Success", discovered: 53922}
+    - {path: "/psd/sitemap.xml", type: "Sitemap index", submitted: "2023-05-11", last_read: "2026-10-04", status: "Success", discovered: 13300}
+    - {path: "/cad/sitemap.xml", type: "Sitemap", submitted: "2023-04-27", last_read: "2026-10-02", status: "Success", discovered: 23760}
+    - {path: "/video-app/sitemap.xml", type: "Sitemap", submitted: "2022-11-29", last_read: "2026-10-01", status: "1 error", discovered: 0}
+    - {path: "/email/sitemaps/email.xml", type: "Sitemap index", submitted: "2022-08-03", last_read: "2026-10-07", status: "Success", discovered: 6514}
+    - {path: "/drawing/sitemap.xml", type: "Sitemap", submitted: "2022-07-26", last_read: "2026-08-02", status: "Couldn't fetch", discovered: 15}
+    - {path: "/zip/sitemap.xml", type: "Sitemap", submitted: "2022-07-07", last_read: "2026-09-21", status: "Success", discovered: 9996}
+    - {path: "/sitemap.xml", type: "Sitemap", submitted: "2022-07-05", last_read: "2026-06-14", status: "Couldn't fetch", discovered: 61}
+    - {path: "/psd/sitemap.en.xml", type: "Sitemap", submitted: "2022-05-27", last_read: "2026-10-07", status: "Success", discovered: 532}
+    - {path: "/imaging/sitemap.xml", type: "Sitemap index", submitted: "2022-05-23", last_read: "2026-09-30", status: "Success", discovered: 229372}
+    - {path: "/tasks/sitemap.xml", type: "Sitemap", submitted: "2022-03-09", last_read: "2026-10-03", status: "Success", discovered: 12460}
+    - {path: "/total/sitemap", type: "Sitemap index", submitted: "2021-12-27", last_read: "2026-09-29", status: "Success", discovered: 5102}
+    - {path: "/note/sitemap.xml", type: "Sitemap", submitted: "2021-12-23", last_read: "2026-10-01", status: "Success", discovered: 3465}
+    - {path: "/page/sitemap.xml", type: "Sitemap", submitted: "2021-12-13", last_read: "2026-10-05", status: "Success", discovered: 3322}
+    - {path: "/font/sitemap.xml", type: "Sitemap", submitted: "2021-12-09", last_read: "2026-09-29", status: "Success", discovered: 6244}
+    - {path: "/pub/sitemap.xml", type: "Sitemap", submitted: "2021-12-06", last_read: "2026-09-26", status: "Success", discovered: 814}
+    - {path: "/gis/static/sitemap/gis.xml", type: "Sitemap index", submitted: "2021-11-16", last_read: "2026-10-02", status: "Success", discovered: 18178}
+    - {path: "/finance/sitemap/sitemap_all.xml", type: "Sitemap", submitted: "2021-10-08", last_read: "2026-10-02", status: "Success", discovered: 17}
+    - {path: "/finance/sitemap.xml", type: "Sitemap", submitted: "2021-10-08", last_read: "2026-10-05", status: "Success", discovered: 748}
+    - {path: "/gis/static/sitemap/coordinates.xml", type: "Sitemap", submitted: "2021-09-15", last_read: "2026-10-02", status: "Success", discovered: 42}
+    - {path: "/gis/static/sitemap/map.xml", type: "Sitemap", submitted: "2021-09-07", last_read: "2026-10-04", status: "Success", discovered: 397}
+    - {path: "/tex/sitemap.xml", type: "Sitemap", submitted: "2021-07-26", last_read: "2026-09-27", status: "Success", discovered: 858}
