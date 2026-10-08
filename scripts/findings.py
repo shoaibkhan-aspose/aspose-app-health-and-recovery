@@ -2,6 +2,7 @@
 
     python scripts/findings.py import-seed                      # tenants/<tenant>.seed-findings.yaml
     python scripts/findings.py import-discovery reports/discovery-2026-10-08-run6.json
+    python scripts/findings.py import-audit reports/crawl-audit-2026-10-08-run1.json
     python scripts/findings.py list --dimension intl --host products.aspose.app
     python scripts/findings.py summary
     python scripts/findings.py export                           # reports/findings.json (committed)
@@ -25,6 +26,7 @@ import yaml
 REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT))
 
+from core.audit.crawl import import_report as import_audit  # noqa: E402
 from core.discovery.run import import_report  # noqa: E402
 from core.findings import FindingsStore  # noqa: E402
 from core.tenant import TENANTS_DIR  # noqa: E402
@@ -70,6 +72,8 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("import-seed", help="load the tenant's seed findings file")
     p = sub.add_parser("import-discovery", help="load a discovery report JSON")
     p.add_argument("report")
+    p = sub.add_parser("import-audit", help="load a crawl-audit report JSON")
+    p.add_argument("report")
     p = sub.add_parser("list", help="list findings")
     p.add_argument("--status", default="open,unverified")
     p.add_argument("--dimension")
@@ -89,6 +93,8 @@ def main(argv: list[str] | None = None) -> int:
         print(f"{res['run']}: {res['findings']} seed findings, {res['notes']} notes")
     elif args.cmd == "import-discovery":
         print_changes(import_report(store, json.loads(Path(args.report).read_text(encoding="utf-8"))))
+    elif args.cmd == "import-audit":
+        print_changes(import_audit(store, json.loads(Path(args.report).read_text(encoding="utf-8"))))
     elif args.cmd == "list":
         rows = [f for f in store.findings(tuple(args.status.split(",")))
                 if (not args.dimension or f["dimension"] == args.dimension)

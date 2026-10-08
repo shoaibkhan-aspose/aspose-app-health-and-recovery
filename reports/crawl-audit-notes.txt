@@ -1,0 +1,10 @@
+forum.aspose.app: 20 of 20 topic URLs sampled from the forum sitemap return HTTP 403 ("private") to every user agent, including Googlebot's. The sitemap lists 41,894 topics, so search engines are sent to pages they cannot open.
+products /html/: each app page's hreflang lists every language except its own. English pages have only x-default pointing to them and no "en" entry. Conversion pages also emit the canonical and hreflang tags twice.
+products /barcode/: app pages carry hreflang for 26 languages but no x-default. The barcode and html hub pages (/<family>/ and /<family>/family/) have no hreflang at all.
+pdf, barcode and html app pages do have hreflang in their HTML, so the earlier manual note that app pages lack hreflang (seed-intl-01) is not confirmed for these families.
+releases.aspose.app: release-notes pages are noindex, nofollow but listed in the sitemap, and pages have no canonical, no <html lang> and no meta description.
+websites.aspose.app: 3 of 12 sampled sitemap URLs are meta-refresh redirect pages (/en/, /fileformat/), and /ko/, /nl/ and other language pages declare <html lang="en">.
+metrics, www and websites have language versions but no hreflang tags in the page HTML.
+Zoom is disabled (user-scalable=no) on blog, releases, status and websites, an accessibility problem (WCAG 1.4.4).
+status.aspose.app lists /dashboard in its sitemap, which redirects through three 302s to an SSO login page. api.products.aspose.app returns 404 on its homepage.
+Scope of this run: products barcode and html only, plus every other host and all homepages in full. The other 27 product families are not audited yet.

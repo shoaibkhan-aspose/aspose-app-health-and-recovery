@@ -199,6 +199,7 @@ findings:
     verified: false
     how: web fetch converted to text; raw HTML not checked
     recheck: 'intl auditor: parse raw <head> on a sample per family and template'
+    audit_note: 'Not reproduced (crawl audit 2026-10-08): sampled pdf, barcode and html app pages emit 7-36 hreflang links in raw <head>, incl. x-default (html: no self entry, intl-0025). The earlier web fetch likely dropped <head>. Re-check other families before closing.'
 - id: seed-intl-02
   tenant: aspose.app
   subdomain: products.aspose.app
@@ -220,11 +221,13 @@ findings:
   fix_tier: 2
   fix_channel: git-pr
   status: open
+  superseded_by: intl-0034
   detected_at: '2026-10-08'
   verification:
     verified: true
     how: repo code
     recheck: intl auditor
+    reproduced: 'crawl audit run 4 (2026-10-08): /barcode/, /barcode/family/, /html/, /html/family/ emit no hreflang (intl-0034 barcode, intl-0035 html); other families not yet audited'
 - id: seed-intl-03
   tenant: aspose.app
   subdomain: products.aspose.app
@@ -655,12 +658,14 @@ findings:
   effort: S
   fix_tier: 1
   fix_channel: null
-  status: unverified
+  status: open
+  superseded_by: ux-0005
   detected_at: '2026-10-08'
   verification:
-    verified: false
+    verified: true
     how: meta tags via web fetch
     recheck: 'ux auditor: parse meta viewport per template'
+    reproduced: 'crawl audit run 4 (2026-10-08): user-scalable=no on websites (ux-0005), blog (ux-0002), releases (ux-0003), and also status (ux-0004)'
 - id: seed-onpage-06
   tenant: aspose.app
   subdomain: releases.aspose.app
@@ -681,12 +686,14 @@ findings:
   effort: S
   fix_tier: 1
   fix_channel: null
-  status: unverified
+  status: open
+  superseded_by: crawl-0068
   detected_at: '2026-10-08'
   verification:
-    verified: false
+    verified: true
     how: web fetch
     recheck: onpage auditor
+    reproduced: 'crawl audit run 4 (2026-10-08): releases homepage and sampled pages have no canonical (crawl-0068) and no meta description (onpage-0017)'
 - id: seed-onpage-07
   tenant: aspose.app
   subdomain: about.aspose.app
@@ -708,12 +715,14 @@ findings:
   effort: S
   fix_tier: 1
   fix_channel: null
-  status: unverified
+  status: open
+  superseded_by: onpage-0012
   detected_at: '2026-10-08'
   verification:
-    verified: false
+    verified: true
     how: web fetch metadata
     recheck: onpage auditor
+    reproduced: 'crawl audit run 4 (2026-10-08): about homepage and sampled pages have no meta description (onpage-0012); websites too (onpage-0018)'
 - id: seed-content-06
   tenant: aspose.app
   subdomain: about.aspose.app

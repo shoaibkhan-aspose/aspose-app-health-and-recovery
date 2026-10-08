@@ -53,6 +53,17 @@ discovery:
       sections: product_families      # key in this file that lists the sections
       paths: ["/{section}/sitemap.xml"]
 
+# Crawl audit: pages checked besides the sitemap sample and each host's homepage.
+audit:
+  default_lang: en
+  per_template_by_host:                           # default 2 per template; more where one template covers a host
+    forum.aspose.app: 20
+  section_urls:                                   # per section (discovery.section_sitemaps); no sitemap lists the hubs
+    products.aspose.app: ["/{section}/", "/{section}/family/"]
+  extra_urls:
+    - https://products.aspose.app/pdf/split       # seed-crawl-03: sitemap lists /split, hub links /splitter
+    - https://products.aspose.app/pdf/splitter
+
 # URL templates per host, matched in order against the path with the language segment removed.
 url_templates:
   products.aspose.app:

@@ -31,6 +31,8 @@ class FetchResult:
     content_type: str | None = None
     body: bytes = b""
     redirects: list[str] = field(default_factory=list)
+    redirect_statuses: list[int] = field(default_factory=list)
+    headers: dict = field(default_factory=dict)  # lower-case names; repeated headers joined with ", "
     error: str | None = None
     elapsed_ms: int = 0
     truncated: bool = False
@@ -141,6 +143,8 @@ class PoliteFetcher:
                     content_type=resp.headers.get("content-type"),
                     body=b"".join(chunks),
                     redirects=[str(r.url) for r in resp.history],
+                    redirect_statuses=[r.status_code for r in resp.history],
+                    headers={k.lower(): v for k, v in resp.headers.items()},
                     truncated=truncated,
                     retry_after=_retry_after(resp.headers.get("retry-after")),
                     elapsed_ms=int((self._clock() - start) * 1000),

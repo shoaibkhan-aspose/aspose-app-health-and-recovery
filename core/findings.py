@@ -170,9 +170,10 @@ class FindingsStore:
         self.db.execute("INSERT OR REPLACE INTO events (key, run_ref, event) VALUES (?, ?, ?)", (key, run_ref, event))
 
     def import_run(self, findings: list[dict], run_ref: str, source: str, hosts: list[str],
-                   sections: list[str] | None = None) -> dict:
+                   sections: list[str] | None = None, resolve_unsectioned: bool = False) -> dict:
         """Upsert one run's findings; resolve earlier findings of this source that the run covered but no
-        longer reports. With a section filter, only section-scoped findings in those sections can resolve."""
+        longer reports. With a section filter, only section-scoped findings in those sections can resolve,
+        plus findings without a section if `resolve_unsectioned` (the run checked those in full)."""
         self._start_run(run_ref, source, {"hosts": hosts, "sections": sections})
         seen, new, reopened = set(), [], []
         for f in findings:
@@ -194,7 +195,8 @@ class FindingsStore:
         for r in rows:
             if r["key"] in seen or r["subdomain"] not in hosts:
                 continue
-            if sections is not None and template_section(r["template"]) not in sections:
+            section = template_section(r["template"])
+            if sections is not None and section not in sections and not (resolve_unsectioned and not section):
                 continue
             self.db.execute("UPDATE findings SET status = 'resolved', resolved_run = ?, resolved_at = ? WHERE key = ?",
                             (run_ref, _now(), r["key"]))

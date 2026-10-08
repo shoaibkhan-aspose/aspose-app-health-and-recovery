@@ -2,7 +2,7 @@ Sitemaps across 12 aspose.app hosts list about 794,000 unique URLs; 748,000 of t
 slides: the sitemap index lists its 16 child sitemaps with a double slash (https://products.aspose.app//slides/...). Those URLs return HTTP 503, so 24,752 slides URLs have no working sitemap path. The single-slash URLs work. Search Console still shows "Success" from an older read.
 omr and drawing have no working sitemap at all (HTTP 404 and 503). /video-app/sitemap.xml loads but is empty, and the root /sitemap.xml submitted for products returns 404.
 imaging sitemaps repeat 80,132 entries. Search Console counts 229,372 URLs; there are 149,240 unique ones.
-21 of 29 product families have no hreflang alternates in their sitemaps, including cells (228k URLs), imaging (149k), audio, diagram, video and pdf. Only words, cad and ebook have them on every URL. Whether page HTML carries hreflang is checked in the next audit.
+21 of 29 product families have no hreflang alternates in their sitemaps, including cells (228k URLs), imaging (149k), audio, diagram, video and pdf. Only words, cad and ebook have them on every URL. The page HTML is a different story: the crawl audit found hreflang in the HTML of pdf, barcode and html app pages, with gaps in html and barcode (see Crawl audit).
 In 22 product families every URL in a sitemap file has the same lastmod date, so the dates do not tell search engines what changed.
 robots.txt is missing on products, about, websites, dashboard and api.products, and purchase returns an HTML page instead. Only forum and releases point to their sitemap from robots.txt.
 metrics.aspose.app (3,780 usage and subscription pages in 36 languages) and status.aspose.app (150 incident pages) are listed in sitemaps. Decide whether they should be indexed at all.

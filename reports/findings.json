@@ -2552,6 +2552,519 @@
     "notes": []
   },
   {
+    "id": "crawl-0066",
+    "key": "crawl/canonical_missing/dashboard.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "dashboard.aspose.app",
+    "template": "page",
+    "dimension": "crawl",
+    "type": "improvable",
+    "title": "Pages have no canonical tag",
+    "evidence": {
+      "urls": [
+        "https://dashboard.aspose.app/"
+      ],
+      "observed": "1 of 1 sampled pages (by template: generic:/ 1/1). e.g. https://dashboard.aspose.app/: no <link rel=canonical> and no Link header",
+      "expected": "a self-referencing absolute canonical"
+    },
+    "affected_pages": 1,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 2,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "canonical_missing",
+    "notes": []
+  },
+  {
+    "id": "crawl-0067",
+    "key": "crawl/canonical_missing/purchase.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "purchase.aspose.app",
+    "template": "page",
+    "dimension": "crawl",
+    "type": "improvable",
+    "title": "Pages have no canonical tag",
+    "evidence": {
+      "urls": [
+        "https://purchase.aspose.app/"
+      ],
+      "observed": "1 of 1 sampled pages (by template: generic:/ 1/1). e.g. https://purchase.aspose.app/: no <link rel=canonical> and no Link header",
+      "expected": "a self-referencing absolute canonical"
+    },
+    "affected_pages": 1,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 2,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "canonical_missing",
+    "notes": []
+  },
+  {
+    "id": "crawl-0068",
+    "key": "crawl/canonical_missing/releases.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "releases.aspose.app",
+    "template": "page",
+    "dimension": "crawl",
+    "type": "improvable",
+    "title": "Pages have no canonical tag",
+    "evidence": {
+      "urls": [
+        "https://releases.aspose.app/",
+        "https://releases.aspose.app/pdf/",
+        "https://releases.aspose.app/slides/slides-splitter-app-net/",
+        "https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.3-macos-arm64/",
+        "https://releases.aspose.app/pub/",
+        "https://releases.aspose.app/imaging/image-merge-app-net/",
+        "https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.10-windows/"
+      ],
+      "observed": "7 of 11 sampled pages (by template: generic:/ 1/1, generic:/{section} 2/2, generic:/{section}/* 2/2, generic:/{section}/*/*/* 2/2). e.g. https://releases.aspose.app/: no <link rel=canonical> and no Link header; https://releases.aspose.app/pdf/: no <link rel=canonical> and no Link header; https://releases.aspose.app/slides/slides-splitter-app-net/: no <link rel=canonical> and no Link header; https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.3-macos-arm64/: no <link rel=canonical> and no Link header; https://releases.aspose.app/pub/: no <link rel=canonical> and no Link header",
+      "expected": "a self-referencing absolute canonical"
+    },
+    "affected_pages": 180,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 2,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "canonical_missing",
+    "notes": []
+  },
+  {
+    "id": "crawl-0069",
+    "key": "crawl/canonical_missing/status.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "status.aspose.app",
+    "template": "page",
+    "dimension": "crawl",
+    "type": "improvable",
+    "title": "Pages have no canonical tag",
+    "evidence": {
+      "urls": [
+        "https://status.aspose.app?start_date=2019-06-24",
+        "https://status.aspose.app/dashboard",
+        "https://status.aspose.app/incidents/58",
+        "https://status.aspose.app?start_date=2019-12-03",
+        "https://status.aspose.app/incidents/68",
+        "https://status.aspose.app/"
+      ],
+      "observed": "6 of 6 sampled pages (by template: generic:/ 3/3, generic:/{section} 1/1, generic:/{section}/* 2/2). e.g. https://status.aspose.app?start_date=2019-06-24: no <link rel=canonical> and no Link header; https://status.aspose.app/dashboard: no <link rel=canonical> and no Link header; https://status.aspose.app/incidents/58: no <link rel=canonical> and no Link header; https://status.aspose.app?start_date=2019-12-03: no <link rel=canonical> and no Link header; https://status.aspose.app/incidents/68: no <link rel=canonical> and no Link header",
+      "expected": "a self-referencing absolute canonical"
+    },
+    "affected_pages": 150,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 2,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "canonical_missing",
+    "notes": []
+  },
+  {
+    "id": "crawl-0070",
+    "key": "crawl/head_tags_repeated/products.aspose.app/page:html",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "products.aspose.app",
+    "template": "page:html",
+    "dimension": "crawl",
+    "type": "improvable",
+    "title": "Canonical/hreflang tags are emitted more than once (/html/)",
+    "evidence": {
+      "urls": [
+        "https://products.aspose.app/html/conversion/html",
+        "https://products.aspose.app/html/conversion/xhtml-to-image",
+        "https://products.aspose.app/html/conversion/xhtml",
+        "https://products.aspose.app/html/conversion/epub-to-xps",
+        "https://products.aspose.app/html/id/conversion/md",
+        "https://products.aspose.app/html/pl/conversion/xhtml-to-mhtml",
+        "https://products.aspose.app/html/ja/conversion/md",
+        "https://products.aspose.app/html/ko/conversion/epub-to-image"
+      ],
+      "observed": "8 of 22 sampled pages (by template: conversion-format 4/4, conversion-pair 4/4). e.g. https://products.aspose.app/html/conversion/html: 2 canonical tags, 36 hreflang tags for 18 distinct; https://products.aspose.app/html/conversion/xhtml-to-image: 2 canonical tags, 36 hreflang tags for 18 distinct; https://products.aspose.app/html/conversion/xhtml: 2 canonical tags, 36 hreflang tags for 18 distinct; https://products.aspose.app/html/conversion/epub-to-xps: 2 canonical tags, 36 hreflang tags for 18 distinct; https://products.aspose.app/html/id/conversion/md: 2 canonical tags, 36 hreflang tags for 18 distinct",
+      "expected": "each head tag emitted once"
+    },
+    "affected_pages": 1386,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 2,
+    "fix_channel": "git-pr",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "head_tags_repeated",
+    "notes": []
+  },
+  {
+    "id": "crawl-0071",
+    "key": "crawl/http_error/api.products.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "api.products.aspose.app",
+    "template": "page",
+    "dimension": "crawl",
+    "type": "broken",
+    "title": "Pages listed in sitemaps return an HTTP error",
+    "evidence": {
+      "urls": [
+        "https://api.products.aspose.app/"
+      ],
+      "observed": "1 of 1 sampled pages (by template: generic:/ 1/1). e.g. https://api.products.aspose.app/: HTTP 404",
+      "expected": "HTTP 200"
+    },
+    "affected_pages": 1,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "http_error",
+    "notes": []
+  },
+  {
+    "id": "crawl-0072",
+    "key": "crawl/http_error/forum.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "forum.aspose.app",
+    "template": "page",
+    "dimension": "crawl",
+    "type": "broken",
+    "title": "Pages listed in sitemaps return an HTTP error",
+    "evidence": {
+      "urls": [
+        "https://forum.aspose.app/t/object-detection-issue-cannot-read-the-image-file-2024-04-04t0705-726z/91540",
+        "https://forum.aspose.app/t/2023-12-04-06-59-18-diagram-viewer-api-viewer-newpages/85427",
+        "https://forum.aspose.app/t/undefined-issue-uncaught-javascript-error-2024-06-02t0845-790z/93896",
+        "https://forum.aspose.app/t/image-compress-issue-image-export-failed-2026-04-21t0423-128z/108231",
+        "https://forum.aspose.app/t/conversion-issue-internal-server-error-500-2021-01-02t1004-511z/8078",
+        "https://forum.aspose.app/t/viewer-issue-internal-server-error-500-2021-12-02t1809-769z/29434",
+        "https://forum.aspose.app/t/viewer-viewer-2024-01-10-03-11-54/87476",
+        "https://forum.aspose.app/t/2020-10-05-14-04-12unlock/2434",
+        "https://forum.aspose.app/t/2022-11-09-12-47-22https-api-products-aspose-app-video-conversion-api-conversion/53255",
+        "https://forum.aspose.app/t/pdf-to-markdown/24430"
+      ],
+      "observed": "20 of 21 sampled pages (by template: generic:/{section}/*/* 20/20). e.g. https://forum.aspose.app/t/object-detection-issue-cannot-read-the-image-file-2024-04-04t0705-726z/91540: HTTP 403; https://forum.aspose.app/t/2023-12-04-06-59-18-diagram-viewer-api-viewer-newpages/85427: HTTP 403; https://forum.aspose.app/t/undefined-issue-uncaught-javascript-error-2024-06-02t0845-790z/93896: HTTP 403; https://forum.aspose.app/t/image-compress-issue-image-export-failed-2026-04-21t0423-128z/108231: HTTP 403; https://forum.aspose.app/t/conversion-issue-internal-server-error-500-2021-01-02t1004-511z/8078: HTTP 403",
+      "expected": "HTTP 200"
+    },
+    "affected_pages": 41894,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": "discourse-admin",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "http_error",
+    "notes": []
+  },
+  {
+    "id": "crawl-0073",
+    "key": "crawl/noindex/releases.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "releases.aspose.app",
+    "template": "page",
+    "dimension": "crawl",
+    "type": "incorrect",
+    "title": "Pages listed in sitemaps (or homepages) are noindex",
+    "evidence": {
+      "urls": [
+        "https://releases.aspose.app/tex/convert-app-net/release-notes/",
+        "https://releases.aspose.app/page/convert-app-net/release-notes/2024/convert-app-net-24-4-release-notes/",
+        "https://releases.aspose.app/pdf/pdf-cli/release-notes/",
+        "https://releases.aspose.app/font/convert-app-net/release-notes/2024/convert-app-net-24-6-release-notes/"
+      ],
+      "observed": "4 of 11 sampled pages (by template: generic:/{section}/*/* 2/2, generic:/{section}/*/*/*/* 2/2). e.g. https://releases.aspose.app/tex/convert-app-net/release-notes/: robots: noindex, nofollow; https://releases.aspose.app/page/convert-app-net/release-notes/2024/convert-app-net-24-4-release-notes/: robots: noindex, nofollow; https://releases.aspose.app/pdf/pdf-cli/release-notes/: robots: noindex, nofollow; https://releases.aspose.app/font/convert-app-net/release-notes/2024/convert-app-net-24-6-release-notes/: robots: noindex, nofollow",
+      "expected": "only indexable pages in sitemaps; homepages indexable"
+    },
+    "affected_pages": 128,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 3,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "noindex",
+    "notes": []
+  },
+  {
+    "id": "crawl-0074",
+    "key": "crawl/noindex/websites.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "websites.aspose.app",
+    "template": "page",
+    "dimension": "crawl",
+    "type": "incorrect",
+    "title": "Pages listed in sitemaps (or homepages) are noindex",
+    "evidence": {
+      "urls": [
+        "https://websites.aspose.app/en/"
+      ],
+      "observed": "1 of 12 sampled pages (by template: generic:/ 1/4). e.g. https://websites.aspose.app/en/: robots: noindex",
+      "expected": "only indexable pages in sitemaps; homepages indexable"
+    },
+    "affected_pages": 10,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 3,
+    "fix_channel": "git-pr",
+    "status": "resolved",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run2",
+    "resolved_run": "crawl-audit-run3",
+    "resolved_at": "2026-10-08T14:12:09+00:00",
+    "check": "noindex",
+    "notes": []
+  },
+  {
+    "id": "crawl-0075",
+    "key": "crawl/redirect_chain/status.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "status.aspose.app",
+    "template": "page",
+    "dimension": "crawl",
+    "type": "not_optimized",
+    "title": "Redirect chains (2+ hops)",
+    "evidence": {
+      "urls": [
+        "https://status.aspose.app/dashboard"
+      ],
+      "observed": "1 of 6 sampled pages (by template: generic:/{section} 1/1). e.g. https://status.aspose.app/dashboard: 3 hops: 302 -> 302 -> 302 -> https://id.containerize.com/login?signin=0d8f01373ffd58df7a7779289c19d845",
+      "expected": "a single redirect hop"
+    },
+    "affected_pages": 1,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 2,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "redirect_chain",
+    "notes": []
+  },
+  {
+    "id": "crawl-0076",
+    "key": "crawl/redirect_temporary/status.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "status.aspose.app",
+    "template": "page",
+    "dimension": "crawl",
+    "type": "not_optimized",
+    "title": "Pages redirect with a temporary status (302/307)",
+    "evidence": {
+      "urls": [
+        "https://status.aspose.app/dashboard"
+      ],
+      "observed": "1 of 6 sampled pages (by template: generic:/{section} 1/1). e.g. https://status.aspose.app/dashboard: HTTP 302 -> https://id.containerize.com/login?signin=0d8f01373ffd58df7a7779289c19d845",
+      "expected": "permanent redirects (301/308) for moved URLs"
+    },
+    "affected_pages": 1,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 2,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "redirect_temporary",
+    "notes": []
+  },
+  {
+    "id": "crawl-0077",
+    "key": "crawl/redirected/status.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "status.aspose.app",
+    "template": "page",
+    "dimension": "crawl",
+    "type": "not_optimized",
+    "title": "Sitemaps list URLs that redirect",
+    "evidence": {
+      "urls": [
+        "https://status.aspose.app/dashboard"
+      ],
+      "observed": "1 of 6 sampled pages (by template: generic:/{section} 1/1). e.g. https://status.aspose.app/dashboard: redirects 302 -> 302 -> 302 -> https://id.containerize.com/login?signin=0d8f01373ffd58df7a7779289c19d845",
+      "expected": "sitemaps list final URLs that answer HTTP 200"
+    },
+    "affected_pages": 1,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "redirected",
+    "notes": []
+  },
+  {
+    "id": "crawl-0078",
+    "key": "crawl/meta_refresh/websites.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "websites.aspose.app",
+    "template": "page",
+    "dimension": "crawl",
+    "type": "not_optimized",
+    "title": "Sitemaps list meta-refresh redirect pages",
+    "evidence": {
+      "urls": [
+        "https://websites.aspose.app/en/",
+        "https://websites.aspose.app/fileformat/",
+        "https://websites.aspose.app/conholdate/"
+      ],
+      "observed": "3 of 12 sampled pages (by template: generic:/ 1/4, generic:/{section} 2/4). e.g. https://websites.aspose.app/en/: meta refresh to https://websites.aspose.app; https://websites.aspose.app/fileformat/: meta refresh to /fileformat/com; https://websites.aspose.app/conholdate/: meta refresh to /conholdate/com",
+      "expected": "sitemaps list the target URL; moved pages use an HTTP 301"
+    },
+    "affected_pages": 26,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": "git-pr",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run3",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "meta_refresh",
+    "notes": []
+  },
+  {
     "id": "intl-0001",
     "key": "intl/hreflang_none/products.aspose.app/sitemap:3d",
     "source": "discovery",
@@ -3484,6 +3997,1746 @@
     "notes": []
   },
   {
+    "id": "intl-0025",
+    "key": "intl/hreflang_no_self/products.aspose.app/page:html",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "products.aspose.app",
+    "template": "page:html",
+    "dimension": "intl",
+    "type": "incorrect",
+    "title": "hreflang set does not include the page itself (/html/)",
+    "evidence": {
+      "urls": [
+        "https://products.aspose.app/html/conversion/html",
+        "https://products.aspose.app/html/conversion/xhtml-to-image",
+        "https://products.aspose.app/html/yaml-to-json",
+        "https://products.aspose.app/html/merger/html-to-mhtml",
+        "https://products.aspose.app/html/merger/mhtml",
+        "https://products.aspose.app/html/conversion/xhtml",
+        "https://products.aspose.app/html/conversion/epub-to-xps",
+        "https://products.aspose.app/html/url-encoding",
+        "https://products.aspose.app/html/pixel-calculator/mm-to-rem",
+        "https://products.aspose.app/html/merger/html"
+      ],
+      "observed": "20 of 22 sampled pages (by template: conversion-format 4/4, conversion-pair 4/4, tool 4/4, tool-pair 4/4, tool-variant 4/4). e.g. https://products.aspose.app/html/conversion/html: 17 languages (ar, de, es, fa, fr, id, it, ja, ...), none points to https://products.aspose.app/html/conversion/html; https://products.aspose.app/html/conversion/xhtml-to-image: 17 languages (ar, de, es, fa, fr, id, it, ja, ...), none points to https://products.aspose.app/html/conversion/xhtml-to-image; https://products.aspose.app/html/yaml-to-json: 17 languages (ar, de, es, fa, fr, id, it, ja, ...), none points to https://products.aspose.app/html/yaml-to-json; https://products.aspose.app/html/merger/html-to-mhtml: 17 languages (ar, de, es, fa, fr, id, it, ja, ...), none points to https://products.aspose.app/html/merger/html-to-mhtml; https://products.aspose.app/html/merger/mhtml: 17 languages (ar, de, es, fa, fr, id, it, ja, ...), none points to https://products.aspose.app/html/merger/mhtml",
+      "expected": "a self-referencing hreflang entry"
+    },
+    "affected_pages": 4626,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 2,
+    "fix_channel": "git-pr",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run1",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "hreflang_no_self",
+    "notes": []
+  },
+  {
+    "id": "intl-0026",
+    "key": "intl/hreflang_no_xdefault/products.aspose.app/page:barcode",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "products.aspose.app",
+    "template": "page:barcode",
+    "dimension": "intl",
+    "type": "improvable",
+    "title": "hreflang set has no x-default (/barcode/)",
+    "evidence": {
+      "urls": [
+        "https://products.aspose.app/barcode/scanwifiqr",
+        "https://products.aspose.app/barcode/generate/opc",
+        "https://products.aspose.app/barcode/scan",
+        "https://products.aspose.app/barcode/generate/code11",
+        "https://products.aspose.app/barcode/zh-hant/with-logo",
+        "https://products.aspose.app/barcode/zh-hans/recognize/patchcode",
+        "https://products.aspose.app/barcode/ja/scan",
+        "https://products.aspose.app/barcode/cs/recognize/opc"
+      ],
+      "observed": "8 of 10 sampled pages (by template: tool 4/4, tool-variant 4/4). e.g. https://products.aspose.app/barcode/scanwifiqr: 26 entries: en, ar, bg, cs, de, el; https://products.aspose.app/barcode/generate/opc: 26 entries: en, ar, bg, cs, de, el; https://products.aspose.app/barcode/scan: 26 entries: en, ar, bg, cs, de, el; https://products.aspose.app/barcode/generate/code11: 26 entries: en, ar, bg, cs, de, el; https://products.aspose.app/barcode/zh-hant/with-logo: 26 entries: en, ar, bg, cs, de, el",
+      "expected": "an x-default entry"
+    },
+    "affected_pages": 2080,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 2,
+    "fix_channel": "git-pr",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run1",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "hreflang_no_xdefault",
+    "notes": []
+  },
+  {
+    "id": "intl-0027",
+    "key": "intl/hreflang_missing/metrics.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "metrics.aspose.app",
+    "template": "page",
+    "dimension": "intl",
+    "type": "not_optimized",
+    "title": "Localized pages have no hreflang tags in page HTML",
+    "evidence": {
+      "urls": [
+        "https://metrics.aspose.app/",
+        "https://metrics.aspose.app/usages/",
+        "https://metrics.aspose.app/usages/files/",
+        "https://metrics.aspose.app/usages/sizes/cad/",
+        "https://metrics.aspose.app/ru/",
+        "https://metrics.aspose.app/subscriptions/",
+        "https://metrics.aspose.app/subscriptions/subscription-plan/",
+        "https://metrics.aspose.app/usages/sizes/tasks/",
+        "https://metrics.aspose.app/az/",
+        "https://metrics.aspose.app/lv/usages/"
+      ],
+      "observed": "15 of 15 sampled pages (by template: generic:/ 3/3, generic:/{section} 4/4, generic:/{section}/* 4/4, generic:/{section}/*/* 4/4). e.g. https://metrics.aspose.app/: no <link rel=alternate hreflang> in <head>; https://metrics.aspose.app/usages/: no <link rel=alternate hreflang> in <head>; https://metrics.aspose.app/usages/files/: no <link rel=alternate hreflang> in <head>; https://metrics.aspose.app/usages/sizes/cad/: no <link rel=alternate hreflang> in <head>; https://metrics.aspose.app/ru/: no <link rel=alternate hreflang> in <head>",
+      "expected": "hreflang alternates for every language version, incl. a self-reference and x-default"
+    },
+    "affected_pages": 3780,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "M",
+    "fix_tier": 2,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "hreflang_missing",
+    "notes": []
+  },
+  {
+    "id": "intl-0028",
+    "key": "intl/hreflang_missing/websites.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "websites.aspose.app",
+    "template": "page",
+    "dimension": "intl",
+    "type": "not_optimized",
+    "title": "Localized pages have no hreflang tags in page HTML",
+    "evidence": {
+      "urls": [
+        "https://websites.aspose.app/groupdocs/ai/",
+        "https://websites.aspose.app/",
+        "https://websites.aspose.app/fileformat/app/",
+        "https://websites.aspose.app/ko/",
+        "https://websites.aspose.app/fr/groupdocs/",
+        "https://websites.aspose.app/el/aspose/com/",
+        "https://websites.aspose.app/nl/",
+        "https://websites.aspose.app/ru/codeporting/",
+        "https://websites.aspose.app/es/conholdate/cloud/"
+      ],
+      "observed": "9 of 12 sampled pages (by template: generic:/ 3/4, generic:/{section} 2/4, generic:/{section}/* 4/4). e.g. https://websites.aspose.app/groupdocs/ai/: no <link rel=alternate hreflang> in <head>; https://websites.aspose.app/: no <link rel=alternate hreflang> in <head>; https://websites.aspose.app/fileformat/app/: no <link rel=alternate hreflang> in <head>; https://websites.aspose.app/ko/: no <link rel=alternate hreflang> in <head>; https://websites.aspose.app/fr/groupdocs/: no <link rel=alternate hreflang> in <head>",
+      "expected": "hreflang alternates for every language version, incl. a self-reference and x-default"
+    },
+    "affected_pages": 140,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "M",
+    "fix_tier": 2,
+    "fix_channel": "git-pr",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "hreflang_missing",
+    "notes": []
+  },
+  {
+    "id": "intl-0029",
+    "key": "intl/hreflang_missing/www.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "www.aspose.app",
+    "template": "page",
+    "dimension": "intl",
+    "type": "not_optimized",
+    "title": "Localized pages have no hreflang tags in page HTML",
+    "evidence": {
+      "urls": [
+        "https://www.aspose.app/",
+        "https://www.aspose.app/da/",
+        "https://www.aspose.app/id/"
+      ],
+      "observed": "3 of 3 sampled pages (by template: home 3/3). e.g. https://www.aspose.app/: no <link rel=alternate hreflang> in <head>; https://www.aspose.app/da/: no <link rel=alternate hreflang> in <head>; https://www.aspose.app/id/: no <link rel=alternate hreflang> in <head>",
+      "expected": "hreflang alternates for every language version, incl. a self-reference and x-default"
+    },
+    "affected_pages": 36,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "M",
+    "fix_tier": 2,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "hreflang_missing",
+    "notes": []
+  },
+  {
+    "id": "intl-0030",
+    "key": "intl/html_lang_mismatch/websites.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "websites.aspose.app",
+    "template": "page",
+    "dimension": "intl",
+    "type": "incorrect",
+    "title": "<html lang> does not match the language in the URL",
+    "evidence": {
+      "urls": [
+        "https://websites.aspose.app/ko/",
+        "https://websites.aspose.app/el/aspose/com/",
+        "https://websites.aspose.app/nl/",
+        "https://websites.aspose.app/es/conholdate/cloud/"
+      ],
+      "observed": "4 of 12 sampled pages (by template: generic:/ 2/4, generic:/{section}/* 2/4). e.g. https://websites.aspose.app/ko/: URL language ko, <html lang='en'>; https://websites.aspose.app/el/aspose/com/: URL language el, <html lang='en'>; https://websites.aspose.app/nl/: URL language nl, <html lang='en'>; https://websites.aspose.app/es/conholdate/cloud/: URL language es, <html lang='en'>",
+      "expected": "<html lang> = the URL's language"
+    },
+    "affected_pages": 67,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": "git-pr",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "html_lang_mismatch",
+    "notes": []
+  },
+  {
+    "id": "intl-0031",
+    "key": "intl/html_lang_missing/purchase.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "purchase.aspose.app",
+    "template": "page",
+    "dimension": "intl",
+    "type": "improvable",
+    "title": "Pages have no <html lang> attribute",
+    "evidence": {
+      "urls": [
+        "https://purchase.aspose.app/"
+      ],
+      "observed": "1 of 1 sampled pages (by template: generic:/ 1/1). e.g. https://purchase.aspose.app/: no lang attribute on <html>",
+      "expected": "<html lang> matching the page language"
+    },
+    "affected_pages": 1,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "html_lang_missing",
+    "notes": []
+  },
+  {
+    "id": "intl-0032",
+    "key": "intl/html_lang_missing/releases.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "releases.aspose.app",
+    "template": "page",
+    "dimension": "intl",
+    "type": "improvable",
+    "title": "Pages have no <html lang> attribute",
+    "evidence": {
+      "urls": [
+        "https://releases.aspose.app/",
+        "https://releases.aspose.app/pdf/",
+        "https://releases.aspose.app/slides/slides-splitter-app-net/",
+        "https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.3-macos-arm64/",
+        "https://releases.aspose.app/pub/",
+        "https://releases.aspose.app/imaging/image-merge-app-net/",
+        "https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.10-windows/"
+      ],
+      "observed": "7 of 11 sampled pages (by template: generic:/ 1/1, generic:/{section} 2/2, generic:/{section}/* 2/2, generic:/{section}/*/*/* 2/2). e.g. https://releases.aspose.app/: no lang attribute on <html>; https://releases.aspose.app/pdf/: no lang attribute on <html>; https://releases.aspose.app/slides/slides-splitter-app-net/: no lang attribute on <html>; https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.3-macos-arm64/: no lang attribute on <html>; https://releases.aspose.app/pub/: no lang attribute on <html>",
+      "expected": "<html lang> matching the page language"
+    },
+    "affected_pages": 180,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "html_lang_missing",
+    "notes": []
+  },
+  {
+    "id": "intl-0033",
+    "key": "intl/html_lang_missing/status.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "status.aspose.app",
+    "template": "page",
+    "dimension": "intl",
+    "type": "improvable",
+    "title": "Pages have no <html lang> attribute",
+    "evidence": {
+      "urls": [
+        "https://status.aspose.app?start_date=2019-06-24",
+        "https://status.aspose.app/dashboard",
+        "https://status.aspose.app/incidents/58",
+        "https://status.aspose.app?start_date=2019-12-03",
+        "https://status.aspose.app/incidents/68",
+        "https://status.aspose.app/"
+      ],
+      "observed": "6 of 6 sampled pages (by template: generic:/ 3/3, generic:/{section} 1/1, generic:/{section}/* 2/2). e.g. https://status.aspose.app?start_date=2019-06-24: no lang attribute on <html>; https://status.aspose.app/dashboard: no lang attribute on <html>; https://status.aspose.app/incidents/58: no lang attribute on <html>; https://status.aspose.app?start_date=2019-12-03: no lang attribute on <html>; https://status.aspose.app/incidents/68: no lang attribute on <html>",
+      "expected": "<html lang> matching the page language"
+    },
+    "affected_pages": 150,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "html_lang_missing",
+    "notes": []
+  },
+  {
+    "id": "intl-0034",
+    "key": "intl/hreflang_missing/products.aspose.app/page:barcode",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "products.aspose.app",
+    "template": "page:barcode",
+    "dimension": "intl",
+    "type": "not_optimized",
+    "title": "Localized pages have no hreflang tags in page HTML (/barcode/)",
+    "evidence": {
+      "urls": [
+        "https://products.aspose.app/barcode/",
+        "https://products.aspose.app/barcode/family/"
+      ],
+      "observed": "2 of 10 sampled pages (by template: family-hub 1/1, family-subhub 1/1). e.g. https://products.aspose.app/barcode/: no <link rel=alternate hreflang> in <head>; https://products.aspose.app/barcode/family/: no <link rel=alternate hreflang> in <head>",
+      "expected": "hreflang alternates for every language version, incl. a self-reference and x-default"
+    },
+    "affected_pages": 2,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "M",
+    "fix_tier": 2,
+    "fix_channel": "git-pr",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "hreflang_missing",
+    "notes": []
+  },
+  {
+    "id": "intl-0035",
+    "key": "intl/hreflang_missing/products.aspose.app/page:html",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "products.aspose.app",
+    "template": "page:html",
+    "dimension": "intl",
+    "type": "not_optimized",
+    "title": "Localized pages have no hreflang tags in page HTML (/html/)",
+    "evidence": {
+      "urls": [
+        "https://products.aspose.app/html/",
+        "https://products.aspose.app/html/family/"
+      ],
+      "observed": "2 of 22 sampled pages (by template: family-hub 1/1, family-subhub 1/1). e.g. https://products.aspose.app/html/: no <link rel=alternate hreflang> in <head>; https://products.aspose.app/html/family/: no <link rel=alternate hreflang> in <head>",
+      "expected": "hreflang alternates for every language version, incl. a self-reference and x-default"
+    },
+    "affected_pages": 2,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "M",
+    "fix_tier": 2,
+    "fix_channel": "git-pr",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "hreflang_missing",
+    "notes": []
+  },
+  {
+    "id": "onpage-0001",
+    "key": "onpage/description_length/products.aspose.app/page:barcode",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "products.aspose.app",
+    "template": "page:barcode",
+    "dimension": "onpage",
+    "type": "improvable",
+    "title": "Meta descriptions are too long or too short (/barcode/)",
+    "evidence": {
+      "urls": [
+        "https://products.aspose.app/barcode/zh-hant/with-logo"
+      ],
+      "observed": "1 of 8 sampled pages (by template: tool 1/4). e.g. https://products.aspose.app/barcode/zh-hant/with-logo: 39 chars: '免費產生帶有自訂徽標的二維碼。此外，還可額外付費使用徽標自動調整最大尺寸功能。'",
+      "expected": "50-170 characters"
+    },
+    "affected_pages": 52,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": "git-pr",
+    "status": "resolved",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run1",
+    "last_seen_run": "crawl-audit-run2",
+    "resolved_run": "crawl-audit-run3",
+    "resolved_at": "2026-10-08T14:12:09+00:00",
+    "check": "description_length",
+    "notes": []
+  },
+  {
+    "id": "onpage-0002",
+    "key": "onpage/description_length/products.aspose.app/page:html",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "products.aspose.app",
+    "template": "page:html",
+    "dimension": "onpage",
+    "type": "improvable",
+    "title": "Meta descriptions are too long or too short (/html/)",
+    "evidence": {
+      "urls": [
+        "https://products.aspose.app/html/de/merger/mhtml"
+      ],
+      "observed": "1 of 22 sampled pages (by template: tool-variant 1/4). e.g. https://products.aspose.app/html/de/merger/mhtml: width 179: 'Mit MHTML Merger können Sie MHTML Dateien zu einer kombinieren und MHTML in andere Formate'",
+      "expected": "50-170 characters (CJK count double)"
+    },
+    "affected_pages": 122,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": "git-pr",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run1",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "description_length",
+    "notes": []
+  },
+  {
+    "id": "onpage-0003",
+    "key": "onpage/title_length/products.aspose.app/page:barcode",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "products.aspose.app",
+    "template": "page:barcode",
+    "dimension": "onpage",
+    "type": "improvable",
+    "title": "Titles are too long or too short (/barcode/)",
+    "evidence": {
+      "urls": [
+        "https://products.aspose.app/barcode/zh-hant/with-logo"
+      ],
+      "observed": "1 of 8 sampled pages (by template: tool 1/4). e.g. https://products.aspose.app/barcode/zh-hant/with-logo: 7 chars: '線上生成帶標誌'",
+      "expected": "10-70 characters"
+    },
+    "affected_pages": 52,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": "git-pr",
+    "status": "resolved",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run1",
+    "last_seen_run": "crawl-audit-run2",
+    "resolved_run": "crawl-audit-run3",
+    "resolved_at": "2026-10-08T14:12:09+00:00",
+    "check": "title_length",
+    "notes": []
+  },
+  {
+    "id": "onpage-0004",
+    "key": "onpage/title_length/products.aspose.app/page:html",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "products.aspose.app",
+    "template": "page:html",
+    "dimension": "onpage",
+    "type": "improvable",
+    "title": "Titles are too long or too short (/html/)",
+    "evidence": {
+      "urls": [
+        "https://products.aspose.app/html/de/merger/mhtml",
+        "https://products.aspose.app/html/ja/color-contrast-accessibility",
+        "https://products.aspose.app/html/"
+      ],
+      "observed": "3 of 22 sampled pages (by template: family-hub 1/1, tool 1/4, tool-variant 1/4). e.g. https://products.aspose.app/html/de/merger/mhtml: width 92: 'MHTML Merger - Konvertieren Sie MHTML und führen Sie sie online zu anderen Formaten zusamm'; https://products.aspose.app/html/ja/color-contrast-accessibility: width 76: 'カラーコントラストのアクセシビリティ-Webサイトのカラーコントラストをチェック'; https://products.aspose.app/html/: width 75: 'Free Apps, On Premise & Cloud APIs for HTML Manipulation | Free Aspose Apps'",
+      "expected": "10-70 characters (CJK count double)"
+    },
+    "affected_pages": 289,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": "git-pr",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run1",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "title_length",
+    "notes": []
+  },
+  {
+    "id": "onpage-0005",
+    "key": "onpage/description_duplicate/releases.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "releases.aspose.app",
+    "template": "page",
+    "dimension": "onpage",
+    "type": "not_optimized",
+    "title": "Different pages share the same meta description",
+    "evidence": {
+      "urls": [
+        "https://releases.aspose.app/",
+        "https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.3-macos-arm64/",
+        "https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.10-windows/"
+      ],
+      "observed": "3 of 11 sampled pages (by template: generic:/ 1/1, generic:/{section}/*/*/* 2/2). e.g. https://releases.aspose.app/: '' also on https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.3-macos-arm64/, https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.10-windows/; https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.3-macos-arm64/: '' also on https://releases.aspose.app/, https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.10-windows/; https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.10-windows/: '' also on https://releases.aspose.app/, https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.3-macos-arm64/",
+      "expected": "a unique meta description per page and language"
+    },
+    "affected_pages": 145,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "M",
+    "fix_tier": 1,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "description_duplicate",
+    "notes": []
+  },
+  {
+    "id": "onpage-0006",
+    "key": "onpage/description_duplicate/status.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "status.aspose.app",
+    "template": "page",
+    "dimension": "onpage",
+    "type": "not_optimized",
+    "title": "Different pages share the same meta description",
+    "evidence": {
+      "urls": [
+        "https://status.aspose.app?start_date=2019-06-24",
+        "https://status.aspose.app/incidents/58",
+        "https://status.aspose.app?start_date=2019-12-03",
+        "https://status.aspose.app/incidents/68",
+        "https://status.aspose.app/"
+      ],
+      "observed": "5 of 6 sampled pages (by template: generic:/ 3/3, generic:/{section}/* 2/2). e.g. https://status.aspose.app?start_date=2019-06-24: 'Stay up to date with the latest service updates from Status ' also on https://status.aspose.app/incidents/58, https://status.aspose.app?start_date=2019-12-03; https://status.aspose.app/incidents/58: 'Stay up to date with the latest service updates from Status ' also on https://status.aspose.app?start_date=2019-06-24, https://status.aspose.app?start_date=2019-12-03; https://status.aspose.app?start_date=2019-12-03: 'Stay up to date with the latest service updates from Status ' also on https://status.aspose.app?start_date=2019-06-24, https://status.aspose.app/incidents/58; https://status.aspose.app/incidents/68: 'Stay up to date with the latest service updates from Status ' also on https://status.aspose.app?start_date=2019-06-24, https://status.aspose.app/incidents/58; https://status.aspose.app/: 'Stay up to date with the latest service updates from Status ' also on https://status.aspose.app?start_date=2019-06-24, https://status.aspose.app/incidents/58",
+      "expected": "a unique meta description per page and language"
+    },
+    "affected_pages": 149,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "M",
+    "fix_tier": 1,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "description_duplicate",
+    "notes": []
+  },
+  {
+    "id": "onpage-0007",
+    "key": "onpage/description_length/forum.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "forum.aspose.app",
+    "template": "page",
+    "dimension": "onpage",
+    "type": "improvable",
+    "title": "Meta descriptions are too long or too short",
+    "evidence": {
+      "urls": [
+        "https://forum.aspose.app/"
+      ],
+      "observed": "1 of 21 sampled pages (by template: generic:/ 1/1). e.g. https://forum.aspose.app/: width 42: 'Get FREE technical support for Aspose Apps'",
+      "expected": "50-170 characters (CJK count double)"
+    },
+    "affected_pages": 1,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": "discourse-admin",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "description_length",
+    "notes": []
+  },
+  {
+    "id": "onpage-0008",
+    "key": "onpage/description_length/metrics.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "metrics.aspose.app",
+    "template": "page",
+    "dimension": "onpage",
+    "type": "improvable",
+    "title": "Meta descriptions are too long or too short",
+    "evidence": {
+      "urls": [
+        "https://metrics.aspose.app/usages/",
+        "https://metrics.aspose.app/usages/sizes/cad/",
+        "https://metrics.aspose.app/ru/",
+        "https://metrics.aspose.app/subscriptions/",
+        "https://metrics.aspose.app/lv/usages/",
+        "https://metrics.aspose.app/el/usages/",
+        "https://metrics.aspose.app/ja/usages/files/pdf/"
+      ],
+      "observed": "7 of 15 sampled pages (by template: generic:/ 1/3, generic:/{section} 4/4, generic:/{section}/*/* 2/4). e.g. https://metrics.aspose.app/usages/: width 31: 'File Formats Apps Usage Metrics'; https://metrics.aspose.app/usages/sizes/cad/: width 46: 'Top 1 CAD Designs File Formats Processing Apps'; https://metrics.aspose.app/ru/: width 206: 'Бесплатные онлайн-приложения на основе интерфейса командной строки и загружаемые приложени'; https://metrics.aspose.app/subscriptions/: width 38: 'File Formats Apps Subscription Metrics'; https://metrics.aspose.app/lv/usages/: width 40: 'Failu formāti Lietotņu lietojuma metrika'",
+      "expected": "50-170 characters (CJK count double)"
+    },
+    "affected_pages": 1740,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "description_length",
+    "notes": []
+  },
+  {
+    "id": "onpage-0009",
+    "key": "onpage/description_length/products.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "products.aspose.app",
+    "template": "page",
+    "dimension": "onpage",
+    "type": "improvable",
+    "title": "Meta descriptions are too long or too short",
+    "evidence": {
+      "urls": [
+        "https://products.aspose.app/"
+      ],
+      "observed": "1 of 1 sampled pages (by template: generic:/ 1/1). e.g. https://products.aspose.app/: width 192: 'Simply upload Word, PDF, Excel, PowerPoint, Outlook, OneNote, Project, Visio, Image, 3D, C'",
+      "expected": "50-170 characters (CJK count double)"
+    },
+    "affected_pages": 1,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": "git-pr",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "description_length",
+    "notes": []
+  },
+  {
+    "id": "onpage-0010",
+    "key": "onpage/description_length/releases.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "releases.aspose.app",
+    "template": "page",
+    "dimension": "onpage",
+    "type": "improvable",
+    "title": "Meta descriptions are too long or too short",
+    "evidence": {
+      "urls": [
+        "https://releases.aspose.app/tex/convert-app-net/release-notes/",
+        "https://releases.aspose.app/page/convert-app-net/release-notes/2024/convert-app-net-24-4-release-notes/",
+        "https://releases.aspose.app/pub/",
+        "https://releases.aspose.app/imaging/image-merge-app-net/",
+        "https://releases.aspose.app/pdf/pdf-cli/release-notes/",
+        "https://releases.aspose.app/font/convert-app-net/release-notes/2024/convert-app-net-24-6-release-notes/"
+      ],
+      "observed": "6 of 11 sampled pages (by template: generic:/{section} 1/2, generic:/{section}/* 1/2, generic:/{section}/*/* 2/2, generic:/{section}/*/*/*/* 2/2). e.g. https://releases.aspose.app/tex/convert-app-net/release-notes/: width 255: 'This section contains the release notes of Aspose.TeX Convert Micro App for the year Relea'; https://releases.aspose.app/page/convert-app-net/release-notes/2024/convert-app-net-24-4-release-notes/: width 185: 'Welcome to the first release of Aspose.Page Convert Micro App 24.4. Discover the initial f'; https://releases.aspose.app/pub/: width 171: 'Aspose.PUB Micro Applications provide advanced document processing capabilities tailored f'; https://releases.aspose.app/imaging/image-merge-app-net/: width 294: 'Aspose.Imaging Image Merge Micro Application allows creation of collage from several input'; https://releases.aspose.app/pdf/pdf-cli/release-notes/: width 245: 'This section contains the release notes of Aspose.PDF CLI App for the year Release Notes. '",
+      "expected": "50-170 characters (CJK count double)"
+    },
+    "affected_pages": 146,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "description_length",
+    "notes": []
+  },
+  {
+    "id": "onpage-0011",
+    "key": "onpage/description_length/www.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "www.aspose.app",
+    "template": "page",
+    "dimension": "onpage",
+    "type": "improvable",
+    "title": "Meta descriptions are too long or too short",
+    "evidence": {
+      "urls": [
+        "https://www.aspose.app/",
+        "https://www.aspose.app/da/",
+        "https://www.aspose.app/id/"
+      ],
+      "observed": "3 of 3 sampled pages (by template: home 3/3). e.g. https://www.aspose.app/: width 195: 'Free online file format apps to view, edit, convert, merge, sign, compress, parse, and man'; https://www.aspose.app/da/: width 215: 'Gratis online filformatapps til at se, redigere, konvertere, flette, signere, komprimere, '; https://www.aspose.app/id/: width 242: 'Aplikasi format file online gratis untuk melihat, mengedit, mengonversi, menggabungkan, me'",
+      "expected": "50-170 characters (CJK count double)"
+    },
+    "affected_pages": 36,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "description_length",
+    "notes": []
+  },
+  {
+    "id": "onpage-0012",
+    "key": "onpage/description_missing/about.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "about.aspose.app",
+    "template": "page",
+    "dimension": "onpage",
+    "type": "improvable",
+    "title": "Pages have no meta description",
+    "evidence": {
+      "urls": [
+        "https://about.aspose.app/",
+        "https://about.aspose.app/security/",
+        "https://about.aspose.app/legal/security/",
+        "https://about.aspose.app/nl/",
+        "https://about.aspose.app/events/",
+        "https://about.aspose.app/legal/acceptable-use/",
+        "https://about.aspose.app/ar/",
+        "https://about.aspose.app/id/affiliates/",
+        "https://about.aspose.app/id/legal/paperless-policy/",
+        "https://about.aspose.app/ru/legal/"
+      ],
+      "observed": "11 of 11 sampled pages (by template: generic:/ 3/3, generic:/{section} 4/4, generic:/{section}/* 4/4). e.g. https://about.aspose.app/: no meta description; https://about.aspose.app/security/: no meta description; https://about.aspose.app/legal/security/: no meta description; https://about.aspose.app/nl/: no meta description; https://about.aspose.app/events/: no meta description",
+      "expected": "a unique meta description"
+    },
+    "affected_pages": 234,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": "git-pr",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "description_missing",
+    "notes": []
+  },
+  {
+    "id": "onpage-0013",
+    "key": "onpage/description_missing/blog.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "blog.aspose.app",
+    "template": "page",
+    "dimension": "onpage",
+    "type": "improvable",
+    "title": "Pages have no meta description",
+    "evidence": {
+      "urls": [
+        "https://blog.aspose.app/",
+        "https://blog.aspose.app/recent-posts/",
+        "https://blog.aspose.app/free-online-aspose.words-watermark-app/"
+      ],
+      "observed": "3 of 3 sampled pages (by template: generic:/ 1/1, generic:/{section} 2/2). e.g. https://blog.aspose.app/: no meta description; https://blog.aspose.app/recent-posts/: no meta description; https://blog.aspose.app/free-online-aspose.words-watermark-app/: no meta description",
+      "expected": "a unique meta description"
+    },
+    "affected_pages": 153,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": "wordpress-api",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "description_missing",
+    "notes": []
+  },
+  {
+    "id": "onpage-0014",
+    "key": "onpage/description_missing/dashboard.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "dashboard.aspose.app",
+    "template": "page",
+    "dimension": "onpage",
+    "type": "improvable",
+    "title": "Pages have no meta description",
+    "evidence": {
+      "urls": [
+        "https://dashboard.aspose.app/"
+      ],
+      "observed": "1 of 1 sampled pages (by template: generic:/ 1/1). e.g. https://dashboard.aspose.app/: no meta description",
+      "expected": "a unique meta description"
+    },
+    "affected_pages": 1,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "description_missing",
+    "notes": []
+  },
+  {
+    "id": "onpage-0015",
+    "key": "onpage/description_missing/metrics.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "metrics.aspose.app",
+    "template": "page",
+    "dimension": "onpage",
+    "type": "improvable",
+    "title": "Pages have no meta description",
+    "evidence": {
+      "urls": [
+        "https://metrics.aspose.app/subscriptions/subscription-plan/",
+        "https://metrics.aspose.app/el/usages/file/"
+      ],
+      "observed": "2 of 15 sampled pages (by template: generic:/{section}/* 2/4). e.g. https://metrics.aspose.app/subscriptions/subscription-plan/: empty; https://metrics.aspose.app/el/usages/file/: empty",
+      "expected": "a unique meta description"
+    },
+    "affected_pages": 180,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "description_missing",
+    "notes": []
+  },
+  {
+    "id": "onpage-0016",
+    "key": "onpage/description_missing/purchase.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "purchase.aspose.app",
+    "template": "page",
+    "dimension": "onpage",
+    "type": "improvable",
+    "title": "Pages have no meta description",
+    "evidence": {
+      "urls": [
+        "https://purchase.aspose.app/"
+      ],
+      "observed": "1 of 1 sampled pages (by template: generic:/ 1/1). e.g. https://purchase.aspose.app/: no meta description",
+      "expected": "a unique meta description"
+    },
+    "affected_pages": 1,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "description_missing",
+    "notes": []
+  },
+  {
+    "id": "onpage-0017",
+    "key": "onpage/description_missing/releases.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "releases.aspose.app",
+    "template": "page",
+    "dimension": "onpage",
+    "type": "improvable",
+    "title": "Pages have no meta description",
+    "evidence": {
+      "urls": [
+        "https://releases.aspose.app/",
+        "https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.3-macos-arm64/",
+        "https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.10-windows/"
+      ],
+      "observed": "3 of 11 sampled pages (by template: generic:/ 1/1, generic:/{section}/*/*/* 2/2). e.g. https://releases.aspose.app/: empty; https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.3-macos-arm64/: empty; https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.10-windows/: empty",
+      "expected": "a unique meta description"
+    },
+    "affected_pages": 145,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "description_missing",
+    "notes": []
+  },
+  {
+    "id": "onpage-0018",
+    "key": "onpage/description_missing/websites.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "websites.aspose.app",
+    "template": "page",
+    "dimension": "onpage",
+    "type": "improvable",
+    "title": "Pages have no meta description",
+    "evidence": {
+      "urls": [
+        "https://websites.aspose.app/groupdocs/ai/",
+        "https://websites.aspose.app/",
+        "https://websites.aspose.app/fileformat/app/",
+        "https://websites.aspose.app/ko/",
+        "https://websites.aspose.app/fr/groupdocs/",
+        "https://websites.aspose.app/el/aspose/com/",
+        "https://websites.aspose.app/nl/",
+        "https://websites.aspose.app/ru/codeporting/",
+        "https://websites.aspose.app/es/conholdate/cloud/"
+      ],
+      "observed": "9 of 12 sampled pages (by template: generic:/ 3/4, generic:/{section} 2/4, generic:/{section}/* 4/4). e.g. https://websites.aspose.app/groupdocs/ai/: no meta description; https://websites.aspose.app/: no meta description; https://websites.aspose.app/fileformat/app/: no meta description; https://websites.aspose.app/ko/: no meta description; https://websites.aspose.app/fr/groupdocs/: no meta description",
+      "expected": "a unique meta description"
+    },
+    "affected_pages": 140,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": "git-pr",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "description_missing",
+    "notes": []
+  },
+  {
+    "id": "onpage-0019",
+    "key": "onpage/h1_missing/blog.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "blog.aspose.app",
+    "template": "page",
+    "dimension": "onpage",
+    "type": "improvable",
+    "title": "Pages have no H1",
+    "evidence": {
+      "urls": [
+        "https://blog.aspose.app/recent-posts/"
+      ],
+      "observed": "1 of 3 sampled pages (by template: generic:/{section} 1/2). e.g. https://blog.aspose.app/recent-posts/: no non-empty <h1>",
+      "expected": "one H1 that states the page topic"
+    },
+    "affected_pages": 76,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": "wordpress-api",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "h1_missing",
+    "notes": []
+  },
+  {
+    "id": "onpage-0020",
+    "key": "onpage/h1_missing/dashboard.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "dashboard.aspose.app",
+    "template": "page",
+    "dimension": "onpage",
+    "type": "improvable",
+    "title": "Pages have no H1",
+    "evidence": {
+      "urls": [
+        "https://dashboard.aspose.app/"
+      ],
+      "observed": "1 of 1 sampled pages (by template: generic:/ 1/1). e.g. https://dashboard.aspose.app/: no non-empty <h1>",
+      "expected": "one H1 that states the page topic"
+    },
+    "affected_pages": 1,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "h1_missing",
+    "notes": []
+  },
+  {
+    "id": "onpage-0021",
+    "key": "onpage/h1_missing/forum.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "forum.aspose.app",
+    "template": "page",
+    "dimension": "onpage",
+    "type": "improvable",
+    "title": "Pages have no H1",
+    "evidence": {
+      "urls": [
+        "https://forum.aspose.app/"
+      ],
+      "observed": "1 of 21 sampled pages (by template: generic:/ 1/1). e.g. https://forum.aspose.app/: no non-empty <h1>",
+      "expected": "one H1 that states the page topic"
+    },
+    "affected_pages": 1,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": "discourse-admin",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "h1_missing",
+    "notes": []
+  },
+  {
+    "id": "onpage-0022",
+    "key": "onpage/h1_missing/purchase.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "purchase.aspose.app",
+    "template": "page",
+    "dimension": "onpage",
+    "type": "improvable",
+    "title": "Pages have no H1",
+    "evidence": {
+      "urls": [
+        "https://purchase.aspose.app/"
+      ],
+      "observed": "1 of 1 sampled pages (by template: generic:/ 1/1). e.g. https://purchase.aspose.app/: no non-empty <h1>",
+      "expected": "one H1 that states the page topic"
+    },
+    "affected_pages": 1,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "h1_missing",
+    "notes": []
+  },
+  {
+    "id": "onpage-0023",
+    "key": "onpage/h1_missing/releases.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "releases.aspose.app",
+    "template": "page",
+    "dimension": "onpage",
+    "type": "improvable",
+    "title": "Pages have no H1",
+    "evidence": {
+      "urls": [
+        "https://releases.aspose.app/pdf/",
+        "https://releases.aspose.app/slides/slides-splitter-app-net/",
+        "https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.3-macos-arm64/",
+        "https://releases.aspose.app/pub/",
+        "https://releases.aspose.app/imaging/image-merge-app-net/",
+        "https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.10-windows/"
+      ],
+      "observed": "6 of 11 sampled pages (by template: generic:/{section} 2/2, generic:/{section}/* 2/2, generic:/{section}/*/*/* 2/2). e.g. https://releases.aspose.app/pdf/: no non-empty <h1>; https://releases.aspose.app/slides/slides-splitter-app-net/: no non-empty <h1>; https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.3-macos-arm64/: no non-empty <h1>; https://releases.aspose.app/pub/: no non-empty <h1>; https://releases.aspose.app/imaging/image-merge-app-net/: no non-empty <h1>",
+      "expected": "one H1 that states the page topic"
+    },
+    "affected_pages": 179,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "h1_missing",
+    "notes": []
+  },
+  {
+    "id": "onpage-0024",
+    "key": "onpage/h1_missing/status.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "status.aspose.app",
+    "template": "page",
+    "dimension": "onpage",
+    "type": "improvable",
+    "title": "Pages have no H1",
+    "evidence": {
+      "urls": [
+        "https://status.aspose.app/dashboard"
+      ],
+      "observed": "1 of 6 sampled pages (by template: generic:/{section} 1/1). e.g. https://status.aspose.app/dashboard: no non-empty <h1>",
+      "expected": "one H1 that states the page topic"
+    },
+    "affected_pages": 1,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "h1_missing",
+    "notes": []
+  },
+  {
+    "id": "onpage-0025",
+    "key": "onpage/h1_missing/websites.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "websites.aspose.app",
+    "template": "page",
+    "dimension": "onpage",
+    "type": "improvable",
+    "title": "Pages have no H1",
+    "evidence": {
+      "urls": [
+        "https://websites.aspose.app/fr/groupdocs/",
+        "https://websites.aspose.app/ru/codeporting/"
+      ],
+      "observed": "2 of 12 sampled pages (by template: generic:/{section} 2/4). e.g. https://websites.aspose.app/fr/groupdocs/: no non-empty <h1>; https://websites.aspose.app/ru/codeporting/: no non-empty <h1>",
+      "expected": "one H1 that states the page topic"
+    },
+    "affected_pages": 16,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": "git-pr",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "h1_missing",
+    "notes": []
+  },
+  {
+    "id": "onpage-0026",
+    "key": "onpage/title_duplicate/about.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "about.aspose.app",
+    "template": "page",
+    "dimension": "onpage",
+    "type": "not_optimized",
+    "title": "Different pages share the same title",
+    "evidence": {
+      "urls": [
+        "https://about.aspose.app/security/",
+        "https://about.aspose.app/legal/security/"
+      ],
+      "observed": "2 of 11 sampled pages (by template: generic:/{section} 1/4, generic:/{section}/* 1/4). e.g. https://about.aspose.app/security/: 'Security - About - aspose.app' also on https://about.aspose.app/legal/security/; https://about.aspose.app/legal/security/: 'Security - About - aspose.app' also on https://about.aspose.app/security/",
+      "expected": "a unique title per page and language"
+    },
+    "affected_pages": 56,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "M",
+    "fix_tier": 1,
+    "fix_channel": "git-pr",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "title_duplicate",
+    "notes": []
+  },
+  {
+    "id": "onpage-0027",
+    "key": "onpage/title_duplicate/releases.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "releases.aspose.app",
+    "template": "page",
+    "dimension": "onpage",
+    "type": "not_optimized",
+    "title": "Different pages share the same title",
+    "evidence": {
+      "urls": [
+        "https://releases.aspose.app/tex/convert-app-net/release-notes/",
+        "https://releases.aspose.app/pdf/pdf-cli/release-notes/"
+      ],
+      "observed": "2 of 11 sampled pages (by template: generic:/{section}/*/* 2/2). e.g. https://releases.aspose.app/tex/convert-app-net/release-notes/: 'Release Notes' also on https://releases.aspose.app/pdf/pdf-cli/release-notes/; https://releases.aspose.app/pdf/pdf-cli/release-notes/: 'Release Notes' also on https://releases.aspose.app/tex/convert-app-net/release-notes/",
+      "expected": "a unique title per page and language"
+    },
+    "affected_pages": 12,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "M",
+    "fix_tier": 1,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "title_duplicate",
+    "notes": []
+  },
+  {
+    "id": "onpage-0028",
+    "key": "onpage/title_duplicate/status.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "status.aspose.app",
+    "template": "page",
+    "dimension": "onpage",
+    "type": "not_optimized",
+    "title": "Different pages share the same title",
+    "evidence": {
+      "urls": [
+        "https://status.aspose.app?start_date=2019-06-24",
+        "https://status.aspose.app/incidents/58",
+        "https://status.aspose.app?start_date=2019-12-03",
+        "https://status.aspose.app/incidents/68",
+        "https://status.aspose.app/"
+      ],
+      "observed": "5 of 6 sampled pages (by template: generic:/ 3/3, generic:/{section}/* 2/2). e.g. https://status.aspose.app?start_date=2019-06-24: 'Status - aspose.app' also on https://status.aspose.app?start_date=2019-12-03, https://status.aspose.app/; https://status.aspose.app/incidents/58: 'I HAVE BEEN FIXED | Status - aspose.app' also on https://status.aspose.app/incidents/68; https://status.aspose.app?start_date=2019-12-03: 'Status - aspose.app' also on https://status.aspose.app?start_date=2019-06-24, https://status.aspose.app/; https://status.aspose.app/incidents/68: 'I HAVE BEEN FIXED | Status - aspose.app' also on https://status.aspose.app/incidents/58; https://status.aspose.app/: 'Status - aspose.app' also on https://status.aspose.app?start_date=2019-06-24, https://status.aspose.app?start_date=2019-12-03",
+      "expected": "a unique title per page and language"
+    },
+    "affected_pages": 149,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "M",
+    "fix_tier": 1,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "title_duplicate",
+    "notes": []
+  },
+  {
+    "id": "onpage-0029",
+    "key": "onpage/title_length/blog.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "blog.aspose.app",
+    "template": "page",
+    "dimension": "onpage",
+    "type": "improvable",
+    "title": "Titles are too long or too short",
+    "evidence": {
+      "urls": [
+        "https://blog.aspose.app/free-online-aspose.words-watermark-app/"
+      ],
+      "observed": "1 of 3 sampled pages (by template: generic:/{section} 1/2). e.g. https://blog.aspose.app/free-online-aspose.words-watermark-app/: width 75: 'Free Online Aspose.Words Watermark App | File Format Apps Blog - aspose.app'",
+      "expected": "10-70 characters (CJK count double)"
+    },
+    "affected_pages": 76,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": "wordpress-api",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "title_length",
+    "notes": []
+  },
+  {
+    "id": "onpage-0030",
+    "key": "onpage/title_length/dashboard.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "dashboard.aspose.app",
+    "template": "page",
+    "dimension": "onpage",
+    "type": "improvable",
+    "title": "Titles are too long or too short",
+    "evidence": {
+      "urls": [
+        "https://dashboard.aspose.app/"
+      ],
+      "observed": "1 of 1 sampled pages (by template: generic:/ 1/1). e.g. https://dashboard.aspose.app/: width 9: 'Dashboard'",
+      "expected": "10-70 characters (CJK count double)"
+    },
+    "affected_pages": 1,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "title_length",
+    "notes": []
+  },
+  {
+    "id": "onpage-0031",
+    "key": "onpage/title_length/metrics.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "metrics.aspose.app",
+    "template": "page",
+    "dimension": "onpage",
+    "type": "improvable",
+    "title": "Titles are too long or too short",
+    "evidence": {
+      "urls": [
+        "https://metrics.aspose.app/",
+        "https://metrics.aspose.app/ru/",
+        "https://metrics.aspose.app/subscriptions/subscription-plan/",
+        "https://metrics.aspose.app/az/",
+        "https://metrics.aspose.app/el/usages/file/"
+      ],
+      "observed": "5 of 15 sampled pages (by template: generic:/ 3/3, generic:/{section}/* 2/4). e.g. https://metrics.aspose.app/: width 129: 'Free Online File Processing Apps for PDF, Word, Excel, PowerPoint, Visio, Project, OneNote'; https://metrics.aspose.app/ru/: width 145: 'Бесплатные онлайн-приложения для обработки файлов в форматах PDF, Word, Excel, PowerPoint,'; https://metrics.aspose.app/subscriptions/subscription-plan/: width 0: ''; https://metrics.aspose.app/az/: width 134: 'PDF, Word, Excel, PowerPoint, Visio, Project, OneNote, OpenOffice, CAD, 3D formatları və s'; https://metrics.aspose.app/el/usages/file/: width 0: ''",
+      "expected": "10-70 characters (CJK count double)"
+    },
+    "affected_pages": 216,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "title_length",
+    "notes": []
+  },
+  {
+    "id": "onpage-0032",
+    "key": "onpage/title_length/status.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "status.aspose.app",
+    "template": "page",
+    "dimension": "onpage",
+    "type": "improvable",
+    "title": "Titles are too long or too short",
+    "evidence": {
+      "urls": [
+        "https://status.aspose.app/dashboard"
+      ],
+      "observed": "1 of 6 sampled pages (by template: generic:/{section} 1/1). e.g. https://status.aspose.app/dashboard: width 103: 'Containerize.IdentityServer - Single sign-on to access all applications and services of As'",
+      "expected": "10-70 characters (CJK count double)"
+    },
+    "affected_pages": 1,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "title_length",
+    "notes": []
+  },
+  {
+    "id": "onpage-0033",
+    "key": "onpage/title_length/www.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "www.aspose.app",
+    "template": "page",
+    "dimension": "onpage",
+    "type": "improvable",
+    "title": "Titles are too long or too short",
+    "evidence": {
+      "urls": [
+        "https://www.aspose.app/",
+        "https://www.aspose.app/da/",
+        "https://www.aspose.app/id/"
+      ],
+      "observed": "3 of 3 sampled pages (by template: home 3/3). e.g. https://www.aspose.app/: width 83: 'File Format Apps for Word Excel PDF PowerPoint Email Barcode Images OCR Note and 3D'; https://www.aspose.app/da/: width 80: 'Filformat-apps til Word Excel PDF PowerPoint Email Barcode Images OCR Note og 3D'; https://www.aspose.app/id/: width 88: 'Format File Apps untuk Word Excel PDF PowerPoint Gambar Barcode Email OCR Catatan dan 3D'",
+      "expected": "10-70 characters (CJK count double)"
+    },
+    "affected_pages": 36,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "title_length",
+    "notes": []
+  },
+  {
     "id": "seed-ai-01",
     "key": "seed/seed-ai-01",
     "source": "seed",
@@ -4020,7 +6273,8 @@
     "verification": {
       "verified": false,
       "how": "web fetch converted to text; raw HTML not checked",
-      "recheck": "intl auditor: parse raw <head> on a sample per family and template"
+      "recheck": "intl auditor: parse raw <head> on a sample per family and template",
+      "audit_note": "Not reproduced (crawl audit 2026-10-08): sampled pdf, barcode and html app pages emit 7-36 hreflang links in raw <head>, incl. x-default (html: no self entry, see intl-0035/intl-0006 keys). The earlier web fetch likely dropped <head>. Re-check other families before closing."
     },
     "superseded_by": null,
     "detected_at": "2026-10-08",
@@ -4057,13 +6311,14 @@
     "effort": "M",
     "fix_tier": 2,
     "fix_channel": "git-pr",
-    "status": "open",
+    "status": "superseded",
     "verification": {
       "verified": true,
       "how": "repo code",
-      "recheck": "intl auditor"
+      "recheck": "intl auditor",
+      "reproduced": "crawl audit run 4 (2026-10-08): /barcode/, /barcode/family/, /html/, /html/family/ emit no hreflang (intl-0034 barcode, intl-0035 html); other families not yet audited"
     },
-    "superseded_by": null,
+    "superseded_by": "intl-0034",
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
     "last_seen_run": "seed-2026-10-08",
@@ -4433,13 +6688,14 @@
     "effort": "S",
     "fix_tier": 1,
     "fix_channel": null,
-    "status": "unverified",
+    "status": "superseded",
     "verification": {
-      "verified": false,
+      "verified": true,
       "how": "web fetch",
-      "recheck": "onpage auditor"
+      "recheck": "onpage auditor",
+      "reproduced": "crawl audit run 4 (2026-10-08): releases homepage and sampled pages have no canonical (crawl-0068) and no meta description (onpage-0017)"
     },
-    "superseded_by": null,
+    "superseded_by": "crawl-0068",
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
     "last_seen_run": "seed-2026-10-08",
@@ -4475,13 +6731,14 @@
     "effort": "S",
     "fix_tier": 1,
     "fix_channel": null,
-    "status": "unverified",
+    "status": "superseded",
     "verification": {
-      "verified": false,
+      "verified": true,
       "how": "web fetch metadata",
-      "recheck": "onpage auditor"
+      "recheck": "onpage auditor",
+      "reproduced": "crawl audit run 4 (2026-10-08): about homepage and sampled pages have no meta description (onpage-0012); websites too (onpage-0018)"
     },
-    "superseded_by": null,
+    "superseded_by": "onpage-0012",
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
     "last_seen_run": "seed-2026-10-08",
@@ -4684,19 +6941,225 @@
     "effort": "S",
     "fix_tier": 1,
     "fix_channel": null,
-    "status": "unverified",
+    "status": "superseded",
     "verification": {
-      "verified": false,
+      "verified": true,
       "how": "meta tags via web fetch",
-      "recheck": "ux auditor: parse meta viewport per template"
+      "recheck": "ux auditor: parse meta viewport per template",
+      "reproduced": "crawl audit run 4 (2026-10-08): user-scalable=no on websites (ux-0005), blog (ux-0002), releases (ux-0003), and also status (ux-0004)"
     },
-    "superseded_by": null,
+    "superseded_by": "ux-0005",
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
     "last_seen_run": "seed-2026-10-08",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
+    "notes": []
+  },
+  {
+    "id": "ux-0001",
+    "key": "ux/viewport_missing/websites.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "websites.aspose.app",
+    "template": "page",
+    "dimension": "ux",
+    "type": "not_optimized",
+    "title": "Pages have no meta viewport",
+    "evidence": {
+      "urls": [
+        "https://websites.aspose.app/en/"
+      ],
+      "observed": "1 of 12 sampled pages (by template: generic:/ 1/4). e.g. https://websites.aspose.app/en/: no meta viewport",
+      "expected": "<meta name=viewport content='width=device-width, initial-scale=1'>"
+    },
+    "affected_pages": 10,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": "git-pr",
+    "status": "resolved",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run2",
+    "resolved_run": "crawl-audit-run3",
+    "resolved_at": "2026-10-08T14:12:09+00:00",
+    "check": "viewport_missing",
+    "notes": []
+  },
+  {
+    "id": "ux-0002",
+    "key": "ux/viewport_no_zoom/blog.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "blog.aspose.app",
+    "template": "page",
+    "dimension": "ux",
+    "type": "not_optimized",
+    "title": "Viewport disables zoom (user-scalable=no or maximum-scale=1)",
+    "evidence": {
+      "urls": [
+        "https://blog.aspose.app/",
+        "https://blog.aspose.app/recent-posts/",
+        "https://blog.aspose.app/free-online-aspose.words-watermark-app/"
+      ],
+      "observed": "3 of 3 sampled pages (by template: generic:/ 1/1, generic:/{section} 2/2). e.g. https://blog.aspose.app/: width=device-width, initial-scale=1.0, user-scalable=no; https://blog.aspose.app/recent-posts/: width=device-width, initial-scale=1.0, user-scalable=no; https://blog.aspose.app/free-online-aspose.words-watermark-app/: width=device-width, initial-scale=1.0, user-scalable=no",
+      "expected": "zoom allowed (WCAG 1.4.4)"
+    },
+    "affected_pages": 153,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": "wordpress-api",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "viewport_no_zoom",
+    "notes": []
+  },
+  {
+    "id": "ux-0003",
+    "key": "ux/viewport_no_zoom/releases.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "releases.aspose.app",
+    "template": "page",
+    "dimension": "ux",
+    "type": "not_optimized",
+    "title": "Viewport disables zoom (user-scalable=no or maximum-scale=1)",
+    "evidence": {
+      "urls": [
+        "https://releases.aspose.app/",
+        "https://releases.aspose.app/pdf/",
+        "https://releases.aspose.app/slides/slides-splitter-app-net/",
+        "https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.3-macos-arm64/",
+        "https://releases.aspose.app/pub/",
+        "https://releases.aspose.app/imaging/image-merge-app-net/",
+        "https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.10-windows/"
+      ],
+      "observed": "7 of 11 sampled pages (by template: generic:/ 1/1, generic:/{section} 2/2, generic:/{section}/* 2/2, generic:/{section}/*/*/* 2/2). e.g. https://releases.aspose.app/: width=device-width,initial-scale=1,user-scalable=no; https://releases.aspose.app/pdf/: width=device-width,initial-scale=1,user-scalable=no; https://releases.aspose.app/slides/slides-splitter-app-net/: width=device-width,initial-scale=1,user-scalable=no; https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.3-macos-arm64/: width=device-width,initial-scale=1,user-scalable=no; https://releases.aspose.app/pub/: width=device-width,initial-scale=1,user-scalable=no",
+      "expected": "zoom allowed (WCAG 1.4.4)"
+    },
+    "affected_pages": 180,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "viewport_no_zoom",
+    "notes": []
+  },
+  {
+    "id": "ux-0004",
+    "key": "ux/viewport_no_zoom/status.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "status.aspose.app",
+    "template": "page",
+    "dimension": "ux",
+    "type": "not_optimized",
+    "title": "Viewport disables zoom (user-scalable=no or maximum-scale=1)",
+    "evidence": {
+      "urls": [
+        "https://status.aspose.app?start_date=2019-06-24",
+        "https://status.aspose.app/incidents/58",
+        "https://status.aspose.app?start_date=2019-12-03",
+        "https://status.aspose.app/incidents/68",
+        "https://status.aspose.app/"
+      ],
+      "observed": "5 of 6 sampled pages (by template: generic:/ 3/3, generic:/{section}/* 2/2). e.g. https://status.aspose.app?start_date=2019-06-24: width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0; https://status.aspose.app/incidents/58: width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0; https://status.aspose.app?start_date=2019-12-03: width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0; https://status.aspose.app/incidents/68: width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0; https://status.aspose.app/: width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0",
+      "expected": "zoom allowed (WCAG 1.4.4)"
+    },
+    "affected_pages": 149,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "viewport_no_zoom",
+    "notes": []
+  },
+  {
+    "id": "ux-0005",
+    "key": "ux/viewport_no_zoom/websites.aspose.app/page",
+    "source": "crawl-audit",
+    "tenant": "aspose.app",
+    "subdomain": "websites.aspose.app",
+    "template": "page",
+    "dimension": "ux",
+    "type": "not_optimized",
+    "title": "Viewport disables zoom (user-scalable=no or maximum-scale=1)",
+    "evidence": {
+      "urls": [
+        "https://websites.aspose.app/groupdocs/ai/",
+        "https://websites.aspose.app/",
+        "https://websites.aspose.app/fileformat/app/",
+        "https://websites.aspose.app/ko/",
+        "https://websites.aspose.app/fr/groupdocs/",
+        "https://websites.aspose.app/el/aspose/com/",
+        "https://websites.aspose.app/nl/",
+        "https://websites.aspose.app/ru/codeporting/",
+        "https://websites.aspose.app/es/conholdate/cloud/"
+      ],
+      "observed": "9 of 12 sampled pages (by template: generic:/ 3/4, generic:/{section} 2/4, generic:/{section}/* 4/4). e.g. https://websites.aspose.app/groupdocs/ai/: width=device-width,initial-scale=1,user-scalable=no; https://websites.aspose.app/: width=device-width,initial-scale=1,user-scalable=no; https://websites.aspose.app/fileformat/app/: width=device-width,initial-scale=1,user-scalable=no; https://websites.aspose.app/ko/: width=device-width,initial-scale=1,user-scalable=no; https://websites.aspose.app/fr/groupdocs/: width=device-width,initial-scale=1,user-scalable=no",
+      "expected": "zoom allowed (WCAG 1.4.4)"
+    },
+    "affected_pages": 140,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 0,
+      "score": 0
+    },
+    "effort": "S",
+    "fix_tier": 1,
+    "fix_channel": "git-pr",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-08",
+    "first_seen_run": "crawl-audit-run2",
+    "last_seen_run": "crawl-audit-run4",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "viewport_no_zoom",
     "notes": []
   }
 ]
