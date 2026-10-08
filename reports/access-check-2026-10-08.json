@@ -1,0 +1,476 @@
+{
+  "tenant": "aspose.app",
+  "run_date": "2026-10-08",
+  "identity": "sk-service-acc@aspose-app-health-and-recovery.iam.gserviceaccount.com",
+  "gsc": {
+    "window": [
+      "2026-09-08",
+      "2026-10-05"
+    ],
+    "properties": {
+      "https://products.aspose.app/": {
+        "permission": "siteRestrictedUser",
+        "clicks": 1629131,
+        "impressions": 23994949,
+        "top_pages": [
+          {
+            "page": "https://products.aspose.app/barcode/fa/recognize/qr",
+            "clicks": 49469,
+            "impressions": 166788
+          },
+          {
+            "page": "https://products.aspose.app/barcode/ar/recognize",
+            "clicks": 48966,
+            "impressions": 294171
+          },
+          {
+            "page": "https://products.aspose.app/barcode/ru/recognize/qr",
+            "clicks": 36399,
+            "impressions": 280262
+          },
+          {
+            "page": "https://products.aspose.app/barcode/fa/scan",
+            "clicks": 32730,
+            "impressions": 144077
+          },
+          {
+            "page": "https://products.aspose.app/pdf/merger/jpg-to-jpg",
+            "clicks": 30675,
+            "impressions": 692110
+          }
+        ],
+        "sitemaps": {
+          "count": 38,
+          "with_errors": [
+            {
+              "path": "https://products.aspose.app/gis/sitemaps/sitemap.xml",
+              "errors": "1",
+              "warnings": "4"
+            },
+            {
+              "path": "https://products.aspose.app/omr/sitemap-percentage.xml",
+              "errors": "1",
+              "warnings": "12"
+            },
+            {
+              "path": "https://products.aspose.app/omr/sitemap.xml",
+              "errors": "1",
+              "warnings": "2"
+            },
+            {
+              "path": "https://products.aspose.app/video-app/sitemap.xml",
+              "errors": "1",
+              "warnings": "0"
+            },
+            {
+              "path": "https://products.aspose.app/drawing/sitemap.xml",
+              "errors": "1",
+              "warnings": "6"
+            },
+            {
+              "path": "https://products.aspose.app/sitemap.xml",
+              "errors": "1",
+              "warnings": "3"
+            }
+          ],
+          "pending": []
+        }
+      },
+      "https://about.aspose.app/": {
+        "permission": "siteRestrictedUser",
+        "clicks": 15,
+        "impressions": 2306,
+        "top_pages": [
+          {
+            "page": "https://about.aspose.app/",
+            "clicks": 4,
+            "impressions": 1174
+          },
+          {
+            "page": "https://about.aspose.app/legal/file-retention-policy/",
+            "clicks": 2,
+            "impressions": 59
+          },
+          {
+            "page": "https://about.aspose.app/legal/tos/",
+            "clicks": 2,
+            "impressions": 142
+          },
+          {
+            "page": "https://about.aspose.app/ar/legal/file-retention-policy/",
+            "clicks": 1,
+            "impressions": 1
+          },
+          {
+            "page": "https://about.aspose.app/contact/",
+            "clicks": 1,
+            "impressions": 149
+          }
+        ],
+        "sitemaps": {
+          "count": 0,
+          "with_errors": [],
+          "pending": []
+        }
+      },
+      "https://blog.aspose.app/": {
+        "permission": "siteRestrictedUser",
+        "clicks": 154,
+        "impressions": 57088,
+        "top_pages": [
+          {
+            "page": "https://blog.aspose.app/3-steps-create-invitations-in-powerpoint/",
+            "clicks": 18,
+            "impressions": 1440
+          },
+          {
+            "page": "https://blog.aspose.app/6-steps-to-create-a-business-card/",
+            "clicks": 13,
+            "impressions": 3227
+          },
+          {
+            "page": "https://blog.aspose.app/add-animated-gif-to-powerpoint/",
+            "clicks": 12,
+            "impressions": 2444
+          },
+          {
+            "page": "https://blog.aspose.app/merge-multiple-jpeg-images-into-single-image/",
+            "clicks": 12,
+            "impressions": 2674
+          },
+          {
+            "page": "https://blog.aspose.app/font-embedding-in-keynote/",
+            "clicks": 10,
+            "impressions": 2491
+          }
+        ],
+        "sitemaps": {
+          "count": 1,
+          "with_errors": [],
+          "pending": []
+        }
+      },
+      "https://releases.aspose.app/": {
+        "permission": "siteRestrictedUser",
+        "clicks": 6,
+        "impressions": 570,
+        "top_pages": [
+          {
+            "page": "https://releases.aspose.app/zip/",
+            "clicks": 3,
+            "impressions": 143
+          },
+          {
+            "page": "https://releases.aspose.app/pdf/pdf-cli/",
+            "clicks": 2,
+            "impressions": 55
+          },
+          {
+            "page": "https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.10-windows/",
+            "clicks": 1,
+            "impressions": 7
+          },
+          {
+            "page": "https://releases.aspose.app/",
+            "clicks": 0,
+            "impressions": 25
+          },
+          {
+            "page": "https://releases.aspose.app/barcode/",
+            "clicks": 0,
+            "impressions": 1
+          }
+        ],
+        "sitemaps": {
+          "count": 0,
+          "with_errors": [],
+          "pending": []
+        }
+      },
+      "https://websites.aspose.app/": {
+        "permission": "siteRestrictedUser",
+        "clicks": 2,
+        "impressions": 729,
+        "top_pages": [
+          {
+            "page": "https://websites.aspose.app/",
+            "clicks": 2,
+            "impressions": 228
+          },
+          {
+            "page": "https://websites.aspose.app/aspose/ai/",
+            "clicks": 0,
+            "impressions": 25
+          },
+          {
+            "page": "https://websites.aspose.app/aspose/app/",
+            "clicks": 0,
+            "impressions": 27
+          },
+          {
+            "page": "https://websites.aspose.app/aspose/com/",
+            "clicks": 0,
+            "impressions": 28
+          },
+          {
+            "page": "https://websites.aspose.app/aspose/dev/",
+            "clicks": 0,
+            "impressions": 2
+          }
+        ],
+        "sitemaps": {
+          "count": 1,
+          "with_errors": [],
+          "pending": []
+        }
+      }
+    },
+    "ok": true,
+    "visible_to_identity": {
+      "https://websites.aspose.app/": "siteRestrictedUser",
+      "https://about.aspose.app/": "siteRestrictedUser",
+      "https://blog.aspose.app/": "siteRestrictedUser",
+      "https://products.aspose.app/": "siteRestrictedUser",
+      "https://releases.aspose.app/": "siteRestrictedUser"
+    }
+  },
+  "ga4": {
+    "ok": true,
+    "property_id": "253117495",
+    "window": [
+      "28daysAgo",
+      "yesterday"
+    ],
+    "hosts": {
+      "products.aspose.app": {
+        "sessions": 2712015.0,
+        "organic_sessions": 1769580.0
+      },
+      "": {
+        "sessions": 241398.0,
+        "organic_sessions": 204923.0
+      },
+      "politesardine.info": {
+        "sessions": 19893.0,
+        "organic_sessions": 1.0
+      },
+      "products-qa.aspose.app": {
+        "sessions": 15555.0,
+        "organic_sessions": 0.0
+      },
+      "api.products.aspose.app": {
+        "sessions": 14998.0,
+        "organic_sessions": 80.0
+      },
+      "purchase.aspose.app": {
+        "sessions": 9447.0,
+        "organic_sessions": 7616.0
+      },
+      "www.aspose.app": {
+        "sessions": 8707.0,
+        "organic_sessions": 4366.0
+      },
+      "forum.aspose.app": {
+        "sessions": 7545.0,
+        "organic_sessions": 387.0
+      },
+      "dashboard.aspose.app": {
+        "sessions": 5152.0,
+        "organic_sessions": 3670.0
+      },
+      "about.aspose.app": {
+        "sessions": 3917.0,
+        "organic_sessions": 2263.0
+      },
+      "blog.aspose.app": {
+        "sessions": 2061.0,
+        "organic_sessions": 443.0
+      },
+      "websites.aspose.app": {
+        "sessions": 1286.0,
+        "organic_sessions": 594.0
+      },
+      "metrics.aspose.app": {
+        "sessions": 407.0,
+        "organic_sessions": 51.0
+      },
+      "sparklingcattle.com": {
+        "sessions": 366.0,
+        "organic_sessions": 2.0
+      },
+      "products-aspose-app.translate.goog": {
+        "sessions": 329.0,
+        "organic_sessions": 240.0
+      },
+      "releases.aspose.app": {
+        "sessions": 279.0,
+        "organic_sessions": 12.0
+      },
+      "about.aspose.org": {
+        "sessions": 141.0,
+        "organic_sessions": 4.0
+      },
+      "status.aspose.app": {
+        "sessions": 95.0,
+        "organic_sessions": 36.0
+      },
+      "aspose.test": {
+        "sessions": 94.0,
+        "organic_sessions": 0.0
+      },
+      "slides-qa-ui-app.new.qa.k8s.dynabic.com": {
+        "sessions": 86.0,
+        "organic_sessions": 0.0
+      },
+      "products-aspose-app.b-cdn.net": {
+        "sessions": 66.0,
+        "organic_sessions": 4.0
+      },
+      "products.aspose.ai": {
+        "sessions": 46.0,
+        "organic_sessions": 3.0
+      },
+      "blog-qa.aspose.app": {
+        "sessions": 42.0,
+        "organic_sessions": 0.0
+      },
+      "likecomma.com": {
+        "sessions": 38.0,
+        "organic_sessions": 0.0
+      },
+      "purchase.fileformat.ai": {
+        "sessions": 27.0,
+        "organic_sessions": 0.0
+      },
+      "motivatedlift.com": {
+        "sessions": 16.0,
+        "organic_sessions": 0.0
+      },
+      "www-aspose-app.b-cdn.net": {
+        "sessions": 16.0,
+        "organic_sessions": 1.0
+      },
+      "api.allorigins.win": {
+        "sessions": 14.0,
+        "organic_sessions": 0.0
+      },
+      "blog-aspose-app.translate.goog": {
+        "sessions": 8.0,
+        "organic_sessions": 8.0
+      },
+      "localhost": {
+        "sessions": 8.0,
+        "organic_sessions": 0.0
+      },
+      "lilacrestoration.com": {
+        "sessions": 4.0,
+        "organic_sessions": 0.0
+      },
+      "aspose.app": {
+        "sessions": 3.0,
+        "organic_sessions": 0.0
+      },
+      "metrics-aspose-app.b-cdn.net": {
+        "sessions": 3.0,
+        "organic_sessions": 3.0
+      },
+      "translate.google.com": {
+        "sessions": 3.0,
+        "organic_sessions": 0.0
+      },
+      "www-aspose-app.translate.goog": {
+        "sessions": 3.0,
+        "organic_sessions": 2.0
+      },
+      "about-aspose-app.b-cdn.net": {
+        "sessions": 2.0,
+        "organic_sessions": 2.0
+      },
+      "acesso.kissmyscore.com": {
+        "sessions": 2.0,
+        "organic_sessions": 0.0
+      },
+      "nl.hideproxy.me": {
+        "sessions": 2.0,
+        "organic_sessions": 0.0
+      },
+      "products-aspose-app.s3-website.dynabic.com": {
+        "sessions": 2.0,
+        "organic_sessions": 0.0
+      },
+      "eu17.proxysite.com": {
+        "sessions": 2.0,
+        "organic_sessions": 0.0
+      },
+      "us3.my-proxy.com": {
+        "sessions": 2.0,
+        "organic_sessions": 0.0
+      },
+      "23.134.76.53": {
+        "sessions": 1.0,
+        "organic_sessions": 0.0
+      },
+      "api.aspose.ai": {
+        "sessions": 1.0,
+        "organic_sessions": 0.0
+      },
+      "barcode-generate-app.new.k8s.dynabic.com": {
+        "sessions": 1.0,
+        "organic_sessions": 0.0
+      },
+      "codebeautify.org": {
+        "sessions": 1.0,
+        "organic_sessions": 0.0
+      },
+      "de.hideproxy.me": {
+        "sessions": 1.0,
+        "organic_sessions": 0.0
+      },
+      "eu12.proxysite.com": {
+        "sessions": 1.0,
+        "organic_sessions": 0.0
+      },
+      "eu19.proxysite.com": {
+        "sessions": 1.0,
+        "organic_sessions": 0.0
+      },
+      "eu20.proxysite.com": {
+        "sessions": 1.0,
+        "organic_sessions": 0.0
+      },
+      "metrics-aspose-app.translate.goog": {
+        "sessions": 1.0,
+        "organic_sessions": 0.0
+      },
+      "us1.proxysite.com": {
+        "sessions": 1.0,
+        "organic_sessions": 0.0
+      },
+      "us11.proxysite.com": {
+        "sessions": 1.0,
+        "organic_sessions": 0.0
+      },
+      "us14.proxysite.com": {
+        "sessions": 1.0,
+        "organic_sessions": 0.0
+      },
+      "us4.proxysite.com": {
+        "sessions": 1.0,
+        "organic_sessions": 0.0
+      },
+      "usproxy.vpnbook.com": {
+        "sessions": 1.0,
+        "organic_sessions": 0.0
+      },
+      "websites-aspose-app.translate.goog": {
+        "sessions": 1.0,
+        "organic_sessions": 0.0
+      }
+    },
+    "tenant_hosts_not_seen": [],
+    "excluded_hosts_seen": [
+      "blog-qa.aspose.app",
+      "products-qa.aspose.app"
+    ]
+  }
+}

@@ -29,7 +29,7 @@ from core.discovery.run import discover, import_report  # noqa: E402
 from core.discovery.store import InventoryStore  # noqa: E402
 from core.findings import FindingsStore  # noqa: E402
 from core.tenant import load_tenant  # noqa: E402
-from scripts.findings import DEFAULT_STORE, import_seed, print_changes  # noqa: E402
+from scripts.findings import DEFAULT_STORE, export, import_seed, print_changes  # noqa: E402
 
 
 def _csv(value: str | None) -> list[str] | None:
@@ -114,6 +114,7 @@ def main(argv: list[str] | None = None) -> int:
         import_seed(fstore, tenant.property)
         print(f"\nFindings store: {args.findings_store}")
         print_changes(import_report(fstore, report))
+        print(f"Findings export: {export(fstore)}")
     return 0
 
 

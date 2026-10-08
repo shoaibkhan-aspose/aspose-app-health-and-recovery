@@ -36,7 +36,7 @@ api/          REST, thin wrapper over core (dashboard, CI), later
 agents/       LLM agents; they call MCP tools only
 tenants/      one YAML per property (aspose.app.yaml)
 scripts/      one-off CLIs (e.g. check_access.py)
-reports/      generated (gitignored) health reports
+reports/      generated reports, committed (run JSON, report HTML, notes, findings.json)
 ```
 
 - **Deterministic checks are code, not LLM calls.** Status codes, redirects, canonicals, hreflang, schema validation and Core Web Vitals must be reproducible and cheap.
@@ -68,7 +68,8 @@ Everything runs on SK's Mac (macOS) from VS Code / Claude Code, which has normal
 - Parent folder `/Users/Apple/Work/Aspose/GitHub/aspose.app-health-and-recovery` also has empty `docs/` and `ClaudeChat/`.
 - products.aspose.app source (read-only): `/Users/Apple/Work/Aspose/GitHub/aspose-app/products.aspose.app`.
 - **Standalone project (SK, 2026-10-08):** do not integrate with `conholdate/blog-team-tools` or its dashboard for now. Everything, including reports and any UI, is built here.
-- **Sharing reports:** `scripts/build_report.py` renders a self-contained HTML page from a run JSON; it is published as a private claude.ai Artifact (free, link shared at SK's discretion). Not on public hosting: the report lists site weaknesses.
+- **Sharing reports:** `scripts/build_report.py` renders a self-contained HTML page from a run JSON; it is published as a private claude.ai Artifact (free, link shared at SK's discretion). Not on public hosting: the report lists site weaknesses. The git repo is private and internal, so `reports/` is committed.
+- **Claude Code MCP approval:** `gsc` is pre-approved in the workspace folder's `.claude/settings.local.json` (`enabledMcpjsonServers`), personal and outside git.
 
 ## Status (2026-10-08)
 
@@ -94,7 +95,7 @@ Done:
   - Sample run (www + products pdf/words/omr, 80 sitemaps, ~80 s) confirmed: products robots.txt 404; root `/sitemap.xml` and both omr sitemaps 404 live (GSC: Couldn't fetch); www robots.txt has no `Sitemap:` line, www sitemaps have no lastmod; pdf language sitemaps have no hreflang; words sitemaps have full hreflang (40 langs, 19,320 URLs = GSC count) but **33 of 36 words sitemaps (14,880 URLs) carry the same lastmod 2024-02-13** (new).
 
 - **Seed findings documented (2026-10-08):** `tenants/aspose.app.seed-findings.yaml` (29 manual findings, 11 verified, 1 note) + `tests/test_seed_findings.py`. See section Seed findings. Reviewed by Claude Code the same day: crawl-02 and intl-04 verified from discovery data; crawl-03 and content-03 half-confirmed (sitemap side); intl-05 rewritten (websites sitemaps have 38 uneven languages, not 6); fix channels aligned to `FIX_CHANNELS`; seed-crawl-01 turned into a note on the discovery robots finding.
-- **Findings store built (2026-10-08):** `FindingsStore` in `core/findings.py` (`data/findings.sqlite`, gitignored). Stable key per finding (`<dimension>/<check>/<subdomain>/<template>` for code findings, `seed/<id>` for seeds) → one permanent id (`crawl-0001`, seeds keep `seed-…`). Tracks first/last seen run, resolves findings a later run no longer reports (only within that run's hosts/sections; a run stopped by `--max-sitemaps` resolves nothing), reopens them if they return, keeps an event log (new/resolved/reopened per run), attaches seed `notes` to findings by key. `discover.py` imports the seed file and its run automatically; `scripts/findings.py` (`import-seed`, `import-discovery`, `list`, `summary`); `build_report.py` reads findings from the store (source filter, unverified and new tags, notes, resolved list). Discovery findings now carry a `check` name. 27 offline tests pass.
+- **Findings store built (2026-10-08):** `FindingsStore` in `core/findings.py` (`data/findings.sqlite`, gitignored). Stable key per finding (`<dimension>/<check>/<subdomain>/<template>` for code findings, `seed/<id>` for seeds) → one permanent id (`crawl-0001`, seeds keep `seed-…`). Tracks first/last seen run, resolves findings a later run no longer reports (only within that run's hosts/sections; a run stopped by `--max-sitemaps` resolves nothing), reopens them if they return, keeps an event log (new/resolved/reopened per run), attaches seed `notes` to findings by key. `discover.py` imports the seed file and its run automatically; `scripts/findings.py` (`import-seed`, `import-discovery`, `list`, `summary`, `export` → `reports/findings.json`, also written by every `discover.py` run); `build_report.py` reads findings from the store (source filter, unverified and new tags, notes, resolved list). Discovery findings now carry a `check` name. 27 offline tests pass.
 
 Not done yet:
 - GSC properties for www and forum (none exist or none shared; the service account sees only the 5 URL-prefix properties).
@@ -121,7 +122,7 @@ Conventions:
 - Errors in reports are short and secret-free (`_err()` pattern). Never print or store key material or tokens.
 - `core/` must not contain the string "aspose" (a test enforces this).
 - New dependencies go in `pyproject.toml` under the right extra.
-- Generated files go to `reports/` (gitignored) or `data/` (gitignored, for SQLite).
+- Generated files go to `reports/` (**committed**: the repo is private and internal, SK 2026-10-08) or `data/` (gitignored: `inventory.sqlite` is ~750 MB and rebuilt by `discover.py`; `findings.sqlite` is exported to `reports/findings.json`). Never put key material in reports.
 
 ## Multi-tenant rule
 
@@ -241,7 +242,7 @@ Every finding needs evidence a human can re-check. No finding without a URL and 
 - **Duplicates across sitemaps:** small (diagram 267 via `sitemap_update.xml`, websites folders, www 35, forum 22).
 - **Hosts to ask SK about:** metrics.aspose.app exposes 3,780 usage/subscription pages in 36 languages via sitemap; status.aspose.app lists 150 incident/date-query URLs (`?start_date=`). Should these be indexed at all?
 - **Soft 404 (products):** `/email/sitemap.xml` redirects to `/email/error?code=404`, which returns HTTP 200. Check app error pages for soft 404s in the crawl audit.
-- **Run 6 (after fixes):** slides recovered via corrected child URLs (24,752); products 747,694 URLs, total ~794k; 89 findings. Report page built by `scripts/build_report.py` (template `scripts/templates/discovery_report.html`), takeaways in `reports/discovery-notes.txt` (gitignored).
+- **Run 6 (after fixes):** slides recovered via corrected child URLs (24,752); products 747,694 URLs, total ~794k; 89 findings. Report page built by `scripts/build_report.py` (template `scripts/templates/discovery_report.html`), takeaways in `reports/discovery-notes.txt`.
 - Discovery fixes after run 3: double-slash child check (fetches the corrected URL too); parse/redirect/empty checks only on real sitemaps (robots, GSC, child), not on guessed URLs; duplicate findings grouped per host unless the host has sections.
 
 ## Seed findings (manual review, 2026-10-07..08)

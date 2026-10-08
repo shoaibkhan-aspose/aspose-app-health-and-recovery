@@ -1,0 +1,1494 @@
+{
+  "tenant": "aspose.app",
+  "run_id": 1,
+  "hosts": {
+    "www.aspose.app": {
+      "robots": {
+        "status": 200,
+        "error": null,
+        "is_html": false,
+        "sitemaps": [],
+        "disallow_rules": 0,
+        "ai_bots_named": []
+      },
+      "sitemaps_fetched": 37,
+      "sitemaps_ok": 37,
+      "sitemaps_failed": [],
+      "urls": 36
+    },
+    "products.aspose.app": {
+      "robots": {
+        "status": 404,
+        "error": null,
+        "is_html": false,
+        "sitemaps": [],
+        "disallow_rules": 0,
+        "ai_bots_named": []
+      },
+      "sitemaps_fetched": 43,
+      "sitemaps_ok": 40,
+      "sitemaps_failed": [
+        "https://products.aspose.app/sitemap.xml",
+        "https://products.aspose.app/omr/sitemap.xml",
+        "https://products.aspose.app/omr/sitemap-percentage.xml"
+      ],
+      "urls": 19679
+    }
+  },
+  "sections": {
+    "products.aspose.app": {
+      "pdf": {
+        "urls": 359,
+        "hreflang_urls": 0,
+        "langs": {
+          "ar": 191,
+          "bg": 168
+        },
+        "templates": {
+          "conversion-format": 24,
+          "conversion-pair": 195,
+          "tool": 60,
+          "tool-pair": 11,
+          "tool-variant": 69
+        }
+      },
+      "words": {
+        "urls": 19320,
+        "hreflang_urls": 19320,
+        "langs": {
+          "default": 483,
+          "ar": 483,
+          "bg": 483,
+          "cs": 483,
+          "da": 483,
+          "de": 483,
+          "el": 483,
+          "es": 483,
+          "et": 483,
+          "fa": 483,
+          "fi": 483,
+          "fr": 483,
+          "he": 483,
+          "hi": 483,
+          "hr": 483,
+          "hu": 483,
+          "hy": 483,
+          "id": 483,
+          "it": 483,
+          "ja": 483,
+          "jv": 483,
+          "ka": 483,
+          "ko": 483,
+          "lt": 483,
+          "lv": 483,
+          "ms": 483,
+          "nl": 483,
+          "pl": 483,
+          "pt": 483,
+          "ro": 483,
+          "ru": 483,
+          "sk": 483,
+          "sl": 483,
+          "sv": 483,
+          "th": 483,
+          "tr": 483,
+          "uk": 483,
+          "vi": 483,
+          "zh": 483,
+          "zh-hant": 483
+        },
+        "templates": {
+          "conversion-pair": 8200,
+          "family-hub": 40,
+          "family-subhub": 40,
+          "tool": 1360,
+          "tool-pair": 3320,
+          "tool-variant": 6360
+        }
+      }
+    },
+    "www.aspose.app": {
+      "": {
+        "urls": 36,
+        "hreflang_urls": 1,
+        "langs": {
+          "default": 1,
+          "ar": 1,
+          "az": 1,
+          "bg": 1,
+          "bn": 1,
+          "cs": 1,
+          "da": 1,
+          "de": 1,
+          "el": 1,
+          "es": 1,
+          "fa": 1,
+          "fi": 1,
+          "fr": 1,
+          "ga": 1,
+          "he": 1,
+          "hi": 1,
+          "hu": 1,
+          "id": 1,
+          "it": 1,
+          "ja": 1,
+          "ko": 1,
+          "lt": 1,
+          "lv": 1,
+          "ms": 1,
+          "nl": 1,
+          "no": 1,
+          "pl": 1,
+          "pt": 1,
+          "ro": 1,
+          "ru": 1,
+          "sv": 1,
+          "th": 1,
+          "tr": 1,
+          "uk": 1,
+          "vi": 1,
+          "zh": 1
+        },
+        "templates": {
+          "home": 36
+        }
+      }
+    }
+  },
+  "gsc_comparison": [
+    {
+      "path": "/pdf/sitemap.xml",
+      "gsc_status": "Success",
+      "gsc_discovered": 9836,
+      "live_status": 200,
+      "live_kind": "index",
+      "live_urls": 359
+    },
+    {
+      "path": "/words/sitemap.xml",
+      "gsc_status": "Success",
+      "gsc_discovered": 19320,
+      "live_status": 200,
+      "live_kind": "index",
+      "live_urls": 19320
+    },
+    {
+      "path": "/omr/sitemap-percentage.xml",
+      "gsc_status": "Couldn't fetch",
+      "gsc_discovered": 49800,
+      "live_status": 404,
+      "live_kind": null,
+      "live_urls": 0
+    },
+    {
+      "path": "/omr/sitemap.xml",
+      "gsc_status": "Couldn't fetch",
+      "gsc_discovered": 544,
+      "live_status": 404,
+      "live_kind": null,
+      "live_urls": 0
+    },
+    {
+      "path": "/sitemap.xml",
+      "gsc_status": "Couldn't fetch",
+      "gsc_discovered": 61,
+      "live_status": 404,
+      "live_kind": null,
+      "live_urls": 0
+    }
+  ],
+  "new_hosts": {},
+  "sitemaps_fetched": 80,
+  "requests": 82,
+  "duration_s": 80.4,
+  "not_fetched": [
+    "https://products.aspose.app/pdf/sitemaps/pdf.cs.xml",
+    "https://products.aspose.app/pdf/sitemaps/pdf.de.xml",
+    "https://products.aspose.app/pdf/sitemaps/pdf.el.xml",
+    "https://products.aspose.app/pdf/sitemaps/pdf.en.xml",
+    "https://products.aspose.app/pdf/sitemaps/pdf.es.xml",
+    "https://products.aspose.app/pdf/sitemaps/pdf.fa.xml",
+    "https://products.aspose.app/pdf/sitemaps/pdf.fr.xml",
+    "https://products.aspose.app/pdf/sitemaps/pdf.he.xml",
+    "https://products.aspose.app/pdf/sitemaps/pdf.hu.xml",
+    "https://products.aspose.app/pdf/sitemaps/pdf.id.xml",
+    "https://products.aspose.app/pdf/sitemaps/pdf.it.xml",
+    "https://products.aspose.app/pdf/sitemaps/pdf.ja.xml",
+    "https://products.aspose.app/pdf/sitemaps/pdf.ko.xml",
+    "https://products.aspose.app/pdf/sitemaps/pdf.lt.xml",
+    "https://products.aspose.app/pdf/sitemaps/pdf.nl.xml",
+    "https://products.aspose.app/pdf/sitemaps/pdf.pl.xml",
+    "https://products.aspose.app/pdf/sitemaps/pdf.pt.xml",
+    "https://products.aspose.app/pdf/sitemaps/pdf.ro.xml",
+    "https://products.aspose.app/pdf/sitemaps/pdf.ru.xml",
+    "https://products.aspose.app/pdf/sitemaps/pdf.sr.xml",
+    "https://products.aspose.app/pdf/sitemaps/pdf.sv.xml",
+    "https://products.aspose.app/pdf/sitemaps/pdf.th.xml",
+    "https://products.aspose.app/pdf/sitemaps/pdf.tr.xml",
+    "https://products.aspose.app/pdf/sitemaps/pdf.uk.xml",
+    "https://products.aspose.app/pdf/sitemaps/pdf.vi.xml",
+    "https://products.aspose.app/pdf/sitemaps/pdf.zh.xml",
+    "https://products.aspose.app/pdf/sitemaps/pdf.zh-hant.xml",
+    "https://products.aspose.app/pdf/sitemaps/llms.xml"
+  ],
+  "findings": [
+    {
+      "id": "crawl-0001",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "robots.txt",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "robots.txt has no Sitemap: line",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/robots.txt"
+        ],
+        "observed": "no Sitemap: directive",
+        "expected": "Sitemap: line(s) pointing to the host's sitemap(s)"
+      },
+      "affected_pages": 0,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 3,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0002",
+      "tenant": "aspose.app",
+      "subdomain": "products.aspose.app",
+      "template": "robots.txt",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "No robots.txt on this host",
+      "evidence": {
+        "urls": [
+          "https://products.aspose.app/robots.txt"
+        ],
+        "observed": "HTTP 404",
+        "expected": "robots.txt with a Sitemap: line"
+      },
+      "affected_pages": 0,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 3,
+      "fix_channel": "git-pr",
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0003",
+      "tenant": "aspose.app",
+      "subdomain": "products.aspose.app",
+      "template": "sitemap",
+      "dimension": "crawl",
+      "type": "broken",
+      "title": "Sitemap cannot be fetched",
+      "evidence": {
+        "urls": [
+          "https://products.aspose.app/sitemap.xml"
+        ],
+        "observed": "https://products.aspose.app/sitemap.xml: HTTP 404 (GSC: Couldn't fetch, last read 2026-06-14)",
+        "expected": "HTTP 200 with a sitemap"
+      },
+      "affected_pages": 0,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": "git-pr",
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0004",
+      "tenant": "aspose.app",
+      "subdomain": "products.aspose.app",
+      "template": "sitemap:omr",
+      "dimension": "crawl",
+      "type": "broken",
+      "title": "Sitemap cannot be fetched (omr)",
+      "evidence": {
+        "urls": [
+          "https://products.aspose.app/omr/sitemap.xml",
+          "https://products.aspose.app/omr/sitemap-percentage.xml"
+        ],
+        "observed": "https://products.aspose.app/omr/sitemap.xml: HTTP 404 (GSC: Couldn't fetch, last read 2025-05-30); https://products.aspose.app/omr/sitemap-percentage.xml: HTTP 404 (GSC: Couldn't fetch, last read 2025-06-05)",
+        "expected": "HTTP 200 with a sitemap"
+      },
+      "affected_pages": 0,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": "git-pr",
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0005",
+      "tenant": "aspose.app",
+      "subdomain": "products.aspose.app",
+      "template": "sitemap:words",
+      "dimension": "crawl",
+      "type": "not_optimized",
+      "title": "All lastmod dates are identical (bulk-stamped) (words)",
+      "evidence": {
+        "urls": [
+          "https://products.aspose.app/words/common/conversion1.xml.gz",
+          "https://products.aspose.app/words/common/merger.xml.gz",
+          "https://products.aspose.app/words/common/editor.xml.gz",
+          "https://products.aspose.app/words/common/viewer.xml.gz",
+          "https://products.aspose.app/words/common/splitter.xml.gz",
+          "https://products.aspose.app/words/common/compress.xml.gz",
+          "https://products.aspose.app/words/common/comparison.xml.gz",
+          "https://products.aspose.app/words/common/picresize.xml.gz",
+          "https://products.aspose.app/words/common/crop.xml.gz",
+          "https://products.aspose.app/words/common/rotate.xml.gz"
+        ],
+        "observed": "https://products.aspose.app/words/common/conversion1.xml.gz: all 4,120 = 2024-02-13; https://products.aspose.app/words/common/merger.xml.gz: all 3,760 = 2024-02-13; https://products.aspose.app/words/common/editor.xml.gz: all 400 = 2024-02-13; https://products.aspose.app/words/common/viewer.xml.gz: all 520 = 2024-02-13; https://products.aspose.app/words/common/splitter.xml.gz: all 600 = 2024-02-13; and 24 more sitemaps",
+        "expected": "lastmod = the date each page last changed"
+      },
+      "affected_pages": 14840,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": "git-pr",
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0006",
+      "tenant": "aspose.app",
+      "subdomain": "products.aspose.app",
+      "template": "sitemap:pdf",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (pdf)",
+      "evidence": {
+        "urls": [
+          "https://products.aspose.app/pdf/sitemap.xml"
+        ],
+        "observed": "https://products.aspose.app/pdf/sitemap.xml: 0 of 30 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 0,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": "git-pr",
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0007",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/sitemap.xml: 0 of 36 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 0,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0008",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:ar",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (ar)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/ar/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/ar/sitemap.xml: 0 of 1 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 1,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0009",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:az",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (az)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/az/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/az/sitemap.xml: 0 of 1 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 1,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0010",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:bg",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (bg)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/bg/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/bg/sitemap.xml: 0 of 1 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 1,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0011",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:bn",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (bn)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/bn/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/bn/sitemap.xml: 0 of 1 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 1,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0012",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:cs",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (cs)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/cs/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/cs/sitemap.xml: 0 of 1 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 1,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0013",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:da",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (da)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/da/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/da/sitemap.xml: 0 of 1 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 1,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0014",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:de",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (de)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/de/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/de/sitemap.xml: 0 of 1 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 1,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0015",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:el",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (el)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/el/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/el/sitemap.xml: 0 of 1 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 1,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0016",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:en",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (en)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/en/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/en/sitemap.xml: 0 of 36 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 36,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0017",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:es",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (es)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/es/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/es/sitemap.xml: 0 of 1 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 1,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0018",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:fa",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (fa)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/fa/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/fa/sitemap.xml: 0 of 1 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 1,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0019",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:fi",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (fi)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/fi/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/fi/sitemap.xml: 0 of 1 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 1,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0020",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:fr",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (fr)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/fr/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/fr/sitemap.xml: 0 of 1 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 1,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0021",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:ga",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (ga)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/ga/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/ga/sitemap.xml: 0 of 1 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 1,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0022",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:he",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (he)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/he/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/he/sitemap.xml: 0 of 1 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 1,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0023",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:hi",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (hi)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/hi/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/hi/sitemap.xml: 0 of 1 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 1,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0024",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:hu",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (hu)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/hu/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/hu/sitemap.xml: 0 of 1 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 1,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0025",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:id",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (id)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/id/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/id/sitemap.xml: 0 of 1 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 1,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0026",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:it",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (it)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/it/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/it/sitemap.xml: 0 of 1 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 1,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0027",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:ja",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (ja)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/ja/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/ja/sitemap.xml: 0 of 1 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 1,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0028",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:ko",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (ko)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/ko/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/ko/sitemap.xml: 0 of 1 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 1,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0029",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:lt",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (lt)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/lt/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/lt/sitemap.xml: 0 of 1 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 1,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0030",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:lv",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (lv)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/lv/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/lv/sitemap.xml: 0 of 1 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 1,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0031",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:ms",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (ms)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/ms/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/ms/sitemap.xml: 0 of 1 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 1,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0032",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:nl",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (nl)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/nl/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/nl/sitemap.xml: 0 of 1 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 1,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0033",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:no",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (no)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/no/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/no/sitemap.xml: 0 of 1 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 1,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0034",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:pl",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (pl)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/pl/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/pl/sitemap.xml: 0 of 1 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 1,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0035",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:pt",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (pt)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/pt/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/pt/sitemap.xml: 0 of 1 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 1,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0036",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:ro",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (ro)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/ro/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/ro/sitemap.xml: 0 of 1 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 1,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0037",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:ru",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (ru)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/ru/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/ru/sitemap.xml: 0 of 1 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 1,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0038",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:sv",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (sv)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/sv/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/sv/sitemap.xml: 0 of 1 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 1,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0039",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:th",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (th)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/th/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/th/sitemap.xml: 0 of 1 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 1,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0040",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:tr",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (tr)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/tr/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/tr/sitemap.xml: 0 of 1 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 1,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0041",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:uk",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (uk)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/uk/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/uk/sitemap.xml: 0 of 1 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 1,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0042",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:vi",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (vi)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/vi/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/vi/sitemap.xml: 0 of 1 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 1,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0043",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap:zh",
+      "dimension": "crawl",
+      "type": "improvable",
+      "title": "Sitemap has no lastmod dates (zh)",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/zh/sitemap.xml"
+        ],
+        "observed": "https://www.aspose.app/zh/sitemap.xml: 0 of 1 entries",
+        "expected": "lastmod on every entry"
+      },
+      "affected_pages": 1,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0044",
+      "tenant": "aspose.app",
+      "subdomain": "products.aspose.app",
+      "template": "sitemap:omr",
+      "dimension": "crawl",
+      "type": "broken",
+      "title": "No working sitemap lists any /omr/ URL",
+      "evidence": {
+        "urls": [
+          "https://products.aspose.app/omr/sitemap.xml",
+          "https://products.aspose.app/omr/sitemap-percentage.xml"
+        ],
+        "observed": "0 URLs found under this section in any sitemap",
+        "expected": "a working sitemap for the section, submitted in GSC"
+      },
+      "affected_pages": 0,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": "git-pr",
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "intl-0001",
+      "tenant": "aspose.app",
+      "subdomain": "products.aspose.app",
+      "template": "sitemap:pdf",
+      "dimension": "intl",
+      "type": "not_optimized",
+      "title": "Localized /pdf/ pages have no hreflang in sitemaps",
+      "evidence": {
+        "urls": [
+          "https://products.aspose.app/pdf/sitemaps/pdf.ar.xml",
+          "https://products.aspose.app/pdf/sitemaps/pdf.bg.xml"
+        ],
+        "observed": "2 language variants, 359 URLs, 0 with xhtml:link alternates",
+        "expected": "hreflang alternates in sitemaps or in page HTML (verify HTML in the intl audit)"
+      },
+      "affected_pages": 359,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "M",
+      "fix_tier": 2,
+      "fix_channel": "git-pr",
+      "status": "open",
+      "detected_at": "2026-10-08"
+    },
+    {
+      "id": "crawl-0045",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "sitemap",
+      "dimension": "crawl",
+      "type": "not_optimized",
+      "title": "URLs listed in more than one sitemap",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/ar/",
+          "https://www.aspose.app/az/",
+          "https://www.aspose.app/bg/",
+          "https://www.aspose.app/bn/",
+          "https://www.aspose.app/cs/"
+        ],
+        "observed": "35 URLs appear in 2+ sitemaps",
+        "expected": "each URL in exactly one sitemap"
+      },
+      "affected_pages": 35,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-08"
+    }
+  ]
+}

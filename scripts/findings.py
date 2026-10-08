@@ -4,6 +4,7 @@
     python scripts/findings.py import-discovery reports/discovery-2026-10-08-run6.json
     python scripts/findings.py list --dimension intl --host products.aspose.app
     python scripts/findings.py summary
+    python scripts/findings.py export                           # reports/findings.json (committed)
 
 discover.py imports its run automatically; import-discovery is for older run files.
 The store is data/findings.sqlite (gitignored).
@@ -29,6 +30,8 @@ from core.findings import FindingsStore  # noqa: E402
 from core.tenant import TENANTS_DIR  # noqa: E402
 
 DEFAULT_STORE = REPO_ROOT / "data" / "findings.sqlite"
+DEFAULT_EXPORT = REPO_ROOT / "reports" / "findings.json"
+ALL_STATUSES = ("open", "unverified", "resolved", "superseded")
 
 
 def seed_path(tenant: str) -> Path:
@@ -41,6 +44,14 @@ def import_seed(store: FindingsStore, tenant: str) -> dict | None:
         return None
     doc = yaml.safe_load(path.read_text(encoding="utf-8"))
     return store.import_seed(doc, f"seed-{date.today().isoformat()}")
+
+
+def export(store: FindingsStore, path: Path = DEFAULT_EXPORT) -> Path:
+    """Every finding (all statuses) as readable JSON, sorted by id, so git diffs show what changed."""
+    rows = sorted(store.findings(ALL_STATUSES), key=lambda f: f["id"])
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(rows, indent=2, default=str, ensure_ascii=False) + "\n", encoding="utf-8")
+    return path
 
 
 def print_changes(result: dict) -> None:
@@ -65,6 +76,8 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--host")
     p.add_argument("--json", action="store_true")
     sub.add_parser("summary", help="counts by status, dimension and type")
+    p = sub.add_parser("export", help="write all findings to reports/findings.json")
+    p.add_argument("--out", default=str(DEFAULT_EXPORT))
     args = ap.parse_args(argv)
 
     store = FindingsStore(args.store)
@@ -86,8 +99,10 @@ def main(argv: list[str] | None = None) -> int:
             for f in rows:
                 print(f"{f['id']:<18} {f['status']:<10} {f['type']:<13} {f['subdomain']:<24} {f['title']}")
             print(f"{len(rows)} findings")
+    elif args.cmd == "export":
+        print(f"Wrote {export(store, Path(args.out))}")
     elif args.cmd == "summary":
-        rows = store.findings(("open", "unverified", "resolved", "superseded"))
+        rows = store.findings(ALL_STATUSES)
         for field in ("status", "source", "dimension", "type"):
             counts = Counter(f[field] for f in rows)
             print(f"{field:>10}: " + ", ".join(f"{k} {v}" for k, v in counts.most_common()))
