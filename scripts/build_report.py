@@ -9,7 +9,7 @@ Google Fonts). Findings come from the findings store (open + unverified, discove
 with notes and what is new or resolved in this run); without a store, from the run JSON.
 Optional --notes / --audit-notes: plain-text files, one key takeaway per line, shown at the top and in the
 crawl audit section. --audit '' leaves the crawl audit out.
-Output: reports/<input name>.html (gitignored). Publishing is a separate, manual step.
+Output: reports/<input name>.html, or --out. GitHub Pages serves docs/index.html (built with --standalone).
 """
 
 from __future__ import annotations
@@ -27,11 +27,20 @@ from core.findings import FindingsStore  # noqa: E402
 TEMPLATE = REPO_ROOT / "scripts" / "templates" / "discovery_report.html"
 
 
-def build(report: dict, notes: list[str], run_date: str | None) -> str:
+# For hosting the file on its own (GitHub Pages): the artifact host adds this skeleton itself.
+STANDALONE_HEAD = (
+    '<!doctype html>\n<html lang="en">\n<meta charset="utf-8">\n'
+    '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
+    '<meta name="robots" content="noindex, nofollow">\n'
+)
+
+
+def build(report: dict, notes: list[str], run_date: str | None, standalone: bool = False) -> str:
     data = dict(report, _notes=notes, _run_date=run_date)
     payload = json.dumps(data, default=str).replace("</", "<\\/")
     template = TEMPLATE.read_text(encoding="utf-8")
-    return template.replace("__TITLE__", f"{report['tenant']} Site Health").replace("__DATA__", payload)
+    page = template.replace("__TITLE__", f"{report['tenant']} Site Health").replace("__DATA__", payload)
+    return STANDALONE_HEAD + page if standalone else page
 
 
 def read_notes(path: str | None) -> list[str]:
@@ -65,6 +74,8 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--audit", help="crawl-audit JSON (default: newest in reports/; '' to leave out)")
     ap.add_argument("--audit-notes", help="text file, one crawl-audit takeaway per line")
     ap.add_argument("--out", help="output HTML path")
+    ap.add_argument("--standalone", action="store_true",
+                    help="add doctype, charset, viewport and noindex (for GitHub Pages: --out docs/index.html)")
     ap.add_argument("--store", default=str(REPO_ROOT / "data" / "findings.sqlite"), help="findings store")
     args = ap.parse_args(argv)
 
@@ -103,7 +114,8 @@ def main(argv: list[str] | None = None) -> int:
     run_date = run_date_of(src, "discovery-")
 
     out = Path(args.out) if args.out else src.with_suffix(".html")
-    out.write_text(build(report, notes, run_date), encoding="utf-8")
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(build(report, notes, run_date, args.standalone), encoding="utf-8")
     print(f"Wrote {out} ({out.stat().st_size / 1024:.0f} KB) from {src.name}"
           + (f" and {audit_src.name}" if audit_src else ""))
     return 0
