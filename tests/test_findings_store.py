@@ -97,3 +97,19 @@ def test_real_seed_file_imports():
     s = FindingsStore(":memory:")
     res = s.import_seed(doc, "seed-test")
     assert res["findings"] == len(doc["findings"]) and res["notes"] == len(doc.get("notes") or [])
+
+
+def test_report_from_export_matches_store():
+    from scripts.build_report import from_export
+    from scripts.findings import ALL_STATUSES
+
+    s = FindingsStore(":memory:")
+    s.import_run([f("fetch_failed"), f("empty")], "discovery-run1", "discovery", hosts=["app.example.com"])
+    s.import_run([f("fetch_failed"), f("redirected")], "discovery-run2", "discovery", hosts=["app.example.com"])
+    rows = s.findings(ALL_STATUSES)  # what scripts/findings.py export writes
+    for run in ("discovery-run1", "discovery-run2"):
+        findings, changes = from_export(rows, run)
+        want = s.changes(run)
+        assert findings == s.findings()
+        assert changes["new"] == want["new"] and changes["first_run"] == want["first_run"]
+        assert [r["id"] for r in changes["resolved"]] == [r["id"] for r in want["resolved"]]

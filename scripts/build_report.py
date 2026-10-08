@@ -1,6 +1,7 @@
 """Render the site health report (discovery run + latest crawl audit) as one self-contained HTML page.
 
     python scripts/build_report.py                                   # newest discovery report + newest crawl audit
+    python scripts/build_report.py --findings reports/findings.json  # without the store (GitHub Actions)
     python scripts/build_report.py reports/discovery-2026-10-08-run7.json --notes reports/discovery-notes.txt \
         --audit-notes reports/crawl-audit-notes.txt --out reports/discovery-latest.html
 
@@ -16,6 +17,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -54,6 +56,31 @@ def run_date_of(path: Path, prefix: str) -> str | None:
     return path.stem.split("-run")[0].removeprefix(prefix) if "-run" in path.stem else None
 
 
+def newest(pattern: str) -> Path | None:
+    """Newest report by the date and run number in its name (file times are meaningless after a git checkout)."""
+    def key(p: Path):
+        m = re.search(r"(\d{4}-\d{2}-\d{2})-run(\d+)", p.name)
+        return (m.group(1), int(m.group(2))) if m else ("", 0)
+    found = sorted((REPO_ROOT / "reports").glob(pattern), key=key)
+    return found[-1] if found else None
+
+
+def from_export(rows: list[dict], run_ref: str) -> tuple[list[dict], dict]:
+    """Open findings and what `run_ref` changed, from reports/findings.json (for CI, where the store is absent).
+    Same shape as FindingsStore.findings() and .changes()."""
+    findings = sorted((f for f in rows if f["status"] in ("open", "unverified")), key=lambda f: f["id"])
+    def seq(ref: str | None) -> int:  # discovery-run7 -> 7
+        m = re.search(r"(\d+)$", ref or "")
+        return int(m.group(1)) if m else 0
+
+    prefix = run_ref.rstrip("0123456789")
+    first_run = not any((f.get("first_seen_run") or "").startswith(prefix) and seq(f["first_seen_run"]) < seq(run_ref)
+                        for f in rows)
+    new = [f["id"] for f in findings if f.get("first_seen_run") == run_ref]
+    resolved = [f for f in rows if f["status"] == "resolved" and f.get("resolved_run") == run_ref]
+    return findings, {"run": run_ref, "new": [] if first_run else new, "resolved": resolved, "first_run": first_run}
+
+
 def audit_summary(path: Path, notes: list[str]) -> dict:
     """The parts of a crawl-audit report the page shows (not the per-page facts)."""
     a = json.loads(path.read_text(encoding="utf-8"))
@@ -77,16 +104,16 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--standalone", action="store_true",
                     help="add doctype, charset, viewport and noindex (for GitHub Pages: --out docs/index.html)")
     ap.add_argument("--store", default=str(REPO_ROOT / "data" / "findings.sqlite"), help="findings store")
+    ap.add_argument("--findings", help="read findings from this export (reports/findings.json) instead of the store")
     args = ap.parse_args(argv)
 
     if args.report:
         src = Path(args.report)
     else:
-        candidates = sorted((REPO_ROOT / "reports").glob("discovery-*.json"), key=lambda p: p.stat().st_mtime)
-        if not candidates:
+        src = newest("discovery-*-run*.json")
+        if src is None:
             print("No reports/discovery-*.json found. Run scripts/discover.py first.", file=sys.stderr)
             return 1
-        src = candidates[-1]
 
     report = json.loads(src.read_text(encoding="utf-8"))
     notes = read_notes(args.notes)
@@ -94,11 +121,15 @@ def main(argv: list[str] | None = None) -> int:
     if args.audit:
         audit_src = Path(args.audit)
     elif args.audit is None:
-        found = sorted((REPO_ROOT / "reports").glob("crawl-audit-*-run*.json"), key=lambda p: p.stat().st_mtime)
-        audit_src = found[-1] if found else None
+        audit_src = newest("crawl-audit-*-run*.json")
     if audit_src:
         report["_audit"] = audit_summary(audit_src, read_notes(args.audit_notes))
-    if Path(args.store).is_file():
+    if args.findings:
+        rows = json.loads(Path(args.findings).read_text(encoding="utf-8"))
+        report["findings"], report["_changes"] = from_export(rows, f"discovery-run{report['run_id']}")
+        if not audit_src:
+            report["findings"] = [f for f in report["findings"] if f["source"] != "crawl-audit"]
+    elif Path(args.store).is_file():
         store = FindingsStore(args.store)
         run_ref = f"discovery-run{report['run_id']}"
         if not store.db.execute("SELECT 1 FROM runs WHERE ref = ?", (run_ref,)).fetchone():
