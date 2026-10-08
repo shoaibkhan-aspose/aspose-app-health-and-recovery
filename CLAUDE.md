@@ -64,7 +64,7 @@ Stack (confirmed):
 
 Everything runs on SK's Mac (macOS) from VS Code / Claude Code, which has normal network access to aspose.app and Google APIs. (The earlier claude.ai cloud session could not reach aspose.app; that is why development moved here.)
 
-- Repo: `/Users/Apple/Work/Aspose/GitHub/aspose.app-health-and-recovery/site-health-and-recovery` (remote: GitLab `gitlab.recruitize.ai/.../site-health-and-recovery`, branch `master`, no commits yet).
+- Repo: `/Users/Apple/Work/Aspose/GitHub/aspose.app-health-and-recovery/site-health-and-recovery` (remotes: `origin` = GitLab `gitlab.recruitize.ai/.../site-health-and-recovery`, upstream of `master`; `github` = GitHub `shoaibkhan-aspose/aspose.app-health-and-receovery` (private; name has a typo), added 2026-10-08 for GitHub Pages. Push to each explicitly: `git push origin master`, `git push github master`).
 - Parent folder `/Users/Apple/Work/Aspose/GitHub/aspose.app-health-and-recovery` also has empty `docs/` and `ClaudeChat/`.
 - products.aspose.app source (read-only): `/Users/Apple/Work/Aspose/GitHub/aspose-app/products.aspose.app`.
 - **Standalone project (SK, 2026-10-08):** do not integrate with `conholdate/blog-team-tools` or its dashboard for now. Everything, including reports and any UI, is built here.
