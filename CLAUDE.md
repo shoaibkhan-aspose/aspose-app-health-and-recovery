@@ -53,7 +53,7 @@ Stack (confirmed):
 | Piece | Role |
 |---|---|
 | Python | One language for crawlers, Google APIs, MCP servers and agents |
-| MCP Python SDK (`mcp`, FastMCP) | Our MCP servers; stdio transport locally, streamable HTTP later |
+| MCP Python SDK (`mcp` 2.x, `MCPServer`; FastMCP was renamed in 2.x) | Our MCP servers; stdio transport locally, streamable HTTP later |
 | `googleanalytics/google-analytics-mcp` | Google's GA4 server (experimental, read-only); reuse it or wrap the same API ourselves |
 | Own `gsc` server | Thin wrapper over the Search Console API, `webmasters.readonly` scope |
 | LangGraph | Orchestrates the audit run as a graph: fan out auditors, retry, checkpoint, resume, human pause |
@@ -98,7 +98,7 @@ Done:
 
 Not done yet:
 - GSC properties for www and forum (none exist or none shared; the service account sees only the 5 URL-prefix properties).
-- `agents/`, `mcp_servers/` are empty packages.
+- `agents/` is an empty package. MCP servers still to build: `findings`, `ga4`, `crawl`, `pagespeed`.
 
 ## Working in this repo
 
@@ -343,7 +343,8 @@ Context gathered before discovery existed. The issues in it are tracked in `tena
    - Store in SQLite (`data/inventory.sqlite`, gitignored). Polite: identifiable user agent, rate limit, retries, respect robots.txt, skip excluded hosts.
    - Output: per-family / per-language URL counts vs the GSC snapshot; sitemap problems as findings.
 3. ~~Findings store~~ Done 2026-10-08 (see Status). Report rebuilt locally from the store after run 7 (`reports/discovery-latest.html`); **republish to the shared link only when SK says so**.
-4. **`mcp_servers/gsc`** (FastMCP, stdio, read-only) wrapping `core/gsc.py`; register in a project `.mcp.json` (key path from `GOOGLE_APPLICATION_CREDENTIALS`, never in the file); needs `pip install -e ".[mcp]"`. Agreed tools: `list_properties`, `search_performance` (dimensions page/query/country/device/date + filters, row-capped), `page_performance`, `compare_periods`, `list_sitemaps`, `inspect_url` (URL Inspection, 2,000/day/property, sampling only). Offline tests with a fake client. Then demo on real questions (slides clicks since the sitemap broke; `/pdf/split` vs `/pdf/splitter`; clicks of families without hreflang).
+4. ~~`mcp_servers/gsc`~~ Done 2026-10-08. `python -m mcp_servers.gsc` (MCPServer, stdio). Tools, all annotated read-only: `list_properties`, `search_performance` (dimensions page/query/country/device/date/searchAppearance, ANDed filters, totals, max 1,000 rows per call), `page_performance` (picks the property from the URL), `compare_periods` (last N days vs the N before: totals, top drops/gains), `list_sitemaps`, `inspect_url` (2,000/day/property, sampling only). Logic lives in `core/gsc.py`; the server only validates input and turns errors into short `ToolError`s. Loads the key path from `.env` if `GOOGLE_APPLICATION_CREDENTIALS` is unset. Registered in `.mcp.json` in the workspace folder (absolute paths, outside git) and in the repo (relative paths); **SK must approve it once** when Claude Code next starts (`claude mcp list` shows "Pending approval"). 9 offline tests (36 total). Verified end to end over stdio with the real key.
+   - First answers (window 2026-09-08..10-05 vs the 28 days before): **slides** pages 12,044 clicks vs 10,125 (+19%), impressions 176k vs 189k (-7%): the broken slides sitemap has not hurt traffic yet (pages already indexed). **`/pdf/split`** 17 clicks / 635 impressions, **`/pdf/splitter`** 0 impressions. **`/imaging/conversion/jpg-to-jp2`** is indexed with its own canonical (URL Inspection).
 5. **Crawl auditor** on a sample per template (status, canonical, hreflang, title/H1/meta, robots meta), then the other dimensions.
 6. **LangGraph** run graph once 2+ auditors exist; Prioritizer and Reporter after that.
 

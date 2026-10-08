@@ -306,7 +306,8 @@ findings:
   detected_at: '2026-10-08'
   verification:
     verified: false
-    how: sitemap side confirmed by discovery run 6 (lists /pdf/split, not /pdf/splitter); hub links and redirects not checked
+    how: 'sitemap side confirmed by discovery run 6 (lists /pdf/split, not /pdf/splitter); hub links and redirects not checked; GSC (2026-09-08..10-05): /pdf/split 17 clicks, 635 impressions; /pdf/splitter
+      0 impressions (Google does not show it)'
     recheck: 'crawl auditor: status/redirect of both'
 - id: seed-content-03
   tenant: aspose.app
@@ -334,7 +335,8 @@ findings:
   detected_at: '2026-10-08'
   verification:
     verified: false
-    how: all three URLs confirmed in imaging sitemaps (discovery run 6); content similarity not checked
+    how: 'all three URLs confirmed in imaging sitemaps (discovery run 6); content similarity not checked; URL Inspection 2026-10-08: jpg-to-jp2 ''Submitted and indexed'', Google canonical = own URL (not
+      merged with the other variants)'
     recheck: 'content auditor: duplicate detection + GSC query overlap'
 - id: seed-intl-04
   tenant: aspose.app
