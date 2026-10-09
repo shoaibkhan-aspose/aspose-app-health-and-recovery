@@ -158,6 +158,8 @@ class FindingsStore:
                             list(values.values()))
         else:
             fid = row["id"]
+            if not (f.get("impact") or {}).get("source"):
+                del values["impact"]  # keep the Prioritizer's impact; it is refreshed by `set_impacts`
             sets = ", ".join(f"{c} = ?" for c in values)
             self.db.execute(f"UPDATE findings SET {sets} WHERE key = ?", [*values.values(), key])
         self.db.execute(
@@ -165,6 +167,14 @@ class FindingsStore:
             (key, run_ref, f.get("affected_pages", 0), f["evidence"]["observed"]),
         )
         return fid
+
+    def set_impacts(self, impacts: dict[str, dict]) -> int:
+        """Store the Prioritizer's impact per finding id. Returns how many findings were updated."""
+        n = 0
+        for fid, impact in impacts.items():
+            n += self.db.execute("UPDATE findings SET impact = ? WHERE id = ?", (json.dumps(impact), fid)).rowcount
+        self.db.commit()
+        return n
 
     def _event(self, key: str, run_ref: str, event: str) -> None:
         self.db.execute("INSERT OR REPLACE INTO events (key, run_ref, event) VALUES (?, ?, ?)", (key, run_ref, event))

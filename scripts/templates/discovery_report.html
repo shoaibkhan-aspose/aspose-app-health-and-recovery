@@ -80,6 +80,13 @@ tr:last-child td { border-bottom: 0 }
 .bar { display: inline-block; height: 8px; background: var(--accent); border-radius: 2px; vertical-align: middle; opacity: .7 }
 .ok { color: var(--good) } .bad { color: var(--broken) } .warn { color: var(--notopt) } .dim { color: var(--muted) }
 .mono { font-family: var(--mono); font-size: 13px }
+.score { font: 600 13px var(--mono); font-variant-numeric: tabular-nums; min-width: 2.6em; text-align: center; padding: 2px 6px; border-radius: 4px; background: var(--tint); color: var(--fg) }
+.score.hi { background: var(--broken); color: var(--surface) } .score.mid { background: var(--notopt); color: var(--surface) }
+.traffic { font: 12px var(--mono); color: var(--muted) }
+.top { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px }
+.top li { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--sev); border-radius: 6px; padding: 10px 12px; display: grid; grid-template-columns: auto 1fr; gap: 2px 12px; align-items: baseline }
+.top li .ftitle a { color: inherit; text-decoration: none } .top li .ftitle a:hover { text-decoration: underline }
+.top li .fsub { grid-column: 2 }
 .scope { display: grid; gap: 4px; font-size: 14px; max-width: 80ch }
 .issues { white-space: normal; min-width: 280px; font-size: 13px; color: var(--muted) }
 .issues b { color: var(--fg); font-weight: 500 }
@@ -105,8 +112,14 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
     <div class="notes" id="notes" hidden><h3>Key takeaways</h3><ul id="notes-list"></ul></div>
   </section>
 
+  <section aria-labelledby="s-top" id="top-wrap" hidden>
+    <h2 id="s-top">Top priorities <small id="top-meta"></small></h2>
+    <p class="lede">Ranked by score (0–100): Search Console traffic on the affected pages (28 days, log scale) × severity (broken 1, incorrect 0.7, not optimized 0.4, improvable 0.2) ÷ effort (S 1, M 1.5, L 2.5). Hosts without a Search Console property use GA4 organic sessions.</p>
+    <ol class="top" id="top"></ol>
+  </section>
+
   <section aria-labelledby="s-find">
-    <h2 id="s-find">Findings <small>ranked by severity, then pages affected</small></h2>
+    <h2 id="s-find">Findings <small>grouped by severity, ranked by score</small></h2>
     <p class="lede">Three sources: <b>Discovery</b> (sitemaps) and <b>Crawl audit</b> (sampled pages) findings come from code and are re-checked on every run; <b>manual review</b> findings were spotted by hand. Crawl audit page counts marked <span class="mono">est.</span> extrapolate the failing share of the sample to every URL of that template. Findings marked <span class="tag unverified">unverified</span> were seen once and must be re-checked by an automated audit before anyone acts on them.</p>
     <div class="filters">
       <label for="f-src">Source</label><select id="f-src"></select>
@@ -160,8 +173,15 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
   const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const $ = id => document.getElementById(id);
 
+  const sc = f => (f.impact && f.impact.score) || 0;
   const findings = R.findings.slice().sort((a, b) =>
-    ORDER.indexOf(a.type) - ORDER.indexOf(b.type) || b.affected_pages - a.affected_pages || a.id.localeCompare(b.id));
+    ORDER.indexOf(a.type) - ORDER.indexOf(b.type) || sc(b) - sc(a) || b.affected_pages - a.affected_pages || a.id.localeCompare(b.id));
+  const scored = findings.some(f => f.impact && f.impact.source);
+  const compact = n => n >= 1e6 ? (n / 1e6).toFixed(1).replace(/\.0$/, "") + "M" : n >= 1e4 ? Math.round(n / 1e3) + "k" : fmt(n);
+  const trafficText = i => !i || !i.source ? "" : i.source === "none" ? "no traffic data"
+    : i.source === "ga4-host" ? `${compact(i.clicks_28d || 0)} organic sessions (GA4)`
+    : `${compact(i.clicks_28d || 0)} clicks · ${compact(i.impressions_28d || 0)} impressions`;
+  const scoreBadge = f => `<span class="score ${sc(f) >= 60 ? "hi" : sc(f) >= 35 ? "mid" : ""}" title="Priority score">${sc(f)}</span>`;
 
   // header
   $("h1").textContent = R.tenant + " site health";
@@ -182,6 +202,24 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
   ].join("");
   if (NOTES.length) { $("notes").hidden = false; $("notes-list").innerHTML = NOTES.map(n => `<li>${esc(n)}</li>`).join(""); }
 
+  // top priorities
+  if (scored) {
+    const top = findings.slice().sort((a, b) => sc(b) - sc(a)).slice(0, 10);
+    const w = top[0] && top[0].impact.window;
+    $("top-wrap").hidden = false;
+    $("top-meta").textContent = w ? `Search Console ${w[0]} to ${w[1]}` : "";
+    $("top").innerHTML = top.map(f => `
+      <li class="sev-${f.type}">${scoreBadge(f)}<span class="ftitle"><a href="#f-${esc(f.id)}" data-open="${esc(f.id)}">${esc(f.title)}</a></span>
+        <span class="fsub">${esc(f.subdomain)} · ${esc(LABEL[f.type])} · ${esc(LABEL[f.source || "discovery"])} · <span class="traffic">${esc(trafficText(f.impact))}</span></span></li>`).join("");
+    $("top").addEventListener("click", e => {
+      const a = e.target.closest("a[data-open]"); if (!a) return;
+      for (const k of ["f-src", "f-type", "f-host", "f-dim"]) $(k).value = "";
+      const f = findings.find(x => x.id === a.dataset.open); if (f) expanded.add(f.type);
+      renderFindings();
+      const d = document.getElementById("f-" + a.dataset.open); if (d) d.open = true;
+    });
+  }
+
   // findings + filters
   const opts = (id, values, all) => { $(id).innerHTML = `<option value="">${all}</option>` + values.map(v => `<option value="${esc(v)}">${esc(LABEL[v] || v)}</option>`).join(""); };
   opts("f-src", [...new Set(findings.map(f => f.source || "discovery"))].sort(), "All sources");
@@ -196,18 +234,19 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
     const list = findings.filter(f => (!src || (f.source || "discovery") === src) && (!t || f.type === t) && (!h || f.subdomain === h) && (!d || f.dimension === d));
     $("f-count").textContent = `${list.length} of ${findings.length}`;
     const card = f => `
-      <details class="f sev-${f.type}">
+      <details class="f sev-${f.type}" id="f-${esc(f.id)}">
         <summary>
-          <span class="pill">${LABEL[f.type]}</span>
+          ${scored ? scoreBadge(f) : `<span class="pill">${LABEL[f.type]}</span>`}
           <span class="ftitle">${esc(f.title)} ${NEW.has(f.id) ? '<span class="tag new">new</span>' : ""} ${f.status === "unverified" ? '<span class="tag unverified">unverified</span>' : ""}</span>
           <span class="fpages">${f.affected_pages ? (f.source === "crawl-audit" ? "est. " : "") + fmt(f.affected_pages) + " pages" : ""}</span>
-          <span class="fsub">${esc(f.subdomain)} · ${esc(f.dimension)} · ${esc(LABEL[f.source || "discovery"])} · <span class="mono">${esc(f.id)}</span></span>
+          <span class="fsub">${esc(f.subdomain)} · ${esc(f.dimension)} · ${esc(LABEL[f.source || "discovery"])} · <span class="mono">${esc(f.id)}</span>${trafficText(f.impact) ? ` · <span class="traffic">${esc(trafficText(f.impact))}</span>` : ""}</span>
         </summary>
         <div class="fbody"><dl>
           <dt>Observed</dt><dd>${esc(f.evidence.observed)}</dd>
           <dt>Expected</dt><dd>${esc(f.evidence.expected)}</dd>
           <dt>Evidence</dt><dd><ul class="urls">${f.evidence.urls.map(u => `<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(u)}</a></li>`).join("")}</ul></dd>
           <dt>Template</dt><dd class="mono">${esc(f.template)}</dd>
+          ${f.impact && f.impact.source ? `<dt>Impact</dt><dd>Score ${sc(f)} · ${esc(trafficText(f.impact))} at stake${f.impact.share != null && f.impact.share < 1 ? ` (${Math.round(f.impact.share * 1000) / 10}% of the ${f.impact.source === "gsc-host" || f.impact.source === "ga4-host" ? "host" : "section"})` : ""} · ${esc(LABEL[f.type])}, effort ${esc(f.effort)}${f.impact.window ? ` · ${esc(f.impact.window.join(" to "))}` : ""}</dd>` : ""}
           ${f.verification ? `<dt>Checked</dt><dd>${esc(f.verification.how)}${f.status === "unverified" ? ". Re-check: " + esc(f.verification.recheck) : ""}</dd>` : ""}
           ${f.first_seen_run ? `<dt>First seen</dt><dd class="mono">${esc(f.first_seen_run)}</dd>` : ""}
         </dl>${(f.notes || []).map(n => `<div class="fnote"><b>Note.</b> ${esc(n)}</div>`).join("")}</div>

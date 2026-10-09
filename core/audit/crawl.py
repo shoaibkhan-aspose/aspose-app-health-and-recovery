@@ -385,11 +385,15 @@ class CrawlAudit:
             examples = "; ".join(f"{p['url']}: {note}" for p, note in items[:EXAMPLES])
             observed = (f"{len(items)} of {in_scope} sampled pages (by template: {tmpl}). e.g. {examples}")
             where = f" (/{section}/)" if section else ""
-            out.append(make_finding(
+            finding = make_finding(
                 ids=ids, tenant=self.tenant.property, subdomain=host, template=f"page:{section}" if section else "page",
                 dimension=dimension, type=ftype, check=check, title=title + where,
                 urls=[p["url"] for p, _ in items[:10]], observed=observed, expected=expected,
-                affected_pages=estimate, effort=effort, fix_tier=tier, fix_channel=self.fix_channels.get(host)))
+                affected_pages=estimate, effort=effort, fix_tier=tier, fix_channel=self.fix_channels.get(host))
+            # structured sample per template, used by the Prioritizer: {template: [failed, sampled]}
+            finding["evidence"]["sample"] = {t: [n, sampled[(host, section, t)]]
+                                             for t, n in sorted(per_template.items())}
+            out.append(finding)
         return out
 
 

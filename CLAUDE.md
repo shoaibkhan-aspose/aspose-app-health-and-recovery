@@ -106,6 +106,9 @@ Done:
     - releases: sampled release-notes pages are `noindex, nofollow` yet listed in the sitemap; no canonical, no html lang, no meta description. websites: 3 of 12 sampled sitemap URLs are meta-refresh stubs (`/en/`, `/fileformat/`), `<html lang=en>` on `/ko/`, `/nl/`, ... pages. metrics, www, websites: localized pages with no hreflang in HTML. status: duplicate titles/descriptions, `/dashboard` in sitemap 302-chains to an SSO login. user-scalable=no on blog, releases, status, websites. api.products homepage 404.
   - Not yet covered: products families other than barcode/html (SK to decide when); canonical-target and hreflang return-link fetches; spelling/typo checks on titles (seed-onpage-01..04 need a dictionary or LLM check).
 
+- **Prioritizer built (2026-10-09, priority 1):** `core/prioritize.py` + `scripts/prioritize.py`. Fetches GSC page rows per property (28 days, paged 25k, max 200k/property; products 19,114 pages) and GA4 organic sessions per host, cached in `data/traffic-<tenant>-<window>.json` (`--offline` reuses it). Classifies GSC pages into the findings' (host, section, template) buckets. Share at stake: crawl audit = template traffic x failing share of the sample (`evidence.sample`, new); discovery = section/host traffic x affected_pages / section URLs (inventory), whole scope for robots/no-sitemap checks, and a failed sitemap file only the URLs GSC discovered from it (tenant snapshot), else 0; seeds = their exact URLs. Hosts without a GSC property use GA4 organic sessions. `score = min(100, 20*log10(1 + clicks + 0.01*impressions)) x severity (broken 1, incorrect .7, not_optimized .4, improvable .2) / effort (S 1, M 1.5, L 2.5)`. Writes `impact` (clicks_28d, impressions_28d, score, source, share, window) into the store (`set_impacts`; re-imports keep it) and re-exports findings.json. Run it after every discovery/audit import. Report: "Top priorities" (top 10) and score + traffic on every finding. 50 offline tests.
+  - First run (GSC 2026-09-09..10-06): top = omr no working sitemap (89; 13k clicks, 1.6M impressions), slides double-slash sitemap (83), html hreflang without self (63), purchase robots.txt is HTML (54), forum private topics (52).
+
 Not done yet:
 - GSC properties for www and forum (none exist or none shared; the service account sees only the 5 URL-prefix properties).
 - `agents/` is an empty package. MCP servers still to build: `findings`, `ga4`, `crawl`, `pagespeed`.
@@ -122,6 +125,7 @@ set -a; source .env; set +a            # loads GOOGLE_APPLICATION_CREDENTIALS (k
 python scripts/check_access.py --tenant aspose.app
 python scripts/discover.py             # all hosts; --hosts/--sections/--max-sitemaps for samples
 python scripts/audit_crawl.py --sections barcode,html   # crawl audit; --sections narrows products only
+python scripts/prioritize.py           # traffic + score per finding (needs .env; --offline reuses cache)
 python scripts/findings.py summary     # findings store: summary | list | import-seed | import-discovery|import-audit <json>
 python scripts/build_report.py <run json> --notes reports/discovery-notes.txt --audit-notes reports/crawl-audit-notes.txt --out reports/discovery-latest.html
 ```
@@ -132,7 +136,7 @@ Conventions:
 - Errors in reports are short and secret-free (`_err()` pattern). Never print or store key material or tokens.
 - `core/` must not contain the string "aspose" (a test enforces this).
 - New dependencies go in `pyproject.toml` under the right extra.
-- Generated files go to `reports/` (**committed**: the repo is private and internal, SK 2026-10-08) or `data/` (gitignored: `inventory.sqlite` is ~750 MB and rebuilt by `discover.py`; `findings.sqlite` is exported to `reports/findings.json`). Never put key material in reports. Discovery runs kept in `reports/`: full runs 3 (before the double-slash/guessed-URL fixes), 6 (first clean run) and 7 (first run in the findings store). Sample runs 1, 2, 4 were deleted; run 5 was stopped early and has no file. Commit only full runs; delete sample-run JSON before committing. Crawl audit: `data/audit.sqlite` (gitignored), latest run JSON `reports/crawl-audit-2026-10-08-run4.json` (scoped run chosen by SK, kept).
+- Generated files go to `reports/` (**committed**: the repo is private and internal, SK 2026-10-08) or `data/` (gitignored: `inventory.sqlite` is ~750 MB and rebuilt by `discover.py`; `findings.sqlite` is exported to `reports/findings.json`). Never put key material in reports. Discovery runs kept in `reports/`: full runs 3 (before the double-slash/guessed-URL fixes), 6 (first clean run) and 7 (first run in the findings store). Sample runs 1, 2, 4 were deleted; run 5 was stopped early and has no file. Commit only full runs; delete sample-run JSON before committing. Crawl audit: `data/audit.sqlite` (gitignored), latest run JSON `reports/crawl-audit-2026-10-09-run5.json` (same scope as run 4, adds `evidence.sample`; run 4 deleted).
 
 ## Multi-tenant rule
 
@@ -250,7 +254,7 @@ Every finding needs evidence a human can re-check. No finding without a URL and 
 - **hreflang in sitemaps:** full on words, cad, ebook (products), about, metrics, www. Partial: email 22%, finance 2%, websites ~50%. **None on the other 21 products families**, incl. cells (228k), imaging (149k), audio, diagram, video, 3d, pdf. Page HTML still to check in the intl audit.
 - **lastmod:** every URL in a file shares one date (bulk-stamped) in 22 products families; none at all on about, metrics, releases, status, websites, www, total, slides.
 - **Duplicates across sitemaps:** small (diagram 267 via `sitemap_update.xml`, websites folders, www 35, forum 22).
-- **Hosts to ask SK about:** metrics.aspose.app exposes 3,780 usage/subscription pages in 36 languages via sitemap; status.aspose.app lists 150 incident/date-query URLs (`?start_date=`). Should these be indexed at all?
+- metrics.aspose.app exposes 3,780 usage/subscription pages in 36 languages via sitemap; status.aspose.app lists 150 incident/date-query URLs (`?start_date=`). SK (2026-10-09): both are meant to be indexed, like blog.
 - **Soft 404 (products):** `/email/sitemap.xml` redirects to `/email/error?code=404`, which returns HTTP 200. Check app error pages for soft 404s in the crawl audit.
 - **Run 6 (after fixes):** slides recovered via corrected child URLs (24,752); products 747,694 URLs, total ~794k; 89 findings. Report page built by `scripts/build_report.py` (template `scripts/templates/discovery_report.html`), takeaways in `reports/discovery-notes.txt`.
 - Discovery fixes after run 3: double-slash child check (fetches the corrected URL too); parse/redirect/empty checks only on real sitemaps (robots, GSC, child), not on guessed URLs; duplicate findings grouped per host unless the host has sections.
@@ -357,7 +361,23 @@ Context gathered before discovery existed. The issues in it are tracked in `tena
 4. ~~`mcp_servers/gsc`~~ Done 2026-10-08. `python -m mcp_servers.gsc` (MCPServer, stdio). Tools, all annotated read-only: `list_properties`, `search_performance` (dimensions page/query/country/device/date/searchAppearance, ANDed filters, totals, max 1,000 rows per call), `page_performance` (picks the property from the URL), `compare_periods` (last N days vs the N before: totals, top drops/gains), `list_sitemaps`, `inspect_url` (2,000/day/property, sampling only). Logic lives in `core/gsc.py`; the server only validates input and turns errors into short `ToolError`s. Loads the key path from `.env` if `GOOGLE_APPLICATION_CREDENTIALS` is unset. Registered in `.mcp.json` in the workspace folder (absolute paths, outside git) and in the repo (relative paths); **SK must approve it once** when Claude Code next starts (`claude mcp list` shows "Pending approval"). 9 offline tests (36 total). Verified end to end over stdio with the real key.
    - First answers (window 2026-09-08..10-05 vs the 28 days before): **slides** pages 12,044 clicks vs 10,125 (+19%), impressions 176k vs 189k (-7%): the broken slides sitemap has not hurt traffic yet (pages already indexed). **`/pdf/split`** 17 clicks / 635 impressions, **`/pdf/splitter`** 0 impressions. **`/imaging/conversion/jpg-to-jp2`** is indexed with its own canonical (URL Inspection).
 5. ~~**Crawl auditor**~~ Built 2026-10-08 (see Status); run 4 covered all hosts + products barcode/html. Next: run the remaining products families when SK says so; `crawl` MCP server over `core/audit`; then the other dimensions.
-6. **LangGraph** run graph once 2+ auditors exist; Prioritizer and Reporter after that.
+6. **LangGraph** run graph once 2+ auditors exist; Reporter after that.
+
+**Priority order agreed with SK (2026-10-09):**
+1. ~~**Prioritizer**~~ Done 2026-10-09 (see Status).
+2. **Crawl audit of the other 27 products families** (batches, highest traffic first).
+3. **New auditors**: perf (PageSpeed/CrUX), ai (llms.txt, AI bot access), functional (apps upload/convert/download).
+4. **MCP servers**: `crawl`, `findings` (then `ga4`, `pagespeed`).
+
+**Ideas from the Aspose.ai Website Health monitor** (https://aspose.github.io/aspose-ai-website-health/, reviewed 2026-10-09). It is an ops/uptime monitor (7 hosts, availability, priority links, Playwright smoke + screenshots, daily/weekly digests, static `dashboard.json` + `app.js` on Pages), complementary to this SEO/GEO audit. Worth adopting:
+- Overall score + per-dimension bars, and scorecards per subdomain (the Reporter). Keep them evidence-backed: theirs shows 100/healthy from shallow checks.
+- A short "needs review" list at the top, ranked by the Prioritizer.
+- Priority pages checked every run: top GSC pages and the purchase/conversion paths.
+- An `owner` per host/section in the tenant YAML, shown on each finding.
+- Browser checks with screenshots as evidence, for the functional and ux auditors.
+- Scheduled discovery + crawl audit in GitHub Actions (no Google key needed), with a new/resolved digest per run from the findings store.
+- Data in a separate JSON beside the page, for run history and trends.
+- aspose.ai could be tenant 2 later (core/ is tenant-agnostic).
 
 ## Open items
 
@@ -368,4 +388,4 @@ Context gathered before discovery existed. The issues in it are tracked in `tena
 - SK checking: who owns routing/CDN for products.aspose.app, and where the app pages are built. Not blocking Phase 1: audit runs on the live site; repos are needed for root cause and Phase 2, requested only for the highest-impact families.
 - Host list: Discovery covers the 12 known hosts (7 from SK + 5 seen in GA4); sitemaps reference no other aspose.app hosts. Not yet done: DNS / certificate-transparency enumeration to find hosts nothing links to.
 - forum.aspose.app sitemap lists private topics (403 for everyone, 20/20 sampled). Ask the forum owner whether private categories should be excluded from the Discourse sitemap.
-- SK to decide: should metrics.aspose.app (3,780 usage/subscription pages in sitemaps) and status.aspose.app (150 incident URLs) be indexed at all?
+- ~~metrics/status indexing~~ SK (2026-10-09): metrics.aspose.app and status.aspose.app are normal indexable hosts like blog; count their findings in full.

@@ -1,7 +1,7 @@
 {
   "tenant": "aspose.app",
   "auditor": "crawl-audit",
-  "run_id": 4,
+  "run_id": 5,
   "params": {
     "hosts": [
       "www.aspose.app",
@@ -28,7 +28,7 @@
     "max_pages": null
   },
   "requests": 130,
-  "duration_s": 74.9,
+  "duration_s": 75.1,
   "pages_planned": 118,
   "stopped_early": false,
   "summary": {
@@ -212,7 +212,13 @@
           "https://dashboard.aspose.app/"
         ],
         "observed": "1 of 1 sampled pages (by template: generic:/ 1/1). e.g. https://dashboard.aspose.app/: no <link rel=canonical> and no Link header",
-        "expected": "a self-referencing absolute canonical"
+        "expected": "a self-referencing absolute canonical",
+        "sample": {
+          "generic:/": [
+            1,
+            1
+          ]
+        }
       },
       "affected_pages": 1,
       "impact": {
@@ -224,7 +230,7 @@
       "fix_tier": 2,
       "fix_channel": null,
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "crawl-0002",
@@ -240,7 +246,13 @@
           "https://purchase.aspose.app/"
         ],
         "observed": "1 of 1 sampled pages (by template: generic:/ 1/1). e.g. https://purchase.aspose.app/: no <link rel=canonical> and no Link header",
-        "expected": "a self-referencing absolute canonical"
+        "expected": "a self-referencing absolute canonical",
+        "sample": {
+          "generic:/": [
+            1,
+            1
+          ]
+        }
       },
       "affected_pages": 1,
       "impact": {
@@ -252,7 +264,7 @@
       "fix_tier": 2,
       "fix_channel": null,
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "crawl-0003",
@@ -274,7 +286,25 @@
           "https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.10-windows/"
         ],
         "observed": "7 of 11 sampled pages (by template: generic:/ 1/1, generic:/{section} 2/2, generic:/{section}/* 2/2, generic:/{section}/*/*/* 2/2). e.g. https://releases.aspose.app/: no <link rel=canonical> and no Link header; https://releases.aspose.app/pdf/: no <link rel=canonical> and no Link header; https://releases.aspose.app/slides/slides-splitter-app-net/: no <link rel=canonical> and no Link header; https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.3-macos-arm64/: no <link rel=canonical> and no Link header; https://releases.aspose.app/pub/: no <link rel=canonical> and no Link header",
-        "expected": "a self-referencing absolute canonical"
+        "expected": "a self-referencing absolute canonical",
+        "sample": {
+          "generic:/": [
+            1,
+            1
+          ],
+          "generic:/{section}": [
+            2,
+            2
+          ],
+          "generic:/{section}/*": [
+            2,
+            2
+          ],
+          "generic:/{section}/*/*/*": [
+            2,
+            2
+          ]
+        }
       },
       "affected_pages": 180,
       "impact": {
@@ -286,7 +316,7 @@
       "fix_tier": 2,
       "fix_channel": null,
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "crawl-0004",
@@ -307,7 +337,21 @@
           "https://status.aspose.app/"
         ],
         "observed": "6 of 6 sampled pages (by template: generic:/ 3/3, generic:/{section} 1/1, generic:/{section}/* 2/2). e.g. https://status.aspose.app?start_date=2019-06-24: no <link rel=canonical> and no Link header; https://status.aspose.app/dashboard: no <link rel=canonical> and no Link header; https://status.aspose.app/incidents/58: no <link rel=canonical> and no Link header; https://status.aspose.app?start_date=2019-12-03: no <link rel=canonical> and no Link header; https://status.aspose.app/incidents/68: no <link rel=canonical> and no Link header",
-        "expected": "a self-referencing absolute canonical"
+        "expected": "a self-referencing absolute canonical",
+        "sample": {
+          "generic:/": [
+            3,
+            3
+          ],
+          "generic:/{section}": [
+            1,
+            1
+          ],
+          "generic:/{section}/*": [
+            2,
+            2
+          ]
+        }
       },
       "affected_pages": 150,
       "impact": {
@@ -319,7 +363,7 @@
       "fix_tier": 2,
       "fix_channel": null,
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "onpage-0001",
@@ -337,7 +381,17 @@
           "https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.10-windows/"
         ],
         "observed": "3 of 11 sampled pages (by template: generic:/ 1/1, generic:/{section}/*/*/* 2/2). e.g. https://releases.aspose.app/: '' also on https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.3-macos-arm64/, https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.10-windows/; https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.3-macos-arm64/: '' also on https://releases.aspose.app/, https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.10-windows/; https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.10-windows/: '' also on https://releases.aspose.app/, https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.3-macos-arm64/",
-        "expected": "a unique meta description per page and language"
+        "expected": "a unique meta description per page and language",
+        "sample": {
+          "generic:/": [
+            1,
+            1
+          ],
+          "generic:/{section}/*/*/*": [
+            2,
+            2
+          ]
+        }
       },
       "affected_pages": 145,
       "impact": {
@@ -349,7 +403,7 @@
       "fix_tier": 1,
       "fix_channel": null,
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "onpage-0002",
@@ -369,7 +423,17 @@
           "https://status.aspose.app/"
         ],
         "observed": "5 of 6 sampled pages (by template: generic:/ 3/3, generic:/{section}/* 2/2). e.g. https://status.aspose.app?start_date=2019-06-24: 'Stay up to date with the latest service updates from Status ' also on https://status.aspose.app/incidents/58, https://status.aspose.app?start_date=2019-12-03; https://status.aspose.app/incidents/58: 'Stay up to date with the latest service updates from Status ' also on https://status.aspose.app?start_date=2019-06-24, https://status.aspose.app?start_date=2019-12-03; https://status.aspose.app?start_date=2019-12-03: 'Stay up to date with the latest service updates from Status ' also on https://status.aspose.app?start_date=2019-06-24, https://status.aspose.app/incidents/58; https://status.aspose.app/incidents/68: 'Stay up to date with the latest service updates from Status ' also on https://status.aspose.app?start_date=2019-06-24, https://status.aspose.app/incidents/58; https://status.aspose.app/: 'Stay up to date with the latest service updates from Status ' also on https://status.aspose.app?start_date=2019-06-24, https://status.aspose.app/incidents/58",
-        "expected": "a unique meta description per page and language"
+        "expected": "a unique meta description per page and language",
+        "sample": {
+          "generic:/": [
+            3,
+            3
+          ],
+          "generic:/{section}/*": [
+            2,
+            2
+          ]
+        }
       },
       "affected_pages": 149,
       "impact": {
@@ -381,7 +445,7 @@
       "fix_tier": 1,
       "fix_channel": null,
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "onpage-0003",
@@ -397,7 +461,13 @@
           "https://forum.aspose.app/"
         ],
         "observed": "1 of 21 sampled pages (by template: generic:/ 1/1). e.g. https://forum.aspose.app/: width 42: 'Get FREE technical support for Aspose Apps'",
-        "expected": "50-170 characters (CJK count double)"
+        "expected": "50-170 characters (CJK count double)",
+        "sample": {
+          "generic:/": [
+            1,
+            1
+          ]
+        }
       },
       "affected_pages": 1,
       "impact": {
@@ -409,7 +479,7 @@
       "fix_tier": 1,
       "fix_channel": "discourse-admin",
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "onpage-0004",
@@ -431,7 +501,21 @@
           "https://metrics.aspose.app/ja/usages/files/pdf/"
         ],
         "observed": "7 of 15 sampled pages (by template: generic:/ 1/3, generic:/{section} 4/4, generic:/{section}/*/* 2/4). e.g. https://metrics.aspose.app/usages/: width 31: 'File Formats Apps Usage Metrics'; https://metrics.aspose.app/usages/sizes/cad/: width 46: 'Top 1 CAD Designs File Formats Processing Apps'; https://metrics.aspose.app/ru/: width 206: 'Бесплатные онлайн-приложения на основе интерфейса командной строки и загружаемые приложени'; https://metrics.aspose.app/subscriptions/: width 38: 'File Formats Apps Subscription Metrics'; https://metrics.aspose.app/lv/usages/: width 40: 'Failu formāti Lietotņu lietojuma metrika'",
-        "expected": "50-170 characters (CJK count double)"
+        "expected": "50-170 characters (CJK count double)",
+        "sample": {
+          "generic:/": [
+            1,
+            3
+          ],
+          "generic:/{section}": [
+            4,
+            4
+          ],
+          "generic:/{section}/*/*": [
+            2,
+            4
+          ]
+        }
       },
       "affected_pages": 1740,
       "impact": {
@@ -443,7 +527,7 @@
       "fix_tier": 1,
       "fix_channel": null,
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "onpage-0005",
@@ -459,7 +543,13 @@
           "https://products.aspose.app/"
         ],
         "observed": "1 of 1 sampled pages (by template: generic:/ 1/1). e.g. https://products.aspose.app/: width 192: 'Simply upload Word, PDF, Excel, PowerPoint, Outlook, OneNote, Project, Visio, Image, 3D, C'",
-        "expected": "50-170 characters (CJK count double)"
+        "expected": "50-170 characters (CJK count double)",
+        "sample": {
+          "generic:/": [
+            1,
+            1
+          ]
+        }
       },
       "affected_pages": 1,
       "impact": {
@@ -471,7 +561,7 @@
       "fix_tier": 1,
       "fix_channel": "git-pr",
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "onpage-0006",
@@ -487,7 +577,13 @@
           "https://products.aspose.app/html/de/merger/mhtml"
         ],
         "observed": "1 of 22 sampled pages (by template: tool-variant 1/4). e.g. https://products.aspose.app/html/de/merger/mhtml: width 179: 'Mit MHTML Merger können Sie MHTML Dateien zu einer kombinieren und MHTML in andere Formate'",
-        "expected": "50-170 characters (CJK count double)"
+        "expected": "50-170 characters (CJK count double)",
+        "sample": {
+          "tool-variant": [
+            1,
+            4
+          ]
+        }
       },
       "affected_pages": 122,
       "impact": {
@@ -499,7 +595,7 @@
       "fix_tier": 1,
       "fix_channel": "git-pr",
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "onpage-0007",
@@ -520,7 +616,25 @@
           "https://releases.aspose.app/font/convert-app-net/release-notes/2024/convert-app-net-24-6-release-notes/"
         ],
         "observed": "6 of 11 sampled pages (by template: generic:/{section} 1/2, generic:/{section}/* 1/2, generic:/{section}/*/* 2/2, generic:/{section}/*/*/*/* 2/2). e.g. https://releases.aspose.app/tex/convert-app-net/release-notes/: width 255: 'This section contains the release notes of Aspose.TeX Convert Micro App for the year Relea'; https://releases.aspose.app/page/convert-app-net/release-notes/2024/convert-app-net-24-4-release-notes/: width 185: 'Welcome to the first release of Aspose.Page Convert Micro App 24.4. Discover the initial f'; https://releases.aspose.app/pub/: width 171: 'Aspose.PUB Micro Applications provide advanced document processing capabilities tailored f'; https://releases.aspose.app/imaging/image-merge-app-net/: width 294: 'Aspose.Imaging Image Merge Micro Application allows creation of collage from several input'; https://releases.aspose.app/pdf/pdf-cli/release-notes/: width 245: 'This section contains the release notes of Aspose.PDF CLI App for the year Release Notes. '",
-        "expected": "50-170 characters (CJK count double)"
+        "expected": "50-170 characters (CJK count double)",
+        "sample": {
+          "generic:/{section}": [
+            1,
+            2
+          ],
+          "generic:/{section}/*": [
+            1,
+            2
+          ],
+          "generic:/{section}/*/*": [
+            2,
+            2
+          ],
+          "generic:/{section}/*/*/*/*": [
+            2,
+            2
+          ]
+        }
       },
       "affected_pages": 146,
       "impact": {
@@ -532,7 +646,7 @@
       "fix_tier": 1,
       "fix_channel": null,
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "onpage-0008",
@@ -550,7 +664,13 @@
           "https://www.aspose.app/id/"
         ],
         "observed": "3 of 3 sampled pages (by template: home 3/3). e.g. https://www.aspose.app/: width 195: 'Free online file format apps to view, edit, convert, merge, sign, compress, parse, and man'; https://www.aspose.app/da/: width 215: 'Gratis online filformatapps til at se, redigere, konvertere, flette, signere, komprimere, '; https://www.aspose.app/id/: width 242: 'Aplikasi format file online gratis untuk melihat, mengedit, mengonversi, menggabungkan, me'",
-        "expected": "50-170 characters (CJK count double)"
+        "expected": "50-170 characters (CJK count double)",
+        "sample": {
+          "home": [
+            3,
+            3
+          ]
+        }
       },
       "affected_pages": 36,
       "impact": {
@@ -562,7 +682,7 @@
       "fix_tier": 1,
       "fix_channel": null,
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "onpage-0009",
@@ -587,7 +707,21 @@
           "https://about.aspose.app/ru/legal/"
         ],
         "observed": "11 of 11 sampled pages (by template: generic:/ 3/3, generic:/{section} 4/4, generic:/{section}/* 4/4). e.g. https://about.aspose.app/: no meta description; https://about.aspose.app/security/: no meta description; https://about.aspose.app/legal/security/: no meta description; https://about.aspose.app/nl/: no meta description; https://about.aspose.app/events/: no meta description",
-        "expected": "a unique meta description"
+        "expected": "a unique meta description",
+        "sample": {
+          "generic:/": [
+            3,
+            3
+          ],
+          "generic:/{section}": [
+            4,
+            4
+          ],
+          "generic:/{section}/*": [
+            4,
+            4
+          ]
+        }
       },
       "affected_pages": 234,
       "impact": {
@@ -599,7 +733,7 @@
       "fix_tier": 1,
       "fix_channel": "git-pr",
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "onpage-0010",
@@ -617,7 +751,17 @@
           "https://blog.aspose.app/free-online-aspose.words-watermark-app/"
         ],
         "observed": "3 of 3 sampled pages (by template: generic:/ 1/1, generic:/{section} 2/2). e.g. https://blog.aspose.app/: no meta description; https://blog.aspose.app/recent-posts/: no meta description; https://blog.aspose.app/free-online-aspose.words-watermark-app/: no meta description",
-        "expected": "a unique meta description"
+        "expected": "a unique meta description",
+        "sample": {
+          "generic:/": [
+            1,
+            1
+          ],
+          "generic:/{section}": [
+            2,
+            2
+          ]
+        }
       },
       "affected_pages": 153,
       "impact": {
@@ -629,7 +773,7 @@
       "fix_tier": 1,
       "fix_channel": "wordpress-api",
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "onpage-0011",
@@ -645,7 +789,13 @@
           "https://dashboard.aspose.app/"
         ],
         "observed": "1 of 1 sampled pages (by template: generic:/ 1/1). e.g. https://dashboard.aspose.app/: no meta description",
-        "expected": "a unique meta description"
+        "expected": "a unique meta description",
+        "sample": {
+          "generic:/": [
+            1,
+            1
+          ]
+        }
       },
       "affected_pages": 1,
       "impact": {
@@ -657,7 +807,7 @@
       "fix_tier": 1,
       "fix_channel": null,
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "onpage-0012",
@@ -674,7 +824,13 @@
           "https://metrics.aspose.app/el/usages/file/"
         ],
         "observed": "2 of 15 sampled pages (by template: generic:/{section}/* 2/4). e.g. https://metrics.aspose.app/subscriptions/subscription-plan/: empty; https://metrics.aspose.app/el/usages/file/: empty",
-        "expected": "a unique meta description"
+        "expected": "a unique meta description",
+        "sample": {
+          "generic:/{section}/*": [
+            2,
+            4
+          ]
+        }
       },
       "affected_pages": 180,
       "impact": {
@@ -686,7 +842,7 @@
       "fix_tier": 1,
       "fix_channel": null,
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "onpage-0013",
@@ -702,7 +858,13 @@
           "https://purchase.aspose.app/"
         ],
         "observed": "1 of 1 sampled pages (by template: generic:/ 1/1). e.g. https://purchase.aspose.app/: no meta description",
-        "expected": "a unique meta description"
+        "expected": "a unique meta description",
+        "sample": {
+          "generic:/": [
+            1,
+            1
+          ]
+        }
       },
       "affected_pages": 1,
       "impact": {
@@ -714,7 +876,7 @@
       "fix_tier": 1,
       "fix_channel": null,
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "onpage-0014",
@@ -732,7 +894,17 @@
           "https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.10-windows/"
         ],
         "observed": "3 of 11 sampled pages (by template: generic:/ 1/1, generic:/{section}/*/*/* 2/2). e.g. https://releases.aspose.app/: empty; https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.3-macos-arm64/: empty; https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.10-windows/: empty",
-        "expected": "a unique meta description"
+        "expected": "a unique meta description",
+        "sample": {
+          "generic:/": [
+            1,
+            1
+          ],
+          "generic:/{section}/*/*/*": [
+            2,
+            2
+          ]
+        }
       },
       "affected_pages": 145,
       "impact": {
@@ -744,7 +916,7 @@
       "fix_tier": 1,
       "fix_channel": null,
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "onpage-0015",
@@ -768,7 +940,21 @@
           "https://websites.aspose.app/es/conholdate/cloud/"
         ],
         "observed": "9 of 12 sampled pages (by template: generic:/ 3/4, generic:/{section} 2/4, generic:/{section}/* 4/4). e.g. https://websites.aspose.app/groupdocs/ai/: no meta description; https://websites.aspose.app/: no meta description; https://websites.aspose.app/fileformat/app/: no meta description; https://websites.aspose.app/ko/: no meta description; https://websites.aspose.app/fr/groupdocs/: no meta description",
-        "expected": "a unique meta description"
+        "expected": "a unique meta description",
+        "sample": {
+          "generic:/": [
+            3,
+            4
+          ],
+          "generic:/{section}": [
+            2,
+            4
+          ],
+          "generic:/{section}/*": [
+            4,
+            4
+          ]
+        }
       },
       "affected_pages": 140,
       "impact": {
@@ -780,7 +966,7 @@
       "fix_tier": 1,
       "fix_channel": "git-pr",
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "onpage-0016",
@@ -796,7 +982,13 @@
           "https://blog.aspose.app/recent-posts/"
         ],
         "observed": "1 of 3 sampled pages (by template: generic:/{section} 1/2). e.g. https://blog.aspose.app/recent-posts/: no non-empty <h1>",
-        "expected": "one H1 that states the page topic"
+        "expected": "one H1 that states the page topic",
+        "sample": {
+          "generic:/{section}": [
+            1,
+            2
+          ]
+        }
       },
       "affected_pages": 76,
       "impact": {
@@ -808,7 +1000,7 @@
       "fix_tier": 1,
       "fix_channel": "wordpress-api",
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "onpage-0017",
@@ -824,7 +1016,13 @@
           "https://dashboard.aspose.app/"
         ],
         "observed": "1 of 1 sampled pages (by template: generic:/ 1/1). e.g. https://dashboard.aspose.app/: no non-empty <h1>",
-        "expected": "one H1 that states the page topic"
+        "expected": "one H1 that states the page topic",
+        "sample": {
+          "generic:/": [
+            1,
+            1
+          ]
+        }
       },
       "affected_pages": 1,
       "impact": {
@@ -836,7 +1034,7 @@
       "fix_tier": 1,
       "fix_channel": null,
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "onpage-0018",
@@ -852,7 +1050,13 @@
           "https://forum.aspose.app/"
         ],
         "observed": "1 of 21 sampled pages (by template: generic:/ 1/1). e.g. https://forum.aspose.app/: no non-empty <h1>",
-        "expected": "one H1 that states the page topic"
+        "expected": "one H1 that states the page topic",
+        "sample": {
+          "generic:/": [
+            1,
+            1
+          ]
+        }
       },
       "affected_pages": 1,
       "impact": {
@@ -864,7 +1068,7 @@
       "fix_tier": 1,
       "fix_channel": "discourse-admin",
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "onpage-0019",
@@ -880,7 +1084,13 @@
           "https://purchase.aspose.app/"
         ],
         "observed": "1 of 1 sampled pages (by template: generic:/ 1/1). e.g. https://purchase.aspose.app/: no non-empty <h1>",
-        "expected": "one H1 that states the page topic"
+        "expected": "one H1 that states the page topic",
+        "sample": {
+          "generic:/": [
+            1,
+            1
+          ]
+        }
       },
       "affected_pages": 1,
       "impact": {
@@ -892,7 +1102,7 @@
       "fix_tier": 1,
       "fix_channel": null,
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "onpage-0020",
@@ -913,7 +1123,21 @@
           "https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.10-windows/"
         ],
         "observed": "6 of 11 sampled pages (by template: generic:/{section} 2/2, generic:/{section}/* 2/2, generic:/{section}/*/*/* 2/2). e.g. https://releases.aspose.app/pdf/: no non-empty <h1>; https://releases.aspose.app/slides/slides-splitter-app-net/: no non-empty <h1>; https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.3-macos-arm64/: no non-empty <h1>; https://releases.aspose.app/pub/: no non-empty <h1>; https://releases.aspose.app/imaging/image-merge-app-net/: no non-empty <h1>",
-        "expected": "one H1 that states the page topic"
+        "expected": "one H1 that states the page topic",
+        "sample": {
+          "generic:/{section}": [
+            2,
+            2
+          ],
+          "generic:/{section}/*": [
+            2,
+            2
+          ],
+          "generic:/{section}/*/*/*": [
+            2,
+            2
+          ]
+        }
       },
       "affected_pages": 179,
       "impact": {
@@ -925,7 +1149,7 @@
       "fix_tier": 1,
       "fix_channel": null,
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "onpage-0021",
@@ -941,7 +1165,13 @@
           "https://status.aspose.app/dashboard"
         ],
         "observed": "1 of 6 sampled pages (by template: generic:/{section} 1/1). e.g. https://status.aspose.app/dashboard: no non-empty <h1>",
-        "expected": "one H1 that states the page topic"
+        "expected": "one H1 that states the page topic",
+        "sample": {
+          "generic:/{section}": [
+            1,
+            1
+          ]
+        }
       },
       "affected_pages": 1,
       "impact": {
@@ -953,7 +1183,7 @@
       "fix_tier": 1,
       "fix_channel": null,
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "onpage-0022",
@@ -970,7 +1200,13 @@
           "https://websites.aspose.app/ru/codeporting/"
         ],
         "observed": "2 of 12 sampled pages (by template: generic:/{section} 2/4). e.g. https://websites.aspose.app/fr/groupdocs/: no non-empty <h1>; https://websites.aspose.app/ru/codeporting/: no non-empty <h1>",
-        "expected": "one H1 that states the page topic"
+        "expected": "one H1 that states the page topic",
+        "sample": {
+          "generic:/{section}": [
+            2,
+            4
+          ]
+        }
       },
       "affected_pages": 16,
       "impact": {
@@ -982,7 +1218,7 @@
       "fix_tier": 1,
       "fix_channel": "git-pr",
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "crawl-0005",
@@ -1005,7 +1241,17 @@
           "https://products.aspose.app/html/ko/conversion/epub-to-image"
         ],
         "observed": "8 of 22 sampled pages (by template: conversion-format 4/4, conversion-pair 4/4). e.g. https://products.aspose.app/html/conversion/html: 2 canonical tags, 36 hreflang tags for 18 distinct; https://products.aspose.app/html/conversion/xhtml-to-image: 2 canonical tags, 36 hreflang tags for 18 distinct; https://products.aspose.app/html/conversion/xhtml: 2 canonical tags, 36 hreflang tags for 18 distinct; https://products.aspose.app/html/conversion/epub-to-xps: 2 canonical tags, 36 hreflang tags for 18 distinct; https://products.aspose.app/html/id/conversion/md: 2 canonical tags, 36 hreflang tags for 18 distinct",
-        "expected": "each head tag emitted once"
+        "expected": "each head tag emitted once",
+        "sample": {
+          "conversion-format": [
+            4,
+            4
+          ],
+          "conversion-pair": [
+            4,
+            4
+          ]
+        }
       },
       "affected_pages": 1386,
       "impact": {
@@ -1017,7 +1263,7 @@
       "fix_tier": 2,
       "fix_channel": "git-pr",
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "intl-0001",
@@ -1042,7 +1288,25 @@
           "https://metrics.aspose.app/lv/usages/"
         ],
         "observed": "15 of 15 sampled pages (by template: generic:/ 3/3, generic:/{section} 4/4, generic:/{section}/* 4/4, generic:/{section}/*/* 4/4). e.g. https://metrics.aspose.app/: no <link rel=alternate hreflang> in <head>; https://metrics.aspose.app/usages/: no <link rel=alternate hreflang> in <head>; https://metrics.aspose.app/usages/files/: no <link rel=alternate hreflang> in <head>; https://metrics.aspose.app/usages/sizes/cad/: no <link rel=alternate hreflang> in <head>; https://metrics.aspose.app/ru/: no <link rel=alternate hreflang> in <head>",
-        "expected": "hreflang alternates for every language version, incl. a self-reference and x-default"
+        "expected": "hreflang alternates for every language version, incl. a self-reference and x-default",
+        "sample": {
+          "generic:/": [
+            3,
+            3
+          ],
+          "generic:/{section}": [
+            4,
+            4
+          ],
+          "generic:/{section}/*": [
+            4,
+            4
+          ],
+          "generic:/{section}/*/*": [
+            4,
+            4
+          ]
+        }
       },
       "affected_pages": 3780,
       "impact": {
@@ -1054,7 +1318,7 @@
       "fix_tier": 2,
       "fix_channel": null,
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "intl-0002",
@@ -1071,7 +1335,17 @@
           "https://products.aspose.app/barcode/family/"
         ],
         "observed": "2 of 10 sampled pages (by template: family-hub 1/1, family-subhub 1/1). e.g. https://products.aspose.app/barcode/: no <link rel=alternate hreflang> in <head>; https://products.aspose.app/barcode/family/: no <link rel=alternate hreflang> in <head>",
-        "expected": "hreflang alternates for every language version, incl. a self-reference and x-default"
+        "expected": "hreflang alternates for every language version, incl. a self-reference and x-default",
+        "sample": {
+          "family-hub": [
+            1,
+            1
+          ],
+          "family-subhub": [
+            1,
+            1
+          ]
+        }
       },
       "affected_pages": 2,
       "impact": {
@@ -1083,7 +1357,7 @@
       "fix_tier": 2,
       "fix_channel": "git-pr",
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "intl-0003",
@@ -1100,7 +1374,17 @@
           "https://products.aspose.app/html/family/"
         ],
         "observed": "2 of 22 sampled pages (by template: family-hub 1/1, family-subhub 1/1). e.g. https://products.aspose.app/html/: no <link rel=alternate hreflang> in <head>; https://products.aspose.app/html/family/: no <link rel=alternate hreflang> in <head>",
-        "expected": "hreflang alternates for every language version, incl. a self-reference and x-default"
+        "expected": "hreflang alternates for every language version, incl. a self-reference and x-default",
+        "sample": {
+          "family-hub": [
+            1,
+            1
+          ],
+          "family-subhub": [
+            1,
+            1
+          ]
+        }
       },
       "affected_pages": 2,
       "impact": {
@@ -1112,7 +1396,7 @@
       "fix_tier": 2,
       "fix_channel": "git-pr",
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "intl-0004",
@@ -1136,7 +1420,21 @@
           "https://websites.aspose.app/es/conholdate/cloud/"
         ],
         "observed": "9 of 12 sampled pages (by template: generic:/ 3/4, generic:/{section} 2/4, generic:/{section}/* 4/4). e.g. https://websites.aspose.app/groupdocs/ai/: no <link rel=alternate hreflang> in <head>; https://websites.aspose.app/: no <link rel=alternate hreflang> in <head>; https://websites.aspose.app/fileformat/app/: no <link rel=alternate hreflang> in <head>; https://websites.aspose.app/ko/: no <link rel=alternate hreflang> in <head>; https://websites.aspose.app/fr/groupdocs/: no <link rel=alternate hreflang> in <head>",
-        "expected": "hreflang alternates for every language version, incl. a self-reference and x-default"
+        "expected": "hreflang alternates for every language version, incl. a self-reference and x-default",
+        "sample": {
+          "generic:/": [
+            3,
+            4
+          ],
+          "generic:/{section}": [
+            2,
+            4
+          ],
+          "generic:/{section}/*": [
+            4,
+            4
+          ]
+        }
       },
       "affected_pages": 140,
       "impact": {
@@ -1148,7 +1446,7 @@
       "fix_tier": 2,
       "fix_channel": "git-pr",
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "intl-0005",
@@ -1166,7 +1464,13 @@
           "https://www.aspose.app/id/"
         ],
         "observed": "3 of 3 sampled pages (by template: home 3/3). e.g. https://www.aspose.app/: no <link rel=alternate hreflang> in <head>; https://www.aspose.app/da/: no <link rel=alternate hreflang> in <head>; https://www.aspose.app/id/: no <link rel=alternate hreflang> in <head>",
-        "expected": "hreflang alternates for every language version, incl. a self-reference and x-default"
+        "expected": "hreflang alternates for every language version, incl. a self-reference and x-default",
+        "sample": {
+          "home": [
+            3,
+            3
+          ]
+        }
       },
       "affected_pages": 36,
       "impact": {
@@ -1178,7 +1482,7 @@
       "fix_tier": 2,
       "fix_channel": null,
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "intl-0006",
@@ -1203,7 +1507,29 @@
           "https://products.aspose.app/html/merger/html"
         ],
         "observed": "20 of 22 sampled pages (by template: conversion-format 4/4, conversion-pair 4/4, tool 4/4, tool-pair 4/4, tool-variant 4/4). e.g. https://products.aspose.app/html/conversion/html: 17 languages (ar, de, es, fa, fr, id, it, ja, ...), none points to https://products.aspose.app/html/conversion/html; https://products.aspose.app/html/conversion/xhtml-to-image: 17 languages (ar, de, es, fa, fr, id, it, ja, ...), none points to https://products.aspose.app/html/conversion/xhtml-to-image; https://products.aspose.app/html/yaml-to-json: 17 languages (ar, de, es, fa, fr, id, it, ja, ...), none points to https://products.aspose.app/html/yaml-to-json; https://products.aspose.app/html/merger/html-to-mhtml: 17 languages (ar, de, es, fa, fr, id, it, ja, ...), none points to https://products.aspose.app/html/merger/html-to-mhtml; https://products.aspose.app/html/merger/mhtml: 17 languages (ar, de, es, fa, fr, id, it, ja, ...), none points to https://products.aspose.app/html/merger/mhtml",
-        "expected": "a self-referencing hreflang entry"
+        "expected": "a self-referencing hreflang entry",
+        "sample": {
+          "conversion-format": [
+            4,
+            4
+          ],
+          "conversion-pair": [
+            4,
+            4
+          ],
+          "tool": [
+            4,
+            4
+          ],
+          "tool-pair": [
+            4,
+            4
+          ],
+          "tool-variant": [
+            4,
+            4
+          ]
+        }
       },
       "affected_pages": 4626,
       "impact": {
@@ -1215,7 +1541,7 @@
       "fix_tier": 2,
       "fix_channel": "git-pr",
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "intl-0007",
@@ -1238,7 +1564,17 @@
           "https://products.aspose.app/barcode/cs/recognize/opc"
         ],
         "observed": "8 of 10 sampled pages (by template: tool 4/4, tool-variant 4/4). e.g. https://products.aspose.app/barcode/scanwifiqr: 26 entries: en, ar, bg, cs, de, el; https://products.aspose.app/barcode/generate/opc: 26 entries: en, ar, bg, cs, de, el; https://products.aspose.app/barcode/scan: 26 entries: en, ar, bg, cs, de, el; https://products.aspose.app/barcode/generate/code11: 26 entries: en, ar, bg, cs, de, el; https://products.aspose.app/barcode/zh-hant/with-logo: 26 entries: en, ar, bg, cs, de, el",
-        "expected": "an x-default entry"
+        "expected": "an x-default entry",
+        "sample": {
+          "tool": [
+            4,
+            4
+          ],
+          "tool-variant": [
+            4,
+            4
+          ]
+        }
       },
       "affected_pages": 2080,
       "impact": {
@@ -1250,7 +1586,7 @@
       "fix_tier": 2,
       "fix_channel": "git-pr",
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "intl-0008",
@@ -1269,7 +1605,17 @@
           "https://websites.aspose.app/es/conholdate/cloud/"
         ],
         "observed": "4 of 12 sampled pages (by template: generic:/ 2/4, generic:/{section}/* 2/4). e.g. https://websites.aspose.app/ko/: URL language ko, <html lang='en'>; https://websites.aspose.app/el/aspose/com/: URL language el, <html lang='en'>; https://websites.aspose.app/nl/: URL language nl, <html lang='en'>; https://websites.aspose.app/es/conholdate/cloud/: URL language es, <html lang='en'>",
-        "expected": "<html lang> = the URL's language"
+        "expected": "<html lang> = the URL's language",
+        "sample": {
+          "generic:/": [
+            2,
+            4
+          ],
+          "generic:/{section}/*": [
+            2,
+            4
+          ]
+        }
       },
       "affected_pages": 67,
       "impact": {
@@ -1281,7 +1627,7 @@
       "fix_tier": 1,
       "fix_channel": "git-pr",
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "intl-0009",
@@ -1297,7 +1643,13 @@
           "https://purchase.aspose.app/"
         ],
         "observed": "1 of 1 sampled pages (by template: generic:/ 1/1). e.g. https://purchase.aspose.app/: no lang attribute on <html>",
-        "expected": "<html lang> matching the page language"
+        "expected": "<html lang> matching the page language",
+        "sample": {
+          "generic:/": [
+            1,
+            1
+          ]
+        }
       },
       "affected_pages": 1,
       "impact": {
@@ -1309,7 +1661,7 @@
       "fix_tier": 1,
       "fix_channel": null,
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "intl-0010",
@@ -1331,7 +1683,25 @@
           "https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.10-windows/"
         ],
         "observed": "7 of 11 sampled pages (by template: generic:/ 1/1, generic:/{section} 2/2, generic:/{section}/* 2/2, generic:/{section}/*/*/* 2/2). e.g. https://releases.aspose.app/: no lang attribute on <html>; https://releases.aspose.app/pdf/: no lang attribute on <html>; https://releases.aspose.app/slides/slides-splitter-app-net/: no lang attribute on <html>; https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.3-macos-arm64/: no lang attribute on <html>; https://releases.aspose.app/pub/: no lang attribute on <html>",
-        "expected": "<html lang> matching the page language"
+        "expected": "<html lang> matching the page language",
+        "sample": {
+          "generic:/": [
+            1,
+            1
+          ],
+          "generic:/{section}": [
+            2,
+            2
+          ],
+          "generic:/{section}/*": [
+            2,
+            2
+          ],
+          "generic:/{section}/*/*/*": [
+            2,
+            2
+          ]
+        }
       },
       "affected_pages": 180,
       "impact": {
@@ -1343,7 +1713,7 @@
       "fix_tier": 1,
       "fix_channel": null,
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "intl-0011",
@@ -1364,7 +1734,21 @@
           "https://status.aspose.app/"
         ],
         "observed": "6 of 6 sampled pages (by template: generic:/ 3/3, generic:/{section} 1/1, generic:/{section}/* 2/2). e.g. https://status.aspose.app?start_date=2019-06-24: no lang attribute on <html>; https://status.aspose.app/dashboard: no lang attribute on <html>; https://status.aspose.app/incidents/58: no lang attribute on <html>; https://status.aspose.app?start_date=2019-12-03: no lang attribute on <html>; https://status.aspose.app/incidents/68: no lang attribute on <html>",
-        "expected": "<html lang> matching the page language"
+        "expected": "<html lang> matching the page language",
+        "sample": {
+          "generic:/": [
+            3,
+            3
+          ],
+          "generic:/{section}": [
+            1,
+            1
+          ],
+          "generic:/{section}/*": [
+            2,
+            2
+          ]
+        }
       },
       "affected_pages": 150,
       "impact": {
@@ -1376,7 +1760,7 @@
       "fix_tier": 1,
       "fix_channel": null,
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "crawl-0006",
@@ -1392,7 +1776,13 @@
           "https://api.products.aspose.app/"
         ],
         "observed": "1 of 1 sampled pages (by template: generic:/ 1/1). e.g. https://api.products.aspose.app/: HTTP 404",
-        "expected": "HTTP 200"
+        "expected": "HTTP 200",
+        "sample": {
+          "generic:/": [
+            1,
+            1
+          ]
+        }
       },
       "affected_pages": 1,
       "impact": {
@@ -1404,7 +1794,7 @@
       "fix_tier": 1,
       "fix_channel": null,
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "crawl-0007",
@@ -1429,7 +1819,13 @@
           "https://forum.aspose.app/t/pdf-to-markdown/24430"
         ],
         "observed": "20 of 21 sampled pages (by template: generic:/{section}/*/* 20/20). e.g. https://forum.aspose.app/t/object-detection-issue-cannot-read-the-image-file-2024-04-04t0705-726z/91540: HTTP 403; https://forum.aspose.app/t/2023-12-04-06-59-18-diagram-viewer-api-viewer-newpages/85427: HTTP 403; https://forum.aspose.app/t/undefined-issue-uncaught-javascript-error-2024-06-02t0845-790z/93896: HTTP 403; https://forum.aspose.app/t/image-compress-issue-image-export-failed-2026-04-21t0423-128z/108231: HTTP 403; https://forum.aspose.app/t/conversion-issue-internal-server-error-500-2021-01-02t1004-511z/8078: HTTP 403",
-        "expected": "HTTP 200"
+        "expected": "HTTP 200",
+        "sample": {
+          "generic:/{section}/*/*": [
+            20,
+            20
+          ]
+        }
       },
       "affected_pages": 41894,
       "impact": {
@@ -1441,7 +1837,7 @@
       "fix_tier": 1,
       "fix_channel": "discourse-admin",
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "crawl-0008",
@@ -1459,7 +1855,17 @@
           "https://websites.aspose.app/conholdate/"
         ],
         "observed": "3 of 12 sampled pages (by template: generic:/ 1/4, generic:/{section} 2/4). e.g. https://websites.aspose.app/en/: meta refresh to https://websites.aspose.app; https://websites.aspose.app/fileformat/: meta refresh to /fileformat/com; https://websites.aspose.app/conholdate/: meta refresh to /conholdate/com",
-        "expected": "sitemaps list the target URL; moved pages use an HTTP 301"
+        "expected": "sitemaps list the target URL; moved pages use an HTTP 301",
+        "sample": {
+          "generic:/": [
+            1,
+            4
+          ],
+          "generic:/{section}": [
+            2,
+            4
+          ]
+        }
       },
       "affected_pages": 26,
       "impact": {
@@ -1471,7 +1877,7 @@
       "fix_tier": 1,
       "fix_channel": "git-pr",
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "crawl-0009",
@@ -1490,7 +1896,17 @@
           "https://releases.aspose.app/font/convert-app-net/release-notes/2024/convert-app-net-24-6-release-notes/"
         ],
         "observed": "4 of 11 sampled pages (by template: generic:/{section}/*/* 2/2, generic:/{section}/*/*/*/* 2/2). e.g. https://releases.aspose.app/tex/convert-app-net/release-notes/: robots: noindex, nofollow; https://releases.aspose.app/page/convert-app-net/release-notes/2024/convert-app-net-24-4-release-notes/: robots: noindex, nofollow; https://releases.aspose.app/pdf/pdf-cli/release-notes/: robots: noindex, nofollow; https://releases.aspose.app/font/convert-app-net/release-notes/2024/convert-app-net-24-6-release-notes/: robots: noindex, nofollow",
-        "expected": "only indexable pages in sitemaps; homepages indexable"
+        "expected": "only indexable pages in sitemaps; homepages indexable",
+        "sample": {
+          "generic:/{section}/*/*": [
+            2,
+            2
+          ],
+          "generic:/{section}/*/*/*/*": [
+            2,
+            2
+          ]
+        }
       },
       "affected_pages": 128,
       "impact": {
@@ -1502,7 +1918,7 @@
       "fix_tier": 3,
       "fix_channel": null,
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "crawl-0010",
@@ -1517,8 +1933,14 @@
         "urls": [
           "https://status.aspose.app/dashboard"
         ],
-        "observed": "1 of 6 sampled pages (by template: generic:/{section} 1/1). e.g. https://status.aspose.app/dashboard: 3 hops: 302 -> 302 -> 302 -> https://id.containerize.com/login?signin=0d8f01373ffd58df7a7779289c19d845",
-        "expected": "a single redirect hop"
+        "observed": "1 of 6 sampled pages (by template: generic:/{section} 1/1). e.g. https://status.aspose.app/dashboard: 3 hops: 302 -> 302 -> 302 -> https://id.containerize.com/login?signin=7c4ac71d21dc21d6a388f1a925b043f6",
+        "expected": "a single redirect hop",
+        "sample": {
+          "generic:/{section}": [
+            1,
+            1
+          ]
+        }
       },
       "affected_pages": 1,
       "impact": {
@@ -1530,7 +1952,7 @@
       "fix_tier": 2,
       "fix_channel": null,
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "crawl-0011",
@@ -1545,8 +1967,14 @@
         "urls": [
           "https://status.aspose.app/dashboard"
         ],
-        "observed": "1 of 6 sampled pages (by template: generic:/{section} 1/1). e.g. https://status.aspose.app/dashboard: HTTP 302 -> https://id.containerize.com/login?signin=0d8f01373ffd58df7a7779289c19d845",
-        "expected": "permanent redirects (301/308) for moved URLs"
+        "observed": "1 of 6 sampled pages (by template: generic:/{section} 1/1). e.g. https://status.aspose.app/dashboard: HTTP 302 -> https://id.containerize.com/login?signin=7c4ac71d21dc21d6a388f1a925b043f6",
+        "expected": "permanent redirects (301/308) for moved URLs",
+        "sample": {
+          "generic:/{section}": [
+            1,
+            1
+          ]
+        }
       },
       "affected_pages": 1,
       "impact": {
@@ -1558,7 +1986,7 @@
       "fix_tier": 2,
       "fix_channel": null,
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "crawl-0012",
@@ -1573,8 +2001,14 @@
         "urls": [
           "https://status.aspose.app/dashboard"
         ],
-        "observed": "1 of 6 sampled pages (by template: generic:/{section} 1/1). e.g. https://status.aspose.app/dashboard: redirects 302 -> 302 -> 302 -> https://id.containerize.com/login?signin=0d8f01373ffd58df7a7779289c19d845",
-        "expected": "sitemaps list final URLs that answer HTTP 200"
+        "observed": "1 of 6 sampled pages (by template: generic:/{section} 1/1). e.g. https://status.aspose.app/dashboard: redirects 302 -> 302 -> 302 -> https://id.containerize.com/login?signin=7c4ac71d21dc21d6a388f1a925b043f6",
+        "expected": "sitemaps list final URLs that answer HTTP 200",
+        "sample": {
+          "generic:/{section}": [
+            1,
+            1
+          ]
+        }
       },
       "affected_pages": 1,
       "impact": {
@@ -1586,7 +2020,7 @@
       "fix_tier": 1,
       "fix_channel": null,
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "onpage-0023",
@@ -1603,7 +2037,17 @@
           "https://about.aspose.app/legal/security/"
         ],
         "observed": "2 of 11 sampled pages (by template: generic:/{section} 1/4, generic:/{section}/* 1/4). e.g. https://about.aspose.app/security/: 'Security - About - aspose.app' also on https://about.aspose.app/legal/security/; https://about.aspose.app/legal/security/: 'Security - About - aspose.app' also on https://about.aspose.app/security/",
-        "expected": "a unique title per page and language"
+        "expected": "a unique title per page and language",
+        "sample": {
+          "generic:/{section}": [
+            1,
+            4
+          ],
+          "generic:/{section}/*": [
+            1,
+            4
+          ]
+        }
       },
       "affected_pages": 56,
       "impact": {
@@ -1615,7 +2059,7 @@
       "fix_tier": 1,
       "fix_channel": "git-pr",
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "onpage-0024",
@@ -1632,7 +2076,13 @@
           "https://releases.aspose.app/pdf/pdf-cli/release-notes/"
         ],
         "observed": "2 of 11 sampled pages (by template: generic:/{section}/*/* 2/2). e.g. https://releases.aspose.app/tex/convert-app-net/release-notes/: 'Release Notes' also on https://releases.aspose.app/pdf/pdf-cli/release-notes/; https://releases.aspose.app/pdf/pdf-cli/release-notes/: 'Release Notes' also on https://releases.aspose.app/tex/convert-app-net/release-notes/",
-        "expected": "a unique title per page and language"
+        "expected": "a unique title per page and language",
+        "sample": {
+          "generic:/{section}/*/*": [
+            2,
+            2
+          ]
+        }
       },
       "affected_pages": 12,
       "impact": {
@@ -1644,7 +2094,7 @@
       "fix_tier": 1,
       "fix_channel": null,
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "onpage-0025",
@@ -1664,7 +2114,17 @@
           "https://status.aspose.app/"
         ],
         "observed": "5 of 6 sampled pages (by template: generic:/ 3/3, generic:/{section}/* 2/2). e.g. https://status.aspose.app?start_date=2019-06-24: 'Status - aspose.app' also on https://status.aspose.app?start_date=2019-12-03, https://status.aspose.app/; https://status.aspose.app/incidents/58: 'I HAVE BEEN FIXED | Status - aspose.app' also on https://status.aspose.app/incidents/68; https://status.aspose.app?start_date=2019-12-03: 'Status - aspose.app' also on https://status.aspose.app?start_date=2019-06-24, https://status.aspose.app/; https://status.aspose.app/incidents/68: 'I HAVE BEEN FIXED | Status - aspose.app' also on https://status.aspose.app/incidents/58; https://status.aspose.app/: 'Status - aspose.app' also on https://status.aspose.app?start_date=2019-06-24, https://status.aspose.app?start_date=2019-12-03",
-        "expected": "a unique title per page and language"
+        "expected": "a unique title per page and language",
+        "sample": {
+          "generic:/": [
+            3,
+            3
+          ],
+          "generic:/{section}/*": [
+            2,
+            2
+          ]
+        }
       },
       "affected_pages": 149,
       "impact": {
@@ -1676,7 +2136,7 @@
       "fix_tier": 1,
       "fix_channel": null,
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "onpage-0026",
@@ -1692,7 +2152,13 @@
           "https://blog.aspose.app/free-online-aspose.words-watermark-app/"
         ],
         "observed": "1 of 3 sampled pages (by template: generic:/{section} 1/2). e.g. https://blog.aspose.app/free-online-aspose.words-watermark-app/: width 75: 'Free Online Aspose.Words Watermark App | File Format Apps Blog - aspose.app'",
-        "expected": "10-70 characters (CJK count double)"
+        "expected": "10-70 characters (CJK count double)",
+        "sample": {
+          "generic:/{section}": [
+            1,
+            2
+          ]
+        }
       },
       "affected_pages": 76,
       "impact": {
@@ -1704,7 +2170,7 @@
       "fix_tier": 1,
       "fix_channel": "wordpress-api",
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "onpage-0027",
@@ -1720,7 +2186,13 @@
           "https://dashboard.aspose.app/"
         ],
         "observed": "1 of 1 sampled pages (by template: generic:/ 1/1). e.g. https://dashboard.aspose.app/: width 9: 'Dashboard'",
-        "expected": "10-70 characters (CJK count double)"
+        "expected": "10-70 characters (CJK count double)",
+        "sample": {
+          "generic:/": [
+            1,
+            1
+          ]
+        }
       },
       "affected_pages": 1,
       "impact": {
@@ -1732,7 +2204,7 @@
       "fix_tier": 1,
       "fix_channel": null,
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "onpage-0028",
@@ -1752,7 +2224,17 @@
           "https://metrics.aspose.app/el/usages/file/"
         ],
         "observed": "5 of 15 sampled pages (by template: generic:/ 3/3, generic:/{section}/* 2/4). e.g. https://metrics.aspose.app/: width 129: 'Free Online File Processing Apps for PDF, Word, Excel, PowerPoint, Visio, Project, OneNote'; https://metrics.aspose.app/ru/: width 145: 'Бесплатные онлайн-приложения для обработки файлов в форматах PDF, Word, Excel, PowerPoint,'; https://metrics.aspose.app/subscriptions/subscription-plan/: width 0: ''; https://metrics.aspose.app/az/: width 134: 'PDF, Word, Excel, PowerPoint, Visio, Project, OneNote, OpenOffice, CAD, 3D formatları və s'; https://metrics.aspose.app/el/usages/file/: width 0: ''",
-        "expected": "10-70 characters (CJK count double)"
+        "expected": "10-70 characters (CJK count double)",
+        "sample": {
+          "generic:/": [
+            3,
+            3
+          ],
+          "generic:/{section}/*": [
+            2,
+            4
+          ]
+        }
       },
       "affected_pages": 216,
       "impact": {
@@ -1764,7 +2246,7 @@
       "fix_tier": 1,
       "fix_channel": null,
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "onpage-0029",
@@ -1782,7 +2264,21 @@
           "https://products.aspose.app/html/"
         ],
         "observed": "3 of 22 sampled pages (by template: family-hub 1/1, tool 1/4, tool-variant 1/4). e.g. https://products.aspose.app/html/de/merger/mhtml: width 92: 'MHTML Merger - Konvertieren Sie MHTML und führen Sie sie online zu anderen Formaten zusamm'; https://products.aspose.app/html/ja/color-contrast-accessibility: width 76: 'カラーコントラストのアクセシビリティ-Webサイトのカラーコントラストをチェック'; https://products.aspose.app/html/: width 75: 'Free Apps, On Premise & Cloud APIs for HTML Manipulation | Free Aspose Apps'",
-        "expected": "10-70 characters (CJK count double)"
+        "expected": "10-70 characters (CJK count double)",
+        "sample": {
+          "family-hub": [
+            1,
+            1
+          ],
+          "tool": [
+            1,
+            4
+          ],
+          "tool-variant": [
+            1,
+            4
+          ]
+        }
       },
       "affected_pages": 289,
       "impact": {
@@ -1794,7 +2290,7 @@
       "fix_tier": 1,
       "fix_channel": "git-pr",
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "onpage-0030",
@@ -1810,7 +2306,13 @@
           "https://status.aspose.app/dashboard"
         ],
         "observed": "1 of 6 sampled pages (by template: generic:/{section} 1/1). e.g. https://status.aspose.app/dashboard: width 103: 'Containerize.IdentityServer - Single sign-on to access all applications and services of As'",
-        "expected": "10-70 characters (CJK count double)"
+        "expected": "10-70 characters (CJK count double)",
+        "sample": {
+          "generic:/{section}": [
+            1,
+            1
+          ]
+        }
       },
       "affected_pages": 1,
       "impact": {
@@ -1822,7 +2324,7 @@
       "fix_tier": 1,
       "fix_channel": null,
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "onpage-0031",
@@ -1840,7 +2342,13 @@
           "https://www.aspose.app/id/"
         ],
         "observed": "3 of 3 sampled pages (by template: home 3/3). e.g. https://www.aspose.app/: width 83: 'File Format Apps for Word Excel PDF PowerPoint Email Barcode Images OCR Note and 3D'; https://www.aspose.app/da/: width 80: 'Filformat-apps til Word Excel PDF PowerPoint Email Barcode Images OCR Note og 3D'; https://www.aspose.app/id/: width 88: 'Format File Apps untuk Word Excel PDF PowerPoint Gambar Barcode Email OCR Catatan dan 3D'",
-        "expected": "10-70 characters (CJK count double)"
+        "expected": "10-70 characters (CJK count double)",
+        "sample": {
+          "home": [
+            3,
+            3
+          ]
+        }
       },
       "affected_pages": 36,
       "impact": {
@@ -1852,7 +2360,7 @@
       "fix_tier": 1,
       "fix_channel": null,
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "ux-0001",
@@ -1870,7 +2378,17 @@
           "https://blog.aspose.app/free-online-aspose.words-watermark-app/"
         ],
         "observed": "3 of 3 sampled pages (by template: generic:/ 1/1, generic:/{section} 2/2). e.g. https://blog.aspose.app/: width=device-width, initial-scale=1.0, user-scalable=no; https://blog.aspose.app/recent-posts/: width=device-width, initial-scale=1.0, user-scalable=no; https://blog.aspose.app/free-online-aspose.words-watermark-app/: width=device-width, initial-scale=1.0, user-scalable=no",
-        "expected": "zoom allowed (WCAG 1.4.4)"
+        "expected": "zoom allowed (WCAG 1.4.4)",
+        "sample": {
+          "generic:/": [
+            1,
+            1
+          ],
+          "generic:/{section}": [
+            2,
+            2
+          ]
+        }
       },
       "affected_pages": 153,
       "impact": {
@@ -1882,7 +2400,7 @@
       "fix_tier": 1,
       "fix_channel": "wordpress-api",
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "ux-0002",
@@ -1904,7 +2422,25 @@
           "https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.10-windows/"
         ],
         "observed": "7 of 11 sampled pages (by template: generic:/ 1/1, generic:/{section} 2/2, generic:/{section}/* 2/2, generic:/{section}/*/*/* 2/2). e.g. https://releases.aspose.app/: width=device-width,initial-scale=1,user-scalable=no; https://releases.aspose.app/pdf/: width=device-width,initial-scale=1,user-scalable=no; https://releases.aspose.app/slides/slides-splitter-app-net/: width=device-width,initial-scale=1,user-scalable=no; https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.3-macos-arm64/: width=device-width,initial-scale=1,user-scalable=no; https://releases.aspose.app/pub/: width=device-width,initial-scale=1,user-scalable=no",
-        "expected": "zoom allowed (WCAG 1.4.4)"
+        "expected": "zoom allowed (WCAG 1.4.4)",
+        "sample": {
+          "generic:/": [
+            1,
+            1
+          ],
+          "generic:/{section}": [
+            2,
+            2
+          ],
+          "generic:/{section}/*": [
+            2,
+            2
+          ],
+          "generic:/{section}/*/*/*": [
+            2,
+            2
+          ]
+        }
       },
       "affected_pages": 180,
       "impact": {
@@ -1916,7 +2452,7 @@
       "fix_tier": 1,
       "fix_channel": null,
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "ux-0003",
@@ -1936,7 +2472,17 @@
           "https://status.aspose.app/"
         ],
         "observed": "5 of 6 sampled pages (by template: generic:/ 3/3, generic:/{section}/* 2/2). e.g. https://status.aspose.app?start_date=2019-06-24: width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0; https://status.aspose.app/incidents/58: width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0; https://status.aspose.app?start_date=2019-12-03: width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0; https://status.aspose.app/incidents/68: width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0; https://status.aspose.app/: width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0",
-        "expected": "zoom allowed (WCAG 1.4.4)"
+        "expected": "zoom allowed (WCAG 1.4.4)",
+        "sample": {
+          "generic:/": [
+            3,
+            3
+          ],
+          "generic:/{section}/*": [
+            2,
+            2
+          ]
+        }
       },
       "affected_pages": 149,
       "impact": {
@@ -1948,7 +2494,7 @@
       "fix_tier": 1,
       "fix_channel": null,
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     },
     {
       "id": "ux-0004",
@@ -1972,7 +2518,21 @@
           "https://websites.aspose.app/es/conholdate/cloud/"
         ],
         "observed": "9 of 12 sampled pages (by template: generic:/ 3/4, generic:/{section} 2/4, generic:/{section}/* 4/4). e.g. https://websites.aspose.app/groupdocs/ai/: width=device-width,initial-scale=1,user-scalable=no; https://websites.aspose.app/: width=device-width,initial-scale=1,user-scalable=no; https://websites.aspose.app/fileformat/app/: width=device-width,initial-scale=1,user-scalable=no; https://websites.aspose.app/ko/: width=device-width,initial-scale=1,user-scalable=no; https://websites.aspose.app/fr/groupdocs/: width=device-width,initial-scale=1,user-scalable=no",
-        "expected": "zoom allowed (WCAG 1.4.4)"
+        "expected": "zoom allowed (WCAG 1.4.4)",
+        "sample": {
+          "generic:/": [
+            3,
+            4
+          ],
+          "generic:/{section}": [
+            2,
+            4
+          ],
+          "generic:/{section}/*": [
+            4,
+            4
+          ]
+        }
       },
       "affected_pages": 140,
       "impact": {
@@ -1984,7 +2544,7 @@
       "fix_tier": 1,
       "fix_channel": "git-pr",
       "status": "open",
-      "detected_at": "2026-10-08"
+      "detected_at": "2026-10-09"
     }
   ],
   "pages": [
@@ -2005,7 +2565,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 35,
+      "elapsed_ms": 38,
       "facts": {
         "titles": [
           "About Us - aspose.app"
@@ -2106,7 +2666,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 514,
+      "elapsed_ms": 427,
       "facts": {
         "titles": [
           "File Format Apps Blog - aspose.app"
@@ -2153,11 +2713,11 @@
       "redirects": [],
       "redirect_statuses": [],
       "content_type": "text/html; charset=utf-8",
-      "bytes": 134766,
+      "bytes": 134663,
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 649,
+      "elapsed_ms": 626,
       "facts": null,
       "issues": [
         [
@@ -2183,7 +2743,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 629,
+      "elapsed_ms": 719,
       "facts": {
         "titles": [
           "Free Online File Processing Apps for PDF, Word, Excel, PowerPoint, Visio, Project, OneNote, OpenOffice, CAD, 3D formats and more."
@@ -2235,7 +2795,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 31,
+      "elapsed_ms": 230,
       "facts": {
         "titles": [
           "Online Wi-Fi QR Code Scanner"
@@ -2386,7 +2946,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 51,
+      "elapsed_ms": 45,
       "facts": {
         "titles": [
           "Releases - aspose.app"
@@ -2448,7 +3008,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 754,
+      "elapsed_ms": 804,
       "facts": {
         "titles": [
           "Status - aspose.app"
@@ -2508,7 +3068,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 50,
+      "elapsed_ms": 45,
       "facts": {
         "titles": [
           "https://websites.aspose.app"
@@ -2552,7 +3112,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 32,
+      "elapsed_ms": 40,
       "facts": {
         "titles": [
           "File Format Apps for Word Excel PDF PowerPoint Email Barcode Images OCR Note and 3D"
@@ -2606,7 +3166,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 458,
+      "elapsed_ms": 423,
       "facts": {
         "titles": [
           "Purchase Portal"
@@ -2658,7 +3218,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 47,
+      "elapsed_ms": 39,
       "facts": {
         "titles": [
           "Dashboard"
@@ -2710,7 +3270,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 404,
+      "elapsed_ms": 412,
       "facts": null,
       "issues": [
         [
@@ -2736,7 +3296,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 94,
+      "elapsed_ms": 91,
       "facts": {
         "titles": [
           "Security - About - aspose.app"
@@ -2841,7 +3401,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 1359,
+      "elapsed_ms": 1328,
       "facts": {
         "titles": [
           "Recent Posts | File Format Apps Blog - aspose.app"
@@ -2890,11 +3450,11 @@
       "redirects": [],
       "redirect_statuses": [],
       "content_type": "text/html; charset=utf-8",
-      "bytes": 134718,
+      "bytes": 134615,
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 1491,
+      "elapsed_ms": 1635,
       "facts": null,
       "issues": [
         [
@@ -2920,7 +3480,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 460,
+      "elapsed_ms": 696,
       "facts": {
         "titles": [
           "File Formats Apps Usage Metrics"
@@ -2929,7 +3489,7 @@
           "File Formats Apps Usage Metrics"
         ],
         "h1": [
-          "14,545,459 | 10,202,995,276,883 | 20,044,830"
+          "14,604,965 | 10,237,436,163,672 | 20,139,535"
         ],
         "canonicals": [
           "https://metrics.aspose.app/usages/"
@@ -2972,7 +3532,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 112,
+      "elapsed_ms": 169,
       "facts": {
         "titles": [
           "Generate OPC Barcode Online"
@@ -3123,7 +3683,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 231,
+      "elapsed_ms": 405,
       "facts": {
         "titles": [
           "Aspose.PDF Micro Apps"
@@ -3173,11 +3733,11 @@
       "source": "sitemap",
       "group_urls": 1,
       "status": 200,
-      "final_url": "https://id.containerize.com/login?signin=0d8f01373ffd58df7a7779289c19d845",
+      "final_url": "https://id.containerize.com/login?signin=7c4ac71d21dc21d6a388f1a925b043f6",
       "redirects": [
         "https://status.aspose.app/dashboard",
         "https://status.aspose.app/auth/login",
-        "https://id.containerize.com/connect/authorize?response_type=id_token+token&response_mode=form_post&redirect_uri=https%3A%2F%2Fstatus.aspose.app%2Fauth%2Flogin%2Fcallback&client_id=status.aspose.app&nonce=f2b8358f94695066f5a3f899bf947523&state=a7f06dffe0aea6ed1989c325638dd46a&scope=openid+profile+roles"
+        "https://id.containerize.com/connect/authorize?response_type=id_token+token&response_mode=form_post&redirect_uri=https%3A%2F%2Fstatus.aspose.app%2Fauth%2Flogin%2Fcallback&client_id=status.aspose.app&nonce=4d5b97570bc9346a03e5d990d871c815&state=4a116a4f53b795c945f5d1c1cce09ff6&scope=openid+profile+roles"
       ],
       "redirect_statuses": [
         302,
@@ -3189,7 +3749,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 4258,
+      "elapsed_ms": 4051,
       "facts": {
         "titles": [
           "Containerize.IdentityServer - Single sign-on to access all applications and services of Aspose Pty Ltd."
@@ -3210,15 +3770,15 @@
       "issues": [
         [
           "redirected",
-          "redirects 302 -> 302 -> 302 -> https://id.containerize.com/login?signin=0d8f01373ffd58df7a7779289c19d845"
+          "redirects 302 -> 302 -> 302 -> https://id.containerize.com/login?signin=7c4ac71d21dc21d6a388f1a925b043f6"
         ],
         [
           "redirect_chain",
-          "3 hops: 302 -> 302 -> 302 -> https://id.containerize.com/login?signin=0d8f01373ffd58df7a7779289c19d845"
+          "3 hops: 302 -> 302 -> 302 -> https://id.containerize.com/login?signin=7c4ac71d21dc21d6a388f1a925b043f6"
         ],
         [
           "redirect_temporary",
-          "HTTP 302 -> https://id.containerize.com/login?signin=0d8f01373ffd58df7a7779289c19d845"
+          "HTTP 302 -> https://id.containerize.com/login?signin=7c4ac71d21dc21d6a388f1a925b043f6"
         ],
         [
           "canonical_missing",
@@ -3255,7 +3815,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 144,
+      "elapsed_ms": 192,
       "facts": {
         "titles": [
           "Websites - aspose.com - Websites - aspose.app"
@@ -3299,7 +3859,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 102,
+      "elapsed_ms": 1078,
       "facts": {
         "titles": [
           "Filformat-apps til Word Excel PDF PowerPoint Email Barcode Images OCR Note og 3D"
@@ -3353,7 +3913,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 94,
+      "elapsed_ms": 205,
       "facts": {
         "titles": [
           "Security - About - aspose.app"
@@ -3454,11 +4014,11 @@
       "redirects": [],
       "redirect_statuses": [],
       "content_type": "text/html; charset=UTF-8",
-      "bytes": 35652,
+      "bytes": 35576,
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 1286,
+      "elapsed_ms": 1343,
       "facts": {
         "titles": [
           "Free Online Aspose.Words Watermark App | File Format Apps Blog - aspose.app"
@@ -3509,11 +4069,11 @@
       "redirects": [],
       "redirect_statuses": [],
       "content_type": "text/html; charset=utf-8",
-      "bytes": 134742,
+      "bytes": 134639,
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 1563,
+      "elapsed_ms": 1635,
       "facts": null,
       "issues": [
         [
@@ -3539,7 +4099,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 770,
+      "elapsed_ms": 736,
       "facts": {
         "titles": [
           "File Format Apps for Top 16 File Formats App Families"
@@ -3548,7 +4108,7 @@
           "File Format Apps for Top 16 File Formats App Families"
         ],
         "h1": [
-          "14,545,459"
+          "14,604,965"
         ],
         "canonicals": [
           "https://metrics.aspose.app/usages/files/"
@@ -3587,7 +4147,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 192,
+      "elapsed_ms": 269,
       "facts": {
         "titles": [
           "HTML Converter – Convert HTML to PDF, DOCX, images online"
@@ -3783,7 +4343,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 130,
+      "elapsed_ms": 133,
       "facts": {
         "titles": [
           "Aspose.Slides Splitter Application"
@@ -3841,7 +4401,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 1421,
+      "elapsed_ms": 1444,
       "facts": {
         "titles": [
           "I HAVE BEEN FIXED | Status - aspose.app"
@@ -3901,7 +4461,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 132,
+      "elapsed_ms": 143,
       "facts": {
         "titles": [
           "About - groupdocs.ai - Websites - aspose.app"
@@ -3953,7 +4513,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 86,
+      "elapsed_ms": 869,
       "facts": {
         "titles": [
           "Format File Apps untuk Word Excel PDF PowerPoint Gambar Barcode Email OCR Catatan dan 3D"
@@ -4007,7 +4567,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 110,
+      "elapsed_ms": 142,
       "facts": {
         "titles": [
           "Over ons - aspose.app"
@@ -4104,11 +4664,11 @@
       "redirects": [],
       "redirect_statuses": [],
       "content_type": "text/html; charset=utf-8",
-      "bytes": 134741,
+      "bytes": 134638,
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 634,
+      "elapsed_ms": 633,
       "facts": null,
       "issues": [
         [
@@ -4134,7 +4694,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 807,
+      "elapsed_ms": 585,
       "facts": {
         "titles": [
           "Top 1 CAD Designs File Formats Processing Apps"
@@ -4186,7 +4746,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 41,
+      "elapsed_ms": 101,
       "facts": {
         "titles": [
           "XHTML to Image Converter – Convert XHTML to Image online"
@@ -4438,7 +4998,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 791,
+      "elapsed_ms": 845,
       "facts": {
         "titles": [
           "Status - aspose.app"
@@ -4498,7 +5058,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 45,
+      "elapsed_ms": 48,
       "facts": {
         "titles": [
           "Websites - aspose.app"
@@ -4550,7 +5110,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 31,
+      "elapsed_ms": 41,
       "facts": {
         "titles": [
           "Events - About - aspose.app"
@@ -4647,11 +5207,11 @@
       "redirects": [],
       "redirect_statuses": [],
       "content_type": "text/html; charset=utf-8",
-      "bytes": 134743,
+      "bytes": 134640,
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 669,
+      "elapsed_ms": 684,
       "facts": null,
       "issues": [
         [
@@ -4673,11 +5233,11 @@
       "redirects": [],
       "redirect_statuses": [],
       "content_type": "text/html",
-      "bytes": 35586,
+      "bytes": 35594,
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 636,
+      "elapsed_ms": 603,
       "facts": {
         "titles": [
           "Бесплатные онлайн-приложения для обработки файлов в форматах PDF, Word, Excel, PowerPoint, Visio, Project, OneNote, OpenOffice, CAD, 3D и других."
@@ -4733,7 +5293,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 77,
+      "elapsed_ms": 66,
       "facts": {
         "titles": [
           "YAML to JSON Converter - Convert YAML config to JSON online"
@@ -4852,7 +5412,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 45,
+      "elapsed_ms": 50,
       "facts": {
         "titles": [
           "Downloads ---New Releases-aspose.pdf-cli-app-25.3-macos-arm64"
@@ -4918,7 +5478,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 502,
+      "elapsed_ms": 497,
       "facts": {
         "titles": [
           "I HAVE BEEN FIXED | Status - aspose.app"
@@ -4978,7 +5538,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 43,
+      "elapsed_ms": 44,
       "facts": {
         "titles": [
           "Conholdates - Websites - aspose.app"
@@ -5020,7 +5580,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 28,
+      "elapsed_ms": 34,
       "facts": {
         "titles": [
           "Acceptable Use Policy - About - aspose.app"
@@ -5117,11 +5677,11 @@
       "redirects": [],
       "redirect_statuses": [],
       "content_type": "text/html; charset=utf-8",
-      "bytes": 134733,
+      "bytes": 134630,
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 633,
+      "elapsed_ms": 629,
       "facts": null,
       "issues": [
         [
@@ -5147,7 +5707,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 402,
+      "elapsed_ms": 779,
       "facts": {
         "titles": [
           "File Formats Apps Subscription Metrics"
@@ -5156,7 +5716,7 @@
           "File Formats Apps Subscription Metrics"
         ],
         "h1": [
-          "2,717,631"
+          "2,720,149"
         ],
         "canonicals": [
           "https://metrics.aspose.app/subscriptions/"
@@ -5199,7 +5759,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 60,
+      "elapsed_ms": 87,
       "facts": {
         "titles": [
           "HTML to MHTML Merger - Combine HTML to MHTML online for free"
@@ -5318,7 +5878,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 45,
+      "elapsed_ms": 44,
       "facts": {
         "titles": [
           "Aspose.Page Convert Micro App 24.4 Release Notes – Introduction"
@@ -5370,7 +5930,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 783,
+      "elapsed_ms": 822,
       "facts": {
         "titles": [
           "Status - aspose.app"
@@ -5430,7 +5990,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 41,
+      "elapsed_ms": 52,
       "facts": {
         "titles": [
           "About - fileformat.app - Websites - aspose.app"
@@ -5482,7 +6042,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 30,
+      "elapsed_ms": 51,
       "facts": {
         "titles": [
           "من نحن - aspose.app"
@@ -5579,11 +6139,11 @@
       "redirects": [],
       "redirect_statuses": [],
       "content_type": "text/html; charset=utf-8",
-      "bytes": 134655,
+      "bytes": 134552,
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 644,
+      "elapsed_ms": 652,
       "facts": null,
       "issues": [
         [
@@ -5609,7 +6169,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 440,
+      "elapsed_ms": 595,
       "facts": {
         "titles": [
           ""
@@ -5665,7 +6225,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 68,
+      "elapsed_ms": 82,
       "facts": {
         "titles": [
           "MHTML Merger - Convert MHTML and merge to other formats online"
@@ -5902,7 +6462,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 32,
+      "elapsed_ms": 42,
       "facts": {
         "titles": [
           "Afiliasi - Tentang - aspose.app"
@@ -5999,11 +6559,11 @@
       "redirects": [],
       "redirect_statuses": [],
       "content_type": "text/html; charset=utf-8",
-      "bytes": 134629,
+      "bytes": 134526,
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 628,
+      "elapsed_ms": 639,
       "facts": null,
       "issues": [
         [
@@ -6025,11 +6585,11 @@
       "redirects": [],
       "redirect_statuses": [],
       "content_type": "text/html",
-      "bytes": 24943,
+      "bytes": 24996,
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 744,
+      "elapsed_ms": 808,
       "facts": {
         "titles": [
           "Top 6 Microsoft Project File Formats Processing Apps"
@@ -6077,7 +6637,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 35,
+      "elapsed_ms": 27,
       "facts": {
         "titles": [
           "Online Barcode Scanner"
@@ -6228,7 +6788,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 44,
+      "elapsed_ms": 46,
       "facts": {
         "titles": [
           "Aspose.Imaging Image Merge Micro Application"
@@ -6290,7 +6850,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 42,
+      "elapsed_ms": 51,
       "facts": {
         "titles": [
           "Groupdocs - Websites - aspose.app"
@@ -6344,7 +6904,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 37,
+      "elapsed_ms": 33,
       "facts": {
         "titles": [
           "Kebijakan Tanpa Kertas - aspose.app"
@@ -6441,11 +7001,11 @@
       "redirects": [],
       "redirect_statuses": [],
       "content_type": "text/html; charset=utf-8",
-      "bytes": 134796,
+      "bytes": 134693,
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 631,
+      "elapsed_ms": 630,
       "facts": null,
       "issues": [
         [
@@ -6471,7 +7031,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 726,
+      "elapsed_ms": 789,
       "facts": {
         "titles": [
           "PDF, Word, Excel, PowerPoint, Visio, Project, OneNote, OpenOffice, CAD, 3D formatları və s. üçün Pulsuz Onlayn Fayl Emalı Proqramları."
@@ -6523,7 +7083,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 48,
+      "elapsed_ms": 30,
       "facts": {
         "titles": [
           "Generate Code 11 Barcode Online"
@@ -6674,7 +7234,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 53,
+      "elapsed_ms": 49,
       "facts": {
         "titles": [
           "Release Notes"
@@ -6730,7 +7290,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 57,
+      "elapsed_ms": 46,
       "facts": {
         "titles": [
           "Σχετικά με - aspose.com - Websites - aspose.app"
@@ -6786,7 +7346,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 36,
+      "elapsed_ms": 42,
       "facts": {
         "titles": [
           "Юридическая информация - О компании - aspose.app"
@@ -6883,11 +7443,11 @@
       "redirects": [],
       "redirect_statuses": [],
       "content_type": "text/html; charset=utf-8",
-      "bytes": 134601,
+      "bytes": 134498,
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 637,
+      "elapsed_ms": 627,
       "facts": null,
       "issues": [
         [
@@ -6913,7 +7473,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 780,
+      "elapsed_ms": 631,
       "facts": {
         "titles": [
           "Failu formāti Lietotņu lietojuma metrika"
@@ -6922,7 +7482,7 @@
           "Failu formāti Lietotņu lietojuma metrika"
         ],
         "h1": [
-          "14,545,459 | 10,202,995,276,883 | 20,044,830"
+          "14,604,965 | 10,237,436,163,672 | 20,139,535"
         ],
         "canonicals": [
           "https://metrics.aspose.app/lv/usages/"
@@ -7161,7 +7721,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 43,
+      "elapsed_ms": 45,
       "facts": {
         "titles": [
           "Downloads ---New Releases-aspose.pdf-cli-app-25.10-windows"
@@ -7227,7 +7787,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 42,
+      "elapsed_ms": 55,
       "facts": {
         "titles": [
           "Websites - aspose.com - Websites - aspose.app"
@@ -7283,7 +7843,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 30,
+      "elapsed_ms": 26,
       "facts": {
         "titles": [
           "版权声明 - aspose.app"
@@ -7380,11 +7940,11 @@
       "redirects": [],
       "redirect_statuses": [],
       "content_type": "text/html; charset=utf-8",
-      "bytes": 134652,
+      "bytes": 134549,
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 678,
+      "elapsed_ms": 647,
       "facts": null,
       "issues": [
         [
@@ -7410,7 +7970,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 543,
+      "elapsed_ms": 622,
       "facts": {
         "titles": [
           ""
@@ -7466,7 +8026,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 73,
+      "elapsed_ms": 70,
       "facts": {
         "titles": [
           "EPUB to XPS Converter – Convert EPUB to XPS online"
@@ -7662,7 +8222,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 42,
+      "elapsed_ms": 50,
       "facts": {
         "titles": [
           "Aspose.Font Convert Micro App 24.6 Release Notes – Introduction"
@@ -7714,7 +8274,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 49,
+      "elapsed_ms": 41,
       "facts": {
         "titles": [
           "Codeportings - Websites - aspose.app"
@@ -7764,11 +8324,11 @@
       "redirects": [],
       "redirect_statuses": [],
       "content_type": "text/html; charset=utf-8",
-      "bytes": 134655,
+      "bytes": 134552,
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 633,
+      "elapsed_ms": 640,
       "facts": null,
       "issues": [
         [
@@ -7794,7 +8354,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 466,
+      "elapsed_ms": 633,
       "facts": {
         "titles": [
           "מוביל 4 Microsoft Publisher עיבוד אפליקציות בפורמטים של קבצים"
@@ -7803,7 +8363,7 @@
           "מוביל 4 Microsoft Publisher עיבוד אפליקציות בפורמטים של קבצים"
         ],
         "h1": [
-          "40,509"
+          "40,743"
         ],
         "canonicals": [
           "https://metrics.aspose.app/he/usages/pages/pub/"
@@ -7842,7 +8402,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 63,
+      "elapsed_ms": 69,
       "facts": {
         "titles": [
           "URL Encoding - Easy way to encode URL online for free"
@@ -7961,7 +8521,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 42,
+      "elapsed_ms": 56,
       "facts": {
         "titles": [
           "Acerca de - conholdate.cloud - Websites - aspose.app"
@@ -8013,11 +8573,11 @@
       "redirects": [],
       "redirect_statuses": [],
       "content_type": "text/html; charset=utf-8",
-      "bytes": 134664,
+      "bytes": 134561,
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 637,
+      "elapsed_ms": 631,
       "facts": null,
       "issues": [
         [
@@ -8039,11 +8599,11 @@
       "redirects": [],
       "redirect_statuses": [],
       "content_type": "text/html",
-      "bytes": 22888,
+      "bytes": 22892,
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 452,
+      "elapsed_ms": 585,
       "facts": {
         "titles": [
           "Μορφές αρχείων Μετρήσεις χρήσης εφαρμογών"
@@ -8052,7 +8612,7 @@
           "Μορφές αρχείων Μετρήσεις χρήσης εφαρμογών"
         ],
         "h1": [
-          "14,545,459 | 10,202,995,276,883 | 20,044,830"
+          "14,604,965 | 10,237,436,163,672 | 20,139,535"
         ],
         "canonicals": [
           "https://metrics.aspose.app/el/usages/"
@@ -8095,7 +8655,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 77,
+      "elapsed_ms": 86,
       "facts": {
         "titles": [
           "Convert Millimeters to Root EMs - Online mm to rem conversion"
@@ -8210,11 +8770,11 @@
       "redirects": [],
       "redirect_statuses": [],
       "content_type": "text/html; charset=utf-8",
-      "bytes": 134736,
+      "bytes": 134633,
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 629,
+      "elapsed_ms": 627,
       "facts": null,
       "issues": [
         [
@@ -8240,7 +8800,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 4157,
+      "elapsed_ms": 627,
       "facts": {
         "titles": [
           "Dateiformat-Apps für die beliebtesten 16-Dateiformat-App-Familien"
@@ -8249,7 +8809,7 @@
           "Dateiformat-Apps für die beliebtesten 16-Dateiformat-App-Familien"
         ],
         "h1": [
-          "14,545,459"
+          "14,604,965"
         ],
         "canonicals": [
           "https://metrics.aspose.app/de/usages/files/"
@@ -8288,7 +8848,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 60,
+      "elapsed_ms": 80,
       "facts": {
         "titles": [
           "HTML Merger - Convert HTML and merge to other formats online"
@@ -8403,11 +8963,11 @@
       "redirects": [],
       "redirect_statuses": [],
       "content_type": "text/html; charset=utf-8",
-      "bytes": 134814,
+      "bytes": 134711,
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 629,
+      "elapsed_ms": 628,
       "facts": null,
       "issues": [
         [
@@ -8429,11 +8989,11 @@
       "redirects": [],
       "redirect_statuses": [],
       "content_type": "text/html",
-      "bytes": 37986,
+      "bytes": 37838,
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 667,
+      "elapsed_ms": 588,
       "facts": {
         "titles": [
           "トップ 43 PDF ファイル処理アプリ"
@@ -8442,7 +9002,7 @@
           "トップ 43 PDF ファイル処理アプリ"
         ],
         "h1": [
-          "2,495,604"
+          "2,506,760"
         ],
         "canonicals": [
           "https://metrics.aspose.app/ja/usages/files/pdf/"
@@ -8485,7 +9045,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 24,
+      "elapsed_ms": 27,
       "facts": {
         "titles": [
           "線上生成帶標誌"
@@ -8632,11 +9192,11 @@
       "redirects": [],
       "redirect_statuses": [],
       "content_type": "text/html; charset=utf-8",
-      "bytes": 134805,
+      "bytes": 134702,
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 631,
+      "elapsed_ms": 638,
       "facts": null,
       "issues": [
         [
@@ -8662,7 +9222,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 23,
+      "elapsed_ms": 41,
       "facts": {
         "titles": [
           "在线阅读Patch Code条码"
@@ -8809,11 +9369,11 @@
       "redirects": [],
       "redirect_statuses": [],
       "content_type": "text/html; charset=utf-8",
-      "bytes": 134652,
+      "bytes": 134549,
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 629,
+      "elapsed_ms": 1185,
       "facts": null,
       "issues": [
         [
@@ -8839,7 +9399,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 92,
+      "elapsed_ms": 349,
       "facts": {
         "titles": [
           "Markdown Konverter – Konversi Markdown ke PDF, DOCX, gambar online"
@@ -9031,11 +9591,11 @@
       "redirects": [],
       "redirect_statuses": [],
       "content_type": "text/html; charset=utf-8",
-      "bytes": 134664,
+      "bytes": 134561,
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 745,
+      "elapsed_ms": 632,
       "facts": null,
       "issues": [
         [
@@ -9061,7 +9621,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 79,
+      "elapsed_ms": 405,
       "facts": {
         "titles": [
           "XHTML do MHTML Przetwornik – Konwertuj XHTML do MHTML online za darmo"
@@ -9253,11 +9813,11 @@
       "redirects": [],
       "redirect_statuses": [],
       "content_type": "text/html; charset=utf-8",
-      "bytes": 134742,
+      "bytes": 134639,
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 635,
+      "elapsed_ms": 741,
       "facts": null,
       "issues": [
         [
@@ -9283,7 +9843,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 89,
+      "elapsed_ms": 169,
       "facts": {
         "titles": [
           "Pengonversi Unit - Konversi satuan ukuran online"
@@ -9398,11 +9958,11 @@
       "redirects": [],
       "redirect_statuses": [],
       "content_type": "text/html; charset=utf-8",
-      "bytes": 134652,
+      "bytes": 134549,
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 667,
+      "elapsed_ms": 626,
       "facts": null,
       "issues": [
         [
@@ -9428,7 +9988,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 133,
+      "elapsed_ms": 224,
       "facts": {
         "titles": [
           "แปลง Meters เป็น Miles - การแปลงออนไลน์ m เป็น mi"
@@ -9547,7 +10107,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 651,
+      "elapsed_ms": 661,
       "facts": {
         "titles": [
           "Free Support Forum - aspose.app"
@@ -9595,7 +10155,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 125,
+      "elapsed_ms": 174,
       "facts": {
         "titles": [
           "MHTML Merger - Konvertieren Sie MHTML und führen Sie sie online zu anderen Formaten zusammen"
@@ -9722,7 +10282,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 35,
+      "elapsed_ms": 34,
       "facts": {
         "titles": [
           "オンラインバーコードスキャナー"
@@ -9873,7 +10433,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 29,
+      "elapsed_ms": 57,
       "facts": {
         "titles": [
           "Přečtěte si čárový kód OPC online"
@@ -10024,7 +10584,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 79,
+      "elapsed_ms": 627,
       "facts": {
         "titles": [
           "Markdown コンバーター-Markdown をPDF、DOCX、画像にオンラインで変換"
@@ -10220,7 +10780,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 75,
+      "elapsed_ms": 367,
       "facts": {
         "titles": [
           "EPUB to Image 변환기 - 온라인에서 EPUB 를 Image 로 무료로 변환하십시오"
@@ -10416,7 +10976,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 88,
+      "elapsed_ms": 230,
       "facts": {
         "titles": [
           "カラーコントラストのアクセシビリティ-Webサイトのカラーコントラストをチェック"
@@ -10539,7 +11099,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 62,
+      "elapsed_ms": 214,
       "facts": {
         "titles": [
           "Converti Inches in EMs - Conversione online da in a em"
@@ -10658,7 +11218,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 74,
+      "elapsed_ms": 186,
       "facts": {
         "titles": [
           "Inches Converter - Chuyển đổi đơn vị kích thước CSS trực tuyến"
@@ -10777,7 +11337,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 35,
+      "elapsed_ms": 30,
       "facts": {
         "titles": [
           "Free Online Apps for Most Popular File Formats"
@@ -10825,7 +11385,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 215,
+      "elapsed_ms": 30,
       "facts": {
         "titles": [
           "Barcode Processing Solutions | Free Aspose Apps"
@@ -10873,7 +11433,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 186,
+      "elapsed_ms": 34,
       "facts": {
         "titles": [
           "Free Apps for Barcodes | Free Aspose Apps"
@@ -10921,7 +11481,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 233,
+      "elapsed_ms": 39,
       "facts": {
         "titles": [
           "Free Apps, On Premise & Cloud APIs for HTML Manipulation | Free Aspose Apps"
@@ -10973,7 +11533,7 @@
       "truncated": 0,
       "blocked": 0,
       "error": null,
-      "elapsed_ms": 430,
+      "elapsed_ms": 38,
       "facts": {
         "titles": [
           "View, Merge, Parse or Convert HTML, EPUB, SVG Files | Free Aspose Apps"

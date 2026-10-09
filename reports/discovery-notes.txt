@@ -5,4 +5,4 @@ imaging sitemaps repeat 80,132 entries. Search Console counts 229,372 URLs; ther
 21 of 29 product families have no hreflang alternates in their sitemaps, including cells (228k URLs), imaging (149k), audio, diagram, video and pdf. Only words, cad and ebook have them on every URL. The page HTML is a different story: the crawl audit found hreflang in the HTML of pdf, barcode and html app pages, with gaps in html and barcode (see Crawl audit).
 In 22 product families every URL in a sitemap file has the same lastmod date, so the dates do not tell search engines what changed.
 robots.txt is missing on products, about, websites, dashboard and api.products, and purchase returns an HTML page instead. Only forum and releases point to their sitemap from robots.txt.
-metrics.aspose.app (3,780 usage and subscription pages in 36 languages) and status.aspose.app (150 incident pages) are listed in sitemaps. Decide whether they should be indexed at all.
+metrics.aspose.app (3,780 usage and subscription pages in 36 languages) and status.aspose.app (150 incident pages) are meant to be indexed like the other hosts, so their findings count in full.

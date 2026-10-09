@@ -18,9 +18,15 @@
     },
     "affected_pages": 0,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 4347,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 1.0,
+      "score": 15,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 3,
@@ -55,9 +61,15 @@
     },
     "affected_pages": 0,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 1509933,
+      "impressions_28d": 18294769,
+      "source": "gsc-host",
+      "share": 1.0,
+      "score": 20,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 3,
@@ -94,9 +106,15 @@
     },
     "affected_pages": 0,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 17,
+      "impressions_28d": 2702,
+      "source": "gsc-host",
+      "share": 1.0,
+      "score": 7,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 3,
@@ -131,9 +149,15 @@
     },
     "affected_pages": 0,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 159,
+      "impressions_28d": 58076,
+      "source": "gsc-host",
+      "share": 1.0,
+      "score": 11,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 3,
@@ -168,9 +192,15 @@
     },
     "affected_pages": 0,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 1,
+      "impressions_28d": 795,
+      "source": "gsc-host",
+      "share": 1.0,
+      "score": 4,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 3,
@@ -205,9 +235,15 @@
     },
     "affected_pages": 0,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 7621,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 1.0,
+      "score": 54,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 3,
@@ -242,9 +278,15 @@
     },
     "affected_pages": 0,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 3658,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 1.0,
+      "score": 14,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 3,
@@ -279,9 +321,15 @@
     },
     "affected_pages": 0,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 51,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 1.0,
+      "score": 7,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 3,
@@ -316,9 +364,15 @@
     },
     "affected_pages": 0,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 34,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 1.0,
+      "score": 6,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 3,
@@ -353,9 +407,15 @@
     },
     "affected_pages": 0,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 83,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 1.0,
+      "score": 8,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 3,
@@ -390,9 +450,15 @@
     },
     "affected_pages": 910,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 788,
+      "impressions_28d": 7097,
+      "source": "gsc-section",
+      "share": 0.021,
+      "score": 23,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -436,9 +502,15 @@
     },
     "affected_pages": 80132,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 38231,
+      "impressions_28d": 402725,
+      "source": "gsc-section",
+      "share": 0.537,
+      "score": 37,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -477,9 +549,15 @@
     },
     "affected_pages": 92,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 374,
+      "impressions_28d": 4568,
+      "source": "gsc-section",
+      "share": 0.018,
+      "score": 21,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -515,8 +593,14 @@
     "affected_pages": 1,
     "impact": {
       "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 0.007,
+      "score": 0,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -553,7 +637,13 @@
     "impact": {
       "clicks_28d": 0,
       "impressions_28d": 0,
-      "score": 0
+      "source": "gsc-section",
+      "share": 0.0,
+      "score": 0,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -588,9 +678,15 @@
     },
     "affected_pages": 0,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 123,
+      "impressions_28d": 1493,
+      "source": "gsc-host",
+      "share": 0.0,
+      "score": 43,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -625,9 +721,15 @@
     },
     "affected_pages": 0,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 10,
+      "impressions_28d": 1819,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 29,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -664,7 +766,13 @@
     "impact": {
       "clicks_28d": 0,
       "impressions_28d": 0,
-      "score": 0
+      "source": "gsc-section",
+      "share": 0.0,
+      "score": 0,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -700,9 +808,15 @@
     },
     "affected_pages": 0,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 12955,
+      "impressions_28d": 1585338,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 89,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -737,9 +851,15 @@
     },
     "affected_pages": 43680,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 37814,
+      "impressions_28d": 340667,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 37,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -783,9 +903,15 @@
     },
     "affected_pages": 53922,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 35222,
+      "impressions_28d": 428052,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 37,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -820,9 +946,15 @@
     },
     "affected_pages": 2080,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 305768,
+      "impressions_28d": 2417147,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 40,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -857,9 +989,15 @@
     },
     "affected_pages": 23760,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 5359,
+      "impressions_28d": 37419,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 30,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -903,9 +1041,15 @@
     },
     "affected_pages": 228364,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 204575,
+      "impressions_28d": 2114567,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 40,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -949,9 +1093,15 @@
     },
     "affected_pages": 49204,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 11386,
+      "impressions_28d": 85301,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 33,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -988,9 +1138,15 @@
     },
     "affected_pages": 2320,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 7815,
+      "impressions_28d": 132803,
+      "source": "gsc-section",
+      "share": 0.967,
+      "score": 32,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -1025,9 +1181,15 @@
     },
     "affected_pages": 1414,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 7568,
+      "impressions_28d": 87530,
+      "source": "gsc-section",
+      "share": 0.217,
+      "score": 31,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -1062,9 +1224,15 @@
     },
     "affected_pages": 6244,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 5908,
+      "impressions_28d": 102115,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 31,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -1102,9 +1270,15 @@
     },
     "affected_pages": 17796,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 30091,
+      "impressions_28d": 230598,
+      "source": "gsc-section",
+      "share": 0.979,
+      "score": 36,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -1139,9 +1313,15 @@
     },
     "affected_pages": 4626,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 24601,
+      "impressions_28d": 621980,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 36,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -1185,9 +1365,15 @@
     },
     "affected_pages": 149240,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 71203,
+      "impressions_28d": 750045,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 39,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -1222,9 +1408,15 @@
     },
     "affected_pages": 3465,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 485,
+      "impressions_28d": 4370,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 22,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -1259,9 +1451,15 @@
     },
     "affected_pages": 5325,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 8142,
+      "impressions_28d": 145455,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 32,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -1296,9 +1494,15 @@
     },
     "affected_pages": 3322,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 3852,
+      "impressions_28d": 40450,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 29,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -1333,9 +1537,15 @@
     },
     "affected_pages": 814,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 3553,
+      "impressions_28d": 39209,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 29,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -1370,9 +1580,15 @@
     },
     "affected_pages": 3675,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 7927,
+      "impressions_28d": 84587,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 32,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -1407,9 +1623,15 @@
     },
     "affected_pages": 12460,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 3529,
+      "impressions_28d": 18683,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 29,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -1444,9 +1666,15 @@
     },
     "affected_pages": 858,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 1907,
+      "impressions_28d": 23130,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 27,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -1481,9 +1709,15 @@
     },
     "affected_pages": 46870,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 22044,
+      "impressions_28d": 337472,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 35,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -1527,9 +1761,15 @@
     },
     "affected_pages": 14840,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 304272,
+      "impressions_28d": 3567649,
+      "source": "gsc-section",
+      "share": 0.768,
+      "score": 40,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -1564,9 +1804,15 @@
     },
     "affected_pages": 9996,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 35728,
+      "impressions_28d": 440866,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 37,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -1610,9 +1856,15 @@
     },
     "affected_pages": 234,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 17,
+      "impressions_28d": 2702,
+      "source": "gsc-host",
+      "share": 1.0,
+      "score": 7,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -1656,9 +1908,15 @@
     },
     "affected_pages": 3780,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 51,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 1.0,
+      "score": 7,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -1693,9 +1951,15 @@
     },
     "affected_pages": 0,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 30737,
+      "impressions_28d": 235548,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 18,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -1730,9 +1994,15 @@
     },
     "affected_pages": 0,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 71203,
+      "impressions_28d": 750045,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 20,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -1767,9 +2037,15 @@
     },
     "affected_pages": 0,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 194712,
+      "impressions_28d": 2726449,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 20,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -1804,9 +2080,15 @@
     },
     "affected_pages": 0,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 6723,
+      "impressions_28d": 64841,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 15,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -1850,9 +2132,15 @@
     },
     "affected_pages": 24752,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 12014,
+      "impressions_28d": 175364,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 17,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -1896,9 +2184,15 @@
     },
     "affected_pages": 5010,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 20339,
+      "impressions_28d": 248723,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 17,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -1933,9 +2227,15 @@
     },
     "affected_pages": 308,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 6,
+      "impressions_28d": 892,
+      "source": "gsc-host",
+      "share": 1.0,
+      "score": 5,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -1970,9 +2270,15 @@
     },
     "affected_pages": 150,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 34,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 1.0,
+      "score": 6,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -2013,9 +2319,15 @@
     },
     "affected_pages": 215,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 1,
+      "impressions_28d": 795,
+      "source": "gsc-host",
+      "share": 1.0,
+      "score": 4,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -2059,9 +2371,15 @@
     },
     "affected_pages": 71,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 4347,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 1.0,
+      "score": 15,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -2105,9 +2423,15 @@
     },
     "affected_pages": 24752,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 12014,
+      "impressions_28d": 175364,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 83,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -2142,9 +2466,15 @@
     },
     "affected_pages": 0,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 7621,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 1.0,
+      "score": 31,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -2179,9 +2509,15 @@
     },
     "affected_pages": 0,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 3658,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 1.0,
+      "score": 29,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -2216,9 +2552,15 @@
     },
     "affected_pages": 0,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 83,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 1.0,
+      "score": 15,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -2254,9 +2596,15 @@
     },
     "affected_pages": 0,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 12955,
+      "impressions_28d": 1585338,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 89,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -2291,9 +2639,15 @@
     },
     "affected_pages": 0,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 10,
+      "impressions_28d": 1819,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 29,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -2333,8 +2687,14 @@
     "affected_pages": 22,
     "impact": {
       "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 0.001,
+      "score": 0,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -2373,9 +2733,15 @@
     },
     "affected_pages": 267,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 62,
+      "impressions_28d": 465,
+      "source": "gsc-section",
+      "share": 0.005,
+      "score": 15,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -2414,9 +2780,15 @@
     },
     "affected_pages": 17,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 25,
+      "impressions_28d": 163,
+      "source": "gsc-section",
+      "share": 0.023,
+      "score": 12,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -2451,9 +2823,15 @@
     },
     "affected_pages": 1,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 4,
+      "impressions_28d": 50,
+      "source": "gsc-section",
+      "share": 0.0,
+      "score": 6,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -2493,8 +2871,14 @@
     "affected_pages": 50,
     "impact": {
       "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "impressions_28d": 241,
+      "source": "gsc-host",
+      "share": 0.303,
+      "score": 4,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -2533,9 +2917,15 @@
     },
     "affected_pages": 35,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 4226,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 0.972,
+      "score": 29,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -2566,13 +2956,25 @@
         "https://dashboard.aspose.app/"
       ],
       "observed": "1 of 1 sampled pages (by template: generic:/ 1/1). e.g. https://dashboard.aspose.app/: no <link rel=canonical> and no Link header",
-      "expected": "a self-referencing absolute canonical"
+      "expected": "a self-referencing absolute canonical",
+      "sample": {
+        "generic:/": [
+          1,
+          1
+        ]
+      }
     },
     "affected_pages": 1,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 3658,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 1.0,
+      "score": 14,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 2,
@@ -2582,7 +2984,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "canonical_missing",
@@ -2603,13 +3005,25 @@
         "https://purchase.aspose.app/"
       ],
       "observed": "1 of 1 sampled pages (by template: generic:/ 1/1). e.g. https://purchase.aspose.app/: no <link rel=canonical> and no Link header",
-      "expected": "a self-referencing absolute canonical"
+      "expected": "a self-referencing absolute canonical",
+      "sample": {
+        "generic:/": [
+          1,
+          1
+        ]
+      }
     },
     "affected_pages": 1,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 7621,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 1.0,
+      "score": 16,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 2,
@@ -2619,7 +3033,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "canonical_missing",
@@ -2646,13 +3060,37 @@
         "https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.10-windows/"
       ],
       "observed": "7 of 11 sampled pages (by template: generic:/ 1/1, generic:/{section} 2/2, generic:/{section}/* 2/2, generic:/{section}/*/*/* 2/2). e.g. https://releases.aspose.app/: no <link rel=canonical> and no Link header; https://releases.aspose.app/pdf/: no <link rel=canonical> and no Link header; https://releases.aspose.app/slides/slides-splitter-app-net/: no <link rel=canonical> and no Link header; https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.3-macos-arm64/: no <link rel=canonical> and no Link header; https://releases.aspose.app/pub/: no <link rel=canonical> and no Link header",
-      "expected": "a self-referencing absolute canonical"
+      "expected": "a self-referencing absolute canonical",
+      "sample": {
+        "generic:/": [
+          1,
+          1
+        ],
+        "generic:/{section}": [
+          2,
+          2
+        ],
+        "generic:/{section}/*": [
+          2,
+          2
+        ],
+        "generic:/{section}/*/*/*": [
+          2,
+          2
+        ]
+      }
     },
     "affected_pages": 180,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 6,
+      "impressions_28d": 892,
+      "source": "gsc-template",
+      "share": null,
+      "score": 5,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 2,
@@ -2662,7 +3100,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "canonical_missing",
@@ -2688,13 +3126,33 @@
         "https://status.aspose.app/"
       ],
       "observed": "6 of 6 sampled pages (by template: generic:/ 3/3, generic:/{section} 1/1, generic:/{section}/* 2/2). e.g. https://status.aspose.app?start_date=2019-06-24: no <link rel=canonical> and no Link header; https://status.aspose.app/dashboard: no <link rel=canonical> and no Link header; https://status.aspose.app/incidents/58: no <link rel=canonical> and no Link header; https://status.aspose.app?start_date=2019-12-03: no <link rel=canonical> and no Link header; https://status.aspose.app/incidents/68: no <link rel=canonical> and no Link header",
-      "expected": "a self-referencing absolute canonical"
+      "expected": "a self-referencing absolute canonical",
+      "sample": {
+        "generic:/": [
+          3,
+          3
+        ],
+        "generic:/{section}": [
+          1,
+          1
+        ],
+        "generic:/{section}/*": [
+          2,
+          2
+        ]
+      }
     },
     "affected_pages": 150,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 34,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 1.0,
+      "score": 6,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 2,
@@ -2704,7 +3162,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "canonical_missing",
@@ -2732,13 +3190,29 @@
         "https://products.aspose.app/html/ko/conversion/epub-to-image"
       ],
       "observed": "8 of 22 sampled pages (by template: conversion-format 4/4, conversion-pair 4/4). e.g. https://products.aspose.app/html/conversion/html: 2 canonical tags, 36 hreflang tags for 18 distinct; https://products.aspose.app/html/conversion/xhtml-to-image: 2 canonical tags, 36 hreflang tags for 18 distinct; https://products.aspose.app/html/conversion/xhtml: 2 canonical tags, 36 hreflang tags for 18 distinct; https://products.aspose.app/html/conversion/epub-to-xps: 2 canonical tags, 36 hreflang tags for 18 distinct; https://products.aspose.app/html/id/conversion/md: 2 canonical tags, 36 hreflang tags for 18 distinct",
-      "expected": "each head tag emitted once"
+      "expected": "each head tag emitted once",
+      "sample": {
+        "conversion-format": [
+          4,
+          4
+        ],
+        "conversion-pair": [
+          4,
+          4
+        ]
+      }
     },
     "affected_pages": 1386,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 581,
+      "impressions_28d": 6556,
+      "source": "gsc-template",
+      "share": null,
+      "score": 11,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 2,
@@ -2748,7 +3222,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "head_tags_repeated",
@@ -2769,13 +3243,25 @@
         "https://api.products.aspose.app/"
       ],
       "observed": "1 of 1 sampled pages (by template: generic:/ 1/1). e.g. https://api.products.aspose.app/: HTTP 404",
-      "expected": "HTTP 200"
+      "expected": "HTTP 200",
+      "sample": {
+        "generic:/": [
+          1,
+          1
+        ]
+      }
     },
     "affected_pages": 1,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 83,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 1.0,
+      "score": 38,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -2785,7 +3271,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "http_error",
@@ -2815,13 +3301,25 @@
         "https://forum.aspose.app/t/pdf-to-markdown/24430"
       ],
       "observed": "20 of 21 sampled pages (by template: generic:/{section}/*/* 20/20). e.g. https://forum.aspose.app/t/object-detection-issue-cannot-read-the-image-file-2024-04-04t0705-726z/91540: HTTP 403; https://forum.aspose.app/t/2023-12-04-06-59-18-diagram-viewer-api-viewer-newpages/85427: HTTP 403; https://forum.aspose.app/t/undefined-issue-uncaught-javascript-error-2024-06-02t0845-790z/93896: HTTP 403; https://forum.aspose.app/t/image-compress-issue-image-export-failed-2026-04-21t0423-128z/108231: HTTP 403; https://forum.aspose.app/t/conversion-issue-internal-server-error-500-2021-01-02t1004-511z/8078: HTTP 403",
-      "expected": "HTTP 200"
+      "expected": "HTTP 200",
+      "sample": {
+        "generic:/{section}/*/*": [
+          20,
+          20
+        ]
+      }
     },
     "affected_pages": 41894,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 387,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 1.0,
+      "score": 52,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -2831,7 +3329,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "http_error",
@@ -2855,13 +3353,29 @@
         "https://releases.aspose.app/font/convert-app-net/release-notes/2024/convert-app-net-24-6-release-notes/"
       ],
       "observed": "4 of 11 sampled pages (by template: generic:/{section}/*/* 2/2, generic:/{section}/*/*/*/* 2/2). e.g. https://releases.aspose.app/tex/convert-app-net/release-notes/: robots: noindex, nofollow; https://releases.aspose.app/page/convert-app-net/release-notes/2024/convert-app-net-24-4-release-notes/: robots: noindex, nofollow; https://releases.aspose.app/pdf/pdf-cli/release-notes/: robots: noindex, nofollow; https://releases.aspose.app/font/convert-app-net/release-notes/2024/convert-app-net-24-6-release-notes/: robots: noindex, nofollow",
-      "expected": "only indexable pages in sitemaps; homepages indexable"
+      "expected": "only indexable pages in sitemaps; homepages indexable",
+      "sample": {
+        "generic:/{section}/*/*": [
+          2,
+          2
+        ],
+        "generic:/{section}/*/*/*/*": [
+          2,
+          2
+        ]
+      }
     },
     "affected_pages": 128,
     "impact": {
       "clicks_28d": 0,
       "impressions_28d": 0,
-      "score": 0
+      "source": "gsc-template",
+      "share": null,
+      "score": 0,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 3,
@@ -2871,7 +3385,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "noindex",
@@ -2928,14 +3442,26 @@
       "urls": [
         "https://status.aspose.app/dashboard"
       ],
-      "observed": "1 of 6 sampled pages (by template: generic:/{section} 1/1). e.g. https://status.aspose.app/dashboard: 3 hops: 302 -> 302 -> 302 -> https://id.containerize.com/login?signin=0d8f01373ffd58df7a7779289c19d845",
-      "expected": "a single redirect hop"
+      "observed": "1 of 6 sampled pages (by template: generic:/{section} 1/1). e.g. https://status.aspose.app/dashboard: 3 hops: 302 -> 302 -> 302 -> https://id.containerize.com/login?signin=7c4ac71d21dc21d6a388f1a925b043f6",
+      "expected": "a single redirect hop",
+      "sample": {
+        "generic:/{section}": [
+          1,
+          1
+        ]
+      }
     },
     "affected_pages": 1,
     "impact": {
       "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 0.007,
+      "score": 0,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 2,
@@ -2945,7 +3471,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "redirect_chain",
@@ -2965,14 +3491,26 @@
       "urls": [
         "https://status.aspose.app/dashboard"
       ],
-      "observed": "1 of 6 sampled pages (by template: generic:/{section} 1/1). e.g. https://status.aspose.app/dashboard: HTTP 302 -> https://id.containerize.com/login?signin=0d8f01373ffd58df7a7779289c19d845",
-      "expected": "permanent redirects (301/308) for moved URLs"
+      "observed": "1 of 6 sampled pages (by template: generic:/{section} 1/1). e.g. https://status.aspose.app/dashboard: HTTP 302 -> https://id.containerize.com/login?signin=7c4ac71d21dc21d6a388f1a925b043f6",
+      "expected": "permanent redirects (301/308) for moved URLs",
+      "sample": {
+        "generic:/{section}": [
+          1,
+          1
+        ]
+      }
     },
     "affected_pages": 1,
     "impact": {
       "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 0.007,
+      "score": 0,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 2,
@@ -2982,7 +3520,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "redirect_temporary",
@@ -3002,14 +3540,26 @@
       "urls": [
         "https://status.aspose.app/dashboard"
       ],
-      "observed": "1 of 6 sampled pages (by template: generic:/{section} 1/1). e.g. https://status.aspose.app/dashboard: redirects 302 -> 302 -> 302 -> https://id.containerize.com/login?signin=0d8f01373ffd58df7a7779289c19d845",
-      "expected": "sitemaps list final URLs that answer HTTP 200"
+      "observed": "1 of 6 sampled pages (by template: generic:/{section} 1/1). e.g. https://status.aspose.app/dashboard: redirects 302 -> 302 -> 302 -> https://id.containerize.com/login?signin=7c4ac71d21dc21d6a388f1a925b043f6",
+      "expected": "sitemaps list final URLs that answer HTTP 200",
+      "sample": {
+        "generic:/{section}": [
+          1,
+          1
+        ]
+      }
     },
     "affected_pages": 1,
     "impact": {
       "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 0.007,
+      "score": 0,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -3019,7 +3569,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "redirected",
@@ -3042,13 +3592,29 @@
         "https://websites.aspose.app/conholdate/"
       ],
       "observed": "3 of 12 sampled pages (by template: generic:/ 1/4, generic:/{section} 2/4). e.g. https://websites.aspose.app/en/: meta refresh to https://websites.aspose.app; https://websites.aspose.app/fileformat/: meta refresh to /fileformat/com; https://websites.aspose.app/conholdate/: meta refresh to /conholdate/com",
-      "expected": "sitemaps list the target URL; moved pages use an HTTP 301"
+      "expected": "sitemaps list the target URL; moved pages use an HTTP 301",
+      "sample": {
+        "generic:/": [
+          1,
+          4
+        ],
+        "generic:/{section}": [
+          2,
+          4
+        ]
+      }
     },
     "affected_pages": 26,
     "impact": {
       "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "impressions_28d": 221,
+      "source": "gsc-template",
+      "share": null,
+      "score": 4,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -3058,7 +3624,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run3",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "meta_refresh",
@@ -3083,9 +3649,15 @@
     },
     "affected_pages": 43680,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 37814,
+      "impressions_28d": 340667,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 25,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 2,
@@ -3124,9 +3696,15 @@
     },
     "affected_pages": 53922,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 35222,
+      "impressions_28d": 428052,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 25,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 2,
@@ -3161,9 +3739,15 @@
     },
     "affected_pages": 2080,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 305768,
+      "impressions_28d": 2417147,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 27,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 2,
@@ -3202,9 +3786,15 @@
     },
     "affected_pages": 228364,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 204575,
+      "impressions_28d": 2114567,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 27,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 2,
@@ -3243,9 +3833,15 @@
     },
     "affected_pages": 48937,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 11386,
+      "impressions_28d": 85301,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 22,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 2,
@@ -3284,9 +3880,15 @@
     },
     "affected_pages": 5100,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 27295,
+      "impressions_28d": 315702,
+      "source": "gsc-section",
+      "share": 0.783,
+      "score": 42,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 2,
@@ -3325,9 +3927,15 @@
     },
     "affected_pages": 731,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 1054,
+      "impressions_28d": 7013,
+      "source": "gsc-section",
+      "share": 0.977,
+      "score": 28,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 2,
@@ -3362,9 +3970,15 @@
     },
     "affected_pages": 6244,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 5908,
+      "impressions_28d": 102115,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 20,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 2,
@@ -3403,9 +4017,15 @@
     },
     "affected_pages": 18178,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 30737,
+      "impressions_28d": 235548,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 24,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 2,
@@ -3440,9 +4060,15 @@
     },
     "affected_pages": 4626,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 24601,
+      "impressions_28d": 621980,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 24,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 2,
@@ -3481,9 +4107,15 @@
     },
     "affected_pages": 149240,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 71203,
+      "impressions_28d": 750045,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 26,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 2,
@@ -3518,9 +4150,15 @@
     },
     "affected_pages": 3465,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 485,
+      "impressions_28d": 4370,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 15,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 2,
@@ -3555,9 +4193,15 @@
     },
     "affected_pages": 5325,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 8142,
+      "impressions_28d": 145455,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 21,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 2,
@@ -3592,9 +4236,15 @@
     },
     "affected_pages": 3322,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 3852,
+      "impressions_28d": 40450,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 19,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 2,
@@ -3633,9 +4283,15 @@
     },
     "affected_pages": 9835,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 194712,
+      "impressions_28d": 2726449,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 27,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 2,
@@ -3674,9 +4330,15 @@
     },
     "affected_pages": 13300,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 6723,
+      "impressions_28d": 64841,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 21,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 2,
@@ -3711,9 +4373,15 @@
     },
     "affected_pages": 814,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 3553,
+      "impressions_28d": 39209,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 19,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 2,
@@ -3748,9 +4416,15 @@
     },
     "affected_pages": 3675,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 7927,
+      "impressions_28d": 84587,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 21,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 2,
@@ -3785,9 +4459,15 @@
     },
     "affected_pages": 12460,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 3529,
+      "impressions_28d": 18683,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 19,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 2,
@@ -3822,9 +4502,15 @@
     },
     "affected_pages": 858,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 1907,
+      "impressions_28d": 23130,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 18,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 2,
@@ -3863,9 +4549,15 @@
     },
     "affected_pages": 5009,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 20339,
+      "impressions_28d": 248723,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 23,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 2,
@@ -3900,9 +4592,15 @@
     },
     "affected_pages": 46870,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 22044,
+      "impressions_28d": 337472,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 23,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 2,
@@ -3937,9 +4635,15 @@
     },
     "affected_pages": 9996,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 35728,
+      "impressions_28d": 440866,
+      "source": "gsc-section",
+      "share": 1.0,
+      "score": 25,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 2,
@@ -3979,8 +4683,14 @@
     "affected_pages": 75,
     "impact": {
       "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "impressions_28d": 361,
+      "source": "gsc-host",
+      "share": 0.455,
+      "score": 6,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 2,
@@ -4020,13 +4730,41 @@
         "https://products.aspose.app/html/merger/html"
       ],
       "observed": "20 of 22 sampled pages (by template: conversion-format 4/4, conversion-pair 4/4, tool 4/4, tool-pair 4/4, tool-variant 4/4). e.g. https://products.aspose.app/html/conversion/html: 17 languages (ar, de, es, fa, fr, id, it, ja, ...), none points to https://products.aspose.app/html/conversion/html; https://products.aspose.app/html/conversion/xhtml-to-image: 17 languages (ar, de, es, fa, fr, id, it, ja, ...), none points to https://products.aspose.app/html/conversion/xhtml-to-image; https://products.aspose.app/html/yaml-to-json: 17 languages (ar, de, es, fa, fr, id, it, ja, ...), none points to https://products.aspose.app/html/yaml-to-json; https://products.aspose.app/html/merger/html-to-mhtml: 17 languages (ar, de, es, fa, fr, id, it, ja, ...), none points to https://products.aspose.app/html/merger/html-to-mhtml; https://products.aspose.app/html/merger/mhtml: 17 languages (ar, de, es, fa, fr, id, it, ja, ...), none points to https://products.aspose.app/html/merger/mhtml",
-      "expected": "a self-referencing hreflang entry"
+      "expected": "a self-referencing hreflang entry",
+      "sample": {
+        "conversion-format": [
+          4,
+          4
+        ],
+        "conversion-pair": [
+          4,
+          4
+        ],
+        "tool": [
+          4,
+          4
+        ],
+        "tool-pair": [
+          4,
+          4
+        ],
+        "tool-variant": [
+          4,
+          4
+        ]
+      }
     },
     "affected_pages": 4626,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 24601,
+      "impressions_28d": 621980,
+      "source": "gsc-template",
+      "share": null,
+      "score": 63,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 2,
@@ -4036,7 +4774,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run1",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "hreflang_no_self",
@@ -4064,13 +4802,29 @@
         "https://products.aspose.app/barcode/cs/recognize/opc"
       ],
       "observed": "8 of 10 sampled pages (by template: tool 4/4, tool-variant 4/4). e.g. https://products.aspose.app/barcode/scanwifiqr: 26 entries: en, ar, bg, cs, de, el; https://products.aspose.app/barcode/generate/opc: 26 entries: en, ar, bg, cs, de, el; https://products.aspose.app/barcode/scan: 26 entries: en, ar, bg, cs, de, el; https://products.aspose.app/barcode/generate/code11: 26 entries: en, ar, bg, cs, de, el; https://products.aspose.app/barcode/zh-hant/with-logo: 26 entries: en, ar, bg, cs, de, el",
-      "expected": "an x-default entry"
+      "expected": "an x-default entry",
+      "sample": {
+        "tool": [
+          4,
+          4
+        ],
+        "tool-variant": [
+          4,
+          4
+        ]
+      }
     },
     "affected_pages": 2080,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 305764,
+      "impressions_28d": 2417038,
+      "source": "gsc-template",
+      "share": null,
+      "score": 20,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 2,
@@ -4080,7 +4834,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run1",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "hreflang_no_xdefault",
@@ -4110,13 +4864,37 @@
         "https://metrics.aspose.app/lv/usages/"
       ],
       "observed": "15 of 15 sampled pages (by template: generic:/ 3/3, generic:/{section} 4/4, generic:/{section}/* 4/4, generic:/{section}/*/* 4/4). e.g. https://metrics.aspose.app/: no <link rel=alternate hreflang> in <head>; https://metrics.aspose.app/usages/: no <link rel=alternate hreflang> in <head>; https://metrics.aspose.app/usages/files/: no <link rel=alternate hreflang> in <head>; https://metrics.aspose.app/usages/sizes/cad/: no <link rel=alternate hreflang> in <head>; https://metrics.aspose.app/ru/: no <link rel=alternate hreflang> in <head>",
-      "expected": "hreflang alternates for every language version, incl. a self-reference and x-default"
+      "expected": "hreflang alternates for every language version, incl. a self-reference and x-default",
+      "sample": {
+        "generic:/": [
+          3,
+          3
+        ],
+        "generic:/{section}": [
+          4,
+          4
+        ],
+        "generic:/{section}/*": [
+          4,
+          4
+        ],
+        "generic:/{section}/*/*": [
+          4,
+          4
+        ]
+      }
     },
     "affected_pages": 3780,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 51,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 1.0,
+      "score": 9,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 2,
@@ -4126,7 +4904,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "hreflang_missing",
@@ -4155,13 +4933,33 @@
         "https://websites.aspose.app/es/conholdate/cloud/"
       ],
       "observed": "9 of 12 sampled pages (by template: generic:/ 3/4, generic:/{section} 2/4, generic:/{section}/* 4/4). e.g. https://websites.aspose.app/groupdocs/ai/: no <link rel=alternate hreflang> in <head>; https://websites.aspose.app/: no <link rel=alternate hreflang> in <head>; https://websites.aspose.app/fileformat/app/: no <link rel=alternate hreflang> in <head>; https://websites.aspose.app/ko/: no <link rel=alternate hreflang> in <head>; https://websites.aspose.app/fr/groupdocs/: no <link rel=alternate hreflang> in <head>",
-      "expected": "hreflang alternates for every language version, incl. a self-reference and x-default"
+      "expected": "hreflang alternates for every language version, incl. a self-reference and x-default",
+      "sample": {
+        "generic:/": [
+          3,
+          4
+        ],
+        "generic:/{section}": [
+          2,
+          4
+        ],
+        "generic:/{section}/*": [
+          4,
+          4
+        ]
+      }
     },
     "affected_pages": 140,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 1,
+      "impressions_28d": 574,
+      "source": "gsc-template",
+      "share": null,
+      "score": 5,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 2,
@@ -4171,7 +4969,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "hreflang_missing",
@@ -4194,13 +4992,25 @@
         "https://www.aspose.app/id/"
       ],
       "observed": "3 of 3 sampled pages (by template: home 3/3). e.g. https://www.aspose.app/: no <link rel=alternate hreflang> in <head>; https://www.aspose.app/da/: no <link rel=alternate hreflang> in <head>; https://www.aspose.app/id/: no <link rel=alternate hreflang> in <head>",
-      "expected": "hreflang alternates for every language version, incl. a self-reference and x-default"
+      "expected": "hreflang alternates for every language version, incl. a self-reference and x-default",
+      "sample": {
+        "home": [
+          3,
+          3
+        ]
+      }
     },
     "affected_pages": 36,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 4347,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 1.0,
+      "score": 19,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 2,
@@ -4210,7 +5020,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "hreflang_missing",
@@ -4234,13 +5044,29 @@
         "https://websites.aspose.app/es/conholdate/cloud/"
       ],
       "observed": "4 of 12 sampled pages (by template: generic:/ 2/4, generic:/{section}/* 2/4). e.g. https://websites.aspose.app/ko/: URL language ko, <html lang='en'>; https://websites.aspose.app/el/aspose/com/: URL language el, <html lang='en'>; https://websites.aspose.app/nl/: URL language nl, <html lang='en'>; https://websites.aspose.app/es/conholdate/cloud/: URL language es, <html lang='en'>",
-      "expected": "<html lang> = the URL's language"
+      "expected": "<html lang> = the URL's language",
+      "sample": {
+        "generic:/": [
+          2,
+          4
+        ],
+        "generic:/{section}/*": [
+          2,
+          4
+        ]
+      }
     },
     "affected_pages": 67,
     "impact": {
       "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "impressions_28d": 251,
+      "source": "gsc-template",
+      "share": null,
+      "score": 8,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -4250,7 +5076,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "html_lang_mismatch",
@@ -4271,13 +5097,25 @@
         "https://purchase.aspose.app/"
       ],
       "observed": "1 of 1 sampled pages (by template: generic:/ 1/1). e.g. https://purchase.aspose.app/: no lang attribute on <html>",
-      "expected": "<html lang> matching the page language"
+      "expected": "<html lang> matching the page language",
+      "sample": {
+        "generic:/": [
+          1,
+          1
+        ]
+      }
     },
     "affected_pages": 1,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 7621,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 1.0,
+      "score": 16,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -4287,7 +5125,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "html_lang_missing",
@@ -4314,13 +5152,37 @@
         "https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.10-windows/"
       ],
       "observed": "7 of 11 sampled pages (by template: generic:/ 1/1, generic:/{section} 2/2, generic:/{section}/* 2/2, generic:/{section}/*/*/* 2/2). e.g. https://releases.aspose.app/: no lang attribute on <html>; https://releases.aspose.app/pdf/: no lang attribute on <html>; https://releases.aspose.app/slides/slides-splitter-app-net/: no lang attribute on <html>; https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.3-macos-arm64/: no lang attribute on <html>; https://releases.aspose.app/pub/: no lang attribute on <html>",
-      "expected": "<html lang> matching the page language"
+      "expected": "<html lang> matching the page language",
+      "sample": {
+        "generic:/": [
+          1,
+          1
+        ],
+        "generic:/{section}": [
+          2,
+          2
+        ],
+        "generic:/{section}/*": [
+          2,
+          2
+        ],
+        "generic:/{section}/*/*/*": [
+          2,
+          2
+        ]
+      }
     },
     "affected_pages": 180,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 6,
+      "impressions_28d": 892,
+      "source": "gsc-template",
+      "share": null,
+      "score": 5,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -4330,7 +5192,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "html_lang_missing",
@@ -4356,13 +5218,33 @@
         "https://status.aspose.app/"
       ],
       "observed": "6 of 6 sampled pages (by template: generic:/ 3/3, generic:/{section} 1/1, generic:/{section}/* 2/2). e.g. https://status.aspose.app?start_date=2019-06-24: no lang attribute on <html>; https://status.aspose.app/dashboard: no lang attribute on <html>; https://status.aspose.app/incidents/58: no lang attribute on <html>; https://status.aspose.app?start_date=2019-12-03: no lang attribute on <html>; https://status.aspose.app/incidents/68: no lang attribute on <html>",
-      "expected": "<html lang> matching the page language"
+      "expected": "<html lang> matching the page language",
+      "sample": {
+        "generic:/": [
+          3,
+          3
+        ],
+        "generic:/{section}": [
+          1,
+          1
+        ],
+        "generic:/{section}/*": [
+          2,
+          2
+        ]
+      }
     },
     "affected_pages": 150,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 34,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 1.0,
+      "score": 6,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -4372,7 +5254,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "html_lang_missing",
@@ -4394,13 +5276,29 @@
         "https://products.aspose.app/barcode/family/"
       ],
       "observed": "2 of 10 sampled pages (by template: family-hub 1/1, family-subhub 1/1). e.g. https://products.aspose.app/barcode/: no <link rel=alternate hreflang> in <head>; https://products.aspose.app/barcode/family/: no <link rel=alternate hreflang> in <head>",
-      "expected": "hreflang alternates for every language version, incl. a self-reference and x-default"
+      "expected": "hreflang alternates for every language version, incl. a self-reference and x-default",
+      "sample": {
+        "family-hub": [
+          1,
+          1
+        ],
+        "family-subhub": [
+          1,
+          1
+        ]
+      }
     },
     "affected_pages": 2,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 4,
+      "impressions_28d": 109,
+      "source": "gsc-template",
+      "share": null,
+      "score": 4,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 2,
@@ -4410,7 +5308,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run4",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "hreflang_missing",
@@ -4432,13 +5330,29 @@
         "https://products.aspose.app/html/family/"
       ],
       "observed": "2 of 22 sampled pages (by template: family-hub 1/1, family-subhub 1/1). e.g. https://products.aspose.app/html/: no <link rel=alternate hreflang> in <head>; https://products.aspose.app/html/family/: no <link rel=alternate hreflang> in <head>",
-      "expected": "hreflang alternates for every language version, incl. a self-reference and x-default"
+      "expected": "hreflang alternates for every language version, incl. a self-reference and x-default",
+      "sample": {
+        "family-hub": [
+          1,
+          1
+        ],
+        "family-subhub": [
+          1,
+          1
+        ]
+      }
     },
     "affected_pages": 2,
     "impact": {
       "clicks_28d": 0,
       "impressions_28d": 0,
-      "score": 0
+      "source": "gsc-template",
+      "share": null,
+      "score": 0,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 2,
@@ -4448,7 +5362,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run4",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "hreflang_missing",
@@ -4506,13 +5420,25 @@
         "https://products.aspose.app/html/de/merger/mhtml"
       ],
       "observed": "1 of 22 sampled pages (by template: tool-variant 1/4). e.g. https://products.aspose.app/html/de/merger/mhtml: width 179: 'Mit MHTML Merger können Sie MHTML Dateien zu einer kombinieren und MHTML in andere Formate'",
-      "expected": "50-170 characters (CJK count double)"
+      "expected": "50-170 characters (CJK count double)",
+      "sample": {
+        "tool-variant": [
+          1,
+          4
+        ]
+      }
     },
     "affected_pages": 122,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 107,
+      "impressions_28d": 18294,
+      "source": "gsc-template",
+      "share": null,
+      "score": 10,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -4522,7 +5448,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run1",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "description_length",
@@ -4582,13 +5508,33 @@
         "https://products.aspose.app/html/"
       ],
       "observed": "3 of 22 sampled pages (by template: family-hub 1/1, tool 1/4, tool-variant 1/4). e.g. https://products.aspose.app/html/de/merger/mhtml: width 92: 'MHTML Merger - Konvertieren Sie MHTML und führen Sie sie online zu anderen Formaten zusamm'; https://products.aspose.app/html/ja/color-contrast-accessibility: width 76: 'カラーコントラストのアクセシビリティ-Webサイトのカラーコントラストをチェック'; https://products.aspose.app/html/: width 75: 'Free Apps, On Premise & Cloud APIs for HTML Manipulation | Free Aspose Apps'",
-      "expected": "10-70 characters (CJK count double)"
+      "expected": "10-70 characters (CJK count double)",
+      "sample": {
+        "family-hub": [
+          1,
+          1
+        ],
+        "tool": [
+          1,
+          4
+        ],
+        "tool-variant": [
+          1,
+          4
+        ]
+      }
     },
     "affected_pages": 289,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 410,
+      "impressions_28d": 27776,
+      "source": "gsc-template",
+      "share": null,
+      "score": 11,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -4598,7 +5544,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run1",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "title_length",
@@ -4621,13 +5567,29 @@
         "https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.10-windows/"
       ],
       "observed": "3 of 11 sampled pages (by template: generic:/ 1/1, generic:/{section}/*/*/* 2/2). e.g. https://releases.aspose.app/: '' also on https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.3-macos-arm64/, https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.10-windows/; https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.3-macos-arm64/: '' also on https://releases.aspose.app/, https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.10-windows/; https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.10-windows/: '' also on https://releases.aspose.app/, https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.3-macos-arm64/",
-      "expected": "a unique meta description per page and language"
+      "expected": "a unique meta description per page and language",
+      "sample": {
+        "generic:/": [
+          1,
+          1
+        ],
+        "generic:/{section}/*/*/*": [
+          2,
+          2
+        ]
+      }
     },
     "affected_pages": 145,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 1,
+      "impressions_28d": 202,
+      "source": "gsc-template",
+      "share": null,
+      "score": 3,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 1,
@@ -4637,7 +5599,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "description_duplicate",
@@ -4662,13 +5624,29 @@
         "https://status.aspose.app/"
       ],
       "observed": "5 of 6 sampled pages (by template: generic:/ 3/3, generic:/{section}/* 2/2). e.g. https://status.aspose.app?start_date=2019-06-24: 'Stay up to date with the latest service updates from Status ' also on https://status.aspose.app/incidents/58, https://status.aspose.app?start_date=2019-12-03; https://status.aspose.app/incidents/58: 'Stay up to date with the latest service updates from Status ' also on https://status.aspose.app?start_date=2019-06-24, https://status.aspose.app?start_date=2019-12-03; https://status.aspose.app?start_date=2019-12-03: 'Stay up to date with the latest service updates from Status ' also on https://status.aspose.app?start_date=2019-06-24, https://status.aspose.app/incidents/58; https://status.aspose.app/incidents/68: 'Stay up to date with the latest service updates from Status ' also on https://status.aspose.app?start_date=2019-06-24, https://status.aspose.app/incidents/58; https://status.aspose.app/: 'Stay up to date with the latest service updates from Status ' also on https://status.aspose.app?start_date=2019-06-24, https://status.aspose.app/incidents/58",
-      "expected": "a unique meta description per page and language"
+      "expected": "a unique meta description per page and language",
+      "sample": {
+        "generic:/": [
+          3,
+          3
+        ],
+        "generic:/{section}/*": [
+          2,
+          2
+        ]
+      }
     },
     "affected_pages": 149,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 34,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 0.993,
+      "score": 8,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 1,
@@ -4678,7 +5656,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "description_duplicate",
@@ -4699,13 +5677,25 @@
         "https://forum.aspose.app/"
       ],
       "observed": "1 of 21 sampled pages (by template: generic:/ 1/1). e.g. https://forum.aspose.app/: width 42: 'Get FREE technical support for Aspose Apps'",
-      "expected": "50-170 characters (CJK count double)"
+      "expected": "50-170 characters (CJK count double)",
+      "sample": {
+        "generic:/": [
+          1,
+          1
+        ]
+      }
     },
     "affected_pages": 1,
     "impact": {
       "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 0.0,
+      "score": 0,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -4715,7 +5705,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "description_length",
@@ -4742,13 +5732,33 @@
         "https://metrics.aspose.app/ja/usages/files/pdf/"
       ],
       "observed": "7 of 15 sampled pages (by template: generic:/ 1/3, generic:/{section} 4/4, generic:/{section}/*/* 2/4). e.g. https://metrics.aspose.app/usages/: width 31: 'File Formats Apps Usage Metrics'; https://metrics.aspose.app/usages/sizes/cad/: width 46: 'Top 1 CAD Designs File Formats Processing Apps'; https://metrics.aspose.app/ru/: width 206: 'Бесплатные онлайн-приложения на основе интерфейса командной строки и загружаемые приложени'; https://metrics.aspose.app/subscriptions/: width 38: 'File Formats Apps Subscription Metrics'; https://metrics.aspose.app/lv/usages/: width 40: 'Failu formāti Lietotņu lietojuma metrika'",
-      "expected": "50-170 characters (CJK count double)"
+      "expected": "50-170 characters (CJK count double)",
+      "sample": {
+        "generic:/": [
+          1,
+          3
+        ],
+        "generic:/{section}": [
+          4,
+          4
+        ],
+        "generic:/{section}/*/*": [
+          2,
+          4
+        ]
+      }
     },
     "affected_pages": 1740,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 23,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 0.46,
+      "score": 6,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -4758,7 +5768,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "description_length",
@@ -4779,13 +5789,25 @@
         "https://products.aspose.app/"
       ],
       "observed": "1 of 1 sampled pages (by template: generic:/ 1/1). e.g. https://products.aspose.app/: width 192: 'Simply upload Word, PDF, Excel, PowerPoint, Outlook, OneNote, Project, Visio, Image, 3D, C'",
-      "expected": "50-170 characters (CJK count double)"
+      "expected": "50-170 characters (CJK count double)",
+      "sample": {
+        "generic:/": [
+          1,
+          1
+        ]
+      }
     },
     "affected_pages": 1,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 609,
+      "impressions_28d": 4249,
+      "source": "gsc-template",
+      "share": null,
+      "score": 11,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -4795,7 +5817,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "description_length",
@@ -4821,13 +5843,37 @@
         "https://releases.aspose.app/font/convert-app-net/release-notes/2024/convert-app-net-24-6-release-notes/"
       ],
       "observed": "6 of 11 sampled pages (by template: generic:/{section} 1/2, generic:/{section}/* 1/2, generic:/{section}/*/* 2/2, generic:/{section}/*/*/*/* 2/2). e.g. https://releases.aspose.app/tex/convert-app-net/release-notes/: width 255: 'This section contains the release notes of Aspose.TeX Convert Micro App for the year Relea'; https://releases.aspose.app/page/convert-app-net/release-notes/2024/convert-app-net-24-4-release-notes/: width 185: 'Welcome to the first release of Aspose.Page Convert Micro App 24.4. Discover the initial f'; https://releases.aspose.app/pub/: width 171: 'Aspose.PUB Micro Applications provide advanced document processing capabilities tailored f'; https://releases.aspose.app/imaging/image-merge-app-net/: width 294: 'Aspose.Imaging Image Merge Micro Application allows creation of collage from several input'; https://releases.aspose.app/pdf/pdf-cli/release-notes/: width 245: 'This section contains the release notes of Aspose.PDF CLI App for the year Release Notes. '",
-      "expected": "50-170 characters (CJK count double)"
+      "expected": "50-170 characters (CJK count double)",
+      "sample": {
+        "generic:/{section}": [
+          1,
+          2
+        ],
+        "generic:/{section}/*": [
+          1,
+          2
+        ],
+        "generic:/{section}/*/*": [
+          2,
+          2
+        ],
+        "generic:/{section}/*/*/*/*": [
+          2,
+          2
+        ]
+      }
     },
     "affected_pages": 146,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 2,
+      "impressions_28d": 345,
+      "source": "gsc-template",
+      "share": null,
+      "score": 3,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -4837,7 +5883,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "description_length",
@@ -4860,13 +5906,25 @@
         "https://www.aspose.app/id/"
       ],
       "observed": "3 of 3 sampled pages (by template: home 3/3). e.g. https://www.aspose.app/: width 195: 'Free online file format apps to view, edit, convert, merge, sign, compress, parse, and man'; https://www.aspose.app/da/: width 215: 'Gratis online filformatapps til at se, redigere, konvertere, flette, signere, komprimere, '; https://www.aspose.app/id/: width 242: 'Aplikasi format file online gratis untuk melihat, mengedit, mengonversi, menggabungkan, me'",
-      "expected": "50-170 characters (CJK count double)"
+      "expected": "50-170 characters (CJK count double)",
+      "sample": {
+        "home": [
+          3,
+          3
+        ]
+      }
     },
     "affected_pages": 36,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 4347,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 1.0,
+      "score": 15,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -4876,7 +5934,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "description_length",
@@ -4906,13 +5964,33 @@
         "https://about.aspose.app/ru/legal/"
       ],
       "observed": "11 of 11 sampled pages (by template: generic:/ 3/3, generic:/{section} 4/4, generic:/{section}/* 4/4). e.g. https://about.aspose.app/: no meta description; https://about.aspose.app/security/: no meta description; https://about.aspose.app/legal/security/: no meta description; https://about.aspose.app/nl/: no meta description; https://about.aspose.app/events/: no meta description",
-      "expected": "a unique meta description"
+      "expected": "a unique meta description",
+      "sample": {
+        "generic:/": [
+          3,
+          3
+        ],
+        "generic:/{section}": [
+          4,
+          4
+        ],
+        "generic:/{section}/*": [
+          4,
+          4
+        ]
+      }
     },
     "affected_pages": 234,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 17,
+      "impressions_28d": 2702,
+      "source": "gsc-template",
+      "share": null,
+      "score": 7,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -4922,7 +6000,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "description_missing",
@@ -4945,13 +6023,29 @@
         "https://blog.aspose.app/free-online-aspose.words-watermark-app/"
       ],
       "observed": "3 of 3 sampled pages (by template: generic:/ 1/1, generic:/{section} 2/2). e.g. https://blog.aspose.app/: no meta description; https://blog.aspose.app/recent-posts/: no meta description; https://blog.aspose.app/free-online-aspose.words-watermark-app/: no meta description",
-      "expected": "a unique meta description"
+      "expected": "a unique meta description",
+      "sample": {
+        "generic:/": [
+          1,
+          1
+        ],
+        "generic:/{section}": [
+          2,
+          2
+        ]
+      }
     },
     "affected_pages": 153,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 153,
+      "impressions_28d": 56814,
+      "source": "gsc-template",
+      "share": null,
+      "score": 11,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -4961,7 +6055,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "description_missing",
@@ -4982,13 +6076,25 @@
         "https://dashboard.aspose.app/"
       ],
       "observed": "1 of 1 sampled pages (by template: generic:/ 1/1). e.g. https://dashboard.aspose.app/: no meta description",
-      "expected": "a unique meta description"
+      "expected": "a unique meta description",
+      "sample": {
+        "generic:/": [
+          1,
+          1
+        ]
+      }
     },
     "affected_pages": 1,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 3658,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 1.0,
+      "score": 14,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -4998,7 +6104,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "description_missing",
@@ -5020,13 +6126,25 @@
         "https://metrics.aspose.app/el/usages/file/"
       ],
       "observed": "2 of 15 sampled pages (by template: generic:/{section}/* 2/4). e.g. https://metrics.aspose.app/subscriptions/subscription-plan/: empty; https://metrics.aspose.app/el/usages/file/: empty",
-      "expected": "a unique meta description"
+      "expected": "a unique meta description",
+      "sample": {
+        "generic:/{section}/*": [
+          2,
+          4
+        ]
+      }
     },
     "affected_pages": 180,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 2,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 0.048,
+      "score": 2,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -5036,7 +6154,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "description_missing",
@@ -5057,13 +6175,25 @@
         "https://purchase.aspose.app/"
       ],
       "observed": "1 of 1 sampled pages (by template: generic:/ 1/1). e.g. https://purchase.aspose.app/: no meta description",
-      "expected": "a unique meta description"
+      "expected": "a unique meta description",
+      "sample": {
+        "generic:/": [
+          1,
+          1
+        ]
+      }
     },
     "affected_pages": 1,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 7621,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 1.0,
+      "score": 16,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -5073,7 +6203,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "description_missing",
@@ -5096,13 +6226,29 @@
         "https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.10-windows/"
       ],
       "observed": "3 of 11 sampled pages (by template: generic:/ 1/1, generic:/{section}/*/*/* 2/2). e.g. https://releases.aspose.app/: empty; https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.3-macos-arm64/: empty; https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.10-windows/: empty",
-      "expected": "a unique meta description"
+      "expected": "a unique meta description",
+      "sample": {
+        "generic:/": [
+          1,
+          1
+        ],
+        "generic:/{section}/*/*/*": [
+          2,
+          2
+        ]
+      }
     },
     "affected_pages": 145,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 1,
+      "impressions_28d": 202,
+      "source": "gsc-template",
+      "share": null,
+      "score": 2,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -5112,7 +6258,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "description_missing",
@@ -5141,13 +6287,33 @@
         "https://websites.aspose.app/es/conholdate/cloud/"
       ],
       "observed": "9 of 12 sampled pages (by template: generic:/ 3/4, generic:/{section} 2/4, generic:/{section}/* 4/4). e.g. https://websites.aspose.app/groupdocs/ai/: no meta description; https://websites.aspose.app/: no meta description; https://websites.aspose.app/fileformat/app/: no meta description; https://websites.aspose.app/ko/: no meta description; https://websites.aspose.app/fr/groupdocs/: no meta description",
-      "expected": "a unique meta description"
+      "expected": "a unique meta description",
+      "sample": {
+        "generic:/": [
+          3,
+          4
+        ],
+        "generic:/{section}": [
+          2,
+          4
+        ],
+        "generic:/{section}/*": [
+          4,
+          4
+        ]
+      }
     },
     "affected_pages": 140,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 1,
+      "impressions_28d": 574,
+      "source": "gsc-template",
+      "share": null,
+      "score": 4,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -5157,7 +6323,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "description_missing",
@@ -5178,13 +6344,25 @@
         "https://blog.aspose.app/recent-posts/"
       ],
       "observed": "1 of 3 sampled pages (by template: generic:/{section} 1/2). e.g. https://blog.aspose.app/recent-posts/: no non-empty <h1>",
-      "expected": "one H1 that states the page topic"
+      "expected": "one H1 that states the page topic",
+      "sample": {
+        "generic:/{section}": [
+          1,
+          2
+        ]
+      }
     },
     "affected_pages": 76,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 76,
+      "impressions_28d": 28375,
+      "source": "gsc-template",
+      "share": null,
+      "score": 10,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -5194,7 +6372,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "h1_missing",
@@ -5215,13 +6393,25 @@
         "https://dashboard.aspose.app/"
       ],
       "observed": "1 of 1 sampled pages (by template: generic:/ 1/1). e.g. https://dashboard.aspose.app/: no non-empty <h1>",
-      "expected": "one H1 that states the page topic"
+      "expected": "one H1 that states the page topic",
+      "sample": {
+        "generic:/": [
+          1,
+          1
+        ]
+      }
     },
     "affected_pages": 1,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 3658,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 1.0,
+      "score": 14,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -5231,7 +6421,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "h1_missing",
@@ -5252,13 +6442,25 @@
         "https://forum.aspose.app/"
       ],
       "observed": "1 of 21 sampled pages (by template: generic:/ 1/1). e.g. https://forum.aspose.app/: no non-empty <h1>",
-      "expected": "one H1 that states the page topic"
+      "expected": "one H1 that states the page topic",
+      "sample": {
+        "generic:/": [
+          1,
+          1
+        ]
+      }
     },
     "affected_pages": 1,
     "impact": {
       "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 0.0,
+      "score": 0,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -5268,7 +6470,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "h1_missing",
@@ -5289,13 +6491,25 @@
         "https://purchase.aspose.app/"
       ],
       "observed": "1 of 1 sampled pages (by template: generic:/ 1/1). e.g. https://purchase.aspose.app/: no non-empty <h1>",
-      "expected": "one H1 that states the page topic"
+      "expected": "one H1 that states the page topic",
+      "sample": {
+        "generic:/": [
+          1,
+          1
+        ]
+      }
     },
     "affected_pages": 1,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 7621,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 1.0,
+      "score": 16,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -5305,7 +6519,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "h1_missing",
@@ -5331,13 +6545,33 @@
         "https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.10-windows/"
       ],
       "observed": "6 of 11 sampled pages (by template: generic:/{section} 2/2, generic:/{section}/* 2/2, generic:/{section}/*/*/* 2/2). e.g. https://releases.aspose.app/pdf/: no non-empty <h1>; https://releases.aspose.app/slides/slides-splitter-app-net/: no non-empty <h1>; https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.3-macos-arm64/: no non-empty <h1>; https://releases.aspose.app/pub/: no non-empty <h1>; https://releases.aspose.app/imaging/image-merge-app-net/: no non-empty <h1>",
-      "expected": "one H1 that states the page topic"
+      "expected": "one H1 that states the page topic",
+      "sample": {
+        "generic:/{section}": [
+          2,
+          2
+        ],
+        "generic:/{section}/*": [
+          2,
+          2
+        ],
+        "generic:/{section}/*/*/*": [
+          2,
+          2
+        ]
+      }
     },
     "affected_pages": 179,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 6,
+      "impressions_28d": 868,
+      "source": "gsc-template",
+      "share": null,
+      "score": 5,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -5347,7 +6581,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "h1_missing",
@@ -5368,13 +6602,25 @@
         "https://status.aspose.app/dashboard"
       ],
       "observed": "1 of 6 sampled pages (by template: generic:/{section} 1/1). e.g. https://status.aspose.app/dashboard: no non-empty <h1>",
-      "expected": "one H1 that states the page topic"
+      "expected": "one H1 that states the page topic",
+      "sample": {
+        "generic:/{section}": [
+          1,
+          1
+        ]
+      }
     },
     "affected_pages": 1,
     "impact": {
       "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 0.007,
+      "score": 0,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -5384,7 +6630,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "h1_missing",
@@ -5406,13 +6652,25 @@
         "https://websites.aspose.app/ru/codeporting/"
       ],
       "observed": "2 of 12 sampled pages (by template: generic:/{section} 2/4). e.g. https://websites.aspose.app/fr/groupdocs/: no non-empty <h1>; https://websites.aspose.app/ru/codeporting/: no non-empty <h1>",
-      "expected": "one H1 that states the page topic"
+      "expected": "one H1 that states the page topic",
+      "sample": {
+        "generic:/{section}": [
+          2,
+          4
+        ]
+      }
     },
     "affected_pages": 16,
     "impact": {
       "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "impressions_28d": 146,
+      "source": "gsc-template",
+      "share": null,
+      "score": 2,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -5422,7 +6680,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "h1_missing",
@@ -5444,13 +6702,29 @@
         "https://about.aspose.app/legal/security/"
       ],
       "observed": "2 of 11 sampled pages (by template: generic:/{section} 1/4, generic:/{section}/* 1/4). e.g. https://about.aspose.app/security/: 'Security - About - aspose.app' also on https://about.aspose.app/legal/security/; https://about.aspose.app/legal/security/: 'Security - About - aspose.app' also on https://about.aspose.app/security/",
-      "expected": "a unique title per page and language"
+      "expected": "a unique title per page and language",
+      "sample": {
+        "generic:/{section}": [
+          1,
+          4
+        ],
+        "generic:/{section}/*": [
+          1,
+          4
+        ]
+      }
     },
     "affected_pages": 56,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 2,
+      "impressions_28d": 249,
+      "source": "gsc-template",
+      "share": null,
+      "score": 4,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 1,
@@ -5460,7 +6734,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "title_duplicate",
@@ -5482,13 +6756,25 @@
         "https://releases.aspose.app/pdf/pdf-cli/release-notes/"
       ],
       "observed": "2 of 11 sampled pages (by template: generic:/{section}/*/* 2/2). e.g. https://releases.aspose.app/tex/convert-app-net/release-notes/: 'Release Notes' also on https://releases.aspose.app/pdf/pdf-cli/release-notes/; https://releases.aspose.app/pdf/pdf-cli/release-notes/: 'Release Notes' also on https://releases.aspose.app/tex/convert-app-net/release-notes/",
-      "expected": "a unique title per page and language"
+      "expected": "a unique title per page and language",
+      "sample": {
+        "generic:/{section}/*/*": [
+          2,
+          2
+        ]
+      }
     },
     "affected_pages": 12,
     "impact": {
       "clicks_28d": 0,
       "impressions_28d": 0,
-      "score": 0
+      "source": "gsc-template",
+      "share": null,
+      "score": 0,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 1,
@@ -5498,7 +6784,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "title_duplicate",
@@ -5523,13 +6809,29 @@
         "https://status.aspose.app/"
       ],
       "observed": "5 of 6 sampled pages (by template: generic:/ 3/3, generic:/{section}/* 2/2). e.g. https://status.aspose.app?start_date=2019-06-24: 'Status - aspose.app' also on https://status.aspose.app?start_date=2019-12-03, https://status.aspose.app/; https://status.aspose.app/incidents/58: 'I HAVE BEEN FIXED | Status - aspose.app' also on https://status.aspose.app/incidents/68; https://status.aspose.app?start_date=2019-12-03: 'Status - aspose.app' also on https://status.aspose.app?start_date=2019-06-24, https://status.aspose.app/; https://status.aspose.app/incidents/68: 'I HAVE BEEN FIXED | Status - aspose.app' also on https://status.aspose.app/incidents/58; https://status.aspose.app/: 'Status - aspose.app' also on https://status.aspose.app?start_date=2019-06-24, https://status.aspose.app?start_date=2019-12-03",
-      "expected": "a unique title per page and language"
+      "expected": "a unique title per page and language",
+      "sample": {
+        "generic:/": [
+          3,
+          3
+        ],
+        "generic:/{section}/*": [
+          2,
+          2
+        ]
+      }
     },
     "affected_pages": 149,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 34,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 0.993,
+      "score": 8,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 1,
@@ -5539,7 +6841,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "title_duplicate",
@@ -5560,13 +6862,25 @@
         "https://blog.aspose.app/free-online-aspose.words-watermark-app/"
       ],
       "observed": "1 of 3 sampled pages (by template: generic:/{section} 1/2). e.g. https://blog.aspose.app/free-online-aspose.words-watermark-app/: width 75: 'Free Online Aspose.Words Watermark App | File Format Apps Blog - aspose.app'",
-      "expected": "10-70 characters (CJK count double)"
+      "expected": "10-70 characters (CJK count double)",
+      "sample": {
+        "generic:/{section}": [
+          1,
+          2
+        ]
+      }
     },
     "affected_pages": 76,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 76,
+      "impressions_28d": 28375,
+      "source": "gsc-template",
+      "share": null,
+      "score": 10,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -5576,7 +6890,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "title_length",
@@ -5597,13 +6911,25 @@
         "https://dashboard.aspose.app/"
       ],
       "observed": "1 of 1 sampled pages (by template: generic:/ 1/1). e.g. https://dashboard.aspose.app/: width 9: 'Dashboard'",
-      "expected": "10-70 characters (CJK count double)"
+      "expected": "10-70 characters (CJK count double)",
+      "sample": {
+        "generic:/": [
+          1,
+          1
+        ]
+      }
     },
     "affected_pages": 1,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 3658,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 1.0,
+      "score": 14,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -5613,7 +6939,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "title_length",
@@ -5638,13 +6964,29 @@
         "https://metrics.aspose.app/el/usages/file/"
       ],
       "observed": "5 of 15 sampled pages (by template: generic:/ 3/3, generic:/{section}/* 2/4). e.g. https://metrics.aspose.app/: width 129: 'Free Online File Processing Apps for PDF, Word, Excel, PowerPoint, Visio, Project, OneNote'; https://metrics.aspose.app/ru/: width 145: 'Бесплатные онлайн-приложения для обработки файлов в форматах PDF, Word, Excel, PowerPoint,'; https://metrics.aspose.app/subscriptions/subscription-plan/: width 0: ''; https://metrics.aspose.app/az/: width 134: 'PDF, Word, Excel, PowerPoint, Visio, Project, OneNote, OpenOffice, CAD, 3D formatları və s'; https://metrics.aspose.app/el/usages/file/: width 0: ''",
-      "expected": "10-70 characters (CJK count double)"
+      "expected": "10-70 characters (CJK count double)",
+      "sample": {
+        "generic:/": [
+          3,
+          3
+        ],
+        "generic:/{section}/*": [
+          2,
+          4
+        ]
+      }
     },
     "affected_pages": 216,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 3,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 0.057,
+      "score": 2,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -5654,7 +6996,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "title_length",
@@ -5675,13 +7017,25 @@
         "https://status.aspose.app/dashboard"
       ],
       "observed": "1 of 6 sampled pages (by template: generic:/{section} 1/1). e.g. https://status.aspose.app/dashboard: width 103: 'Containerize.IdentityServer - Single sign-on to access all applications and services of As'",
-      "expected": "10-70 characters (CJK count double)"
+      "expected": "10-70 characters (CJK count double)",
+      "sample": {
+        "generic:/{section}": [
+          1,
+          1
+        ]
+      }
     },
     "affected_pages": 1,
     "impact": {
       "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 0.007,
+      "score": 0,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -5691,7 +7045,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "title_length",
@@ -5714,13 +7068,25 @@
         "https://www.aspose.app/id/"
       ],
       "observed": "3 of 3 sampled pages (by template: home 3/3). e.g. https://www.aspose.app/: width 83: 'File Format Apps for Word Excel PDF PowerPoint Email Barcode Images OCR Note and 3D'; https://www.aspose.app/da/: width 80: 'Filformat-apps til Word Excel PDF PowerPoint Email Barcode Images OCR Note og 3D'; https://www.aspose.app/id/: width 88: 'Format File Apps untuk Word Excel PDF PowerPoint Gambar Barcode Email OCR Catatan dan 3D'",
-      "expected": "10-70 characters (CJK count double)"
+      "expected": "10-70 characters (CJK count double)",
+      "sample": {
+        "home": [
+          3,
+          3
+        ]
+      }
     },
     "affected_pages": 36,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 4347,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 1.0,
+      "score": 15,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -5730,7 +7096,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "title_length",
@@ -5758,7 +7124,13 @@
     "impact": {
       "clicks_28d": 0,
       "impressions_28d": 0,
-      "score": 0
+      "source": "gsc-pages",
+      "share": null,
+      "score": 0,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 2,
@@ -5772,7 +7144,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-08",
+    "last_seen_run": "seed-2026-10-09",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -5802,7 +7174,13 @@
     "impact": {
       "clicks_28d": 0,
       "impressions_28d": 0,
-      "score": 0
+      "source": "gsc-pages",
+      "share": null,
+      "score": 0,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 2,
@@ -5816,7 +7194,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-08",
+    "last_seen_run": "seed-2026-10-09",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -5842,9 +7220,15 @@
     },
     "affected_pages": 58,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 24,
+      "impressions_28d": 374,
+      "source": "gsc-pages",
+      "share": null,
+      "score": 8,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 3,
@@ -5858,7 +7242,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-08",
+    "last_seen_run": "seed-2026-10-09",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -5885,9 +7269,15 @@
     },
     "affected_pages": 3,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 24,
+      "impressions_28d": 142,
+      "source": "gsc-pages",
+      "share": null,
+      "score": 8,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 3,
@@ -5901,7 +7291,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-08",
+    "last_seen_run": "seed-2026-10-09",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -5929,8 +7319,14 @@
     "affected_pages": 0,
     "impact": {
       "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "impressions_28d": 79,
+      "source": "gsc-pages",
+      "share": null,
+      "score": 0,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "L",
     "fix_tier": 3,
@@ -5944,7 +7340,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-08",
+    "last_seen_run": "seed-2026-10-09",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -5970,8 +7366,14 @@
     "affected_pages": 1,
     "impact": {
       "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 0.0,
+      "score": 0,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -5985,7 +7387,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-08",
+    "last_seen_run": "seed-2026-10-09",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -6010,9 +7412,15 @@
     },
     "affected_pages": 1,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 5,
+      "impressions_28d": 1164,
+      "source": "gsc-pages",
+      "share": null,
+      "score": 17,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -6026,7 +7434,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-08",
+    "last_seen_run": "seed-2026-10-09",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -6054,7 +7462,13 @@
     "impact": {
       "clicks_28d": 0,
       "impressions_28d": 0,
-      "score": 0
+      "source": "gsc-pages",
+      "share": null,
+      "score": 0,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -6068,7 +7482,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-08",
+    "last_seen_run": "seed-2026-10-09",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -6094,9 +7508,15 @@
     },
     "affected_pages": 1,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 15,
+      "impressions_28d": 567,
+      "source": "gsc-pages",
+      "share": null,
+      "score": 19,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 2,
@@ -6110,7 +7530,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-08",
+    "last_seen_run": "seed-2026-10-09",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -6138,8 +7558,14 @@
     "affected_pages": 0,
     "impact": {
       "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 0.0,
+      "score": 0,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -6153,7 +7579,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-08",
+    "last_seen_run": "seed-2026-10-09",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -6178,9 +7604,15 @@
     },
     "affected_pages": 1,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 1,
+      "impressions_28d": 219,
+      "source": "gsc-pages",
+      "share": null,
+      "score": 2,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 2,
@@ -6194,7 +7626,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-08",
+    "last_seen_run": "seed-2026-10-09",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -6219,9 +7651,15 @@
     },
     "affected_pages": 1,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 5,
+      "impressions_28d": 1164,
+      "source": "gsc-pages",
+      "share": null,
+      "score": 5,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -6235,7 +7673,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-08",
+    "last_seen_run": "seed-2026-10-09",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -6262,9 +7700,15 @@
     },
     "affected_pages": 0,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 65,
+      "impressions_28d": 2141,
+      "source": "gsc-pages",
+      "share": null,
+      "score": 26,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 2,
@@ -6274,12 +7718,12 @@
       "verified": false,
       "how": "web fetch converted to text; raw HTML not checked",
       "recheck": "intl auditor: parse raw <head> on a sample per family and template",
-      "audit_note": "Not reproduced (crawl audit 2026-10-08): sampled pdf, barcode and html app pages emit 7-36 hreflang links in raw <head>, incl. x-default (html: no self entry, see intl-0035/intl-0006 keys). The earlier web fetch likely dropped <head>. Re-check other families before closing."
+      "audit_note": "Not reproduced (crawl audit 2026-10-08): sampled pdf, barcode and html app pages emit 7-36 hreflang links in raw <head>, incl. x-default (html: no self entry, intl-0025). The earlier web fetch likely dropped <head>. Re-check other families before closing."
     },
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-08",
+    "last_seen_run": "seed-2026-10-09",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -6321,7 +7765,7 @@
     "superseded_by": "intl-0034",
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-08",
+    "last_seen_run": "seed-2026-10-09",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -6351,7 +7795,13 @@
     "impact": {
       "clicks_28d": 0,
       "impressions_28d": 0,
-      "score": 0
+      "source": "gsc-pages",
+      "share": null,
+      "score": 0,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "L",
     "fix_tier": 3,
@@ -6365,7 +7815,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-08",
+    "last_seen_run": "seed-2026-10-09",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -6391,9 +7841,15 @@
     },
     "affected_pages": 1,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 121,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 0.028,
+      "score": 29,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 2,
@@ -6407,7 +7863,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-08",
+    "last_seen_run": "seed-2026-10-09",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -6435,7 +7891,13 @@
     "impact": {
       "clicks_28d": 0,
       "impressions_28d": 0,
-      "score": 0
+      "source": "gsc-pages",
+      "share": null,
+      "score": 0,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 3,
@@ -6449,7 +7911,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-08",
+    "last_seen_run": "seed-2026-10-09",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -6474,9 +7936,15 @@
     },
     "affected_pages": 1,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 2,
+      "impressions_28d": 4,
+      "source": "gsc-pages",
+      "share": null,
+      "score": 7,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -6490,7 +7958,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-08",
+    "last_seen_run": "seed-2026-10-09",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -6518,7 +7986,13 @@
     "impact": {
       "clicks_28d": 0,
       "impressions_28d": 0,
-      "score": 0
+      "source": "gsc-pages",
+      "share": null,
+      "score": 0,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -6532,7 +8006,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-08",
+    "last_seen_run": "seed-2026-10-09",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -6560,7 +8034,13 @@
     "impact": {
       "clicks_28d": 0,
       "impressions_28d": 0,
-      "score": 0
+      "source": "gsc-pages",
+      "share": null,
+      "score": 0,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -6574,7 +8054,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-08",
+    "last_seen_run": "seed-2026-10-09",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -6599,9 +8079,15 @@
     },
     "affected_pages": 1,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 16,
+      "impressions_28d": 120,
+      "source": "gsc-pages",
+      "share": null,
+      "score": 18,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -6615,7 +8101,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-08",
+    "last_seen_run": "seed-2026-10-09",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -6640,9 +8126,15 @@
     },
     "affected_pages": 1,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 1,
+      "impressions_28d": 219,
+      "source": "gsc-pages",
+      "share": null,
+      "score": 9,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -6656,7 +8148,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-08",
+    "last_seen_run": "seed-2026-10-09",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -6698,7 +8190,7 @@
     "superseded_by": "crawl-0068",
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-08",
+    "last_seen_run": "seed-2026-10-09",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -6741,7 +8233,7 @@
     "superseded_by": "onpage-0012",
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-08",
+    "last_seen_run": "seed-2026-10-09",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -6766,9 +8258,15 @@
     },
     "affected_pages": 0,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 609,
+      "impressions_28d": 4249,
+      "source": "gsc-pages",
+      "share": null,
+      "score": 11,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -6782,7 +8280,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-08",
+    "last_seen_run": "seed-2026-10-09",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -6809,9 +8307,15 @@
     },
     "affected_pages": 0,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 615,
+      "impressions_28d": 5632,
+      "source": "gsc-pages",
+      "share": null,
+      "score": 8,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 3,
@@ -6825,7 +8329,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-08",
+    "last_seen_run": "seed-2026-10-09",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -6851,8 +8355,14 @@
     "affected_pages": 0,
     "impact": {
       "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "impressions_28d": 64,
+      "source": "gsc-pages",
+      "share": null,
+      "score": 2,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "L",
     "fix_tier": 3,
@@ -6866,7 +8376,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-08",
+    "last_seen_run": "seed-2026-10-09",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -6892,8 +8402,14 @@
     "affected_pages": 0,
     "impact": {
       "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 0.0,
+      "score": 0,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "M",
     "fix_tier": 3,
@@ -6907,7 +8423,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-08",
+    "last_seen_run": "seed-2026-10-09",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -6951,7 +8467,7 @@
     "superseded_by": "ux-0005",
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-08",
+    "last_seen_run": "seed-2026-10-09",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -7011,13 +8527,29 @@
         "https://blog.aspose.app/free-online-aspose.words-watermark-app/"
       ],
       "observed": "3 of 3 sampled pages (by template: generic:/ 1/1, generic:/{section} 2/2). e.g. https://blog.aspose.app/: width=device-width, initial-scale=1.0, user-scalable=no; https://blog.aspose.app/recent-posts/: width=device-width, initial-scale=1.0, user-scalable=no; https://blog.aspose.app/free-online-aspose.words-watermark-app/: width=device-width, initial-scale=1.0, user-scalable=no",
-      "expected": "zoom allowed (WCAG 1.4.4)"
+      "expected": "zoom allowed (WCAG 1.4.4)",
+      "sample": {
+        "generic:/": [
+          1,
+          1
+        ],
+        "generic:/{section}": [
+          2,
+          2
+        ]
+      }
     },
     "affected_pages": 153,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 153,
+      "impressions_28d": 56814,
+      "source": "gsc-template",
+      "share": null,
+      "score": 23,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -7027,7 +8559,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "viewport_no_zoom",
@@ -7054,13 +8586,37 @@
         "https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.10-windows/"
       ],
       "observed": "7 of 11 sampled pages (by template: generic:/ 1/1, generic:/{section} 2/2, generic:/{section}/* 2/2, generic:/{section}/*/*/* 2/2). e.g. https://releases.aspose.app/: width=device-width,initial-scale=1,user-scalable=no; https://releases.aspose.app/pdf/: width=device-width,initial-scale=1,user-scalable=no; https://releases.aspose.app/slides/slides-splitter-app-net/: width=device-width,initial-scale=1,user-scalable=no; https://releases.aspose.app/pdf/pdf-cli/new-releases/aspose.pdf-cli-app-25.3-macos-arm64/: width=device-width,initial-scale=1,user-scalable=no; https://releases.aspose.app/pub/: width=device-width,initial-scale=1,user-scalable=no",
-      "expected": "zoom allowed (WCAG 1.4.4)"
+      "expected": "zoom allowed (WCAG 1.4.4)",
+      "sample": {
+        "generic:/": [
+          1,
+          1
+        ],
+        "generic:/{section}": [
+          2,
+          2
+        ],
+        "generic:/{section}/*": [
+          2,
+          2
+        ],
+        "generic:/{section}/*/*/*": [
+          2,
+          2
+        ]
+      }
     },
     "affected_pages": 180,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 6,
+      "impressions_28d": 892,
+      "source": "gsc-template",
+      "share": null,
+      "score": 10,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -7070,7 +8626,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "viewport_no_zoom",
@@ -7095,13 +8651,29 @@
         "https://status.aspose.app/"
       ],
       "observed": "5 of 6 sampled pages (by template: generic:/ 3/3, generic:/{section}/* 2/2). e.g. https://status.aspose.app?start_date=2019-06-24: width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0; https://status.aspose.app/incidents/58: width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0; https://status.aspose.app?start_date=2019-12-03: width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0; https://status.aspose.app/incidents/68: width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0; https://status.aspose.app/: width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0",
-      "expected": "zoom allowed (WCAG 1.4.4)"
+      "expected": "zoom allowed (WCAG 1.4.4)",
+      "sample": {
+        "generic:/": [
+          3,
+          3
+        ],
+        "generic:/{section}/*": [
+          2,
+          2
+        ]
+      }
     },
     "affected_pages": 149,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 34,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 0.993,
+      "score": 12,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -7111,7 +8683,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "viewport_no_zoom",
@@ -7140,13 +8712,33 @@
         "https://websites.aspose.app/es/conholdate/cloud/"
       ],
       "observed": "9 of 12 sampled pages (by template: generic:/ 3/4, generic:/{section} 2/4, generic:/{section}/* 4/4). e.g. https://websites.aspose.app/groupdocs/ai/: width=device-width,initial-scale=1,user-scalable=no; https://websites.aspose.app/: width=device-width,initial-scale=1,user-scalable=no; https://websites.aspose.app/fileformat/app/: width=device-width,initial-scale=1,user-scalable=no; https://websites.aspose.app/ko/: width=device-width,initial-scale=1,user-scalable=no; https://websites.aspose.app/fr/groupdocs/: width=device-width,initial-scale=1,user-scalable=no",
-      "expected": "zoom allowed (WCAG 1.4.4)"
+      "expected": "zoom allowed (WCAG 1.4.4)",
+      "sample": {
+        "generic:/": [
+          3,
+          4
+        ],
+        "generic:/{section}": [
+          2,
+          4
+        ],
+        "generic:/{section}/*": [
+          4,
+          4
+        ]
+      }
     },
     "affected_pages": 140,
     "impact": {
-      "clicks_28d": 0,
-      "impressions_28d": 0,
-      "score": 0
+      "clicks_28d": 1,
+      "impressions_28d": 574,
+      "source": "gsc-template",
+      "share": null,
+      "score": 7,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
     },
     "effort": "S",
     "fix_tier": 1,
@@ -7156,7 +8748,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "crawl-audit-run2",
-    "last_seen_run": "crawl-audit-run4",
+    "last_seen_run": "crawl-audit-run5",
     "resolved_run": null,
     "resolved_at": null,
     "check": "viewport_no_zoom",
