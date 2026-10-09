@@ -26,6 +26,16 @@ class Tenant:
         return any(fnmatch.fnmatch(host, pattern) for pattern in self.excluded_host_patterns)
 
     @property
+    def sectioned_hosts(self) -> list[str]:
+        """Hosts whose findings and stats are split per section (discovery.section_sitemaps)."""
+        return list((self.raw.get("discovery") or {}).get("section_sitemaps") or {})
+
+    def sections_for(self, host: str) -> list[str]:
+        cfg = ((self.raw.get("discovery") or {}).get("section_sitemaps") or {}).get(host) or {}
+        src = cfg.get("sections") or []
+        return [str(x) for x in (self.raw.get(src, []) if isinstance(src, str) else src)]
+
+    @property
     def host_names(self) -> list[str]:
         return [h["host"] for h in self.hosts if not self.is_excluded(h["host"])]
 

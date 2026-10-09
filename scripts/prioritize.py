@@ -22,14 +22,18 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT))
 
+from datetime import date, timedelta  # noqa: E402
+
 from core.audit.crawl import latest_inventory_run  # noqa: E402
 from core.findings import FindingsStore  # noqa: E402
-from core.gsc import API_MAX_ROWS, default_window  # noqa: E402
+from core.gsc import API_MAX_ROWS, default_window, previous_window  # noqa: E402
 from core.prioritize import TrafficIndex, prioritize, snapshot_discovered  # noqa: E402
 from core.tenant import load_tenant  # noqa: E402
 from scripts.findings import DEFAULT_STORE, export  # noqa: E402
 
 CACHE_DIR = REPO_ROOT / "data"
+SUMMARY_PATH = REPO_ROOT / "reports" / "traffic-summary.json"
+SIX_MONTHS = 182  # days back for the "six months ago" window
 MAX_ROWS_PER_PROPERTY = 200_000
 
 
@@ -96,6 +100,58 @@ def load_traffic(tenant, offline: bool, days: int) -> dict:
     return data
 
 
+def history_windows(window: list[str]) -> dict:
+    """The previous window of the same length, and the same window six months earlier."""
+    start, end = window
+    shift = lambda d: (date.fromisoformat(d) - timedelta(days=SIX_MONTHS)).isoformat()  # noqa: E731
+    return {"previous": list(previous_window(start, end)), "six_months_ago": [shift(start), shift(end)]}
+
+
+def load_history(tenant, window: list[str], offline: bool) -> dict:
+    """GSC page rows for the history windows, cached in data/ (fetched unless --offline)."""
+    out = {}
+    gsc = None
+    for label, (start, end) in history_windows(window).items():
+        path = CACHE_DIR / f"history-{tenant.property}-{start}_{end}.json"
+        if path.is_file():
+            out[label] = json.loads(path.read_text(encoding="utf-8"))
+            continue
+        if offline:
+            print(f"  no cached {label} window ({start}..{end}); run without --offline to fetch it")
+            continue
+        if gsc is None:
+            from core.google_auth import GSC_READONLY, get_credentials
+            from core.gsc import GSCClient
+
+            gsc = GSCClient(get_credentials((GSC_READONLY,))[0])
+        data = {"window": [start, end], "gsc": {}}
+        for site in tenant.gsc_properties:
+            try:
+                data["gsc"][site] = fetch_gsc_pages(gsc, site, start, end)
+            except Exception as exc:  # noqa: BLE001
+                print(f"  {label} {site}: {_err(exc)}")
+        print(f"  {label} window {start}..{end}: {sum(len(v) for v in data['gsc'].values()):,} pages")
+        path.write_text(json.dumps(data), encoding="utf-8")
+        out[label] = data
+    return out
+
+
+def traffic_summary(tenant, current: dict, history: dict) -> dict:
+    """Search traffic per section of each sectioned host, for the current and history windows (committed,
+    so the report build in CI can show it)."""
+    windows = {"current": current, **history}
+    indexes = {label: TrafficIndex.build(tenant, [r for rows in d["gsc"].values() for r in rows])
+               for label, d in windows.items()}
+    out = {"windows": {label: d["window"] for label, d in windows.items()}, "hosts": {}}
+    for host in tenant.sectioned_hosts:
+        sections = {}
+        for sec in tenant.sections_for(host):
+            sections[sec] = {label: {"clicks": round(t.clicks), "impressions": round(t.impressions), "pages": t.pages}
+                             for label, idx in indexes.items() for t in [idx.get(host, sec)]}
+        out["hosts"][host] = sections
+    return out
+
+
 def section_urls(inventory_path: Path, tenant) -> dict:
     """(host, section) and (host, None) -> URL count in the latest full discovery run."""
     if not inventory_path.is_file():
@@ -123,6 +179,9 @@ def main(argv: list[str] | None = None) -> int:
 
     tenant = load_tenant(args.tenant)
     data = load_traffic(tenant, args.offline, args.days)
+    history = load_history(tenant, data["window"], args.offline)
+    SUMMARY_PATH.write_text(json.dumps(traffic_summary(tenant, data, history), indent=1) + "\n", encoding="utf-8")
+    print(f"Traffic summary: {SUMMARY_PATH}")
     rows = [r for site_rows in data["gsc"].values() for r in site_rows]
     idx = TrafficIndex.build(tenant, rows, data.get("ga4_organic"), window=tuple(data["window"]))
 
