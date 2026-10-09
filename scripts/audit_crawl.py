@@ -6,6 +6,9 @@ Run on the Mac after a discovery run (needs network; no Google credentials):
     python scripts/audit_crawl.py --hosts products.aspose.app --sections pdf   # sample
     python scripts/audit_crawl.py --max-pages 20                               # smoke test (resolves nothing)
 
+Sections with no sitemap URLs (e.g. omr) are sampled from their top Search Console pages, read from the
+traffic cache that scripts/prioritize.py writes to data/.
+
 Read-only and polite: GET only, robots.txt respected, one request per host per --interval seconds,
 identifiable user agent, excluded (QA) hosts never touched. Hosts are fetched round-robin.
 
@@ -64,6 +67,8 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--other-langs", type=int, default=2, help="other languages per template (1 page each)")
     ap.add_argument("--max-per-host", type=int, help="cap on sampled pages per host")
     ap.add_argument("--max-pages", type=int, help="stop after this many pages (findings then resolve nothing)")
+    ap.add_argument("--traffic", help="cached traffic JSON from prioritize.py (default: newest in data/); "
+                    "its top search pages stand in for sections that no sitemap covers. '' to skip")
     ap.add_argument("--interval", type=float, default=1.0, help="seconds between requests to one host")
     ap.add_argument("--user-agent", default=os.environ.get("AUDIT_USER_AGENT", DEFAULT_USER_AGENT))
     ap.add_argument("--inventory", default=str(REPO_ROOT / "data" / "inventory.sqlite"))
@@ -88,10 +93,19 @@ def main(argv: list[str] | None = None) -> int:
         print("No finished full discovery run in the inventory", file=sys.stderr)
         return 2
 
+    search_pages = []
+    traffic = args.traffic
+    if traffic is None:
+        cached = sorted((REPO_ROOT / "data").glob(f"traffic-{tenant.property}-*.json"))
+        traffic = str(cached[-1]) if cached else ""
+    if traffic:
+        data = json.loads(Path(traffic).read_text(encoding="utf-8"))
+        search_pages = [r for rows in data.get("gsc", {}).values() for r in rows]
+
     fetcher = PoliteFetcher(user_agent=args.user_agent, min_interval=args.interval, max_bytes=MAX_PAGE_BYTES)
     report = audit(tenant, fetcher, inventory, run, AuditStore(args.db), hosts=hosts, sections=_csv(args.sections),
                    per_template=args.per_template, other_langs=args.other_langs, max_per_host=args.max_per_host,
-                   max_pages=args.max_pages, log=None if args.quiet else print)
+                   max_pages=args.max_pages, search_pages=search_pages, log=None if args.quiet else print)
 
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)

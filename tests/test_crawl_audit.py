@@ -240,3 +240,28 @@ def test_meta_refresh_stub_and_cjk_width():
     facts = parse_page(html(title="線上生成帶標誌", canonical=url, lang="zh-hant",
                             desc="免費產生帶有自訂徽標的二維碼。此外，還可額外付費使用徽標自動調整最大尺寸功能。"), url)
     assert page_issues(rec(url, lang="zh-hant"), facts, localized=False) == []
+
+
+def test_sections_without_sitemap_urls_use_top_search_pages():
+    inv, run = make_inventory()  # omr has 1 sitemap URL, so only a section with none is filled
+    tenant = make_tenant()
+    tenant.raw["discovery"]["section_sitemaps"]["app.example.com"]["sections"] = ["pdf", "omr", "drawing"]
+    search = [{"page": f"https://app.example.com/drawing/tool{i}", "clicks": i} for i in range(10)]
+    search.append({"page": "https://app.example.com/omr/other", "clicks": 99})
+    report = audit(tenant, FakeFetcher({}), inv.db, run, AuditStore(":memory:"), sections=["omr", "drawing"],
+                   search_pages=search, log=None)
+    filled = [p for p in report["pages"] if p["source"] == "search"]
+    assert [p["url"] for p in filled] == [f"https://app.example.com/drawing/tool{i}" for i in (9, 8, 7, 6)]
+    assert filled[0]["group_urls"] == 10 and filled[0]["section"] == "drawing"
+
+
+def test_ignore_rule_skips_private_pages():
+    inv, run = make_inventory()
+    tenant = make_tenant()
+    tenant.raw["audit"]["ignore_pages"] = [{"host": "app.example.com", "status": 404, "path_prefix": "/omr/",
+                                           "reason": "private"}]
+    report = audit(tenant, FakeFetcher({}), inv.db, run, AuditStore(":memory:"), sections=["omr"], log=None)
+    omr = [p for p in report["pages"] if p["url"] == "https://app.example.com/omr/x"][0]
+    assert omr["ignored"] == "private" and omr["issues"] == []
+    assert not any(f["template"] == "page:omr" for f in report["findings"])
+    assert report["summary"]["app.example.com"]["ignored"] == 1

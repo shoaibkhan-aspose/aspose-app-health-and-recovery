@@ -230,7 +230,7 @@ def duplicate_issues(pages: list[dict], field: str, check: str) -> None:
 
 class CrawlAudit:
     def __init__(self, tenant, fetcher, inventory_db, inventory_run: int, store, hosts=None, sections=None,
-                 per_template=2, other_langs=2, max_per_host=None, max_pages=None, log=print):
+                 per_template=2, other_langs=2, max_per_host=None, max_pages=None, search_pages=None, log=print):
         self.tenant = tenant
         self.fetcher = fetcher
         self.inventory_db = inventory_db
@@ -240,6 +240,7 @@ class CrawlAudit:
         self.sections = sections
         self.per_template, self.other_langs, self.max_per_host = per_template, other_langs, max_per_host
         self.max_pages = max_pages
+        self.search_pages = search_pages or []  # [{'page', 'clicks'}]: fills sections that no sitemap covers
         self.log = log or (lambda *_: None)
         raw = tenant.raw
         self.sectioned = set((raw.get("discovery") or {}).get("section_sitemaps") or {})
@@ -282,7 +283,29 @@ class CrawlAudit:
                 c = self._classified(url, "homepage" if urlsplit(url).path in ("", "/") else "extra")
                 if self.sections is None or not c.section or c.section in self.sections:
                     sample.append(c)
+        for t in self._search_fill({(s.host, s.section) for s in sample if s.source == "sitemap"}):
+            if t.url not in seen:
+                seen.add(t.url)
+                sample.append(t)
         return sample
+
+    def _search_fill(self, covered: set) -> list[SampledUrl]:
+        """Sections with no sitemap URLs: sample their top search pages per template instead (source 'search')."""
+        missing = {(h, sec) for h in self.hosts if h in self.sectioned for sec in self._sections_for(h)
+                   if (self.sections is None or sec in self.sections) and (h, sec) not in covered}
+        if not missing or not self.search_pages:
+            return []
+        groups: dict = defaultdict(list)
+        for r in self.search_pages:
+            c = self._classified(r["page"], "search")
+            if (c.host, c.section) in missing:
+                groups[(c.host, c.section, c.template)].append((r.get("clicks", 0), c))
+        out = []
+        for (_host, _sec, _tmpl), items in sorted(groups.items()):
+            items.sort(key=lambda x: (-x[0], x[1].url))
+            out += [SampledUrl(c.url, c.host, c.section, c.lang, c.template, len(items), "search")
+                    for _, c in items[: self.per_template + self.other_langs]]
+        return out
 
     def _fetch(self, t: SampledUrl) -> dict:
         res = self.fetcher.get(t.url)
@@ -297,8 +320,18 @@ class CrawlAudit:
         if res.status == 200 and _is_html(rec):
             facts = parse_page(res.body, res.final_url or t.url, res.headers)
             rec["facts"] = facts.to_dict()
-        rec["issues"] = page_issues(rec, facts, self._localized(t.host, t.section))
+        rec["ignored"] = self._ignored(rec)
+        rec["issues"] = [] if rec["ignored"] else page_issues(rec, facts, self._localized(t.host, t.section))
         return rec
+
+    def _ignored(self, rec: dict) -> str | None:
+        """Reason if the page matches a tenant `audit.ignore_pages` rule (host, status, path_prefix), else None."""
+        path = urlsplit(rec["url"]).path
+        for rule in self.audit_cfg.get("ignore_pages") or []:
+            if (rule.get("host") in (None, rec["host"]) and rule.get("status") in (None, rec["status"])
+                    and path.startswith(rule.get("path_prefix", "/"))):
+                return rule.get("reason") or "ignored by tenant rule"
+        return None
 
     def _localized(self, host: str, section: str) -> bool:
         return len(self.langs.get((host, section), set())) > 1
@@ -348,8 +381,11 @@ class CrawlAudit:
         out: dict = {}
         for p in self.pages:
             h = out.setdefault(p["host"], {"pages": 0, "ok_html": 0, "errors": 0, "redirected": 0, "blocked": 0,
-                                           "issues": defaultdict(int)})
+                                           "ignored": 0, "issues": defaultdict(int)})
             h["pages"] += 1
+            if p.get("ignored"):
+                h["ignored"] += 1
+                continue
             h["ok_html"] += int(p["facts"] is not None)
             h["errors"] += int(p["status"] is None and not p["blocked"] or (p["status"] or 0) >= 400)
             h["redirected"] += int(bool(p["redirects"]))
@@ -363,6 +399,8 @@ class CrawlAudit:
         sampled: dict = defaultdict(int)  # (host, section, template) -> sampled pages
         group_size: dict = {}
         for p in self.pages:
+            if p.get("ignored"):
+                continue  # excluded from the sample: neither a failure nor a pass
             g = (p["host"], p["section"], p["template"])
             sampled[g] += 1
             group_size[g] = max(group_size.get(g, 0), p["group_urls"])

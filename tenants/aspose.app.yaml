@@ -60,6 +60,8 @@ audit:
     forum.aspose.app: 20
   section_urls:                                   # per section (discovery.section_sitemaps); no sitemap lists the hubs
     products.aspose.app: ["/{section}/", "/{section}/family/"]
+  ignore_pages:                                   # pages the audit skips: no findings, not counted in the sample
+    - {host: forum.aspose.app, status: 403, path_prefix: /t/, reason: "private topic (login required); SK 2026-10-09: ignore for now"}
   extra_urls:
     - https://products.aspose.app/pdf/split       # seed-crawl-03: sitemap lists /split, hub links /splitter
     - https://products.aspose.app/pdf/splitter

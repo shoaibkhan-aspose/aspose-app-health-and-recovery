@@ -109,6 +109,10 @@ Done:
 - **Prioritizer built (2026-10-09, priority 1):** `core/prioritize.py` + `scripts/prioritize.py`. Fetches GSC page rows per property (28 days, paged 25k, max 200k/property; products 19,114 pages) and GA4 organic sessions per host, cached in `data/traffic-<tenant>-<window>.json` (`--offline` reuses it). Classifies GSC pages into the findings' (host, section, template) buckets. Share at stake: crawl audit = template traffic x failing share of the sample (`evidence.sample`, new); discovery = section/host traffic x affected_pages / section URLs (inventory), whole scope for robots/no-sitemap checks, and a failed sitemap file only the URLs GSC discovered from it (tenant snapshot), else 0; seeds = their exact URLs. Hosts without a GSC property use GA4 organic sessions. `score = min(100, 20*log10(1 + clicks + 0.01*impressions)) x severity (broken 1, incorrect .7, not_optimized .4, improvable .2) / effort (S 1, M 1.5, L 2.5)`. Writes `impact` (clicks_28d, impressions_28d, score, source, share, window) into the store (`set_impacts`; re-imports keep it) and re-exports findings.json. Run it after every discovery/audit import. Report: "Top priorities" (top 10) and score + traffic on every finding. 50 offline tests.
   - First run (GSC 2026-09-09..10-06): top = omr no working sitemap (89; 13k clicks, 1.6M impressions), slides double-slash sitemap (83), html hreflang without self (63), purchase robots.txt is HTML (54), forum private topics (52).
 
+- **Priority 2, crawl audit of all products families (2026-10-09):** batches by GSC traffic: run 6 = words, cells, pdf, imaging, omr; run 7 = 3d, zip, audio, email, gis, video, total, slides; run 8 = the 14 smallest. New: sections with no sitemap URLs (omr, drawing) are sampled from their top GSC pages (`search_pages` from the traffic cache, source `search`). Tenant `audit.ignore_pages` skips pages (no findings, not in the sample); forum private topics (403 under `/t/`) are ignored per SK, which resolved the forum HTTP-error finding.
+  - **cells canonical bug (verified with URL Inspection):** 22 of 26 sampled cells pages declare a canonical without `/cells` (`/cells/conversion/xls` → `https://products.aspose.app/conversion`, also `/form`, `/merger`, `/clear`, ...). Google overrides it on strong pages (xls indexed under its own URL) but drops others as "Alternate page with proper canonical tag" (`/cells/form/to-do-list/xlsx`, `/cells/remove-watermark` folded into `/cells/clear/csv-to-ots`). At the May crawl `/cells/conversion/xltm-to-zip` still had a self canonical, so the bug is recent (May..Oct 2026). Fix: the cells app must build canonicals with its base path.
+  - words hubs (`/words/`, `/words/family/` and locales) have hreflang but no canonical; the sitemap lists them without the trailing slash (301). `/pdf/splitter` → `/pdf/split` via two 301s (seed-crawl-03). omr app pages: two H1s, hreflang without self. imaging: meta descriptions too long on most templates.
+
 Not done yet:
 - GSC properties for www and forum (none exist or none shared; the service account sees only the 5 URL-prefix properties).
 - `agents/` is an empty package. MCP servers still to build: `findings`, `ga4`, `crawl`, `pagespeed`.
@@ -256,7 +260,7 @@ Every finding needs evidence a human can re-check. No finding without a URL and 
 - **Duplicates across sitemaps:** small (diagram 267 via `sitemap_update.xml`, websites folders, www 35, forum 22).
 - metrics.aspose.app exposes 3,780 usage/subscription pages in 36 languages via sitemap; status.aspose.app lists 150 incident/date-query URLs (`?start_date=`). SK (2026-10-09): both are meant to be indexed, like blog.
 - **Soft 404 (products):** `/email/sitemap.xml` redirects to `/email/error?code=404`, which returns HTTP 200. Check app error pages for soft 404s in the crawl audit.
-- **Run 6 (after fixes):** slides recovered via corrected child URLs (24,752); products 747,694 URLs, total ~794k; 89 findings. Report page built by `scripts/build_report.py` (template `scripts/templates/discovery_report.html`), takeaways in `reports/discovery-notes.txt`.
+- **Run 6 (after fixes):** slides child sitemaps fetched via corrected URLs (24,752 URLs); products 747,694 URLs, total ~794k; 89 findings. **Correction (crawl audit, 2026-10-09):** every one of those 24,752 slides page URLs is itself listed as `https://products.aspose.app//slides/...` and returns 503, so slides has no usable sitemap at all; GSC only knows the single-slash URLs (567 pages, 12k clicks), found via links. Report page built by `scripts/build_report.py` (template `scripts/templates/discovery_report.html`), takeaways in `reports/discovery-notes.txt`.
 - Discovery fixes after run 3: double-slash child check (fetches the corrected URL too); parse/redirect/empty checks only on real sitemaps (robots, GSC, child), not on guessed URLs; duplicate findings grouped per host unless the host has sections.
 
 ## Seed findings (manual review, 2026-10-07..08)
@@ -365,7 +369,7 @@ Context gathered before discovery existed. The issues in it are tracked in `tena
 
 **Priority order agreed with SK (2026-10-09):**
 1. ~~**Prioritizer**~~ Done 2026-10-09 (see Status).
-2. **Crawl audit of the other 27 products families** (batches, highest traffic first).
+2. ~~**Crawl audit of the other 27 products families**~~ Done 2026-10-09 (runs 6-8, see Status).
 3. **New auditors**: perf (PageSpeed/CrUX), ai (llms.txt, AI bot access), functional (apps upload/convert/download).
 4. **MCP servers**: `crawl`, `findings` (then `ga4`, `pagespeed`).
 

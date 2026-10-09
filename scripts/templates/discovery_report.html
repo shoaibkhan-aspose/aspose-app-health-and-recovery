@@ -296,7 +296,7 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
     $("audit-hosts").innerHTML = `<thead><tr><th>Host</th><th class="n">Pages</th><th class="n">HTML 200</th><th class="n">Errors</th><th class="n">Redirected</th><th class="n">Findings</th><th>Most frequent issues (pages)</th></tr></thead><tbody>` +
       Object.entries(A.summary).sort((a, b) => b[1].pages - a[1].pages).map(([h, s]) => {
         const top = Object.entries(s.issues).sort((a, b) => b[1] - a[1]).slice(0, 5).map(([c, n]) => `<b>${esc(CHECK(c))}</b> ${n}`).join(" · ");
-        return `<tr><td class="mono">${esc(h)}</td><td class="n">${fmt(s.pages)}</td><td class="n">${fmt(s.ok_html)}</td><td class="n ${s.errors ? "bad" : ""}">${fmt(s.errors)}</td><td class="n ${s.redirected ? "warn" : ""}">${fmt(s.redirected)}</td><td class="n">${auditFindings.filter(f => f.subdomain === h).length}</td><td class="issues">${top || '<span class="ok">none</span>'}</td></tr>`;
+        return `<tr><td class="mono">${esc(h)}</td><td class="n">${fmt(s.pages)}${s.ignored ? ` <span class="dim" title="Skipped by a tenant rule (e.g. private pages)">(${s.ignored} ignored)</span>` : ""}</td><td class="n">${fmt(s.ok_html)}</td><td class="n ${s.errors ? "bad" : ""}">${fmt(s.errors)}</td><td class="n ${s.redirected ? "warn" : ""}">${fmt(s.redirected)}</td><td class="n">${auditFindings.filter(f => f.subdomain === h).length}</td><td class="issues">${top || '<span class="ok">none</span>'}</td></tr>`;
       }).join("") + `</tbody>`;
   }
 
