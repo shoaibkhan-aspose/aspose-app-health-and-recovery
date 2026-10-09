@@ -265,3 +265,20 @@ def test_ignore_rule_skips_private_pages():
     assert omr["ignored"] == "private" and omr["issues"] == []
     assert not any(f["template"] == "page:omr" for f in report["findings"])
     assert report["summary"]["app.example.com"]["ignored"] == 1
+
+
+def test_locations_show_listing_sitemap_and_canonical_target():
+    inv, run = make_inventory()
+    inv.add_sitemap(run, {"url": "s", "host": "app.example.com", "parent": "https://app.example.com/index.xml"})
+    pages = {f"https://app.example.com/pdf/tool{i}": html(title=f"Tool {i} for PDF files",
+                                                       canonical="https://app.example.com/conversion")
+             for i in range(50)}
+    tenant = make_tenant()
+    report = audit(tenant, FakeFetcher(pages), inv.db, run, AuditStore(":memory:"), sections=["pdf"], log=None)
+    f = next(x for x in report["findings"] if x["check"] == "canonical_elsewhere")
+    roles = {(loc["role"], loc["url"]) for loc in f["evidence"]["locations"]}
+    assert ("listed in", "s") in roles and ("sitemap index", "https://app.example.com/index.xml") in roles
+    target = next(loc for loc in f["evidence"]["locations"] if loc["role"] == "canonical target")
+    assert target["url"] == "https://app.example.com/conversion" and target["note"] == "HTTP 404"
+    assert report["canonical_targets"] == {"https://app.example.com/conversion": "HTTP 404"}
+    assert "(HTTP 404)" in f["evidence"]["observed"]

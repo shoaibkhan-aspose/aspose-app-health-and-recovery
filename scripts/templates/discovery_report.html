@@ -69,6 +69,12 @@ details.f > summary::-webkit-details-marker { display: none }
 .fbody dt { color: var(--muted) } .fbody dd { margin: 0; min-width: 0; overflow-wrap: anywhere }
 .urls { margin: 0; padding: 0; list-style: none; display: grid; gap: 2px; font: 13px var(--mono) }
 .urls a { color: var(--accent); overflow-wrap: anywhere }
+.locs { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px }
+.locs li { display: grid; grid-template-columns: 120px 1fr; gap: 2px 10px; font-size: 13px }
+.locs .role { font: 600 11px var(--body); letter-spacing: .04em; text-transform: uppercase; color: var(--muted); padding-top: 2px }
+.locs a { font-family: var(--mono); color: var(--accent); overflow-wrap: anywhere }
+.locs .lnote { grid-column: 2; color: var(--muted); overflow-wrap: anywhere }
+@media (max-width: 560px) { .locs li { grid-template-columns: 1fr } .locs .lnote { grid-column: 1 } }
 .sev-broken { --sev: var(--broken) } .sev-incorrect { --sev: var(--incorrect) }
 .sev-not_optimized { --sev: var(--notopt) } .sev-improvable { --sev: var(--improvable) }
 .tablewrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 8px }
@@ -120,7 +126,7 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
 
   <section aria-labelledby="s-find">
     <h2 id="s-find">Findings <small>grouped by severity, ranked by score</small></h2>
-    <p class="lede">Three sources: <b>Discovery</b> (sitemaps) and <b>Crawl audit</b> (sampled pages) findings come from code and are re-checked on every run; <b>manual review</b> findings were spotted by hand. Crawl audit page counts marked <span class="mono">est.</span> extrapolate the failing share of the sample to every URL of that template. Findings marked <span class="tag unverified">unverified</span> were seen once and must be re-checked by an automated audit before anyone acts on them.</p>
+    <p class="lede">Three sources: <b>Discovery</b> (sitemaps) and <b>Crawl audit</b> (sampled pages) findings come from code and are re-checked on every run; <b>manual review</b> findings were spotted by hand. Crawl audit page counts marked <span class="mono">~</span> extrapolate the failing share of the sample to every URL of that template. Findings marked <span class="tag unverified">unverified</span> were seen once and must be re-checked by an automated audit before anyone acts on them.</p>
     <div class="filters">
       <label for="f-src">Source</label><select id="f-src"></select>
       <label for="f-type">Type</label><select id="f-type"></select>
@@ -238,13 +244,17 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
         <summary>
           ${scored ? scoreBadge(f) : `<span class="pill">${LABEL[f.type]}</span>`}
           <span class="ftitle">${esc(f.title)} ${NEW.has(f.id) ? '<span class="tag new">new</span>' : ""} ${f.status === "unverified" ? '<span class="tag unverified">unverified</span>' : ""}</span>
-          <span class="fpages">${f.affected_pages ? (f.source === "crawl-audit" ? "est. " : "") + fmt(f.affected_pages) + " pages" : ""}</span>
+          <span class="fpages">${f.affected_pages ? (f.source === "crawl-audit" ? "~" : "") + fmt(f.affected_pages) + " pages affected" : ""}</span>
           <span class="fsub">${esc(f.subdomain)} · ${esc(f.dimension)} · ${esc(LABEL[f.source || "discovery"])} · <span class="mono">${esc(f.id)}</span>${trafficText(f.impact) ? ` · <span class="traffic">${esc(trafficText(f.impact))}</span>` : ""}</span>
         </summary>
         <div class="fbody"><dl>
           <dt>Observed</dt><dd>${esc(f.evidence.observed)}</dd>
           <dt>Expected</dt><dd>${esc(f.evidence.expected)}</dd>
-          <dt>Evidence</dt><dd><ul class="urls">${f.evidence.urls.map(u => `<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(u)}</a></li>`).join("")}</ul></dd>
+          <dt>Evidence</dt><dd>${(f.evidence.locations || []).length
+            ? `<ul class="locs">${f.evidence.locations.map(l => `<li><span class="role">${esc(l.role)}</span><a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.url)}</a>${l.note ? `<span class="lnote">${esc(l.note)}</span>` : ""}</li>`).join("")}</ul>`
+            : `<ul class="urls">${f.evidence.urls.map(u => `<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(u)}</a></li>`).join("")}</ul>`}</dd>
+          ${f.evidence.sample ? (() => { const v = Object.values(f.evidence.sample); const a = v.reduce((n, x) => n + x[0], 0), b = v.reduce((n, x) => n + x[1], 0);
+            return `<dt>Affected</dt><dd>~${fmt(f.affected_pages)} pages, estimated: ${a} of ${b} sampled pages failed, applied to each template's URL count</dd>`; })() : ""}
           <dt>Template</dt><dd class="mono">${esc(f.template)}</dd>
           ${f.impact && f.impact.source ? `<dt>Impact</dt><dd>Score ${sc(f)} · ${esc(trafficText(f.impact))} at stake${f.impact.share != null && f.impact.share < 1 ? ` (${Math.round(f.impact.share * 1000) / 10}% of the ${f.impact.source === "gsc-host" || f.impact.source === "ga4-host" ? "host" : "section"})` : ""} · ${esc(LABEL[f.type])}, effort ${esc(f.effort)}${f.impact.window ? ` · ${esc(f.impact.window.join(" to "))}` : ""}</dd>` : ""}
           ${f.verification ? `<dt>Checked</dt><dd>${esc(f.verification.how)}${f.status === "unverified" ? ". Re-check: " + esc(f.verification.recheck) : ""}</dd>` : ""}

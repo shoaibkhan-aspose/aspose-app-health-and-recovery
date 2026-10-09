@@ -440,25 +440,37 @@ class Discovery:
                         (r["url"], f"all {r['url_count']:,} = {r['lastmod_min']}", r["url_count"]))
         status_of = {r["url"]: r["status"] or r["error"] for r in self.records}
         urls_in = {r["url"]: r["url_count"] for r in self.records}
+        lead: dict = defaultdict(list)  # group -> locations shown before the sitemaps (where the fix is)
         for parent, child, fixed in self.malformed_children:
             host = urlsplit(parent).netloc.lower()
-            groups[("malformed_child", host, self._group(parent))].append(
+            key = ("malformed_child", host, self._group(parent))
+            if not any(loc["url"] == parent for loc in lead[key]):
+                lead[key].append({"role": "sitemap index", "url": parent,
+                                  "note": "lists its child sitemaps with a double slash"})
+            lead[key].append({"role": "corrected child", "url": fixed,
+                              "note": f"HTTP {status_of.get(fixed, 'not fetched')}"})
+            groups[key].append(
                 (child, f"listed by {parent}, HTTP {status_of.get(child, 'not fetched')}; "
                         f"corrected URL gives HTTP {status_of.get(fixed, 'not fetched')}", urls_in.get(fixed, 0)))
         for parent, child in self.foreign_children:
             host = urlsplit(parent).netloc.lower()
             groups[("foreign_child", host, self._group(parent))].append((parent, f"points to {child}", 0))
 
+        roles = {"malformed_child": "listed child", "foreign_child": "sitemap index"}
         for (check, host, section), items in sorted(groups.items()):
             dimension, ftype, title, expected, tier = SITEMAP_CHECKS[check]
             where = f" ({section})" if section else ""
             observed = "; ".join(f"{u}: {note}" for u, note, _ in items[:EXAMPLES])
             if len(items) > EXAMPLES:
                 observed += f"; and {len(items) - EXAMPLES} more sitemaps"
-            out.append(self._finding(
+            finding = self._finding(
                 ids, subdomain=host, template=f"sitemap{':' + section if section else ''}", dimension=dimension,
                 type=ftype, check=check, title=title + where, urls=[u for u, _, _ in items[:10]], observed=observed,
-                expected=expected, affected_pages=sum(p for _, _, p in items), fix_tier=tier))
+                expected=expected, affected_pages=sum(p for _, _, p in items), fix_tier=tier)
+            # clickable evidence: where the fix is first (e.g. the index), then the affected sitemaps
+            finding["evidence"]["locations"] = lead[(check, host, section)][:EXAMPLES + 1] + [
+                {"role": roles.get(check, "sitemap"), "url": u, "note": note[:200]} for u, note, _ in items[:EXAMPLES]]
+            out.append(finding)
 
         # coverage: hosts and configured sections with no URLs from any sitemap
         summary_hosts = {h: sum(1 for r in self.records if r["host"] == h and r["url_count"]) for h in self.hosts}

@@ -247,6 +247,10 @@ def test_double_slash_child_and_guessed_html_probe():
     bad = titles["Sitemap index lists child sitemaps with a double slash (pdf)"]
     assert bad["evidence"]["urls"] == ["https://app.example.com//pdf/sitemaps/p0.xml"] and bad["affected_pages"] == 1
     assert "HTTP 503" in bad["evidence"]["observed"]
+    assert [(loc["role"], loc["url"]) for loc in bad["evidence"]["locations"]] == [
+        ("sitemap index", "https://app.example.com/pdf/sitemaps/pdf.xml"),
+        ("corrected child", "https://app.example.com/pdf/sitemaps/p0.xml"),
+        ("listed child", "https://app.example.com//pdf/sitemaps/p0.xml")]
     assert not any(k.startswith("Sitemap cannot be fetched") for k in titles)
     assert not any(k.startswith("Sitemap is not a valid sitemap") for k in titles)
     assert report["hosts"]["app.example.com"]["urls"] == 1

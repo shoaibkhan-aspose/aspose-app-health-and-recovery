@@ -15,13 +15,14 @@ CREATE TABLE IF NOT EXISTS pages (
   run_id INTEGER, url TEXT, host TEXT, section TEXT, lang TEXT, template TEXT, source TEXT, group_urls INTEGER,
   status INTEGER, final_url TEXT, redirects TEXT, redirect_statuses TEXT, content_type TEXT, bytes INTEGER,
   truncated INTEGER, blocked INTEGER, error TEXT, elapsed_ms INTEGER, facts TEXT, issues TEXT, ignored TEXT,
+  listed_in TEXT,
   PRIMARY KEY (run_id, url)
 );
 """
 
 PAGE_COLS = (
     "url host section lang template source group_urls status final_url redirects redirect_statuses content_type "
-    "bytes truncated blocked error elapsed_ms facts issues ignored"
+    "bytes truncated blocked error elapsed_ms facts issues ignored listed_in"
 ).split()
 _JSON = {"redirects", "redirect_statuses", "facts", "issues"}
 
@@ -37,8 +38,9 @@ class AuditStore:
         self.db = sqlite3.connect(str(path))
         self.db.executescript(SCHEMA)
         cols = {r[1] for r in self.db.execute("PRAGMA table_info(pages)")}
-        if "ignored" not in cols:  # stores created before ignore rules existed
-            self.db.execute("ALTER TABLE pages ADD COLUMN ignored TEXT")
+        for col in ("ignored", "listed_in"):  # stores created before these columns existed
+            if col not in cols:
+                self.db.execute(f"ALTER TABLE pages ADD COLUMN {col} TEXT")
 
     def start_run(self, tenant: str, auditor: str, params: dict) -> int:
         cur = self.db.execute("INSERT INTO runs (tenant, auditor, started_at, params) VALUES (?, ?, ?, ?)",

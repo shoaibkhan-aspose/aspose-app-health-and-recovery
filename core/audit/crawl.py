@@ -23,6 +23,7 @@ from core.findings import FindingIds, make_finding
 
 AUDITOR = "crawl-audit"
 EXAMPLES = 5
+MAX_CANONICAL_TARGETS = 50  # distinct canonical targets fetched per run, to show whether they exist
 TITLE_LEN = (10, 70)  # display width (CJK characters count 2); outside this range is a finding
 DESCRIPTION_LEN = (50, 170)
 REFRESH_URL_RE = re.compile(r"url\s*=\s*['\"]?([^'\";]+)", re.I)
@@ -251,6 +252,8 @@ class CrawlAudit:
         self.pages: list[dict] = []
         self.run_id: int | None = None
         self.stopped_early = False
+        self.target_status: dict = {}  # canonical target -> 'HTTP 404' / 'HTTP 200' / error
+        self._parents: dict = {}
 
     def _section(self, host: str, section: str) -> str:
         return section if host in self.sectioned else ""
@@ -311,7 +314,8 @@ class CrawlAudit:
         res = self.fetcher.get(t.url)
         rec = {
             "url": t.url, "host": t.host, "section": t.section, "lang": t.lang, "template": t.template,
-            "source": t.source, "group_urls": t.group_urls, "status": res.status, "final_url": res.final_url,
+            "source": t.source, "group_urls": t.group_urls, "listed_in": t.sitemap,
+            "status": res.status, "final_url": res.final_url,
             "redirects": res.redirects, "redirect_statuses": res.redirect_statuses, "content_type": res.content_type,
             "bytes": len(res.body), "truncated": int(res.truncated), "blocked": int(res.blocked_by_robots),
             "error": res.error, "elapsed_ms": res.elapsed_ms, "facts": None,
@@ -332,6 +336,57 @@ class CrawlAudit:
                     and path.startswith(rule.get("path_prefix", "/"))):
                 return rule.get("reason") or "ignored by tenant rule"
         return None
+
+    def _check_canonical_targets(self) -> None:
+        """Fetch each distinct foreign canonical target once and add its status to the issue notes."""
+        targets = []
+        for p in self.pages:
+            if any(c == "canonical_elsewhere" for c, _ in p["issues"]):
+                t = norm_url(p["facts"]["canonicals"][0])
+                if t not in targets:
+                    targets.append(t)
+        for t in targets[:MAX_CANONICAL_TARGETS]:
+            res = self.fetcher.get(t)
+            status = f"HTTP {res.status}" if res.status else (res.error or "no response")
+            if res.redirects and res.final_url:
+                status += f" via redirect to {res.final_url}"
+            self.target_status[t] = status
+        for p in self.pages:
+            p["issues"] = [(c, f"{n} ({self.target_status[norm_url(p['facts']['canonicals'][0])]})")
+                           if c == "canonical_elsewhere" and norm_url(p["facts"]["canonicals"][0]) in self.target_status
+                           else (c, n) for c, n in p["issues"]]
+
+    def _parent(self, sitemap: str) -> str | None:
+        """The sitemap index that lists `sitemap`, from the inventory."""
+        if sitemap not in self._parents:
+            row = self.inventory_db.execute("SELECT parent FROM sitemaps WHERE run_id = ? AND url = ?",
+                                            (self.inventory_run, sitemap)).fetchone()
+            self._parents[sitemap] = row[0] if row else None
+        return self._parents[sitemap]
+
+    def locations(self, check: str, items: list) -> list[dict]:
+        """Clickable evidence: the pages, the sitemap files that list them and the index above those, and
+        for a foreign canonical the target URL with its status."""
+        locs: list[dict] = []
+        seen: set = set()
+
+        def add(role, url, note=None):
+            if url and (role, url) not in seen:
+                seen.add((role, url))
+                locs.append({"role": role, "url": url, **({"note": note} if note else {})})
+
+        examples = items[:EXAMPLES]
+        for p, note in examples:
+            add("page", p["url"], note[:200])
+        for p, _ in examples:
+            if p.get("listed_in"):
+                add("listed in", p["listed_in"])
+                add("sitemap index", self._parent(p["listed_in"]))
+        if check == "canonical_elsewhere":
+            for p, _ in examples:
+                t = norm_url(p["facts"]["canonicals"][0])
+                add("canonical target", t, self.target_status.get(t))
+        return locs
 
     def _localized(self, host: str, section: str) -> bool:
         return len(self.langs.get((host, section), set())) > 1
@@ -364,12 +419,14 @@ class CrawlAudit:
             if self.stopped_early:
                 break
 
+        self._check_canonical_targets()
         duplicate_issues(self.pages, "titles", "title_duplicate")
         duplicate_issues(self.pages, "descriptions", "description_duplicate")
         for rec in self.pages:
             self.store.add_page(self.run_id, rec)
 
         report = {"tenant": self.tenant.property, "auditor": AUDITOR, "run_id": self.run_id, "params": params,
+                  "canonical_targets": self.target_status,
                   "requests": self.fetcher.requests, "duration_s": round(time.monotonic() - started, 1),
                   "pages_planned": len(targets), "stopped_early": self.stopped_early, "summary": self.summary()}
         report["findings"] = self.findings()
@@ -415,6 +472,7 @@ class CrawlAudit:
                 urls=[p["url"] for p, _ in items[:10]], observed=observed, expected=expected,
                 affected_pages=estimate, effort=effort, fix_tier=tier, fix_channel=self.fix_channels.get(host))
             # structured sample per template, used by the Prioritizer: {template: [failed, sampled]}
+            finding["evidence"]["locations"] = self.locations(check, items)
             finding["evidence"]["sample"] = {t: [n, sampled[(host, section, t)]]
                                              for t, n in sorted(per_template.items())}
             out.append(finding)
