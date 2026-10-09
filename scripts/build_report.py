@@ -56,12 +56,17 @@ def run_date_of(path: Path, prefix: str) -> str | None:
     return path.stem.split("-run")[0].removeprefix(prefix) if "-run" in path.stem else None
 
 
-def newest(pattern: str) -> Path | None:
-    """Newest report by the date and run number in its name (file times are meaningless after a git checkout)."""
+def runs_by_name(pattern: str) -> list[Path]:
+    """Report files ordered by the date and run number in their names (file times are meaningless after a
+    git checkout)."""
     def key(p: Path):
         m = re.search(r"(\d{4}-\d{2}-\d{2})-run(\d+)", p.name)
         return (m.group(1), int(m.group(2))) if m else ("", 0)
-    found = sorted((REPO_ROOT / "reports").glob(pattern), key=key)
+    return sorted((REPO_ROOT / "reports").glob(pattern), key=key)
+
+
+def newest(pattern: str) -> Path | None:
+    found = runs_by_name(pattern)
     return found[-1] if found else None
 
 
@@ -81,16 +86,29 @@ def from_export(rows: list[dict], run_ref: str) -> tuple[list[dict], dict]:
     return findings, {"run": run_ref, "new": [] if first_run else new, "resolved": resolved, "first_run": first_run}
 
 
-def audit_summary(path: Path, notes: list[str]) -> dict:
-    """The parts of a crawl-audit report the page shows (not the per-page facts)."""
-    a = json.loads(path.read_text(encoding="utf-8"))
+def audit_summary(paths: list[Path], notes: list[str]) -> dict:
+    """Merge crawl-audit runs (oldest first): the newest result wins for a page checked more than once, so
+    section-scoped batches add up to one picture. Only what the page shows (not per-page facts)."""
+    from core.audit.crawl import summarize_pages
+
+    pages: dict = {}
+    runs = []
+    for path in paths:
+        a = json.loads(path.read_text(encoding="utf-8"))
+        runs.append({"run_id": a["run_id"], "date": run_date_of(path, "crawl-audit-"), "pages": len(a["pages"]),
+                     "sections": a["params"].get("sections"), "requests": a["requests"],
+                     "duration_s": a["duration_s"], "stopped_early": a["stopped_early"]})
+        for p in a["pages"]:
+            pages[p["url"]] = p
+    last = json.loads(paths[-1].read_text(encoding="utf-8"))
     sections: dict = {}
-    for p in a["pages"]:
+    for p in pages.values():
         if p["section"]:
             sections.setdefault(p["host"], set()).add(p["section"])
-    return {"run_id": a["run_id"], "date": run_date_of(path, "crawl-audit-"), "params": a["params"],
-            "summary": a["summary"], "pages": len(a["pages"]), "requests": a["requests"],
-            "duration_s": a["duration_s"], "stopped_early": a["stopped_early"],
+    return {"run_id": runs[-1]["run_id"], "date": runs[-1]["date"], "runs": runs, "params": last["params"],
+            "summary": summarize_pages(list(pages.values())), "pages": len(pages),
+            "requests": sum(r["requests"] for r in runs), "duration_s": sum(r["duration_s"] for r in runs),
+            "stopped_early": any(r["stopped_early"] for r in runs),
             "sections": {h: sorted(v) for h, v in sections.items()}, "notes": notes}
 
 
@@ -98,7 +116,8 @@ def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("report", nargs="?", help="discovery JSON (default: newest in reports/)")
     ap.add_argument("--notes", help="text file, one key takeaway per line")
-    ap.add_argument("--audit", help="crawl-audit JSON (default: newest in reports/; '' to leave out)")
+    ap.add_argument("--audit", help="comma-separated crawl-audit JSONs, merged oldest first "
+                    "(default: every crawl-audit run in reports/; '' to leave out)")
     ap.add_argument("--audit-notes", help="text file, one crawl-audit takeaway per line")
     ap.add_argument("--out", help="output HTML path")
     ap.add_argument("--standalone", action="store_true",
@@ -117,13 +136,14 @@ def main(argv: list[str] | None = None) -> int:
 
     report = json.loads(src.read_text(encoding="utf-8"))
     notes = read_notes(args.notes)
-    audit_src = None
+    audit_srcs: list[Path] = []
     if args.audit:
-        audit_src = Path(args.audit)
+        audit_srcs = [Path(a) for a in args.audit.split(",")]
     elif args.audit is None:
-        audit_src = newest("crawl-audit-*-run*.json")
-    if audit_src:
-        report["_audit"] = audit_summary(audit_src, read_notes(args.audit_notes))
+        audit_srcs = runs_by_name("crawl-audit-*-run*.json")
+    audit_src = audit_srcs[-1] if audit_srcs else None
+    if audit_srcs:
+        report["_audit"] = audit_summary(audit_srcs, read_notes(args.audit_notes))
     if args.findings:
         rows = json.loads(Path(args.findings).read_text(encoding="utf-8"))
         report["findings"], report["_changes"] = from_export(rows, f"discovery-run{report['run_id']}")
@@ -148,7 +168,7 @@ def main(argv: list[str] | None = None) -> int:
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(build(report, notes, run_date, args.standalone), encoding="utf-8")
     print(f"Wrote {out} ({out.stat().st_size / 1024:.0f} KB) from {src.name}"
-          + (f" and {audit_src.name}" if audit_src else ""))
+          + (f" and {len(audit_srcs)} crawl-audit runs (newest {audit_src.name})" if audit_src else ""))
     return 0
 
 

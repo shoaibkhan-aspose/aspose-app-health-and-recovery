@@ -187,7 +187,7 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
   $("h1").textContent = R.tenant + " site health";
   const date = (R._run_date || "");
   $("meta").textContent = `Discovery run ${R.run_id}${date ? " · " + date : ""} · ${fmt(R.sitemaps_fetched)} sitemaps · ${fmt(R.requests)} requests · ${Math.round(R.duration_s / 60)} min`
-    + (A ? ` — Crawl audit run ${A.run_id}${A.date ? " · " + A.date : ""} · ${fmt(A.pages)} pages · ${Math.round(A.duration_s)} s` : "");
+    + (A ? ` — Crawl audit ${(A.runs || []).length > 1 ? "runs " + A.runs.map(r => r.run_id).join(", ") : "run " + A.run_id}${A.date ? " · " + A.date : ""} · ${fmt(A.pages)} pages` : "");
 
   // tiles
   const hosts = Object.entries(R.hosts);
@@ -283,11 +283,12 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
   // crawl audit
   if (A) {
     $("audit").hidden = false;
-    $("audit-meta").textContent = `run ${A.run_id}${A.date ? " · " + A.date : ""} · ${fmt(A.pages)} pages · ${fmt(A.requests)} requests`;
+    const runs = A.runs || [{ run_id: A.run_id }];
+    $("audit-meta").textContent = `${runs.length > 1 ? "runs " + runs.map(r => r.run_id).join(", ") : "run " + A.run_id}${A.date ? " · " + A.date : ""} · ${fmt(A.pages)} pages · ${fmt(A.requests)} requests`;
     const p = A.params;
     $("audit-scope").innerHTML = [
       `<div><b>Sample.</b> Per template: ${p.per_template} pages in the default language plus 1 page in each of up to ${p.other_langs} other languages, picked the same way every run. Every host's homepage and the products hub pages are added.</div>`,
-      p.sections ? `<div><b>Scope.</b> Products limited to <span class="mono">${esc(p.sections.join(", "))}</span>; every other host is audited in full. The other product families are not audited yet.</div>` : `<div><b>Scope.</b> All hosts and sections.</div>`,
+      `<div><b>Scope.</b> Every host and homepage, plus ${Object.entries(A.sections).map(([h, v]) => `${v.length} sections on <span class="mono">${esc(h)}</span>`).join(", ")}${runs.length > 1 ? `, across ${runs.length} runs (a page checked more than once shows its newest result)` : ""}.</div>`,
       A.stopped_early ? `<div class="warn"><b>Stopped early</b> (page limit reached): absent findings prove nothing.</div>` : "",
     ].join("");
     if ((A.notes || []).length) { $("audit-notes").hidden = false; $("audit-notes-list").innerHTML = A.notes.map(n => `<li>${esc(n)}</li>`).join(""); }

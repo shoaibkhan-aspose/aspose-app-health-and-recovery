@@ -378,21 +378,7 @@ class CrawlAudit:
         return report
 
     def summary(self) -> dict:
-        out: dict = {}
-        for p in self.pages:
-            h = out.setdefault(p["host"], {"pages": 0, "ok_html": 0, "errors": 0, "redirected": 0, "blocked": 0,
-                                           "ignored": 0, "issues": defaultdict(int)})
-            h["pages"] += 1
-            if p.get("ignored"):
-                h["ignored"] += 1
-                continue
-            h["ok_html"] += int(p["facts"] is not None)
-            h["errors"] += int(p["status"] is None and not p["blocked"] or (p["status"] or 0) >= 400)
-            h["redirected"] += int(bool(p["redirects"]))
-            h["blocked"] += p["blocked"]
-            for check, _ in p["issues"]:
-                h["issues"][check] += 1
-        return {host: {**h, "issues": dict(sorted(h["issues"].items()))} for host, h in out.items()}
+        return summarize_pages(self.pages)
 
     def findings(self) -> list[dict]:
         ids = FindingIds()
@@ -433,6 +419,25 @@ class CrawlAudit:
                                              for t, n in sorted(per_template.items())}
             out.append(finding)
         return out
+
+
+def summarize_pages(pages: list[dict]) -> dict:
+    """Per-host counts (pages, HTML 200, errors, redirected, blocked, ignored) and issue counts per check."""
+    out: dict = {}
+    for p in pages:
+        h = out.setdefault(p["host"], {"pages": 0, "ok_html": 0, "errors": 0, "redirected": 0, "blocked": 0,
+                                       "ignored": 0, "issues": defaultdict(int)})
+        h["pages"] += 1
+        if p.get("ignored"):
+            h["ignored"] += 1
+            continue
+        h["ok_html"] += int(p["facts"] is not None)
+        h["errors"] += int(p["status"] is None and not p["blocked"] or (p["status"] or 0) >= 400)
+        h["redirected"] += int(bool(p["redirects"]))
+        h["blocked"] += p["blocked"]
+        for check, _ in p["issues"]:
+            h["issues"][check] += 1
+    return {host: {**h, "issues": dict(sorted(h["issues"].items()))} for host, h in out.items()}
 
 
 def latest_inventory_run(db) -> int | None:
