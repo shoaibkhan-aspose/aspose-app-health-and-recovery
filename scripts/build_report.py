@@ -25,8 +25,10 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT))
 
 from core.findings import FindingsStore  # noqa: E402
+from core.scorecard import family_of, family_scorecards  # noqa: E402
 
 TEMPLATE = REPO_ROOT / "scripts" / "templates" / "discovery_report.html"
+TRAFFIC_SUMMARY = REPO_ROOT / "reports" / "traffic-summary.json"
 
 
 # For hosting the file on its own (GitHub Pages): the artifact host adds this skeleton itself.
@@ -112,6 +114,23 @@ def audit_summary(paths: list[Path], notes: list[str]) -> dict:
             "sections": {h: sorted(v) for h, v in sections.items()}, "notes": notes}
 
 
+def add_families(report: dict, summary_path: Path = TRAFFIC_SUMMARY) -> None:
+    """Family scorecards per sectioned host (from reports/traffic-summary.json, written by prioritize.py), and
+    each finding's family for the report's Family filter."""
+    if not summary_path.is_file():
+        return
+    summary = json.loads(summary_path.read_text(encoding="utf-8"))
+    report["_families"] = {"windows": summary["windows"], "hosts": {}}
+    for host, traffic in summary["hosts"].items():
+        families = list(traffic)
+        report["_families"]["hosts"][host] = family_scorecards(
+            report["findings"], host, families, (report.get("sections") or {}).get(host) or {}, traffic)
+        for f in report["findings"]:
+            fam = family_of(f, host, set(families))
+            if fam:
+                f["_family"] = fam
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("report", nargs="?", help="discovery JSON (default: newest in reports/)")
@@ -162,6 +181,7 @@ def main(argv: list[str] | None = None) -> int:
             report["findings"] = [f for f in report["findings"] if f["source"] != "crawl-audit"]
     else:
         print(f"No findings store at {args.store}; using the run's own findings.", file=sys.stderr)
+    add_families(report)
     run_date = run_date_of(src, "discovery-")
 
     out = Path(args.out) if args.out else src.with_suffix(".html")
