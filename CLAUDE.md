@@ -38,11 +38,19 @@ git add -A && git commit -m "..." && git push github master   # Actions rebuilds
 - Keep the architecture diagram in its current shape; update it when the architecture changes (see "Architecture diagram" below).
 - The Pages report stays `noindex, nofollow`; traffic numbers are published as is for now (moves to a private domain later).
 
+**Report restructure (agreed with SK 2026-10-12, NOT built yet; build only when SK says go):**
+- Goal: readable, actionable, self-explanatory for management and developers. Order: short summary first, then families (SK agreed), then priorities, systemic issues, all findings, changes since last run, reference (collapsed), how this audit works (method + glossary).
+- Summary headline = **(c) grade distribution** ("9 B · 12 C · 6 D · 2 F") **plus (b) as context**: one line on traffic, e.g. "families carrying 59% of search traffic are B; cells (14%) is D". No single overall grade.
+- Replace the hand-written takeaways (too much text, SK) with 3-5 generated one-line "top risks": what · where · impact.
+- Fix guidance as a **separate Fix guide table**, one row per check (what it means · impact · how to fix · how to verify); each finding links to its row. SK does not need to review the texts. Texts in one generic file in the repo.
+- **Traffic lost** approved: proposed as score = max(at stake, lost x 0.5); confirm the weighting when building.
+- **Archive (public, noindex):** before the restructure, freeze today's built report as `reports/archive/2026-10-12.html` (never rebuilt); Pages serves `/archive/<date>/` plus an archive index; the latest report links "Previous versions". Open: snapshot only before structure changes, or after every full run.
+- Phases: A = snapshot + archive, new order, contents bar, top risks, glossary/method, reference collapsed, confidence labels; B = Fix guide table + links, systemic issues, duplicates merged by root cause; C = changes since last run, health trend, summary (c)+(b), traffic lost.
+
 **Open discussions (not decided or not built):**
 - Grade scale: SK noticed grade and number are the same measure (letter = band of the health number). Recommended: keep both and print the scale once ("A 90+ · B 75-89 · C 60-74 · D 40-59 · F <40") under the families intro. Not built; ask SK.
 - Sample transparency (cells question, 2026-10-12): ideas offered, none approved yet: (1) "Sample: N pages · L languages" on each card, clickable like Sitemap; (2) confidence labels (strong >= 75% failing or full population; weak = one page, "to confirm"); (3) sample per tool, not only per template, for big families; (4) bigger samples for high-traffic families.
 - Report footer link "How this audit works" to the architecture page (offered, not answered).
-- Prioritizer: score "traffic lost" (six months ago vs now) next to "traffic at stake" (offered, not decided).
 - Queue after priority 4: re-check remaining seed findings (typo/spelling check on titles and H1s), LangGraph run, scheduled runs in GitHub Actions with a new/resolved digest, report to a private domain.
 
 ## Current phase: 1, AUDIT ONLY
