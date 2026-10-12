@@ -21,6 +21,7 @@
   --broken: #f2766b; --incorrect: #f59e5b; --notopt: #e3b341; --improvable: #9fb2cc; --good: #4ade80;
   --tint: #1d2834; color-scheme: dark }
 * { box-sizing: border-box }
+[hidden] { display: none !important }
 body { background: var(--bg); color: var(--fg); font: 15px/1.55 var(--body); }
 .wrap { max-width: 1100px; margin: 0 auto; padding: 32px 16px 64px; display: grid; gap: 40px; }
 h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.15 }
@@ -115,7 +116,23 @@ tr:last-child td { border-bottom: 0 }
 .card.flash { outline: 3px solid var(--accent); outline-offset: 2px }
 .famhead { display: flex; flex-wrap: wrap; gap: 8px; align-items: center }
 .famhead .count { margin-left: auto }
-.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px }
+.cards { display: grid; gap: 12px }
+.cards.grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) }
+.cards.rows { grid-template-columns: minmax(0, 1fr) }
+.zone { display: grid; gap: 8px; align-content: start; min-width: 0 }
+/* Rows: one family per row, a stripe in the grade colour, three zones that stack on smaller screens */
+.cards.rows .card { border-top-width: 1px; border-left: 6px solid var(--gc); padding: 16px 18px }
+.cards.rows .z-id h3 { flex-direction: column; align-items: flex-start }
+.cards.rows .z-id .chips { flex-direction: column; align-items: flex-start }
+.cards.rows .card ol { font-size: 14px }
+@media (min-width: 960px) { .cards.rows .card { grid-template-columns: minmax(150px, 190px) minmax(0, 1fr) minmax(0, 1.5fr); column-gap: 28px } }
+@media (min-width: 600px) and (max-width: 959px) { .cards.rows .card { grid-template-columns: minmax(140px, 180px) minmax(0, 1fr); column-gap: 20px } .cards.rows .z-work { grid-column: 1 / -1 } }
+.card .smpanel { grid-column: 1 / -1 }
+.viewsw { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden }
+.viewsw button { font: 500 13px var(--body); padding: 6px 12px; border: 0; background: var(--surface); color: var(--muted); cursor: pointer }
+.viewsw button + button { border-left: 1px solid var(--line) }
+.viewsw button[aria-pressed="true"] { background: var(--accent); color: var(--surface) }
+.viewsw button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px }
 .card { background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--gc); border-radius: 8px; padding: 14px 16px; display: grid; gap: 8px; align-content: start; min-width: 0 }
 .card h3 { font-size: 20px; display: flex; justify-content: space-between; align-items: center; gap: 8px }
 .card h3 .fam { font-family: var(--mono); font-size: 17px; font-weight: 500 }
@@ -128,6 +145,7 @@ tr:last-child td { border-bottom: 0 }
 .chip { padding: 1px 7px; border-radius: 10px; border: 1px solid var(--line); color: var(--muted) }
 .chip.broken { color: var(--broken); border-color: currentColor } .chip.incorrect { color: var(--incorrect); border-color: currentColor }
 .card ol { margin: 0; padding-left: 18px; display: grid; gap: 3px; font-size: 13px }
+.card ol a { color: var(--fg); text-decoration-color: var(--line); text-underline-offset: 2px } .card ol a:hover { color: var(--accent); text-decoration-color: currentColor }
 .blocker { font: 700 10px var(--body); letter-spacing: .05em; color: var(--surface); background: var(--broken); border-radius: 3px; padding: 1px 4px; margin-right: 4px }
 .stat { display: flex; flex-wrap: wrap; gap: 10px; font-size: 12px }
 .stat .ok::before { content: "✓ " } .stat .warn::before { content: "⚠ " } .stat .bad::before { content: "✗ " }
@@ -163,6 +181,7 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
     <p class="lede"><b>Health</b> (A–F, 0–100) measures how broken a family is and ignores traffic, so every family's team can compare itself on equal terms. Each open finding costs broken 40, incorrect 20, not optimized 6 or improvable 2 points, times the share of the family it affects. Findings with one root cause count once, cosmetic issues cost at most 20, and a canonical pointing at a missing page counts as broken. <b>Traffic</b> shows how much the family matters to the business: Search Console clicks now, against the previous period and six months ago.</p>
     <div class="extremes" id="fam-ext"></div>
     <div class="famhead">
+      <div class="viewsw" role="group" aria-label="Layout"><button type="button" data-view="rows" aria-pressed="true">Rows</button><button type="button" data-view="grid" aria-pressed="false">Grid</button></div>
       <label for="fam-sort" class="dim">Sort</label>
       <select id="fam-sort">
         <optgroup label="Health"><option value="health-worst">Worst health first</option><option value="health-best">Best health first</option></optgroup>
@@ -293,18 +312,24 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
         .filter(([k]) => c.counts[k]).map(([k, l]) => `<span class="chip ${k}">${c.counts[k]} ${l}</span>`).join("");
       const why = c.penalties.filter(x => x.points >= 1).slice(0, 4).map(x => `${x.group.startsWith("manual:") ? "manual review" : x.group} −${Math.round(x.points)}`).join(" · ");
       return `<article class="card g-${c.grade}" id="card-${esc(c.family)}">
-        <h3><span class="fam">/${esc(c.family)}/</span><span class="gradebox" title="Health ${c.health}/100"><b>${c.grade}</b><span>${c.health}</span></span></h3>
-        <div class="line"><b>${compact(now)}</b> clicks · ${compact(impr)} impressions${delta(c, "previous", "prev. 28 days")}</div>
-        <div class="line">6 months ago: ${compact(six)} clicks${delta(c, "six_months_ago", "then")}</div>
-        <div class="line">${c.urls ? `${fmt(c.urls)} URLs in sitemaps` : `<span class="bad">no URLs in any working sitemap</span>`} · ${c.langs || "–"} languages</div>
-        ${chips ? `<div class="chips">${chips}</div>` : `<div class="chips"><span class="chip ok">no open findings</span></div>`}
-        ${c.top.length ? `<ol>${c.top.map(t => `<li>${t.blocker ? '<span class="blocker">BLOCKER</span>' : ""}<a href="#f-${esc(t.id)}" data-open="${esc(t.id)}">${esc(t.title)}</a></li>`).join("")}</ol>` : ""}
-        <div class="stat">${Object.entries(c.status).map(([k, v]) => k === "Sitemap"
-          ? `<button type="button" class="statbtn ${v}" data-sm="${esc(c.family)}" aria-expanded="false" aria-controls="sm-${esc(c.family)}" title="Show this family's sitemap files">${esc(k)}</button>`
-          : `<span class="${v}">${esc(k)}</span>`).join("")}</div>
+        <div class="zone z-id">
+          <h3><span class="fam">/${esc(c.family)}/</span><span class="gradebox" title="Health ${c.health}/100"><b>${c.grade}</b><span>${c.health}</span></span></h3>
+          ${chips ? `<div class="chips">${chips}</div>` : `<div class="chips"><span class="chip ok">no open findings</span></div>`}
+        </div>
+        <div class="zone z-traffic">
+          <div class="line"><b>${compact(now)}</b> clicks · ${compact(impr)} impressions${delta(c, "previous", "prev. 28 days")}</div>
+          <div class="line">6 months ago: ${compact(six)} clicks${delta(c, "six_months_ago", "then")}</div>
+          <div class="line">${c.urls ? `${fmt(c.urls)} URLs in sitemaps` : `<span class="bad">no URLs in any working sitemap</span>`} · ${c.langs || "–"} languages</div>
+        </div>
+        <div class="zone z-work">
+          ${c.top.length ? `<ol>${c.top.map(t => `<li>${t.blocker ? '<span class="blocker">BLOCKER</span>' : ""}<a href="#f-${esc(t.id)}" data-open="${esc(t.id)}">${esc(t.title)}</a></li>`).join("")}</ol>` : ""}
+          <div class="stat">${Object.entries(c.status).map(([k, v]) => k === "Sitemap"
+            ? `<button type="button" class="statbtn ${v}" data-sm="${esc(c.family)}" aria-expanded="false" aria-controls="sm-${esc(c.family)}" title="Show this family's sitemap files">${esc(k)}</button>`
+            : `<span class="${v}">${esc(k)}</span>`).join("")}</div>
+          ${why ? `<div class="why">Points lost: ${esc(why)}${c.cosmetic_capped ? " · cosmetic capped at 20" : ""}</div>` : ""}
+          <button type="button" class="more" data-fam="${esc(c.family)}">See ${Object.values(c.counts).reduce((a, b) => a + b, 0)} findings</button>
+        </div>
         <div class="smpanel" id="sm-${esc(c.family)}" hidden></div>
-        ${why ? `<div class="why">Points lost: ${esc(why)}${c.cosmetic_capped ? " · cosmetic capped at 20" : ""}</div>` : ""}
-        <button type="button" class="more" data-fam="${esc(c.family)}">See ${Object.values(c.counts).reduce((a, b) => a + b, 0)} findings</button>
       </article>`;
     };
     const byTraffic = (a, b) => clicks(b, "current") - clicks(a, "current") || a.family.localeCompare(b.family);
@@ -322,6 +347,16 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
       "name": (a, b) => a.family.localeCompare(b.family),
     };
     try { const saved = localStorage.getItem("fam-sort"); if (saved && SORTS[saved]) $("fam-sort").value = saved; } catch (e) {}
+    // layout: rows (one family per row, default) or the compact grid; remembered per viewer
+    const setView = v => {
+      $("fam-cards").className = "cards " + v;
+      document.querySelectorAll(".viewsw button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.view === v)));
+      try { localStorage.setItem("fam-view", v); } catch (e) {}
+    };
+    let view = "rows";
+    try { const v = localStorage.getItem("fam-view"); if (v === "grid" || v === "rows") view = v; } catch (e) {}
+    setView(view);
+    document.querySelector(".viewsw").addEventListener("click", e => { const b = e.target.closest("button[data-view]"); if (b) setView(b.dataset.view); });
 
     // the extremes, one click from their card
     const first = key => cards.slice().sort(SORTS[key])[0];

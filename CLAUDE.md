@@ -122,6 +122,8 @@ Done:
 
 - **Sitemaps per family in the report (2026-10-12):** discovery reports now carry `sitemaps` ({host: {section: [url, parent, depth, status, kind, urls (recursive), children, ok, error, corrected]}}): sitemaps that work or were published (robots, GSC, listed by an index); failed guesses are left out; `corrected` = a double-slash child we fetched with one slash, not listed by the index. Run 8 was backfilled from the inventory. Card status "Sitemap" opens the family's files (index first, then children; 8 shown, then "Show all"); the Submitted sitemaps table links each path. Grade bands: the letter is the health number in bands (A 90+, B 75-89, C 60-74, D 40-59, F <40); SK asked about it, explained, no change yet.
 
+- **Family cards layout (2026-10-12):** Rows (default: one family per row, three zones identity / traffic / work, grade-colour left stripe; zones stack at <960px and <600px) or Grid (compact cards), switch remembered per viewer. Global `[hidden]{display:none!important}` in the template fixed closed sitemap panels showing as empty bars.
+
 Not done yet:
 - GSC properties for www and forum (none exist or none shared; the service account sees only the 5 URL-prefix properties).
 - `agents/` is an empty package. MCP servers still to build: `findings`, `ga4`, `crawl`, `pagespeed`.
@@ -144,6 +146,7 @@ python scripts/build_report.py <run json> --notes reports/discovery-notes.txt --
 ```
 
 Conventions:
+- **Report changes apply to the latest report only (SK, 2026-10-12):** rebuild only `reports/discovery-latest.html` and the Pages report. Never regenerate or edit older report pages (`reports/discovery-*-runN.html`) or older run JSONs; a backfill may touch only the latest run file.
 - Tests are offline: inject fake clients (see `FakeGSC`, `FakeGA4`); never hit the network or Google in `pytest`.
 - Google and HTTP libraries are imported lazily inside functions so offline tests do not need them.
 - Errors in reports are short and secret-free (`_err()` pattern). Never print or store key material or tokens.
