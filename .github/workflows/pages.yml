@@ -27,7 +27,6 @@ jobs:
       - name: Build report (newest discovery run + newest crawl audit)
         run: >
           python scripts/build_report.py --findings reports/findings.json
-          --notes reports/discovery-notes.txt --audit-notes reports/crawl-audit-notes.txt
           --standalone --out site/index.html
       - name: Add the report archive (frozen snapshots)
         run: python scripts/build_archive.py --out site

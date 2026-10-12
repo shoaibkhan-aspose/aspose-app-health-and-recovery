@@ -160,6 +160,44 @@ tr:last-child td { border-bottom: 0 }
 .stat .ok::before { content: "✓ " } .stat .warn::before { content: "⚠ " } .stat .bad::before { content: "✗ " }
 .why { font-size: 12px; color: var(--muted) }
 .card .more { font-size: 13px; padding: 5px 10px }
+.verdict { font-size: 17px; max-width: 75ch; margin: 0 }
+header a, .lede a, .method a, .chg a, #sys-table a, .fixline a, .top .fsub a { color: var(--accent) }
+.toc { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; display: flex; gap: 4px; overflow-x: auto; background: var(--bg); border-bottom: 1px solid var(--line); padding-block: 8px; margin-block: -16px }
+.toc a { flex: none; font: 500 13px var(--body); color: var(--muted); text-decoration: none; padding: 4px 10px; border-radius: 6px }
+.toc a:hover, .toc a:focus-visible { color: var(--accent); background: var(--tint); outline: none }
+section { scroll-margin-top: 56px }
+.sumgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px }
+.sumcard { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; display: grid; gap: 10px; align-content: start; min-width: 0 }
+.sumcard .big { font: 600 22px var(--display) }
+.gbar { display: flex; height: 26px; border-radius: 6px; overflow: hidden; border: 1px solid var(--line) }
+.gbar span { display: grid; place-items: center; font: 700 12px var(--body); color: var(--surface); min-width: 0 }
+.gbar .g-A, .gbar .g-B { background: var(--good) } .gbar .g-C { background: var(--notopt) } .gbar .g-D { background: var(--incorrect) } .gbar .g-F { background: var(--broken) }
+.glegend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13px; color: var(--muted) }
+.glegend b { color: var(--fg) }
+.nums { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px }
+.nums div { display: grid } .nums b { font: 600 20px var(--display); font-variant-numeric: tabular-nums } .nums span { font-size: 12px; color: var(--muted) }
+.nums .broken b { color: var(--broken) } .nums .incorrect b { color: var(--incorrect) }
+.risks { background: var(--tint); border-radius: 8px; padding: 14px 18px; display: grid; gap: 8px }
+.risks ol { margin: 0; padding-left: 20px; display: grid; gap: 6px }
+.risks li span { color: var(--muted) }
+.risks a { color: var(--fg) }
+.ref { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 10px 14px }
+.ref > summary { cursor: pointer; font: 600 15px var(--body) } .ref > summary small { font-weight: 400; color: var(--muted) }
+.ref[open] { display: grid; gap: 12px }
+.method { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px }
+.method h3 { font-size: 16px; margin-bottom: 4px } .method p { font-size: 14px; color: var(--muted); max-width: none }
+.gloss { margin: 0; display: grid; grid-template-columns: minmax(140px, 220px) 1fr; gap: 6px 16px; font-size: 14px }
+.gloss dt { font-weight: 600 } .gloss dd { margin: 0; color: var(--muted) }
+@media (max-width: 560px) { .gloss { grid-template-columns: 1fr } .gloss dd { margin-bottom: 6px } }
+table.guide { font-size: 13px }
+table.guide td { white-space: normal; vertical-align: top; min-width: 140px }
+table.guide td:first-child { min-width: 180px; font-weight: 600 }
+table.guide tr.hit td { background: var(--tint) }
+.conf { font: 600 11px var(--body); letter-spacing: .04em; text-transform: uppercase; padding: 1px 6px; border-radius: 4px; border: 1px dashed var(--muted); color: var(--muted) }
+.fixline { font-size: 13px; background: var(--tint); border-radius: 6px; padding: 8px 10px }
+.fixline a { margin-left: 6px }
+.merged { font-size: 13px; color: var(--muted) }
+.chg { display: grid; gap: 10px } .chg ul { margin: 0; padding-left: 20px; display: grid; gap: 4px; font-size: 14px }
 .scope { display: grid; gap: 4px; font-size: 14px; max-width: 80ch }
 .issues { white-space: normal; min-width: 280px; font-size: 13px; color: var(--muted) }
 .issues b { color: var(--fg); font-weight: 500 }
@@ -173,21 +211,29 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
 
 <div class="wrap">
   <header>
-    <div class="eyebrow">Site health · Phase 1 audit · Discovery + crawl audit</div>
+    <div class="eyebrow">Site health · Phase 1 audit</div>
     <h1 id="h1"></h1>
+    <p class="verdict" id="verdict"></p>
     <div class="meta" id="meta"></div>
-    <p class="lede">Two read-only passes (GET only, robots.txt respected, one request per host per second). <b>Discovery</b> read every host's robots.txt and sitemaps. The <b>crawl audit</b> then fetched a sample of pages per template and checked status codes, redirects, indexability, canonicals, hreflang and the main head tags. Speed, structured data and content checks come in later audits.</p>
+    <div class="meta"><a href="#method">How this audit works</a> · <a href="archive/">Previous versions</a></div>
   </header>
 
-  <section aria-labelledby="s-sum">
+  <nav class="toc" aria-label="Contents">
+    <a href="#summary">Summary</a><a href="#families" id="toc-fam">Families</a><a href="#priorities">Priorities</a><a href="#systemic" id="toc-sys">Shared problems</a><a href="#findings">All findings</a><a href="#changes">Changes</a><a href="#fix-guide">Fix guide</a><a href="#reference">Reference</a><a href="#method">Method</a>
+  </nav>
+
+  <section aria-labelledby="s-sum" id="summary">
     <h2 id="s-sum">Summary</h2>
-    <div class="tiles" id="tiles"></div>
-    <div class="notes" id="notes" hidden><h3>Key takeaways</h3><ul id="notes-list"></ul></div>
+    <div class="sumgrid">
+      <div class="sumcard" id="sum-grades"></div>
+      <div class="sumcard" id="sum-numbers"></div>
+    </div>
+    <div class="risks" id="risks-wrap" hidden><h3>Top risks</h3><ol id="risks"></ol></div>
   </section>
 
-  <section aria-labelledby="s-fam" id="fam-wrap" hidden>
+  <section aria-labelledby="s-fam" id="families" hidden>
     <h2 id="s-fam">Product families <small id="fam-meta"></small></h2>
-    <p class="lede"><b>Health</b> (A–F, 0–100) measures how broken a family is and ignores traffic, so every family's team can compare itself on equal terms. Each open finding costs broken 40, incorrect 20, not optimized 6 or improvable 2 points, times the share of the family it affects. Findings with one root cause count once, cosmetic issues cost at most 20, and a canonical pointing at a missing page counts as broken. <b>Traffic</b> shows how much the family matters to the business: Search Console clicks now, against the previous period and six months ago.</p>
+    <p class="lede"><b>Health</b> (A–F) says how broken a family is, whatever its traffic. <b>Traffic</b> says how much it matters to the business. <a href="#method-health">How health is scored</a>.</p>
     <div class="extremes" id="fam-ext"></div>
     <div class="famhead">
       <div class="viewsw" role="group" aria-label="Layout"><button type="button" data-view="rows" aria-pressed="true">Rows</button><button type="button" data-view="grid" aria-pressed="false">Grid</button></div>
@@ -205,15 +251,22 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
     <button type="button" class="more" id="fam-more" hidden></button>
   </section>
 
-  <section aria-labelledby="s-top" id="top-wrap" hidden>
-    <h2 id="s-top">Top priorities <small id="top-meta"></small></h2>
-    <p class="lede">Ranked by score (0–100): Search Console traffic on the affected pages (28 days, log scale) × severity (broken 1, incorrect 0.7, not optimized 0.4, improvable 0.2) ÷ effort (S 1, M 1.5, L 2.5). Hosts without a Search Console property use GA4 organic sessions.</p>
+  <section aria-labelledby="s-top" id="priorities" hidden>
+    <h2 id="s-top">Priorities <small id="top-meta"></small></h2>
+    <p class="lede">The ten findings with the most search traffic at stake, weighted by severity and effort. <a href="#method-score">How the score works</a>.</p>
     <ol class="top" id="top"></ol>
   </section>
 
-  <section aria-labelledby="s-find">
-    <h2 id="s-find">Findings <small>grouped by severity, ranked by score</small></h2>
-    <p class="lede">Three sources: <b>Discovery</b> (sitemaps) and <b>Crawl audit</b> (sampled pages) findings come from code and are re-checked on every run; <b>manual review</b> findings were spotted by hand. Crawl audit page counts marked <span class="mono">~</span> extrapolate the failing share of the sample to every URL of that template. Findings marked <span class="tag unverified">unverified</span> were seen once and must be re-checked by an automated audit before anyone acts on them.</p>
+  <section aria-labelledby="s-sys" id="systemic" hidden>
+    <h2 id="s-sys">Shared problems <small id="sys-meta"></small></h2>
+    <p class="lede">The same problem in three or more families. Often one shared component causes it, so one fix can close many findings.</p>
+    <div class="tablewrap"><table id="sys-table"></table></div>
+    <button type="button" class="more" id="sys-more" hidden></button>
+  </section>
+
+  <section aria-labelledby="s-find" id="findings">
+    <h2 id="s-find">All findings <small>grouped by severity, ranked by score</small></h2>
+    <p class="lede">Each finding links to its row in the <a href="#fix-guide">Fix guide</a>. Confidence says how solid the evidence is: <b>complete</b> (every page or file checked), <b>strong</b> (most sampled pages failed), <b>partial</b>, or <b>to confirm</b> (one page, or a manual note not yet re-checked).</p>
     <div class="filters">
       <label for="f-src">Source</label><select id="f-src"></select>
       <label for="f-type">Type</label><select id="f-type"></select>
@@ -222,31 +275,60 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
       <label for="f-fam" id="f-fam-label" hidden>Family</label><select id="f-fam" hidden></select>
       <span class="count" id="f-count"></span>
     </div>
-    <div class="findings" id="findings"></div>
-    <div id="resolved-wrap" hidden><h3>Resolved in this run</h3><ul class="resolved" id="resolved"></ul></div>
+    <div class="findings" id="findings-list"></div>
   </section>
 
-  <section aria-labelledby="s-audit" id="audit" hidden>
-    <h2 id="s-audit">Crawl audit <small id="audit-meta"></small></h2>
-    <div class="scope" id="audit-scope"></div>
-    <div class="notes" id="audit-notes" hidden><h3>What the crawl audit found</h3><ul id="audit-notes-list"></ul></div>
-    <div class="tablewrap"><table id="audit-hosts"></table></div>
+  <section aria-labelledby="s-chg" id="changes">
+    <h2 id="s-chg">Changes since the last run <small id="chg-meta"></small></h2>
+    <div id="chg-body"></div>
   </section>
 
-  <section aria-labelledby="s-hosts">
-    <h2 id="s-hosts">Hosts <small>sitemaps, from discovery</small></h2>
-    <div class="tablewrap"><table id="hosts"></table></div>
+  <section aria-labelledby="s-guide" id="fix-guide">
+    <h2 id="s-guide">Fix guide <small>one row per check</small></h2>
+    <div class="filters"><label for="g-area">Area</label><select id="g-area"></select><span class="count" id="g-count"></span></div>
+    <div class="tablewrap"><table class="guide" id="guide"></table></div>
   </section>
 
-  <section aria-labelledby="s-sec">
-    <h2 id="s-sec">Sections <small id="sec-host"></small></h2>
-    <p class="lede">URLs listed in sitemaps per section (product family), language variants found in the URL paths, and the share of URLs that carry hreflang alternates in the sitemap. "In GSC" is the sum of URLs Google reports as discovered from the submitted sitemaps for that section (it counts duplicates).</p>
-    <div class="tablewrap"><table id="sections"></table></div>
+  <section aria-labelledby="s-ref" id="reference">
+    <h2 id="s-ref">Reference</h2>
+    <details class="ref" id="audit" hidden><summary>Crawl audit per host <small id="audit-meta"></small></summary>
+      <div class="scope" id="audit-scope"></div>
+      <div class="tablewrap"><table id="audit-hosts"></table></div>
+    </details>
+    <details class="ref"><summary>Hosts: robots.txt and sitemaps</summary>
+      <div class="tablewrap"><table id="hosts"></table></div>
+    </details>
+    <details class="ref"><summary>Sections <small id="sec-host"></small></summary>
+      <p class="lede">URLs listed in sitemaps per section, language variants found in the URL paths, and the share of URLs with hreflang alternates in the sitemap. "In GSC" is what Google reports as discovered from the submitted sitemaps (it counts duplicates).</p>
+      <div class="tablewrap"><table id="sections"></table></div>
+    </details>
+    <details class="ref"><summary>Submitted sitemaps: Search Console vs live</summary>
+      <div class="tablewrap"><table id="gsc"></table></div>
+    </details>
   </section>
 
-  <section aria-labelledby="s-gsc">
-    <h2 id="s-gsc">Submitted sitemaps: Search Console vs live</h2>
-    <div class="tablewrap"><table id="gsc"></table></div>
+  <section aria-labelledby="s-method" id="method">
+    <h2 id="s-method">How this audit works</h2>
+    <div class="method">
+      <div><h3>What runs</h3><p><b>Discovery</b> reads every host's robots.txt and every sitemap file (all of them, no sampling). The <b>crawl audit</b> then fetches a sample of pages per URL pattern (template): 2 English pages and 1 page in each of 2 other languages, plus every homepage and family hub, and runs 31 checks on each. Both only read: GET requests, robots.txt respected, one request per host per second. The <b>prioritizer</b> adds Search Console traffic. Manual review findings come from people and are marked until a check confirms them.</p></div>
+      <div id="method-health"><h3>Family health (A–F)</h3><p>Starts at 100. Each open finding costs broken 40, incorrect 20, not optimized 6 or improvable 2 points, times the share of the family it affects (at least a quarter). Findings with one root cause count once, cosmetic issues cost at most 20 in total, and a canonical that points at a missing page counts as broken. A 90+, B 75–89, C 60–74, D 40–59, F below 40. Traffic is not part of health.</p></div>
+      <div id="method-score"><h3>Priority score (0–100)</h3><p>Search Console clicks on the affected pages over 28 days (impressions count 1% of a click), on a log scale, × severity (broken 1, incorrect 0.7, not optimized 0.4, improvable 0.2) ÷ effort (S 1, M 1.5, L 2.5). If the same pages lost traffic since six months ago, half of that loss counts when it is larger than today's traffic. Hosts without Search Console use GA4 organic sessions.</p></div>
+      <div><h3>Samples and estimates</h3><p>"~N pages affected" applies each template's failing share of the sample to its number of URLs in the sitemaps. Confidence labels say how solid that is; findings marked <b>to confirm</b> rest on one page.</p></div>
+      <div><h3>More</h3><p>Architecture and code: <a href="https://github.com/shoaibkhan-aspose/aspose-app-health-and-recovery#architecture" target="_blank" rel="noopener">repository and diagram</a>. Earlier reports: <a href="archive/">archive</a>.</p></div>
+    </div>
+    <h3>Glossary</h3>
+    <dl class="gloss">
+      <dt>Sitemap / sitemap index</dt><dd>An XML file that lists a site's pages for search engines; an index lists other sitemap files.</dd>
+      <dt>Canonical</dt><dd>A tag in which a page names its preferred address; Google indexes that address.</dd>
+      <dt>hreflang</dt><dd>Tags that link the language versions of a page so Google shows each user the right one; x-default is the fallback.</dd>
+      <dt>noindex</dt><dd>A signal that asks search engines to keep a page out of results.</dd>
+      <dt>Redirect (301 / 302)</dt><dd>A URL that forwards to another; 301 is permanent, 302 temporary.</dd>
+      <dt>Soft 404</dt><dd>An error page that answers "OK" (HTTP 200) instead of "not found".</dd>
+      <dt>Template</dt><dd>A URL pattern shared by many pages of a family, e.g. /cells/conversion/&lt;a&gt;-to-&lt;b&gt;.</dd>
+      <dt>Family</dt><dd>A product section of products.aspose.app, e.g. /words/ or /cells/.</dd>
+      <dt>Clicks / impressions</dt><dd>Search Console: how often a page was clicked / shown in Google results.</dd>
+      <dt>Effort S / M / L</dt><dd>Small: one template or config change. Medium: several templates or translations. Large: rebuild or migration.</dd>
+    </dl>
   </section>
 
   <footer id="foot"></footer>
@@ -256,19 +338,22 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
 <script>
 (function () {
   const R = JSON.parse(document.getElementById("data").textContent);
-  const NOTES = R._notes || [];
   const ORDER = ["broken", "incorrect", "not_optimized", "improvable"];
   const LABEL = { broken: "Broken", incorrect: "Incorrect", not_optimized: "Not optimized", improvable: "Improvable",
     discovery: "Discovery", seed: "Manual review", "crawl-audit": "Crawl audit" };
   const A = R._audit || null;
-  // The crawl audit is new in this report, so all its findings are tagged new.
-  const NEW = new Set([...((R._changes && R._changes.new) || []), ...R.findings.filter(f => f.source === "crawl-audit").map(f => f.id)]);
+  const CH = R._run_changes || { new: [], resolved: [], runs: [] };
+  const NEW = new Set(CH.new || []);
+  const GUIDE = (R._guide && R._guide.rows) || {};
   const fmt = n => (n == null ? "–" : Number(n).toLocaleString("en-US"));
   const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const $ = id => document.getElementById(id);
 
   const sc = f => (f.impact && f.impact.score) || 0;
-  const findings = R.findings.slice().sort((a, b) =>
+  // findings that share a root cause with a worse one are shown inside that one, not on their own
+  const MERGED = Object.fromEntries(R.findings.filter(f => f._merged_into).map(f => [f.id, f._merged_into]));
+  const byId = Object.fromEntries(R.findings.map(f => [f.id, f]));
+  const findings = R.findings.filter(f => !f._merged_into).sort((a, b) =>
     ORDER.indexOf(a.type) - ORDER.indexOf(b.type) || sc(b) - sc(a) || b.affected_pages - a.affected_pages || a.id.localeCompare(b.id));
   const scored = findings.some(f => f.impact && f.impact.source);
   const compact = n => n >= 1e6 ? (n / 1e6).toFixed(1).replace(/\.0$/, "") + "M" : n >= 1e4 ? Math.round(n / 1e3) + "k" : fmt(n);
@@ -305,6 +390,7 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
     return `<table class="kv"><tbody>
       <tr><th>Priority score</th><td><b>${sc(f)}</b> / 100 <span class="sub">traffic × severity ÷ effort</span></td></tr>
       <tr><th>Traffic at stake</th><td>${esc(trafficText(i))}${share ? ` <span class="sub">(${esc(share)})</span>` : ""}${win ? `<br><span class="sub">${esc(win)}</span>` : ""}</td></tr>
+      ${i.past_window ? `<tr><th>Six months ago</th><td>${compact(i.past_clicks || 0)} clicks${i.lost_clicks ? ` · <b>${compact(i.lost_clicks)} clicks lost</b>` : " · no loss"}${i.scored_on === "lost" ? ` <span class="sub">(the score uses half of this loss, as it is larger than today's traffic)</span>` : ""}<br><span class="sub">${esc(day(i.past_window[0]))} to ${esc(day(i.past_window[1]))}</span></td></tr>` : ""}
       <tr><th>Severity</th><td>${esc(LABEL[f.type])}</td></tr>
       <tr><th>Fix effort</th><td>${esc(f.effort || "S")} <span class="sub">(${esc(EFFORT_TEXT[f.effort || "S"])})</span></td></tr>
     </tbody></table>`;
@@ -317,26 +403,48 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
   $("meta").textContent = `Discovery run ${R.run_id}${date ? " · " + date : ""} · ${fmt(R.sitemaps_fetched)} sitemaps · ${fmt(R.requests)} requests · ${Math.round(R.duration_s / 60)} min`
     + (A ? ` — Crawl audit ${(A.runs || []).length > 1 ? "runs " + A.runs.map(r => r.run_id).join(", ") : "run " + A.run_id}${A.date ? " · " + A.date : ""} · ${fmt(A.pages)} pages` : "");
 
-  // tiles
+  // summary: grade distribution + traffic context, key numbers, top risks, verdict
   const hosts = Object.entries(R.hosts);
   const totalUrls = hosts.reduce((s, [, h]) => s + h.urls, 0);
   const byType = Object.fromEntries(ORDER.map(t => [t, findings.filter(f => f.type === t).length]));
-  $("tiles").innerHTML = [
-    `<div class="tile"><b>${fmt(hosts.length)}</b><span>hosts checked</span></div>`,
-    `<div class="tile"><b>${fmt(totalUrls)}</b><span>unique URLs in sitemaps</span></div>`,
-    ...(A ? [`<div class="tile"><b>${fmt(A.pages)}</b><span>pages audited (sample)</span></div>`] : []),
-    ...ORDER.map(t => `<div class="tile ${t}"><b>${byType[t]}</b><span>${LABEL[t].toLowerCase()} findings</span></div>`),
-    `<div class="tile"><b>${findings.filter(f => f.status === "unverified").length}</b><span>to re-check (unverified)</span></div>`,
-  ].join("");
-  if (NOTES.length) { $("notes").hidden = false; $("notes-list").innerHTML = NOTES.map(n => `<li>${esc(n)}</li>`).join(""); }
+  const S = R._summary;
+  const GRADE_NAMES = { A: "A", B: "B", C: "C", D: "D", F: "F" };
+  if (S) {
+    const dist = Object.entries(S.distribution).filter(([, n]) => n);
+    const good = (S.click_share.A || 0) + (S.click_share.B || 0);
+    const weak = S.weak_with_traffic.map(w => `/${esc(w.family)}/ (${w.share}% of clicks) is ${w.grade}`);
+    $("sum-grades").innerHTML = `<span class="dim">${S.families} product families by health grade</span>
+      <div class="big">${dist.map(([g, n]) => `${n} ${GRADE_NAMES[g]}`).join(" · ")}</div>
+      <div class="gbar" role="img" aria-label="${esc(dist.map(([g, n]) => n + " families graded " + g).join(", "))}">${dist.map(([g, n]) => `<span class="g-${g}" style="flex:${n}">${n}</span>`).join("")}</div>
+      <div>Families carrying <b>${good}%</b> of search clicks are graded A or B${weak.length ? `; ${weak.join(", ")}` : ""}.</div>`;
+  } else { $("sum-grades").hidden = true; }
+  $("sum-numbers").innerHTML = `<span class="dim">Open findings and coverage</span><div class="nums">
+      ${ORDER.map(t => `<div class="${t}"><b>${byType[t]}</b><span>${esc(LABEL[t].toLowerCase())}</span></div>`).join("")}
+      <div><b>${fmt(hosts.length)}</b><span>hosts</span></div>
+      <div><b>${fmt(totalUrls)}</b><span>URLs in sitemaps</span></div>
+      ${A ? `<div><b>${fmt(A.pages)}</b><span>pages audited</span></div>` : ""}
+      <div><b>${findings.filter(f => f._confidence === "to confirm").length}</b><span>to confirm</span></div></div>`;
+  const RISKS = R._risks || [];
+  const riskImpact = i => !i || !i.source ? "" : i.scored_on === "lost" && i.lost_clicks
+    ? `${compact(i.lost_clicks)} clicks lost since six months ago` : trafficText(i) + " at stake";
+  if (RISKS.length) {
+    $("risks-wrap").hidden = false;
+    $("risks").innerHTML = RISKS.map(r => `<li><a href="#f-${esc(r.id)}" data-open="${esc(r.id)}">${esc(r.name)}</a> · <b>${esc(r.where)}</b>${r.also.length ? ` and ${r.also.length} more` : ""} <span>· ${esc(riskImpact(r.impact))}</span></li>`).join("");
+  }
+  if (S) {
+    const fails = S.distribution.F, ds = S.distribution.D;
+    $("verdict").innerHTML = `${fails ? `<b>${fails} famil${fails === 1 ? "y is" : "ies are"} failing (F)</b>` : "No family is failing"}${ds ? ` and ${ds} ${ds === 1 ? "is" : "are"} weak (D)` : ""}. `
+      + (RISKS[0] ? `Biggest risk: ${esc(RISKS[0].name.toLowerCase())} on ${esc(RISKS[0].where)}.` : "");
+  }
 
   // product family cards
   const FAM = R._families;
   const famHost = FAM && Object.keys(FAM.hosts)[0];
+  if (!famHost) $("toc-fam").hidden = true;
   if (famHost) {
     const cards = FAM.hosts[famHost];
     const W = FAM.windows;
-    $("fam-wrap").hidden = false;
+    $("families").hidden = false;
     $("fam-meta").textContent = `${famHost} · ${cards.length} families · Search Console ${W.current[0]} to ${W.current[1]}`;
     const clicks = (c, w) => ((c.traffic[w] || {}).clicks) || 0;
     // A change is only ranked when the earlier window had enough clicks: 3 -> 10 is "+233%" but means nothing.
@@ -481,32 +589,37 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
         renderFindings();
         $("s-find").scrollIntoView({ behavior: "smooth" });
       } else if (a) {
-        for (const k of ["f-src", "f-type", "f-host", "f-dim", "f-fam"]) $(k).value = "";
-        const f = findings.find(x => x.id === a.dataset.open); if (f) expanded.add(f.type);
-        renderFindings();
-        const d = document.getElementById("f-" + a.dataset.open); if (d) d.open = true;
+        openFinding(e);
       }
     });
     renderCards();
   }
 
   // top priorities
+  const plain = f => (f._guide && GUIDE[f._guide] ? GUIDE[f._guide].name : f.title);
+  const where = f => f._family ? `/${f._family}/` : f.subdomain;
+  const fixLink = f => f._guide ? `<a href="#g-${esc(f._guide)}" data-guide="${esc(f._guide)}">How to fix →</a>` : "";
   if (scored) {
     const top = findings.slice().sort((a, b) => sc(b) - sc(a)).slice(0, 10);
     const w = top[0] && top[0].impact.window;
-    $("top-wrap").hidden = false;
-    $("top-meta").textContent = w ? `Search Console ${w[0]} to ${w[1]}` : "";
+    $("priorities").hidden = false;
+    $("top-meta").textContent = w ? `Search Console ${day(w[0])} to ${day(w[1])}` : "";
     $("top").innerHTML = top.map(f => `
-      <li class="sev-${f.type}">${scoreBadge(f)}<span class="ftitle"><a href="#f-${esc(f.id)}" data-open="${esc(f.id)}">${esc(f.title)}</a></span>
-        <span class="fsub">${esc(f.subdomain)} · ${esc(LABEL[f.type])} · ${esc(LABEL[f.source || "discovery"])} · <span class="traffic">${esc(trafficText(f.impact))}</span></span></li>`).join("");
-    $("top").addEventListener("click", e => {
-      const a = e.target.closest("a[data-open]"); if (!a) return;
-      for (const k of ["f-src", "f-type", "f-host", "f-dim", "f-fam"]) $(k).value = "";
-      const f = findings.find(x => x.id === a.dataset.open); if (f) expanded.add(f.type);
-      renderFindings();
-      const d = document.getElementById("f-" + a.dataset.open); if (d) d.open = true;
-    });
+      <li class="sev-${f.type}">${scoreBadge(f)}<span class="ftitle"><a href="#f-${esc(f.id)}" data-open="${esc(f.id)}">${esc(plain(f))}</a> · ${esc(where(f))}</span>
+        <span class="fsub">${esc(LABEL[f.type])} · effort ${esc(f.effort || "S")} · <span class="traffic">${esc(riskImpact(f.impact))}</span> · ${fixLink(f)}</span></li>`).join("");
+    $("top").addEventListener("click", openFinding);
   }
+
+  // open a finding from anywhere (risks, changes, cards, priorities)
+  function openFinding(e) {
+    const a = e.target.closest("a[data-open]"); if (!a) return;
+    for (const k of ["f-src", "f-type", "f-host", "f-dim", "f-fam"]) $(k).value = "";
+    const id = MERGED[a.dataset.open] || a.dataset.open;
+    const f = findings.find(x => x.id === id); if (f) expanded.add(f.type);
+    renderFindings();
+    const d = document.getElementById("f-" + id); if (d) d.open = true;
+  }
+  $("risks").addEventListener("click", openFinding);
 
   // findings + filters
   const opts = (id, values, all) => { $(id).innerHTML = `<option value="">${all}</option>` + values.map(v => `<option value="${esc(v)}">${esc(LABEL[v] || v)}</option>`).join(""); };
@@ -527,11 +640,14 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
       <details class="f sev-${f.type}" id="f-${esc(f.id)}">
         <summary>
           ${scored ? scoreBadge(f) : `<span class="pill">${LABEL[f.type]}</span>`}
-          <span class="ftitle">${esc(f.title)} ${NEW.has(f.id) ? '<span class="tag new">new</span>' : ""} ${f.status === "unverified" ? '<span class="tag unverified">unverified</span>' : ""}</span>
+          <span class="ftitle">${esc(plain(f))} · ${esc(where(f))} ${NEW.has(f.id) ? '<span class="tag new">new</span>' : ""} ${f._confidence === "to confirm" || f._confidence === "partial" ? `<span class="conf">${esc(f._confidence)}</span>` : ""}</span>
           <span class="fpages">${f.affected_pages ? (f.source === "crawl-audit" ? "~" : "") + fmt(f.affected_pages) + " pages affected" : ""}</span>
-          <span class="fsub">${esc(f.subdomain)} · ${esc(f.dimension)} · ${esc(LABEL[f.source || "discovery"])} · <span class="mono">${esc(f.id)}</span>${trafficText(f.impact) ? ` · <span class="traffic">${esc(trafficText(f.impact))}</span>` : ""}</span>
+          <span class="fsub">${esc(f.subdomain)} · ${esc(f.dimension)} · ${esc(LABEL[f.source || "discovery"])} · confidence: ${esc(f._confidence || "–")} · <span class="mono">${esc(f.id)}</span>${trafficText(f.impact) ? ` · <span class="traffic">${esc(trafficText(f.impact))}</span>` : ""}</span>
         </summary>
-        <div class="fbody"><dl>
+        <div class="fbody">
+          ${f._guide && GUIDE[f._guide] ? `<div class="fixline"><b>How to fix:</b> ${esc(GUIDE[f._guide].fix)} ${fixLink(f).replace("How to fix →", "Full guide →")}</div>` : ""}
+          <dl>
+          <dt>Check</dt><dd>${esc(f.title)}</dd>
           <dt>Observed</dt><dd>${observedHtml(f)}</dd>
           <dt>Expected</dt><dd>${esc(f.evidence.expected)}</dd>
           <dt>Evidence</dt><dd>${(f.evidence.locations || []).length
@@ -541,6 +657,7 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
           ${f.impact && f.impact.source ? `<dt>Impact</dt><dd>${impactHtml(f)}</dd>` : ""}
           ${f.verification ? `<dt>Checked</dt><dd>${esc(f.verification.how)}${f.status === "unverified" ? ". Re-check: " + esc(f.verification.recheck) : ""}</dd>` : ""}
           ${f.first_seen_run ? `<dt>First seen</dt><dd class="mono">${esc(f.first_seen_run)}</dd>` : ""}
+          ${(f._merged || []).length ? `<dt>Same cause</dt><dd class="merged">${f._merged.map(id => byId[id] ? `${esc(byId[id].title)} <span class="mono">${esc(id)}</span>` : esc(id)).join("<br>")}</dd>` : ""}
         </dl>${(f.notes || []).map(n => `<div class="fnote"><b>Note.</b> ${esc(n)}</div>`).join("")}</div>
       </details>`;
     const groups = ORDER.map(type => {
@@ -551,25 +668,79 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
       const btn = rest > 0 ? `<button type="button" class="more" data-type="${type}" aria-expanded="${open}">${open ? "Show fewer" : `Show ${rest} more`}</button>` : "";
       return `<div class="fgroup sev-${type}"><h3>${LABEL[type]} <small>${items.length} finding${items.length === 1 ? "" : "s"}${pages ? " · " + fmt(pages) + " pages" : ""}</small></h3>${shown.map(card).join("")}${btn}</div>`;
     }).join("");
-    $("findings").innerHTML = groups || `<p class="dim">No findings match these filters.</p>`;
+    $("findings-list").innerHTML = groups || `<p class="dim">No findings match these filters.</p>`;
   }
   const PER_TYPE = 5;
   const expanded = new Set();
-  $("findings").addEventListener("click", e => {
+  $("findings-list").addEventListener("click", e => {
     const b = e.target.closest("button.more");
     if (!b) return;
     const type = b.dataset.type;
     expanded.has(type) ? expanded.delete(type) : expanded.add(type);
     renderFindings();
-    const again = $("findings").querySelector(`button.more[data-type="${type}"]`);
+    const again = $("findings-list").querySelector(`button.more[data-type="${type}"]`);
     if (again) again.focus();
   });
   for (const id of ["f-src", "f-type", "f-host", "f-dim", "f-fam"]) $(id).addEventListener("change", renderFindings);
   renderFindings();
-  const resolved = (R._changes && R._changes.resolved) || [];
-  if (resolved.length) {
-    $("resolved-wrap").hidden = false;
-    $("resolved").innerHTML = resolved.map(f => `<li><span class="mono">${esc(f.id)}</span> ${esc(f.title)} <span class="dim">(${esc(f.subdomain)})</span></li>`).join("");
+  // changes since the last run
+  {
+    const T = R._trend || {};
+    $("chg-meta").textContent = CH.runs && CH.runs.length ? `latest runs: ${CH.runs.join(", ").replace(/-run/g, " run ")}` : "";
+    const newF = (CH.new || []).map(id => byId[id]).filter(Boolean);
+    const moved = T.families ? Object.entries(T.families).map(([fam, before]) => {
+      const card = ((R._families || {}).hosts ? Object.values(R._families.hosts)[0] : []).find(c => c.family === fam);
+      return card && before != null && card.health !== before ? [fam, before, card.health] : null; }).filter(Boolean)
+      .sort((a, b) => (a[2] - a[1]) - (b[2] - b[1])) : [];
+    $("chg-body").innerHTML = `<div class="chg">
+      <div><b>${newF.length}</b> new finding${newF.length === 1 ? "" : "s"}${newF.length ? `:<ul>${newF.map(f => `<li><a href="#f-${esc(f.id)}" data-open="${esc(f.id)}">${esc(plain(f))}</a> · ${esc(where(f))}</li>`).join("")}</ul>` : "."}</div>
+      <div><b>${(CH.resolved || []).length}</b> resolved${(CH.resolved || []).length ? `:<ul>${CH.resolved.map(f => `<li>${esc(f.title)} <span class="dim">(${esc(f.subdomain)}, ${esc(f.id)})</span></li>`).join("")}</ul>` : "."}</div>
+      <div>${T.families ? (moved.length ? `Family health since ${esc(T.date)}:<ul>${moved.map(([fam, b, a]) => `<li>/${esc(fam)}/ ${b} → <b>${a}</b> <span class="${a > b ? "ok" : "bad"}">${a > b ? "+" : "−"}${Math.abs(a - b)}</span></li>`).join("")}</ul>` : `No family's health changed since ${esc(T.date)}.`)
+        : `<span class="dim">Family health is recorded from this run on; changes show after the next full run.</span>`}</div>
+    </div>`;
+    $("chg-body").addEventListener("click", openFinding);
+  }
+
+  // shared problems across families
+  const SYS = R._systemic || [];
+  if (SYS.length) {
+    $("systemic").hidden = false;
+    $("sys-meta").textContent = `${SYS.length} problems`;
+    let sysAll = false;
+    const renderSys = () => {
+      const rows = sysAll ? SYS : SYS.slice(0, 8);
+      $("sys-table").innerHTML = `<thead><tr><th>Problem</th><th>Severity</th><th class="n">Families</th><th>Where</th><th class="n">Clicks at stake</th><th></th></tr></thead><tbody>${rows.map(r =>
+        `<tr><td>${esc(r.name)}</td><td class="sev-${r.type}" style="color:var(--sev)">${esc(LABEL[r.type])}</td><td class="n">${r.families.length}</td><td class="issues">${r.families.map(x => `/${esc(x)}/`).join(" ")}</td><td class="n">${compact(r.clicks)}</td><td><a href="#g-${esc(r.check)}" data-guide="${esc(r.check)}">How to fix →</a></td></tr>`).join("")}</tbody>`;
+      $("sys-more").hidden = SYS.length <= 8;
+      $("sys-more").textContent = sysAll ? "Show fewer" : `Show all ${SYS.length}`;
+    };
+    $("sys-more").addEventListener("click", () => { sysAll = !sysAll; renderSys(); });
+    renderSys();
+  } else { $("toc-sys").hidden = true; }
+
+  // fix guide
+  {
+    const AREAS = (R._guide && R._guide.areas) || [];
+    $("g-area").innerHTML = `<option value="">All areas</option>` + AREAS.map(a => `<option value="${esc(a)}">${esc(a)}</option>`).join("");
+    const used = new Set(R.findings.map(f => f._guide).filter(Boolean));
+    const renderGuide = () => {
+      const area = $("g-area").value;
+      const rows = Object.entries(GUIDE).filter(([, g]) => !area || g.area === area)
+        .sort((a, b) => AREAS.indexOf(a[1].area) - AREAS.indexOf(b[1].area) || (used.has(b[0]) - used.has(a[0])));
+      $("g-count").textContent = `${rows.length} checks · ${rows.filter(([k]) => used.has(k)).length} with open findings`;
+      $("guide").innerHTML = `<thead><tr><th>Check</th><th>What it means</th><th>Impact</th><th>How to fix</th><th>How to verify</th></tr></thead><tbody>${rows.map(([k, g]) =>
+        `<tr id="g-${esc(k)}"><td>${esc(g.name)}<br><span class="dim mono">${esc(g.area)}${used.has(k) ? " · open" : ""}</span></td><td>${esc(g.means)}</td><td>${esc(g.impact)}</td><td>${esc(g.fix)}</td><td>${esc(g.verify)}</td></tr>`).join("")}</tbody>`;
+    };
+    $("g-area").addEventListener("change", renderGuide);
+    renderGuide();
+    document.addEventListener("click", e => {
+      const a = e.target.closest("a[data-guide]"); if (!a) return;
+      e.preventDefault();
+      if ($("g-area").value && GUIDE[a.dataset.guide] && GUIDE[a.dataset.guide].area !== $("g-area").value) { $("g-area").value = ""; renderGuide(); }
+      const row = document.getElementById("g-" + a.dataset.guide); if (!row) return;
+      document.querySelectorAll("table.guide tr.hit").forEach(r => r.classList.remove("hit"));
+      row.classList.add("hit"); row.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
   }
 
   // crawl audit
@@ -583,7 +754,6 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
       `<div><b>Scope.</b> Every host and homepage, plus ${Object.entries(A.sections).map(([h, v]) => `${v.length} sections on <span class="mono">${esc(h)}</span>`).join(", ")}${runs.length > 1 ? `, across ${runs.length} runs (a page checked more than once shows its newest result)` : ""}.</div>`,
       A.stopped_early ? `<div class="warn"><b>Stopped early</b> (page limit reached): absent findings prove nothing.</div>` : "",
     ].join("");
-    if ((A.notes || []).length) { $("audit-notes").hidden = false; $("audit-notes-list").innerHTML = A.notes.map(n => `<li>${esc(n)}</li>`).join(""); }
     const CHECK = c => c.replace(/_/g, " ");
     const auditFindings = findings.filter(f => f.source === "crawl-audit");
     $("audit-hosts").innerHTML = `<thead><tr><th>Host</th><th class="n">Pages</th><th class="n">HTML 200</th><th class="n">Errors</th><th class="n">Redirected</th><th class="n">Findings</th><th>Most frequent issues (pages)</th></tr></thead><tbody>` +
