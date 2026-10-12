@@ -67,7 +67,16 @@ details.f > summary::-webkit-details-marker { display: none }
 .resolved { margin: 0; padding-left: 20px; display: grid; gap: 4px; font-size: 14px }
 .fbody { padding: 0 14px 14px; display: grid; gap: 8px; font-size: 14px; min-width: 0 }
 .fbody dl { margin: 0; display: grid; grid-template-columns: 90px 1fr; gap: 6px 12px }
-.fbody dt { color: var(--muted) } .fbody dd { margin: 0; min-width: 0; overflow-wrap: anywhere }
+.fbody dt { color: var(--muted) } .fbody dd { margin: 0; min-width: 0; overflow-wrap: anywhere; display: grid; gap: 6px; justify-items: start }
+.obs-head { font-weight: 600 } .obs-sub { color: var(--muted); font-size: 13px }
+.fbody table.mini { width: auto; max-width: 100%; font-size: 13px; border: 1px solid var(--line); border-radius: 6px; border-collapse: separate; border-spacing: 0; overflow: hidden }
+.fbody table.mini th, .fbody table.mini td { padding: 4px 12px; white-space: normal }
+.fbody table.mini tr:last-child td { border-bottom: 0 }
+.fbody table.kv { width: auto; max-width: 100%; font-size: 14px; border-collapse: collapse }
+.fbody table.kv th { background: none; text-transform: none; letter-spacing: 0; font: 500 13px var(--body); color: var(--muted); padding: 3px 16px 3px 0; white-space: nowrap; border: 0; vertical-align: top }
+.fbody table.kv td { padding: 3px 0; border: 0; white-space: normal }
+.fbody table.kv .sub { color: var(--muted); font-size: 13px }
+ul.obs { margin: 0; padding-left: 18px; display: grid; gap: 3px }
 .urls { margin: 0; padding: 0; list-style: none; display: grid; gap: 2px; font: 13px var(--mono) }
 .urls a { color: var(--accent); overflow-wrap: anywhere }
 #gsc a { color: var(--accent) }
@@ -266,6 +275,40 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
   const trafficText = i => !i || !i.source ? "" : i.source === "none" ? "no traffic data"
     : i.source === "ga4-host" ? `${compact(i.clicks_28d || 0)} organic sessions (GA4)`
     : `${compact(i.clicks_28d || 0)} clicks · ${compact(i.impressions_28d || 0)} impressions`;
+  // finding details: readable Observed (sample table or bullets) and Impact (labelled rows)
+  const EFFORT_TEXT = { S: "small: one template or config change", M: "medium: several templates or translations", L: "large: rebuild or migration" };
+  const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const day = d => { const [y, m, dd] = d.split("-").map(Number); return `${dd} ${MONTHS[m - 1]} ${y}`; };
+  const tmplName = (t, f) => t.startsWith("generic:")
+    ? t.slice(8).replace("{section}", f._family || "…").replace(/\*/g, "…") || "/"
+    : t;
+  const shortUrls = (text, f) => String(text || "").split("https://" + f.subdomain).join("");
+  const observedHtml = f => {
+    const smp = f.evidence.sample;
+    if (smp) {
+      const rows = Object.entries(smp).sort((a, b) => b[1][0] / b[1][1] - a[1][0] / a[1][1] || b[1][0] - a[1][0]);
+      const failed = rows.reduce((n, [, v]) => n + v[0], 0), sampled = rows.reduce((n, [, v]) => n + v[1], 0);
+      return `<span class="obs-head">${failed} of ${sampled} sampled pages failed</span>
+        <table class="mini"><thead><tr><th>Template</th><th class="n">Failed</th><th class="n">Sampled</th></tr></thead><tbody>${rows.map(([t, [x, y]]) =>
+          `<tr><td class="mono">${esc(tmplName(t, f))}</td><td class="n">${x}</td><td class="n">${y}</td></tr>`).join("")}</tbody></table>
+        ${f.affected_pages ? `<span class="obs-sub">Estimated ~${fmt(f.affected_pages)} pages affected: each template's failing share × its URL count in the sitemaps.</span>` : ""}`;
+    }
+    // items are joined with "; " before each new URL (or the "and N more" tail); notes may contain "; " too
+    const parts = String(f.evidence.observed || "").split(/; (?=https?:\/\/|and \d+ more)/).filter(Boolean);
+    return parts.length > 1 ? `<ul class="obs">${parts.map(x => `<li>${esc(shortUrls(x, f))}</li>`).join("")}</ul>` : esc(shortUrls(f.evidence.observed, f));
+  };
+  const impactHtml = f => {
+    const i = f.impact; if (!i || !i.source) return "";
+    const win = i.source === "ga4-host" ? "GA4 organic sessions, last 28 days"
+      : i.window ? `Search Console, ${day(i.window[0])} to ${day(i.window[1])} (28 days)` : "";
+    const share = i.share != null && i.share < 1 ? `${Math.round(i.share * 1000) / 10}% of the ${i.source === "gsc-host" || i.source === "ga4-host" ? "host" : "family"}'s traffic` : "";
+    return `<table class="kv"><tbody>
+      <tr><th>Priority score</th><td><b>${sc(f)}</b> / 100 <span class="sub">traffic × severity ÷ effort</span></td></tr>
+      <tr><th>Traffic at stake</th><td>${esc(trafficText(i))}${share ? ` <span class="sub">(${esc(share)})</span>` : ""}${win ? `<br><span class="sub">${esc(win)}</span>` : ""}</td></tr>
+      <tr><th>Severity</th><td>${esc(LABEL[f.type])}</td></tr>
+      <tr><th>Fix effort</th><td>${esc(f.effort || "S")} <span class="sub">(${esc(EFFORT_TEXT[f.effort || "S"])})</span></td></tr>
+    </tbody></table>`;
+  };
   const scoreBadge = f => `<span class="score ${sc(f) >= 60 ? "hi" : sc(f) >= 35 ? "mid" : ""}" title="Priority score">${sc(f)}</span>`;
 
   // header
@@ -489,15 +532,13 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
           <span class="fsub">${esc(f.subdomain)} · ${esc(f.dimension)} · ${esc(LABEL[f.source || "discovery"])} · <span class="mono">${esc(f.id)}</span>${trafficText(f.impact) ? ` · <span class="traffic">${esc(trafficText(f.impact))}</span>` : ""}</span>
         </summary>
         <div class="fbody"><dl>
-          <dt>Observed</dt><dd>${esc(f.evidence.observed)}</dd>
+          <dt>Observed</dt><dd>${observedHtml(f)}</dd>
           <dt>Expected</dt><dd>${esc(f.evidence.expected)}</dd>
           <dt>Evidence</dt><dd>${(f.evidence.locations || []).length
-            ? `<ul class="locs">${f.evidence.locations.map(l => `<li><span class="role">${esc(l.role)}</span><a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.url)}</a>${l.note ? `<span class="lnote">${esc(l.note)}</span>` : ""}</li>`).join("")}</ul>`
+            ? `<ul class="locs">${f.evidence.locations.map(l => `<li><span class="role">${esc(l.role)}</span><a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(shortUrls(l.url, f) || l.url)}</a>${l.note ? `<span class="lnote">${esc(shortUrls(l.note, f).replace(/^canonical /, "canonical → "))}</span>` : ""}</li>`).join("")}</ul>`
             : `<ul class="urls">${f.evidence.urls.map(u => `<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(u)}</a></li>`).join("")}</ul>`}</dd>
-          ${f.evidence.sample ? (() => { const v = Object.values(f.evidence.sample); const a = v.reduce((n, x) => n + x[0], 0), b = v.reduce((n, x) => n + x[1], 0);
-            return `<dt>Affected</dt><dd>~${fmt(f.affected_pages)} pages, estimated: ${a} of ${b} sampled pages failed, applied to each template's URL count</dd>`; })() : ""}
           <dt>Template</dt><dd class="mono">${esc(f.template)}</dd>
-          ${f.impact && f.impact.source ? `<dt>Impact</dt><dd>Score ${sc(f)} · ${esc(trafficText(f.impact))} at stake${f.impact.share != null && f.impact.share < 1 ? ` (${Math.round(f.impact.share * 1000) / 10}% of the ${f.impact.source === "gsc-host" || f.impact.source === "ga4-host" ? "host" : "section"})` : ""} · ${esc(LABEL[f.type])}, effort ${esc(f.effort)}${f.impact.window ? ` · ${esc(f.impact.window.join(" to "))}` : ""}</dd>` : ""}
+          ${f.impact && f.impact.source ? `<dt>Impact</dt><dd>${impactHtml(f)}</dd>` : ""}
           ${f.verification ? `<dt>Checked</dt><dd>${esc(f.verification.how)}${f.status === "unverified" ? ". Re-check: " + esc(f.verification.recheck) : ""}</dd>` : ""}
           ${f.first_seen_run ? `<dt>First seen</dt><dd class="mono">${esc(f.first_seen_run)}</dd>` : ""}
         </dl>${(f.notes || []).map(n => `<div class="fnote"><b>Note.</b> ${esc(n)}</div>`).join("")}</div>
