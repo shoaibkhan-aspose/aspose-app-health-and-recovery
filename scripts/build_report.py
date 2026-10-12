@@ -25,10 +25,21 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT))
 
 from core.findings import FindingsStore  # noqa: E402
+from core.fix_guide import AREAS, GUIDE, guide_key  # noqa: E402
+from core.report_view import (  # noqa: E402
+    confidence,
+    grade_summary,
+    health_trend,
+    merge_root_causes,
+    run_changes,
+    systemic_issues,
+    top_risks,
+)
 from core.scorecard import family_of, family_scorecards  # noqa: E402
 
 TEMPLATE = REPO_ROOT / "scripts" / "templates" / "discovery_report.html"
 TRAFFIC_SUMMARY = REPO_ROOT / "reports" / "traffic-summary.json"
+HEALTH_HISTORY = REPO_ROOT / "reports" / "health-history.json"
 
 
 # For hosting the file on its own (GitHub Pages): the artifact host adds this skeleton itself.
@@ -131,6 +142,60 @@ def add_families(report: dict, summary_path: Path = TRAFFIC_SUMMARY) -> None:
                 f["_family"] = fam
 
 
+def runs_label(report: dict) -> str:
+    runs = f"discovery run {report['run_id']}"
+    if report.get("_audit"):
+        runs += f", crawl audit run {report['_audit']['run_id']}"
+    return runs
+
+
+def add_views(report: dict, all_rows: list[dict] | None = None, history_path: Path = HEALTH_HISTORY) -> None:
+    """Fix guide, confidence, merged root causes, systemic issues, top risks, grade summary, changes since the
+    last run and the family health trend (see core/report_view.py)."""
+    findings = report["findings"]
+    report["_guide"] = {"areas": AREAS, "rows": GUIDE}
+    for f in findings:
+        f["_guide"] = guide_key(f.get("check"), f.get("source"))
+        f["_confidence"] = confidence(f)
+    refs = [f"discovery-run{report['run_id']}"]
+    if report.get("_audit"):
+        refs.append(f"crawl-audit-run{report['_audit']['run_id']}")
+    changes = run_changes(all_rows or findings, refs)
+    titles = {f["id"]: f for f in (all_rows or findings)}
+    changes["resolved"] = [{"id": i, "title": titles[i]["title"], "subdomain": titles[i]["subdomain"]}
+                           for i in changes["resolved"]]
+    report["_run_changes"] = changes
+    fam = report.get("_families")
+    if not fam:
+        return
+    host = next(iter(fam["hosts"]))
+    cards = fam["hosts"][host]
+    families = {c["family"] for c in cards}
+    merge_root_causes(findings, host, families)
+    report["_systemic"] = systemic_issues(findings, host, families)
+    report["_risks"] = [{**r, "also": r["also"]} for r in top_risks(findings, host, families)]
+    report["_summary"] = grade_summary(cards)
+    history = json.loads(history_path.read_text(encoding="utf-8")) if history_path.is_file() else []
+    report["_trend"] = health_trend(cards, history, runs_label(report))
+
+
+def record_health(report: dict, history_path: Path = HEALTH_HISTORY) -> None:
+    """Append this run's family health to reports/health-history.json (once per set of runs)."""
+    from datetime import date
+
+    fam = report.get("_families")
+    if not fam:
+        return
+    history = json.loads(history_path.read_text(encoding="utf-8")) if history_path.is_file() else []
+    runs = runs_label(report)
+    if any(h["runs"] == runs for h in history):
+        return
+    cards = fam["hosts"][next(iter(fam["hosts"]))]
+    history.append({"date": date.today().isoformat(), "runs": runs,
+                    "families": {c["family"]: c["health"] for c in cards}})
+    history_path.write_text(json.dumps(history, indent=1) + "\n", encoding="utf-8")
+
+
 def snapshot(page: str, label: str, report: dict) -> Path:
     """Freeze a standalone report page into reports/archive/<date>[-n].html and list it in index.json.
     Snapshots are never rebuilt (older reports stay as they were)."""
@@ -146,9 +211,7 @@ def snapshot(page: str, label: str, report: dict) -> Path:
     (archive / name).write_text(page, encoding="utf-8")
     index_path = archive / "index.json"
     index = json.loads(index_path.read_text(encoding="utf-8")) if index_path.is_file() else []
-    runs = f"discovery run {report['run_id']}"
-    if report.get("_audit"):
-        runs += f", crawl audit run {report['_audit']['run_id']}"
+    runs = runs_label(report)
     index.append({"file": name, "date": day if n == 1 else f"{day} ({n})", "label": label, "runs": runs})
     index_path.write_text(json.dumps(index, indent=2) + "\n", encoding="utf-8")
     return archive / name
@@ -167,7 +230,8 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--store", default=str(REPO_ROOT / "data" / "findings.sqlite"), help="findings store")
     ap.add_argument("--findings", help="read findings from this export (reports/findings.json) instead of the store")
     ap.add_argument("--snapshot", metavar="LABEL",
-                    help="also freeze this report (standalone) into reports/archive/ with this label")
+                    help="also freeze this report (standalone) into reports/archive/ with this label, and record "
+                    "the family health in reports/health-history.json (do this after every full run)")
     args = ap.parse_args(argv)
 
     if args.report:
@@ -180,6 +244,7 @@ def main(argv: list[str] | None = None) -> int:
 
     report = json.loads(src.read_text(encoding="utf-8"))
     notes = read_notes(args.notes)
+    all_rows: list[dict] | None = None
     audit_srcs: list[Path] = []
     if args.audit:
         audit_srcs = [Path(a) for a in args.audit.split(",")]
@@ -190,6 +255,7 @@ def main(argv: list[str] | None = None) -> int:
         report["_audit"] = audit_summary(audit_srcs, read_notes(args.audit_notes))
     if args.findings:
         rows = json.loads(Path(args.findings).read_text(encoding="utf-8"))
+        all_rows = rows
         report["findings"], report["_changes"] = from_export(rows, f"discovery-run{report['run_id']}")
         if not audit_src:
             report["findings"] = [f for f in report["findings"] if f["source"] != "crawl-audit"]
@@ -201,12 +267,14 @@ def main(argv: list[str] | None = None) -> int:
                   file=sys.stderr)
             return 1
         report["findings"] = store.findings()
+        all_rows = store.findings(("open", "unverified", "resolved", "superseded"))
         report["_changes"] = store.changes(run_ref)
         if not audit_src:
             report["findings"] = [f for f in report["findings"] if f["source"] != "crawl-audit"]
     else:
         print(f"No findings store at {args.store}; using the run's own findings.", file=sys.stderr)
     add_families(report)
+    add_views(report, all_rows)
     run_date = run_date_of(src, "discovery-")
 
     out = Path(args.out) if args.out else src.with_suffix(".html")
@@ -214,6 +282,7 @@ def main(argv: list[str] | None = None) -> int:
     out.write_text(build(report, notes, run_date, args.standalone), encoding="utf-8")
     if args.snapshot:
         print(f"Snapshot: {snapshot(build(report, notes, run_date, standalone=True), args.snapshot, report)}")
+        record_health(report)
     print(f"Wrote {out} ({out.stat().st_size / 1024:.0f} KB) from {src.name}"
           + (f" and {len(audit_srcs)} crawl-audit runs (newest {audit_src.name})" if audit_src else ""))
     return 0

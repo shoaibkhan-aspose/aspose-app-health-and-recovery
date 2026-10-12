@@ -1,0 +1,37 @@
+[
+ {
+  "date": "2026-10-12",
+  "runs": "discovery run 8, crawl audit run 9",
+  "families": {
+   "drawing": 20,
+   "omr": 38,
+   "cells": 47,
+   "slides": 48,
+   "cad": 53,
+   "total": 56,
+   "ocr": 56,
+   "svg": 57,
+   "gis": 64,
+   "3d": 69,
+   "finance": 69,
+   "html": 70,
+   "psd": 70,
+   "tasks": 70,
+   "note": 70,
+   "pub": 72,
+   "tex": 72,
+   "zip": 73,
+   "page": 73,
+   "font": 74,
+   "email": 76,
+   "words": 81,
+   "pdf": 81,
+   "ebook": 81,
+   "imaging": 84,
+   "audio": 84,
+   "video": 85,
+   "diagram": 85,
+   "barcode": 88
+  }
+ }
+]
