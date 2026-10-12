@@ -93,6 +93,13 @@ tr:last-child td { border-bottom: 0 }
 .top li { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--sev); border-radius: 6px; padding: 10px 12px; display: grid; grid-template-columns: auto 1fr; gap: 2px 12px; align-items: baseline }
 .top li .ftitle a { color: inherit; text-decoration: none } .top li .ftitle a:hover { text-decoration: underline }
 .top li .fsub { grid-column: 2 }
+.extremes { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 8px }
+.ext { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; display: grid; gap: 2px; min-width: 0 }
+.ext .k { font: 600 11px var(--body); letter-spacing: .05em; text-transform: uppercase; color: var(--muted) }
+.ext button { all: unset; cursor: pointer; font: 500 15px var(--mono); color: var(--accent); justify-self: start }
+.ext button:hover { text-decoration: underline } .ext button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+.ext .v { font-size: 13px; color: var(--fg); font-variant-numeric: tabular-nums }
+.card.flash { outline: 3px solid var(--accent); outline-offset: 2px }
 .famhead { display: flex; flex-wrap: wrap; gap: 8px; align-items: center }
 .famhead .count { margin-left: auto }
 .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px }
@@ -141,9 +148,16 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
   <section aria-labelledby="s-fam" id="fam-wrap" hidden>
     <h2 id="s-fam">Product families <small id="fam-meta"></small></h2>
     <p class="lede"><b>Health</b> (A–F, 0–100) measures how broken a family is and ignores traffic, so every family's team can compare itself on equal terms. Each open finding costs broken 40, incorrect 20, not optimized 6 or improvable 2 points, times the share of the family it affects. Findings with one root cause count once, cosmetic issues cost at most 20, and a canonical pointing at a missing page counts as broken. <b>Traffic</b> shows how much the family matters to the business: Search Console clicks now, against the previous period and six months ago.</p>
+    <div class="extremes" id="fam-ext"></div>
     <div class="famhead">
       <label for="fam-sort" class="dim">Sort</label>
-      <select id="fam-sort"><option value="health">Worst health first</option><option value="traffic">Most traffic first</option><option value="drop">Biggest traffic drop first</option><option value="name">Name</option></select>
+      <select id="fam-sort">
+        <optgroup label="Health"><option value="health-worst">Worst health first</option><option value="health-best">Best health first</option></optgroup>
+        <optgroup label="Traffic (last 28 days)"><option value="traffic-most">Most traffic first</option><option value="traffic-least">Least traffic first</option></optgroup>
+        <optgroup label="Change vs six months ago"><option value="six-drop">Biggest drop first</option><option value="six-gain">Biggest gain first</option></optgroup>
+        <optgroup label="Change vs previous 28 days"><option value="prev-drop">Biggest drop first</option><option value="prev-gain">Biggest gain first</option></optgroup>
+        <optgroup label="Name"><option value="name">A to Z</option></optgroup>
+      </select>
       <span class="count" id="fam-count"></span>
     </div>
     <div class="cards" id="fam-cards"></div>
@@ -250,9 +264,13 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
     $("fam-wrap").hidden = false;
     $("fam-meta").textContent = `${famHost} · ${cards.length} families · Search Console ${W.current[0]} to ${W.current[1]}`;
     const clicks = (c, w) => ((c.traffic[w] || {}).clicks) || 0;
-    const pct = (now, then) => then ? Math.round(100 * (now - then) / then) : null;
-    const delta = (now, then, label) => { const p = pct(now, then); if (p == null) return "";
-      return ` <span class="${p <= -30 ? "drop" : p >= 30 ? "rise" : ""}">${p > 0 ? "+" : ""}${p}%</span> vs ${label}`; };
+    // A change is only ranked when the earlier window had enough clicks: 3 -> 10 is "+233%" but means nothing.
+    const MIN_BASE = 100;
+    const change = (c, w) => { const then = clicks(c, w); return then >= MIN_BASE ? Math.round(100 * (clicks(c, "current") - then) / then) : null; };
+    const signed = p => `${p > 0 ? "+" : p < 0 ? "−" : ""}${Math.abs(p)}%`;
+    const delta = (c, w, label) => { const p = change(c, w);
+      if (p == null) return clicks(c, w) || clicks(c, "current") ? ` · <span class="dim">too little traffic to compare</span>` : "";
+      return ` <span class="${p <= -30 ? "drop" : p >= 30 ? "rise" : ""}">${signed(p)}</span> vs ${label}`; };
     const FAM_SHOWN = 12;
     let famAll = false;
     const cardHtml = c => {
@@ -261,10 +279,10 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
       const chips = [["broken", "broken"], ["incorrect", "incorrect"], ["not_optimized", "not optimized"], ["improvable", "improvable"]]
         .filter(([k]) => c.counts[k]).map(([k, l]) => `<span class="chip ${k}">${c.counts[k]} ${l}</span>`).join("");
       const why = c.penalties.filter(x => x.points >= 1).slice(0, 4).map(x => `${x.group.startsWith("manual:") ? "manual review" : x.group} −${Math.round(x.points)}`).join(" · ");
-      return `<article class="card g-${c.grade}">
+      return `<article class="card g-${c.grade}" id="card-${esc(c.family)}">
         <h3><span class="fam">/${esc(c.family)}/</span><span class="gradebox" title="Health ${c.health}/100"><b>${c.grade}</b><span>${c.health}</span></span></h3>
-        <div class="line"><b>${compact(now)}</b> clicks · ${compact(impr)} impressions${delta(now, prev, "prev. 28 days")}</div>
-        <div class="line">6 months ago: ${compact(six)} clicks${delta(now, six, "then")}</div>
+        <div class="line"><b>${compact(now)}</b> clicks · ${compact(impr)} impressions${delta(c, "previous", "prev. 28 days")}</div>
+        <div class="line">6 months ago: ${compact(six)} clicks${delta(c, "six_months_ago", "then")}</div>
         <div class="line">${c.urls ? `${fmt(c.urls)} URLs in sitemaps` : `<span class="bad">no URLs in any working sitemap</span>`} · ${c.langs || "–"} languages</div>
         ${chips ? `<div class="chips">${chips}</div>` : `<div class="chips"><span class="chip ok">no open findings</span></div>`}
         ${c.top.length ? `<ol>${c.top.map(t => `<li>${t.blocker ? '<span class="blocker">BLOCKER</span>' : ""}<a href="#f-${esc(t.id)}" data-open="${esc(t.id)}">${esc(t.title)}</a></li>`).join("")}</ol>` : ""}
@@ -273,11 +291,47 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
         <button type="button" class="more" data-fam="${esc(c.family)}">See ${Object.values(c.counts).reduce((a, b) => a + b, 0)} findings</button>
       </article>`;
     };
+    const byTraffic = (a, b) => clicks(b, "current") - clicks(a, "current") || a.family.localeCompare(b.family);
+    // families too small to compare always go last, in traffic order
+    const byChange = (w, dir) => (a, b) => { const x = change(a, w), y = change(b, w);
+      if (x == null || y == null) return x == null && y == null ? byTraffic(a, b) : x == null ? 1 : -1;
+      return dir * (x - y) || byTraffic(a, b); };
+    const SORTS = {
+      "health-worst": (a, b) => a.health - b.health || byTraffic(a, b),
+      "health-best": (a, b) => b.health - a.health || byTraffic(a, b),
+      "traffic-most": byTraffic,
+      "traffic-least": (a, b) => clicks(a, "current") - clicks(b, "current") || a.family.localeCompare(b.family),
+      "six-drop": byChange("six_months_ago", 1), "six-gain": byChange("six_months_ago", -1),
+      "prev-drop": byChange("previous", 1), "prev-gain": byChange("previous", -1),
+      "name": (a, b) => a.family.localeCompare(b.family),
+    };
+    try { const saved = localStorage.getItem("fam-sort"); if (saved && SORTS[saved]) $("fam-sort").value = saved; } catch (e) {}
+
+    // the extremes, one click from their card
+    const first = key => cards.slice().sort(SORTS[key])[0];
+    const firstChange = key => { const c = first(key); return c && change(c, key.startsWith("six") ? "six_months_ago" : "previous") != null ? c : null; };
+    const EXT = [
+      ["Worst health", first("health-worst"), c => `${c.grade} · ${c.health}`],
+      ["Best health", first("health-best"), c => `${c.grade} · ${c.health}`],
+      ["Most traffic", first("traffic-most"), c => `${compact(clicks(c, "current"))} clicks`],
+      ["Least traffic", first("traffic-least"), c => `${compact(clicks(c, "current"))} clicks`],
+      ["Biggest drop, 6 months", firstChange("six-drop"), c => `${signed(change(c, "six_months_ago"))} · ${compact(clicks(c, "six_months_ago"))} to ${compact(clicks(c, "current"))}`],
+      ["Biggest gain, 6 months", firstChange("six-gain"), c => `${signed(change(c, "six_months_ago"))} · ${compact(clicks(c, "six_months_ago"))} to ${compact(clicks(c, "current"))}`],
+    ].filter(([, c]) => c);
+    $("fam-ext").innerHTML = EXT.map(([k, c, v]) => `<div class="ext"><span class="k">${esc(k)}</span><button type="button" data-jump="${esc(c.family)}">/${esc(c.family)}/</button><span class="v">${esc(v(c))}</span></div>`).join("");
+    $("fam-ext").addEventListener("click", e => {
+      const b = e.target.closest("button[data-jump]"); if (!b) return;
+      const shownNow = !!document.getElementById("card-" + b.dataset.jump);
+      if (!shownNow) { famAll = true; renderCards(); }
+      const el = document.getElementById("card-" + b.dataset.jump); if (!el) return;
+      el.scrollIntoView({ behavior: "smooth", block: "center" });
+      el.classList.add("flash"); setTimeout(() => el.classList.remove("flash"), 1600);
+    });
+
     const renderCards = () => {
       const by = $("fam-sort").value;
-      const list = cards.slice().sort(by === "traffic" ? (a, b) => clicks(b, "current") - clicks(a, "current")
-        : by === "drop" ? (a, b) => (pct(clicks(a, "current"), clicks(a, "six_months_ago")) ?? 0) - (pct(clicks(b, "current"), clicks(b, "six_months_ago")) ?? 0)
-        : by === "name" ? (a, b) => a.family.localeCompare(b.family) : (a, b) => a.health - b.health || clicks(b, "current") - clicks(a, "current"));
+      try { localStorage.setItem("fam-sort", by); } catch (e) {}
+      const list = cards.slice().sort(SORTS[by] || SORTS["health-worst"]);
       const shown = famAll ? list : list.slice(0, FAM_SHOWN);
       $("fam-cards").innerHTML = shown.map(cardHtml).join("");
       $("fam-count").textContent = `${shown.length} of ${list.length}`;
