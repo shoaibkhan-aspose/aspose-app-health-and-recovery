@@ -65,6 +65,15 @@
       "impressions_28d": 18294769,
       "source": "gsc-host",
       "share": 1.0,
+      "past_clicks": 1449347,
+      "past_impressions": 18207511,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 20,
       "window": [
         "2026-09-09",
@@ -110,6 +119,15 @@
       "impressions_28d": 2702,
       "source": "gsc-host",
       "share": 1.0,
+      "past_clicks": 20,
+      "past_impressions": 4652,
+      "lost_clicks": 3,
+      "lost_impressions": 1950,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 7,
       "window": [
         "2026-09-09",
@@ -153,6 +171,15 @@
       "impressions_28d": 58076,
       "source": "gsc-host",
       "share": 1.0,
+      "past_clicks": 288,
+      "past_impressions": 80567,
+      "lost_clicks": 129,
+      "lost_impressions": 22491,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 11,
       "window": [
         "2026-09-09",
@@ -196,6 +223,15 @@
       "impressions_28d": 795,
       "source": "gsc-host",
       "share": 1.0,
+      "past_clicks": 12,
+      "past_impressions": 1874,
+      "lost_clicks": 11,
+      "lost_impressions": 1079,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "lost",
       "score": 4,
       "window": [
         "2026-09-09",
@@ -461,6 +497,15 @@
       "impressions_28d": 7097,
       "source": "gsc-section",
       "share": 0.021,
+      "past_clicks": 992,
+      "past_impressions": 11695,
+      "lost_clicks": 204,
+      "lost_impressions": 4598,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 23,
       "window": [
         "2026-09-09",
@@ -540,6 +585,15 @@
       "impressions_28d": 402725,
       "source": "gsc-section",
       "share": 0.537,
+      "past_clicks": 39953,
+      "past_impressions": 468129,
+      "lost_clicks": 1722,
+      "lost_impressions": 65404,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 37,
       "window": [
         "2026-09-09",
@@ -614,6 +668,15 @@
       "impressions_28d": 4568,
       "source": "gsc-section",
       "share": 0.018,
+      "past_clicks": 239,
+      "past_impressions": 2085,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 21,
       "window": [
         "2026-09-09",
@@ -714,6 +777,15 @@
       "impressions_28d": 0,
       "source": "gsc-section",
       "share": 0.0,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -764,6 +836,15 @@
       "impressions_28d": 1493,
       "source": "gsc-host",
       "share": 0.0,
+      "past_clicks": 118,
+      "past_impressions": 1485,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 43,
       "window": [
         "2026-09-09",
@@ -814,7 +895,16 @@
       "impressions_28d": 1819,
       "source": "gsc-section",
       "share": 1.0,
-      "score": 29,
+      "past_clicks": 569,
+      "past_impressions": 70192,
+      "lost_clicks": 559,
+      "lost_impressions": 68373,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "lost",
+      "score": 56,
       "window": [
         "2026-09-09",
         "2026-10-06"
@@ -864,6 +954,15 @@
       "impressions_28d": 0,
       "source": "gsc-section",
       "share": 0.0,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -920,6 +1019,15 @@
       "impressions_28d": 1585338,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 28120,
+      "past_impressions": 1606675,
+      "lost_clicks": 15165,
+      "lost_impressions": 21337,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 89,
       "window": [
         "2026-09-09",
@@ -970,6 +1078,15 @@
       "impressions_28d": 340667,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 47635,
+      "past_impressions": 561362,
+      "lost_clicks": 9821,
+      "lost_impressions": 220695,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 37,
       "window": [
         "2026-09-09",
@@ -1049,6 +1166,15 @@
       "impressions_28d": 428052,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 34848,
+      "past_impressions": 368100,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 37,
       "window": [
         "2026-09-09",
@@ -1099,6 +1225,15 @@
       "impressions_28d": 2417147,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 220622,
+      "past_impressions": 2273427,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 40,
       "window": [
         "2026-09-09",
@@ -1149,6 +1284,15 @@
       "impressions_28d": 37419,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 11830,
+      "past_impressions": 137104,
+      "lost_clicks": 6471,
+      "lost_impressions": 99685,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 30,
       "window": [
         "2026-09-09",
@@ -1228,6 +1372,15 @@
       "impressions_28d": 2114567,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 216715,
+      "past_impressions": 1900260,
+      "lost_clicks": 12140,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 40,
       "window": [
         "2026-09-09",
@@ -1307,6 +1460,15 @@
       "impressions_28d": 85301,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 12493,
+      "past_impressions": 130794,
+      "lost_clicks": 1107,
+      "lost_impressions": 45493,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 33,
       "window": [
         "2026-09-09",
@@ -1369,6 +1531,15 @@
       "impressions_28d": 132803,
       "source": "gsc-section",
       "share": 0.967,
+      "past_clicks": 7195,
+      "past_impressions": 111849,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 32,
       "window": [
         "2026-09-09",
@@ -1419,6 +1590,15 @@
       "impressions_28d": 87530,
       "source": "gsc-section",
       "share": 0.217,
+      "past_clicks": 5538,
+      "past_impressions": 75525,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 31,
       "window": [
         "2026-09-09",
@@ -1469,6 +1649,15 @@
       "impressions_28d": 102115,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 5120,
+      "past_impressions": 106996,
+      "lost_clicks": 0,
+      "lost_impressions": 4881,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 31,
       "window": [
         "2026-09-09",
@@ -1537,6 +1726,15 @@
       "impressions_28d": 230598,
       "source": "gsc-section",
       "share": 0.979,
+      "past_clicks": 26651,
+      "past_impressions": 221304,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 36,
       "window": [
         "2026-09-09",
@@ -1587,6 +1785,15 @@
       "impressions_28d": 621980,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 29281,
+      "past_impressions": 404611,
+      "lost_clicks": 4680,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 36,
       "window": [
         "2026-09-09",
@@ -1666,6 +1873,15 @@
       "impressions_28d": 750045,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 74409,
+      "past_impressions": 871857,
+      "lost_clicks": 3206,
+      "lost_impressions": 121812,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 39,
       "window": [
         "2026-09-09",
@@ -1716,6 +1932,15 @@
       "impressions_28d": 4370,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 352,
+      "past_impressions": 3522,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 22,
       "window": [
         "2026-09-09",
@@ -1766,6 +1991,15 @@
       "impressions_28d": 145455,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 20305,
+      "past_impressions": 353661,
+      "lost_clicks": 12163,
+      "lost_impressions": 208206,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 32,
       "window": [
         "2026-09-09",
@@ -1816,6 +2050,15 @@
       "impressions_28d": 40450,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 3527,
+      "past_impressions": 50619,
+      "lost_clicks": 0,
+      "lost_impressions": 10169,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 29,
       "window": [
         "2026-09-09",
@@ -1866,6 +2109,15 @@
       "impressions_28d": 39209,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 2882,
+      "past_impressions": 30216,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 29,
       "window": [
         "2026-09-09",
@@ -1916,6 +2168,15 @@
       "impressions_28d": 84587,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 11531,
+      "past_impressions": 125363,
+      "lost_clicks": 3604,
+      "lost_impressions": 40776,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 32,
       "window": [
         "2026-09-09",
@@ -1966,6 +2227,15 @@
       "impressions_28d": 18683,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 2661,
+      "past_impressions": 20798,
+      "lost_clicks": 0,
+      "lost_impressions": 2115,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 29,
       "window": [
         "2026-09-09",
@@ -2016,6 +2286,15 @@
       "impressions_28d": 23130,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 1875,
+      "past_impressions": 34176,
+      "lost_clicks": 0,
+      "lost_impressions": 11046,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 27,
       "window": [
         "2026-09-09",
@@ -2066,6 +2345,15 @@
       "impressions_28d": 337472,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 21305,
+      "past_impressions": 348420,
+      "lost_clicks": 0,
+      "lost_impressions": 10948,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 35,
       "window": [
         "2026-09-09",
@@ -2145,6 +2433,15 @@
       "impressions_28d": 3567649,
       "source": "gsc-section",
       "share": 0.768,
+      "past_clicks": 294061,
+      "past_impressions": 3735911,
+      "lost_clicks": 0,
+      "lost_impressions": 168262,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 40,
       "window": [
         "2026-09-09",
@@ -2195,6 +2492,15 @@
       "impressions_28d": 440866,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 33039,
+      "past_impressions": 460852,
+      "lost_clicks": 0,
+      "lost_impressions": 19986,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 37,
       "window": [
         "2026-09-09",
@@ -2274,6 +2580,15 @@
       "impressions_28d": 2702,
       "source": "gsc-host",
       "share": 1.0,
+      "past_clicks": 20,
+      "past_impressions": 4652,
+      "lost_clicks": 3,
+      "lost_impressions": 1950,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 7,
       "window": [
         "2026-09-09",
@@ -2403,6 +2718,15 @@
       "impressions_28d": 235548,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 27223,
+      "past_impressions": 226054,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 18,
       "window": [
         "2026-09-09",
@@ -2453,6 +2777,15 @@
       "impressions_28d": 750045,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 74409,
+      "past_impressions": 871857,
+      "lost_clicks": 3206,
+      "lost_impressions": 121812,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 20,
       "window": [
         "2026-09-09",
@@ -2546,6 +2879,15 @@
       "impressions_28d": 64841,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 5063,
+      "past_impressions": 54467,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 15,
       "window": [
         "2026-09-09",
@@ -2625,6 +2967,15 @@
       "impressions_28d": 175364,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 12959,
+      "past_impressions": 213105,
+      "lost_clicks": 945,
+      "lost_impressions": 37741,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 17,
       "window": [
         "2026-09-09",
@@ -2704,6 +3055,15 @@
       "impressions_28d": 248723,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 13015,
+      "past_impressions": 113501,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 17,
       "window": [
         "2026-09-09",
@@ -2754,6 +3114,15 @@
       "impressions_28d": 892,
       "source": "gsc-host",
       "share": 1.0,
+      "past_clicks": 11,
+      "past_impressions": 1589,
+      "lost_clicks": 5,
+      "lost_impressions": 697,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 5,
       "window": [
         "2026-09-09",
@@ -2880,6 +3249,15 @@
       "impressions_28d": 795,
       "source": "gsc-host",
       "share": 1.0,
+      "past_clicks": 12,
+      "past_impressions": 1874,
+      "lost_clicks": 11,
+      "lost_impressions": 1079,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "lost",
       "score": 4,
       "window": [
         "2026-09-09",
@@ -3068,6 +3446,15 @@
       "impressions_28d": 175364,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 12959,
+      "past_impressions": 213105,
+      "lost_clicks": 945,
+      "lost_impressions": 37741,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 83,
       "window": [
         "2026-09-09",
@@ -3241,6 +3628,15 @@
       "impressions_28d": 1585338,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 28120,
+      "past_impressions": 1606675,
+      "lost_clicks": 15165,
+      "lost_impressions": 21337,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 89,
       "window": [
         "2026-09-09",
@@ -3284,7 +3680,16 @@
       "impressions_28d": 1819,
       "source": "gsc-section",
       "share": 1.0,
-      "score": 29,
+      "past_clicks": 569,
+      "past_impressions": 70192,
+      "lost_clicks": 559,
+      "lost_impressions": 68373,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "lost",
+      "score": 56,
       "window": [
         "2026-09-09",
         "2026-10-06"
@@ -3378,6 +3783,15 @@
       "impressions_28d": 465,
       "source": "gsc-section",
       "share": 0.005,
+      "past_clicks": 68,
+      "past_impressions": 714,
+      "lost_clicks": 6,
+      "lost_impressions": 249,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 15,
       "window": [
         "2026-09-09",
@@ -3425,6 +3839,15 @@
       "impressions_28d": 163,
       "source": "gsc-section",
       "share": 0.023,
+      "past_clicks": 26,
+      "past_impressions": 180,
+      "lost_clicks": 1,
+      "lost_impressions": 17,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 12,
       "window": [
         "2026-09-09",
@@ -3468,6 +3891,15 @@
       "impressions_28d": 50,
       "source": "gsc-section",
       "share": 0.0,
+      "past_clicks": 3,
+      "past_impressions": 23,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 6,
       "window": [
         "2026-09-09",
@@ -3515,7 +3947,16 @@
       "impressions_28d": 241,
       "source": "gsc-host",
       "share": 0.303,
-      "score": 4,
+      "past_clicks": 4,
+      "past_impressions": 568,
+      "lost_clicks": 4,
+      "lost_impressions": 327,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "lost",
+      "score": 5,
       "window": [
         "2026-09-09",
         "2026-10-06"
@@ -3772,6 +4213,15 @@
       "impressions_28d": 892,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 11,
+      "past_impressions": 1589,
+      "lost_clicks": 5,
+      "lost_impressions": 697,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 5,
       "window": [
         "2026-09-09",
@@ -3956,6 +4406,15 @@
       "impressions_28d": 6556,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 618,
+      "past_impressions": 12667,
+      "lost_clicks": 37,
+      "lost_impressions": 6111,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 11,
       "window": [
         "2026-09-09",
@@ -4152,6 +4611,15 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -4449,6 +4917,15 @@
       "impressions_28d": 221,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 3,
+      "past_impressions": 341,
+      "lost_clicks": 3,
+      "lost_impressions": 120,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 4,
       "window": [
         "2026-09-09",
@@ -4582,6 +5059,15 @@
       "impressions_28d": 1750532,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 186702,
+      "past_impressions": 1638656,
+      "lost_clicks": 12770,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 70,
       "window": [
         "2026-09-09",
@@ -4677,7 +5163,16 @@
       "impressions_28d": 92,
       "source": "gsc-template",
       "share": null,
-      "score": 4,
+      "past_clicks": 38,
+      "past_impressions": 756,
+      "lost_clicks": 32,
+      "lost_impressions": 664,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "lost",
+      "score": 5,
       "window": [
         "2026-09-09",
         "2026-10-06"
@@ -4733,6 +5228,15 @@
       "impressions_28d": 49703,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 2507,
+      "past_impressions": 39414,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 28,
       "window": [
         "2026-09-09",
@@ -4817,6 +5321,15 @@
       "impressions_28d": 112545,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 1040,
+      "past_impressions": 49367,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 27,
       "window": [
         "2026-09-09",
@@ -4901,6 +5414,15 @@
       "impressions_28d": 112545,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 1040,
+      "past_impressions": 49367,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 27,
       "window": [
         "2026-09-09",
@@ -4965,7 +5487,16 @@
       "impressions_28d": 23,
       "source": "gsc-template",
       "share": null,
-      "score": 4,
+      "past_clicks": 10,
+      "past_impressions": 189,
+      "lost_clicks": 8,
+      "lost_impressions": 166,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "lost",
+      "score": 6,
       "window": [
         "2026-09-09",
         "2026-10-06"
@@ -5089,6 +5620,15 @@
       "impressions_28d": 175181,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 24881,
+      "past_impressions": 286928,
+      "lost_clicks": 5261,
+      "lost_impressions": 111747,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 61,
       "window": [
         "2026-09-09",
@@ -5158,6 +5698,15 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -5287,6 +5836,15 @@
       "impressions_28d": 97907,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 9893,
+      "past_impressions": 87605,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 57,
       "window": [
         "2026-09-09",
@@ -5416,6 +5974,15 @@
       "impressions_28d": 11452,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 394,
+      "past_impressions": 7521,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 41,
       "window": [
         "2026-09-09",
@@ -5525,6 +6092,15 @@
       "impressions_28d": 38497,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 5928,
+      "past_impressions": 73097,
+      "lost_clicks": 1821,
+      "lost_impressions": 34600,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 15,
       "window": [
         "2026-09-09",
@@ -5634,6 +6210,15 @@
       "impressions_28d": 79538,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 4909,
+      "past_impressions": 36222,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 15,
       "window": [
         "2026-09-09",
@@ -5751,6 +6336,15 @@
       "impressions_28d": 175327,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 12952,
+      "past_impressions": 212977,
+      "lost_clicks": 939,
+      "lost_impressions": 37650,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 83,
       "window": [
         "2026-09-09",
@@ -5829,6 +6423,15 @@
       "impressions_28d": 45708,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 1740,
+      "past_impressions": 21082,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 29,
       "window": [
         "2026-09-09",
@@ -5907,6 +6510,15 @@
       "impressions_28d": 45708,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 1740,
+      "past_impressions": 21082,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 29,
       "window": [
         "2026-09-09",
@@ -6041,6 +6653,15 @@
       "impressions_28d": 18710,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 5915,
+      "past_impressions": 68552,
+      "lost_clicks": 3235,
+      "lost_impressions": 49842,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 48,
       "window": [
         "2026-09-09",
@@ -6110,6 +6731,15 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -6186,6 +6816,15 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -6332,6 +6971,15 @@
       "impressions_28d": 32960,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 2544,
+      "past_impressions": 27336,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 50,
       "window": [
         "2026-09-09",
@@ -6447,6 +7095,15 @@
       "impressions_28d": 68691,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 3722,
+      "past_impressions": 57853,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 15,
       "window": [
         "2026-09-09",
@@ -6544,6 +7201,15 @@
       "impressions_28d": 7176,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 1139,
+      "past_impressions": 7916,
+      "lost_clicks": 60,
+      "lost_impressions": 740,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 12,
       "window": [
         "2026-09-09",
@@ -6604,6 +7270,15 @@
       "impressions_28d": 10,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 3,
+      "past_impressions": 76,
+      "lost_clicks": 1,
+      "lost_impressions": 66,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 2,
       "window": [
         "2026-09-09",
@@ -6709,6 +7384,15 @@
       "impressions_28d": 37419,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 11830,
+      "past_impressions": 137104,
+      "lost_clicks": 6471,
+      "lost_impressions": 99685,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 15,
       "window": [
         "2026-09-09",
@@ -6775,6 +7459,15 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -6841,7 +7534,16 @@
       "impressions_28d": 1819,
       "source": "gsc-template",
       "share": null,
-      "score": 29,
+      "past_clicks": 569,
+      "past_impressions": 70192,
+      "lost_clicks": 559,
+      "lost_impressions": 68373,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "lost",
+      "score": 56,
       "window": [
         "2026-09-09",
         "2026-10-06"
@@ -6901,6 +7603,15 @@
       "impressions_28d": 35494,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 5026,
+      "past_impressions": 87809,
+      "lost_clicks": 3055,
+      "lost_impressions": 52315,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 67,
       "window": [
         "2026-09-09",
@@ -6965,6 +7676,15 @@
       "impressions_28d": 1968,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 171,
+      "past_impressions": 2102,
+      "lost_clicks": 0,
+      "lost_impressions": 134,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 20,
       "window": [
         "2026-09-09",
@@ -7025,6 +7745,15 @@
       "impressions_28d": 10,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 3,
+      "past_impressions": 76,
+      "lost_clicks": 1,
+      "lost_impressions": 66,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 4,
       "window": [
         "2026-09-09",
@@ -7123,6 +7852,15 @@
       "impressions_28d": 16831,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 5270,
+      "past_impressions": 56696,
+      "lost_clicks": 2751,
+      "lost_impressions": 39865,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 27,
       "window": [
         "2026-09-09",
@@ -7187,6 +7925,15 @@
       "impressions_28d": 1968,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 171,
+      "past_impressions": 2102,
+      "lost_clicks": 0,
+      "lost_impressions": 134,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 20,
       "window": [
         "2026-09-09",
@@ -7247,6 +7994,15 @@
       "impressions_28d": 10,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 3,
+      "past_impressions": 76,
+      "lost_clicks": 1,
+      "lost_impressions": 66,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 4,
       "window": [
         "2026-09-09",
@@ -7290,6 +8046,15 @@
       "impressions_28d": 340667,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 47635,
+      "past_impressions": 561362,
+      "lost_clicks": 9821,
+      "lost_impressions": 220695,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 25,
       "window": [
         "2026-09-09",
@@ -7337,6 +8102,15 @@
       "impressions_28d": 428052,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 34848,
+      "past_impressions": 368100,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 25,
       "window": [
         "2026-09-09",
@@ -7380,6 +8154,15 @@
       "impressions_28d": 2417147,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 220622,
+      "past_impressions": 2273427,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 27,
       "window": [
         "2026-09-09",
@@ -7427,6 +8210,15 @@
       "impressions_28d": 2114567,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 216715,
+      "past_impressions": 1900260,
+      "lost_clicks": 12140,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 27,
       "window": [
         "2026-09-09",
@@ -7474,6 +8266,15 @@
       "impressions_28d": 85301,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 12493,
+      "past_impressions": 130794,
+      "lost_clicks": 1107,
+      "lost_impressions": 45493,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 22,
       "window": [
         "2026-09-09",
@@ -7521,6 +8322,15 @@
       "impressions_28d": 315702,
       "source": "gsc-section",
       "share": 0.783,
+      "past_clicks": 19976,
+      "past_impressions": 272402,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 42,
       "window": [
         "2026-09-09",
@@ -7568,6 +8378,15 @@
       "impressions_28d": 7013,
       "source": "gsc-section",
       "share": 0.977,
+      "past_clicks": 1113,
+      "past_impressions": 7736,
+      "lost_clicks": 59,
+      "lost_impressions": 723,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 28,
       "window": [
         "2026-09-09",
@@ -7611,6 +8430,15 @@
       "impressions_28d": 102115,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 5120,
+      "past_impressions": 106996,
+      "lost_clicks": 0,
+      "lost_impressions": 4881,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 20,
       "window": [
         "2026-09-09",
@@ -7658,6 +8486,15 @@
       "impressions_28d": 235548,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 27223,
+      "past_impressions": 226054,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 24,
       "window": [
         "2026-09-09",
@@ -7701,6 +8538,15 @@
       "impressions_28d": 621980,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 29281,
+      "past_impressions": 404611,
+      "lost_clicks": 4680,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 24,
       "window": [
         "2026-09-09",
@@ -7748,6 +8594,15 @@
       "impressions_28d": 750045,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 74409,
+      "past_impressions": 871857,
+      "lost_clicks": 3206,
+      "lost_impressions": 121812,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 26,
       "window": [
         "2026-09-09",
@@ -7791,6 +8646,15 @@
       "impressions_28d": 4370,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 352,
+      "past_impressions": 3522,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 15,
       "window": [
         "2026-09-09",
@@ -7834,6 +8698,15 @@
       "impressions_28d": 145455,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 20305,
+      "past_impressions": 353661,
+      "lost_clicks": 12163,
+      "lost_impressions": 208206,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 21,
       "window": [
         "2026-09-09",
@@ -7877,6 +8750,15 @@
       "impressions_28d": 40450,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 3527,
+      "past_impressions": 50619,
+      "lost_clicks": 0,
+      "lost_impressions": 10169,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 19,
       "window": [
         "2026-09-09",
@@ -7924,6 +8806,15 @@
       "impressions_28d": 2726449,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 191304,
+      "past_impressions": 2366377,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 27,
       "window": [
         "2026-09-09",
@@ -7971,6 +8862,15 @@
       "impressions_28d": 64841,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 5063,
+      "past_impressions": 54467,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 21,
       "window": [
         "2026-09-09",
@@ -8014,6 +8914,15 @@
       "impressions_28d": 39209,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 2882,
+      "past_impressions": 30216,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 19,
       "window": [
         "2026-09-09",
@@ -8057,6 +8966,15 @@
       "impressions_28d": 84587,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 11531,
+      "past_impressions": 125363,
+      "lost_clicks": 3604,
+      "lost_impressions": 40776,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 21,
       "window": [
         "2026-09-09",
@@ -8100,6 +9018,15 @@
       "impressions_28d": 18683,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 2661,
+      "past_impressions": 20798,
+      "lost_clicks": 0,
+      "lost_impressions": 2115,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 19,
       "window": [
         "2026-09-09",
@@ -8143,6 +9070,15 @@
       "impressions_28d": 23130,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 1875,
+      "past_impressions": 34176,
+      "lost_clicks": 0,
+      "lost_impressions": 11046,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 18,
       "window": [
         "2026-09-09",
@@ -8190,6 +9126,15 @@
       "impressions_28d": 248723,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 13015,
+      "past_impressions": 113501,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 23,
       "window": [
         "2026-09-09",
@@ -8233,6 +9178,15 @@
       "impressions_28d": 337472,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 21305,
+      "past_impressions": 348420,
+      "lost_clicks": 0,
+      "lost_impressions": 10948,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 23,
       "window": [
         "2026-09-09",
@@ -8276,6 +9230,15 @@
       "impressions_28d": 440866,
       "source": "gsc-section",
       "share": 1.0,
+      "past_clicks": 33039,
+      "past_impressions": 460852,
+      "lost_clicks": 0,
+      "lost_impressions": 19986,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 25,
       "window": [
         "2026-09-09",
@@ -8323,7 +9286,16 @@
       "impressions_28d": 361,
       "source": "gsc-host",
       "share": 0.455,
-      "score": 6,
+      "past_clicks": 5,
+      "past_impressions": 852,
+      "lost_clicks": 5,
+      "lost_impressions": 491,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "lost",
+      "score": 7,
       "window": [
         "2026-09-09",
         "2026-10-06"
@@ -8428,6 +9400,15 @@
       "impressions_28d": 621980,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 29281,
+      "past_impressions": 404611,
+      "lost_clicks": 4680,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 63,
       "window": [
         "2026-09-09",
@@ -8519,6 +9500,15 @@
       "impressions_28d": 2417038,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 220614,
+      "past_impressions": 2273333,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 20,
       "window": [
         "2026-09-09",
@@ -8732,6 +9722,15 @@
       "impressions_28d": 574,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 9,
+      "past_impressions": 1532,
+      "lost_clicks": 8,
+      "lost_impressions": 958,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "lost",
       "score": 5,
       "window": [
         "2026-09-09",
@@ -8894,7 +9893,16 @@
       "impressions_28d": 251,
       "source": "gsc-template",
       "share": null,
-      "score": 8,
+      "past_clicks": 6,
+      "past_impressions": 935,
+      "lost_clicks": 6,
+      "lost_impressions": 684,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "lost",
+      "score": 12,
       "window": [
         "2026-09-09",
         "2026-10-06"
@@ -9048,6 +10056,15 @@
       "impressions_28d": 892,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 11,
+      "past_impressions": 1589,
+      "lost_clicks": 5,
+      "lost_impressions": 697,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 5,
       "window": [
         "2026-09-09",
@@ -9207,6 +10224,15 @@
       "impressions_28d": 109,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 8,
+      "past_impressions": 94,
+      "lost_clicks": 4,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 4,
       "window": [
         "2026-09-09",
@@ -9273,6 +10299,15 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -9339,6 +10374,15 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -9405,6 +10449,15 @@
       "impressions_28d": 8,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 5,
+      "past_impressions": 41,
+      "lost_clicks": 3,
+      "lost_impressions": 33,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 3,
       "window": [
         "2026-09-09",
@@ -9471,6 +10524,15 @@
       "impressions_28d": 374,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 18,
+      "past_impressions": 112,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 8,
       "window": [
         "2026-09-09",
@@ -9549,6 +10611,15 @@
       "impressions_28d": 792283,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 13996,
+      "past_impressions": 802736,
+      "lost_clicks": 7551,
+      "lost_impressions": 10453,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 58,
       "window": [
         "2026-09-09",
@@ -9605,6 +10676,15 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -9669,6 +10749,15 @@
       "impressions_28d": 33,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 2,
       "window": [
         "2026-09-09",
@@ -9778,6 +10867,15 @@
       "impressions_28d": 38497,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 5928,
+      "past_impressions": 73097,
+      "lost_clicks": 1821,
+      "lost_impressions": 34600,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 51,
       "window": [
         "2026-09-09",
@@ -9844,6 +10942,15 @@
       "impressions_28d": 475,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 32,
+      "past_impressions": 1152,
+      "lost_clicks": 7,
+      "lost_impressions": 677,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 8,
       "window": [
         "2026-09-09",
@@ -9910,7 +11017,16 @@
       "impressions_28d": 106,
       "source": "gsc-template",
       "share": null,
-      "score": 7,
+      "past_clicks": 108,
+      "past_impressions": 1123,
+      "lost_clicks": 87,
+      "lost_impressions": 1017,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "lost",
+      "score": 9,
       "window": [
         "2026-09-09",
         "2026-10-06"
@@ -9990,6 +11106,15 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -10056,7 +11181,16 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
-      "score": 0,
+      "past_clicks": 2,
+      "past_impressions": 29,
+      "lost_clicks": 2,
+      "lost_impressions": 29,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "lost",
+      "score": 2,
       "window": [
         "2026-09-09",
         "2026-10-06"
@@ -10122,7 +11256,16 @@
       "impressions_28d": 37,
       "source": "gsc-template",
       "share": null,
-      "score": 2,
+      "past_clicks": 7,
+      "past_impressions": 128,
+      "lost_clicks": 6,
+      "lost_impressions": 91,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "lost",
+      "score": 3,
       "window": [
         "2026-09-09",
         "2026-10-06"
@@ -10188,6 +11331,15 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -10254,6 +11406,15 @@
       "impressions_28d": 16,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 6,
+      "past_impressions": 43,
+      "lost_clicks": 3,
+      "lost_impressions": 27,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 3,
       "window": [
         "2026-09-09",
@@ -10320,6 +11481,15 @@
       "impressions_28d": 79,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 18,
+      "past_impressions": 95,
+      "lost_clicks": 5,
+      "lost_impressions": 16,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 6,
       "window": [
         "2026-09-09",
@@ -10413,6 +11583,15 @@
       "impressions_28d": 165011,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 22722,
+      "past_impressions": 273282,
+      "lost_clicks": 4553,
+      "lost_impressions": 108271,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 60,
       "window": [
         "2026-09-09",
@@ -10477,6 +11656,15 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -10598,6 +11786,15 @@
       "impressions_28d": 248723,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 13015,
+      "past_impressions": 113501,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 61,
       "window": [
         "2026-09-09",
@@ -10707,6 +11904,15 @@
       "impressions_28d": 440787,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 33021,
+      "past_impressions": 460757,
+      "lost_clicks": 0,
+      "lost_impressions": 19970,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 64,
       "window": [
         "2026-09-09",
@@ -10808,6 +12014,15 @@
       "impressions_28d": 340192,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 47603,
+      "past_impressions": 560210,
+      "lost_clicks": 9814,
+      "lost_impressions": 220018,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 18,
       "window": [
         "2026-09-09",
@@ -10929,6 +12144,15 @@
       "impressions_28d": 248723,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 13015,
+      "past_impressions": 113501,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 17,
       "window": [
         "2026-09-09",
@@ -10993,6 +12217,15 @@
       "impressions_28d": 9696,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 410,
+      "past_impressions": 6132,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 40,
       "window": [
         "2026-09-09",
@@ -11069,6 +12302,15 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -11135,6 +12377,15 @@
       "impressions_28d": 3,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 1,
+      "past_impressions": 11,
+      "lost_clicks": 0,
+      "lost_impressions": 8,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 3,
       "window": [
         "2026-09-09",
@@ -11215,6 +12466,15 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -11320,6 +12580,15 @@
       "impressions_28d": 7176,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 1139,
+      "past_impressions": 7916,
+      "lost_clicks": 60,
+      "lost_impressions": 740,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 16,
       "window": [
         "2026-09-09",
@@ -11386,6 +12655,15 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -11452,7 +12730,16 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
-      "score": 0,
+      "past_clicks": 2,
+      "past_impressions": 4,
+      "lost_clicks": 2,
+      "lost_impressions": 4,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "lost",
+      "score": 2,
       "window": [
         "2026-09-09",
         "2026-10-06"
@@ -11518,7 +12805,16 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
-      "score": 0,
+      "past_clicks": 15,
+      "past_impressions": 254,
+      "lost_clicks": 15,
+      "lost_impressions": 254,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "lost",
+      "score": 5,
       "window": [
         "2026-09-09",
         "2026-10-06"
@@ -11584,6 +12880,15 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -11709,6 +13014,15 @@
       "impressions_28d": 64825,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 5059,
+      "past_impressions": 54461,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 21,
       "window": [
         "2026-09-09",
@@ -11775,6 +13089,15 @@
       "impressions_28d": 11,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 7,
+      "past_impressions": 67,
+      "lost_clicks": 5,
+      "lost_impressions": 56,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "lost",
       "score": 3,
       "window": [
         "2026-09-09",
@@ -11841,7 +13164,16 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
-      "score": 0,
+      "past_clicks": 1,
+      "past_impressions": 14,
+      "lost_clicks": 1,
+      "lost_impressions": 14,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "lost",
+      "score": 1,
       "window": [
         "2026-09-09",
         "2026-10-06"
@@ -11907,6 +13239,15 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -11973,6 +13314,15 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -12078,6 +13428,15 @@
       "impressions_28d": 102115,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 5120,
+      "past_impressions": 106996,
+      "lost_clicks": 0,
+      "lost_impressions": 4881,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 54,
       "window": [
         "2026-09-09",
@@ -12187,6 +13546,15 @@
       "impressions_28d": 4370,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 350,
+      "past_impressions": 3518,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 38,
       "window": [
         "2026-09-09",
@@ -12286,6 +13654,15 @@
       "impressions_28d": 72728,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 10145,
+      "past_impressions": 176704,
+      "lost_clicks": 6074,
+      "lost_impressions": 103976,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 52,
       "window": [
         "2026-09-09",
@@ -12391,6 +13768,15 @@
       "impressions_28d": 40450,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 3527,
+      "past_impressions": 50619,
+      "lost_clicks": 0,
+      "lost_impressions": 10169,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 51,
       "window": [
         "2026-09-09",
@@ -12488,6 +13874,15 @@
       "impressions_28d": 39190,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 2873,
+      "past_impressions": 30147,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 50,
       "window": [
         "2026-09-09",
@@ -12593,6 +13988,15 @@
       "impressions_28d": 84587,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 11530,
+      "past_impressions": 125349,
+      "lost_clicks": 3603,
+      "lost_impressions": 40762,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 55,
       "window": [
         "2026-09-09",
@@ -12702,6 +14106,15 @@
       "impressions_28d": 18683,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 2661,
+      "past_impressions": 20798,
+      "lost_clicks": 0,
+      "lost_impressions": 2115,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 50,
       "window": [
         "2026-09-09",
@@ -12803,6 +14216,15 @@
       "impressions_28d": 23130,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 1875,
+      "past_impressions": 34176,
+      "lost_clicks": 0,
+      "lost_impressions": 11046,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 47,
       "window": [
         "2026-09-09",
@@ -12912,6 +14334,15 @@
       "impressions_28d": 85298,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 12492,
+      "past_impressions": 130783,
+      "lost_clicks": 1109,
+      "lost_impressions": 45485,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 16,
       "window": [
         "2026-09-09",
@@ -13005,6 +14436,15 @@
       "impressions_28d": 3588,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 570,
+      "past_impressions": 3958,
+      "lost_clicks": 30,
+      "lost_impressions": 370,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 39,
       "window": [
         "2026-09-09",
@@ -13102,6 +14542,15 @@
       "impressions_28d": 18294,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 111,
+      "past_impressions": 3117,
+      "lost_clicks": 4,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 10,
       "window": [
         "2026-09-09",
@@ -13219,6 +14668,15 @@
       "impressions_28d": 27776,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 445,
+      "past_impressions": 9414,
+      "lost_clicks": 35,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 11,
       "window": [
         "2026-09-09",
@@ -13295,6 +14753,15 @@
       "impressions_28d": 202,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 105,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 3,
       "window": [
         "2026-09-09",
@@ -13601,6 +15068,15 @@
       "impressions_28d": 4249,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 1203,
+      "past_impressions": 17705,
+      "lost_clicks": 594,
+      "lost_impressions": 13456,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 11,
       "window": [
         "2026-09-09",
@@ -13698,6 +15174,15 @@
       "impressions_28d": 345,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 6,
+      "past_impressions": 742,
+      "lost_clicks": 4,
+      "lost_impressions": 397,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 3,
       "window": [
         "2026-09-09",
@@ -13879,6 +15364,15 @@
       "impressions_28d": 2702,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 20,
+      "past_impressions": 4652,
+      "lost_clicks": 3,
+      "lost_impressions": 1950,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 7,
       "window": [
         "2026-09-09",
@@ -13967,6 +15461,15 @@
       "impressions_28d": 56814,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 282,
+      "past_impressions": 79248,
+      "lost_clicks": 129,
+      "lost_impressions": 22434,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 11,
       "window": [
         "2026-09-09",
@@ -14229,6 +15732,15 @@
       "impressions_28d": 202,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 105,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 2,
       "window": [
         "2026-09-09",
@@ -14333,6 +15845,15 @@
       "impressions_28d": 574,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 9,
+      "past_impressions": 1532,
+      "lost_clicks": 8,
+      "lost_impressions": 958,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "lost",
       "score": 4,
       "window": [
         "2026-09-09",
@@ -14397,6 +15918,15 @@
       "impressions_28d": 28375,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 141,
+      "past_impressions": 39573,
+      "lost_clicks": 65,
+      "lost_impressions": 11198,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 10,
       "window": [
         "2026-09-09",
@@ -14658,6 +16188,15 @@
       "impressions_28d": 868,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 11,
+      "past_impressions": 1562,
+      "lost_clicks": 5,
+      "lost_impressions": 694,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 5,
       "window": [
         "2026-09-09",
@@ -14792,6 +16331,15 @@
       "impressions_28d": 146,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 2,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 2,
       "window": [
         "2026-09-09",
@@ -14866,6 +16414,15 @@
       "impressions_28d": 249,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 4,
+      "past_impressions": 399,
+      "lost_clicks": 2,
+      "lost_impressions": 150,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 4,
       "window": [
         "2026-09-09",
@@ -14932,6 +16489,15 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -15084,6 +16650,15 @@
       "impressions_28d": 28375,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 141,
+      "past_impressions": 39573,
+      "lost_clicks": 65,
+      "lost_impressions": 11198,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 10,
       "window": [
         "2026-09-09",
@@ -15446,6 +17021,15 @@
       "impressions_28d": 374,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 18,
+      "past_impressions": 112,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 8,
       "window": [
         "2026-09-09",
@@ -15516,6 +17100,15 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -15616,6 +17209,15 @@
       "impressions_28d": 112611,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 1040,
+      "past_impressions": 49367,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 14,
       "window": [
         "2026-09-09",
@@ -15729,6 +17331,15 @@
       "impressions_28d": 502583,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 49810,
+      "past_impressions": 561705,
+      "lost_clicks": 1227,
+      "lost_impressions": 59122,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 19,
       "window": [
         "2026-09-09",
@@ -15813,6 +17424,15 @@
       "impressions_28d": 792322,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 13996,
+      "past_impressions": 802736,
+      "lost_clicks": 7549,
+      "lost_impressions": 10414,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 17,
       "window": [
         "2026-09-09",
@@ -15897,6 +17517,15 @@
       "impressions_28d": 221594,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 23308,
+      "past_impressions": 263519,
+      "lost_clicks": 960,
+      "lost_impressions": 41925,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 18,
       "window": [
         "2026-09-09",
@@ -15961,6 +17590,15 @@
       "impressions_28d": 153157,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 12318,
+      "past_impressions": 190548,
+      "lost_clicks": 1322,
+      "lost_impressions": 37391,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 16,
       "window": [
         "2026-09-09",
@@ -16047,6 +17685,15 @@
       "impressions_28d": 1584527,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 27993,
+      "past_impressions": 1605473,
+      "lost_clicks": 15105,
+      "lost_impressions": 20946,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 18,
       "window": [
         "2026-09-09",
@@ -16117,6 +17764,15 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -16191,6 +17847,15 @@
       "impressions_28d": 62509,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 10072,
+      "past_impressions": 76952,
+      "lost_clicks": 2677,
+      "lost_impressions": 14443,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 16,
       "window": [
         "2026-09-09",
@@ -16301,6 +17966,15 @@
       "impressions_28d": 128835,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 10430,
+      "past_impressions": 167476,
+      "lost_clicks": 3570,
+      "lost_impressions": 38641,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 16,
       "window": [
         "2026-09-09",
@@ -16357,6 +18031,15 @@
       "impressions_28d": 120,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 17,
+      "past_impressions": 147,
+      "lost_clicks": 1,
+      "lost_impressions": 27,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 5,
       "window": [
         "2026-09-09",
@@ -16421,6 +18104,15 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -16491,6 +18183,15 @@
       "impressions_28d": 49131,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 6295,
+      "past_impressions": 64072,
+      "lost_clicks": 387,
+      "lost_impressions": 14941,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 20,
       "window": [
         "2026-09-09",
@@ -16561,6 +18262,15 @@
       "impressions_28d": 48,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 34,
+      "past_impressions": 164,
+      "lost_clicks": 20,
+      "lost_impressions": 116,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 6,
       "window": [
         "2026-09-09",
@@ -16631,6 +18341,15 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -16726,6 +18445,15 @@
       "impressions_28d": 195357,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 25183,
+      "past_impressions": 252661,
+      "lost_clicks": 1593,
+      "lost_impressions": 57304,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 18,
       "window": [
         "2026-09-09",
@@ -16820,6 +18548,15 @@
       "impressions_28d": 139406,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 13216,
+      "past_impressions": 132991,
+      "lost_clicks": 1122,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 17,
       "window": [
         "2026-09-09",
@@ -16939,6 +18676,15 @@
       "impressions_28d": 101701,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 6046,
+      "past_impressions": 79466,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 16,
       "window": [
         "2026-09-09",
@@ -17040,6 +18786,15 @@
       "impressions_28d": 150291,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 19450,
+      "past_impressions": 139956,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 18,
       "window": [
         "2026-09-09",
@@ -17096,7 +18851,16 @@
       "impressions_28d": 37,
       "source": "gsc-template",
       "share": null,
-      "score": 1,
+      "past_clicks": 7,
+      "past_impressions": 128,
+      "lost_clicks": 6,
+      "lost_impressions": 91,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "lost",
+      "score": 3,
       "window": [
         "2026-09-09",
         "2026-10-06"
@@ -17174,6 +18938,15 @@
       "impressions_28d": 78866,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 3856,
+      "past_impressions": 34879,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 15,
       "window": [
         "2026-09-09",
@@ -17240,6 +19013,15 @@
       "impressions_28d": 16,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 6,
+      "past_impressions": 43,
+      "lost_clicks": 3,
+      "lost_impressions": 27,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 2,
       "window": [
         "2026-09-09",
@@ -17300,6 +19082,15 @@
       "impressions_28d": 83296,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 6840,
+      "past_impressions": 81252,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 16,
       "window": [
         "2026-09-09",
@@ -17364,6 +19155,15 @@
       "impressions_28d": 663,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 74,
+      "past_impressions": 940,
+      "lost_clicks": 0,
+      "lost_impressions": 277,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 8,
       "window": [
         "2026-09-09",
@@ -17428,6 +19228,15 @@
       "impressions_28d": 54244,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 3125,
+      "past_impressions": 40783,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 14,
       "window": [
         "2026-09-09",
@@ -17498,6 +19307,15 @@
       "impressions_28d": 49131,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 6295,
+      "past_impressions": 64072,
+      "lost_clicks": 387,
+      "lost_impressions": 14941,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 20,
       "window": [
         "2026-09-09",
@@ -17584,6 +19402,15 @@
       "impressions_28d": 71834,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 11213,
+      "past_impressions": 151986,
+      "lost_clicks": 4135,
+      "lost_impressions": 80152,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 16,
       "window": [
         "2026-09-09",
@@ -17692,6 +19519,15 @@
       "impressions_28d": 214856,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 14884,
+      "past_impressions": 172898,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 17,
       "window": [
         "2026-09-09",
@@ -17807,6 +19643,15 @@
       "impressions_28d": 160006,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 7347,
+      "past_impressions": 114018,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 17,
       "window": [
         "2026-09-09",
@@ -17863,6 +19708,15 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -17919,6 +19773,15 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -18027,6 +19890,15 @@
       "impressions_28d": 130122,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 5766,
+      "past_impressions": 59494,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 16,
       "window": [
         "2026-09-09",
@@ -18109,6 +19981,15 @@
       "impressions_28d": 137260,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 8126,
+      "past_impressions": 132316,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 16,
       "window": [
         "2026-09-09",
@@ -18199,6 +20080,15 @@
       "impressions_28d": 83684,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 6875,
+      "past_impressions": 81736,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 16,
       "window": [
         "2026-09-09",
@@ -18279,6 +20169,15 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -18355,6 +20254,15 @@
       "impressions_28d": 1736,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 189,
+      "past_impressions": 1765,
+      "lost_clicks": 0,
+      "lost_impressions": 29,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 12,
       "window": [
         "2026-09-09",
@@ -18431,6 +20339,15 @@
       "impressions_28d": 652,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 39,
+      "past_impressions": 407,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 9,
       "window": [
         "2026-09-09",
@@ -18513,6 +20430,15 @@
       "impressions_28d": 14,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 4,
+      "past_impressions": 16,
+      "lost_clicks": 0,
+      "lost_impressions": 2,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 5,
       "window": [
         "2026-09-09",
@@ -18599,7 +20525,16 @@
       "impressions_28d": 10,
       "source": "gsc-template",
       "share": null,
-      "score": 3,
+      "past_clicks": 10,
+      "past_impressions": 65,
+      "lost_clicks": 8,
+      "lost_impressions": 55,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "lost",
+      "score": 4,
       "window": [
         "2026-09-09",
         "2026-10-06"
@@ -18665,7 +20600,16 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
-      "score": 0,
+      "past_clicks": 1,
+      "past_impressions": 14,
+      "lost_clicks": 1,
+      "lost_impressions": 14,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "lost",
+      "score": 1,
       "window": [
         "2026-09-09",
         "2026-10-06"
@@ -18731,6 +20675,15 @@
       "impressions_28d": 126,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 48,
+      "past_impressions": 179,
+      "lost_clicks": 12,
+      "lost_impressions": 53,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 8,
       "window": [
         "2026-09-09",
@@ -18836,6 +20789,15 @@
       "impressions_28d": 14158,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 4986,
+      "past_impressions": 70094,
+      "lost_clicks": 3194,
+      "lost_impressions": 55936,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 13,
       "window": [
         "2026-09-09",
@@ -18920,6 +20882,15 @@
       "impressions_28d": 30444,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 3529,
+      "past_impressions": 49163,
+      "lost_clicks": 629,
+      "lost_impressions": 18719,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 14,
       "window": [
         "2026-09-09",
@@ -18984,6 +20955,15 @@
       "impressions_28d": 11980,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 1064,
+      "past_impressions": 14938,
+      "lost_clicks": 23,
+      "lost_impressions": 2958,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 12,
       "window": [
         "2026-09-09",
@@ -19044,6 +21024,15 @@
       "impressions_28d": 35494,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 5026,
+      "past_impressions": 87809,
+      "lost_clicks": 3055,
+      "lost_impressions": 52315,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 13,
       "window": [
         "2026-09-09",
@@ -19153,6 +21142,15 @@
       "impressions_28d": 32932,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 2534,
+      "past_impressions": 27152,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 14,
       "window": [
         "2026-09-09",
@@ -19213,6 +21211,15 @@
       "impressions_28d": 13197,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 1429,
+      "past_impressions": 17004,
+      "lost_clicks": 403,
+      "lost_impressions": 3807,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 12,
       "window": [
         "2026-09-09",
@@ -19273,6 +21280,15 @@
       "impressions_28d": 926,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 84,
+      "past_impressions": 1477,
+      "lost_clicks": 12,
+      "lost_impressions": 551,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 8,
       "window": [
         "2026-09-09",
@@ -19329,6 +21345,15 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -19430,6 +21455,15 @@
       "impressions_28d": 109961,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 15264,
+      "past_impressions": 265598,
+      "lost_clicks": 9093,
+      "lost_impressions": 155637,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 15,
       "window": [
         "2026-09-09",
@@ -19506,6 +21540,15 @@
       "impressions_28d": 652,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 39,
+      "past_impressions": 407,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 9,
       "window": [
         "2026-09-09",
@@ -19588,6 +21631,15 @@
       "impressions_28d": 14,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 4,
+      "past_impressions": 16,
+      "lost_clicks": 0,
+      "lost_impressions": 2,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 5,
       "window": [
         "2026-09-09",
@@ -19654,7 +21706,16 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
-      "score": 0,
+      "past_clicks": 4,
+      "past_impressions": 31,
+      "lost_clicks": 4,
+      "lost_impressions": 31,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "lost",
+      "score": 3,
       "window": [
         "2026-09-09",
         "2026-10-06"
@@ -19720,7 +21781,16 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
-      "score": 0,
+      "past_clicks": 1,
+      "past_impressions": 14,
+      "lost_clicks": 1,
+      "lost_impressions": 14,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "lost",
+      "score": 1,
       "window": [
         "2026-09-09",
         "2026-10-06"
@@ -19776,6 +21846,15 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -19888,6 +21967,15 @@
       "impressions_28d": 35493,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 4794,
+      "past_impressions": 56200,
+      "lost_clicks": 646,
+      "lost_impressions": 20707,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 15,
       "window": [
         "2026-09-09",
@@ -19958,6 +22046,15 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -20044,6 +22141,15 @@
       "impressions_28d": 1810,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 323,
+      "past_impressions": 2493,
+      "lost_clicks": 41,
+      "lost_impressions": 683,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 10,
       "window": [
         "2026-09-09",
@@ -20145,6 +22251,15 @@
       "impressions_28d": 1083,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 88,
+      "past_impressions": 880,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 8,
       "window": [
         "2026-09-09",
@@ -20225,6 +22340,15 @@
       "impressions_28d": 9552,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 841,
+      "past_impressions": 12365,
+      "lost_clicks": 0,
+      "lost_impressions": 2813,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 12,
       "window": [
         "2026-09-09",
@@ -20291,7 +22415,16 @@
       "impressions_28d": 0,
       "source": "gsc-template",
       "share": null,
-      "score": 0,
+      "past_clicks": 4,
+      "past_impressions": 31,
+      "lost_clicks": 4,
+      "lost_impressions": 31,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "lost",
+      "score": 2,
       "window": [
         "2026-09-09",
         "2026-10-06"
@@ -20357,6 +22490,15 @@
       "impressions_28d": 11,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 7,
+      "past_impressions": 67,
+      "lost_clicks": 5,
+      "lost_impressions": 56,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "lost",
       "score": 2,
       "window": [
         "2026-09-09",
@@ -20447,6 +22589,15 @@
       "impressions_28d": 6926,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 1368,
+      "past_impressions": 12632,
+      "lost_clicks": 478,
+      "lost_impressions": 5706,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 12,
       "window": [
         "2026-09-09",
@@ -20533,6 +22684,15 @@
       "impressions_28d": 1342,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 124,
+      "past_impressions": 1882,
+      "lost_clicks": 8,
+      "lost_impressions": 540,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 8,
       "window": [
         "2026-09-09",
@@ -20577,6 +22737,15 @@
       "impressions_28d": 0,
       "source": "gsc-pages",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -20627,7 +22796,16 @@
       "impressions_28d": 0,
       "source": "gsc-pages",
       "share": null,
-      "score": 0,
+      "past_clicks": 1,
+      "past_impressions": 14,
+      "lost_clicks": 1,
+      "lost_impressions": 14,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "lost",
+      "score": 1,
       "window": [
         "2026-09-09",
         "2026-10-06"
@@ -20675,6 +22853,15 @@
       "impressions_28d": 374,
       "source": "gsc-pages",
       "share": null,
+      "past_clicks": 18,
+      "past_impressions": 112,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 8,
       "window": [
         "2026-09-09",
@@ -20724,6 +22911,15 @@
       "impressions_28d": 142,
       "source": "gsc-pages",
       "share": null,
+      "past_clicks": 74,
+      "past_impressions": 371,
+      "lost_clicks": 50,
+      "lost_impressions": 229,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "lost",
       "score": 8,
       "window": [
         "2026-09-09",
@@ -20773,6 +22969,15 @@
       "impressions_28d": 79,
       "source": "gsc-pages",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 113,
+      "lost_clicks": 0,
+      "lost_impressions": 34,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -20867,6 +23072,15 @@
       "impressions_28d": 1164,
       "source": "gsc-pages",
       "share": null,
+      "past_clicks": 2,
+      "past_impressions": 491,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 17,
       "window": [
         "2026-09-09",
@@ -20915,6 +23129,15 @@
       "impressions_28d": 0,
       "source": "gsc-pages",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -20963,6 +23186,15 @@
       "impressions_28d": 567,
       "source": "gsc-pages",
       "share": null,
+      "past_clicks": 14,
+      "past_impressions": 302,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 19,
       "window": [
         "2026-09-09",
@@ -21059,7 +23291,16 @@
       "impressions_28d": 219,
       "source": "gsc-pages",
       "share": null,
-      "score": 2,
+      "past_clicks": 8,
+      "past_impressions": 451,
+      "lost_clicks": 7,
+      "lost_impressions": 232,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "lost",
+      "score": 3,
       "window": [
         "2026-09-09",
         "2026-10-06"
@@ -21106,6 +23347,15 @@
       "impressions_28d": 1164,
       "source": "gsc-pages",
       "share": null,
+      "past_clicks": 2,
+      "past_impressions": 491,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 5,
       "window": [
         "2026-09-09",
@@ -21155,6 +23405,15 @@
       "impressions_28d": 2141,
       "source": "gsc-pages",
       "share": null,
+      "past_clicks": 147,
+      "past_impressions": 4196,
+      "lost_clicks": 82,
+      "lost_impressions": 2055,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 26,
       "window": [
         "2026-09-09",
@@ -21248,6 +23507,15 @@
       "impressions_28d": 0,
       "source": "gsc-pages",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -21344,6 +23612,15 @@
       "impressions_28d": 0,
       "source": "gsc-pages",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -21391,7 +23668,16 @@
       "impressions_28d": 4,
       "source": "gsc-pages",
       "share": null,
-      "score": 7,
+      "past_clicks": 9,
+      "past_impressions": 73,
+      "lost_clicks": 7,
+      "lost_impressions": 69,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "lost",
+      "score": 10,
       "window": [
         "2026-09-09",
         "2026-10-06"
@@ -21439,7 +23725,16 @@
       "impressions_28d": 0,
       "source": "gsc-pages",
       "share": null,
-      "score": 0,
+      "past_clicks": 1,
+      "past_impressions": 14,
+      "lost_clicks": 1,
+      "lost_impressions": 14,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "lost",
+      "score": 3,
       "window": [
         "2026-09-09",
         "2026-10-06"
@@ -21487,6 +23782,15 @@
       "impressions_28d": 0,
       "source": "gsc-pages",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 0,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 0,
       "window": [
         "2026-09-09",
@@ -21534,6 +23838,15 @@
       "impressions_28d": 120,
       "source": "gsc-pages",
       "share": null,
+      "past_clicks": 17,
+      "past_impressions": 147,
+      "lost_clicks": 1,
+      "lost_impressions": 27,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 18,
       "window": [
         "2026-09-09",
@@ -21581,7 +23894,16 @@
       "impressions_28d": 219,
       "source": "gsc-pages",
       "share": null,
-      "score": 9,
+      "past_clicks": 8,
+      "past_impressions": 451,
+      "lost_clicks": 7,
+      "lost_impressions": 232,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "lost",
+      "score": 11,
       "window": [
         "2026-09-09",
         "2026-10-06"
@@ -21713,6 +24035,15 @@
       "impressions_28d": 4249,
       "source": "gsc-pages",
       "share": null,
+      "past_clicks": 1203,
+      "past_impressions": 17705,
+      "lost_clicks": 594,
+      "lost_impressions": 13456,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 11,
       "window": [
         "2026-09-09",
@@ -21762,6 +24093,15 @@
       "impressions_28d": 5632,
       "source": "gsc-pages",
       "share": null,
+      "past_clicks": 1213,
+      "past_impressions": 18647,
+      "lost_clicks": 598,
+      "lost_impressions": 13015,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 8,
       "window": [
         "2026-09-09",
@@ -21809,6 +24149,15 @@
       "impressions_28d": 64,
       "source": "gsc-pages",
       "share": null,
+      "past_clicks": 0,
+      "past_impressions": 101,
+      "lost_clicks": 0,
+      "lost_impressions": 37,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 2,
       "window": [
         "2026-09-09",
@@ -22029,6 +24378,15 @@
       "impressions_28d": 56814,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 282,
+      "past_impressions": 79248,
+      "lost_clicks": 129,
+      "lost_impressions": 22434,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 23,
       "window": [
         "2026-09-09",
@@ -22127,6 +24485,15 @@
       "impressions_28d": 892,
       "source": "gsc-template",
       "share": null,
+      "past_clicks": 11,
+      "past_impressions": 1589,
+      "lost_clicks": 5,
+      "lost_impressions": 697,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
       "score": 10,
       "window": [
         "2026-09-09",
@@ -22319,7 +24686,16 @@
       "impressions_28d": 574,
       "source": "gsc-template",
       "share": null,
-      "score": 7,
+      "past_clicks": 9,
+      "past_impressions": 1532,
+      "lost_clicks": 8,
+      "lost_impressions": 958,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "lost",
+      "score": 8,
       "window": [
         "2026-09-09",
         "2026-10-06"

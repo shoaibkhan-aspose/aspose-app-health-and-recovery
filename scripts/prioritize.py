@@ -187,7 +187,10 @@ def main(argv: list[str] | None = None) -> int:
 
     store = FindingsStore(args.store)
     findings = store.findings()
-    impacts = prioritize(findings, idx, section_urls(Path(args.inventory), tenant), snapshot_discovered(tenant))
+    six = history.get("six_months_ago")
+    past = (TrafficIndex.build(tenant, [r for rows in six["gsc"].values() for r in rows], window=tuple(six["window"]))
+            if six else None)
+    impacts = prioritize(findings, idx, section_urls(Path(args.inventory), tenant), snapshot_discovered(tenant), past)
     print(f"Scored {store.set_impacts(impacts)} findings (window {data['window'][0]}..{data['window'][1]})")
 
     by_id = {f["id"]: f for f in findings}

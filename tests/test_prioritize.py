@@ -88,3 +88,17 @@ def test_store_keeps_impact_across_reimports():
     s.set_impacts({fid: {"clicks_28d": 5, "impressions_28d": 9, "score": 40, "source": "gsc-section"}})
     s.import_run([f], "discovery-run2", "discovery", hosts=["app.example.com"])
     assert s.findings()[0]["impact"]["score"] == 40
+
+
+def test_traffic_lost_lifts_collapsed_findings():
+    t = make_tenant()
+    now = TrafficIndex.build(t, [{"page": "https://app.example.com/omr/scan", "clicks": 10, "impressions": 100}])
+    then = TrafficIndex.build(t, [{"page": "https://app.example.com/omr/scan", "clicks": 600, "impressions": 70000}],
+                              window=("2026-03-01", "2026-03-28"))
+    f = {**finding("crawl-9", "sitemap:omr"), "check": "section_no_sitemap"}
+    plain = prioritize([f], now)["crawl-9"]
+    lifted = prioritize([f], now, past=then)["crawl-9"]
+    assert (lifted["past_clicks"], lifted["lost_clicks"], lifted["scored_on"]) == (600, 590, "lost")
+    assert lifted["score"] > plain["score"]
+    steady = prioritize([f], now, past=now)["crawl-9"]
+    assert steady["lost_clicks"] == 0 and steady["scored_on"] == "at stake" and steady["score"] == plain["score"]

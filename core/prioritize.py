@@ -12,6 +12,11 @@ GA4 organic sessions per host (counted as clicks). What share of that traffic a 
 
 score = min(100, 20 * log10(1 + click-equivalents)) * severity / effort, with impressions counted as
 IMPRESSION_WEIGHT click-equivalents each. 100k click-equivalents saturate the traffic factor.
+
+Traffic lost: with a past window (six months earlier), the same share is measured then too. The score uses
+whichever is larger: traffic at stake now, or LOST_WEIGHT x the traffic lost since (past minus now). A
+family whose pages already collapsed (e.g. 569 -> 10 clicks) is then not ranked as unimportant. Lost traffic
+counts at half weight because drops can have other causes (algorithm updates, seasonality).
 """
 
 from __future__ import annotations
@@ -31,6 +36,7 @@ WHOLE_SCOPE_CHECKS = {"robots_missing", "robots_html", "robots_no_sitemap", "rob
                       "host_no_sitemap", "section_no_sitemap"}
 IMPRESSION_WEIGHT = 0.01  # ~1% CTR: 100 impressions count like one click
 TRAFFIC_SCALE = 20  # score points per decade of click-equivalents
+LOST_WEIGHT = 0.5
 
 
 def page_key(url: str) -> str:
@@ -39,9 +45,14 @@ def page_key(url: str) -> str:
     return urlunsplit(("https", p.netloc.lower(), p.path.rstrip("/") or "/", p.query, ""))
 
 
-def score(clicks: float, impressions: float, ftype: str, effort: str | None) -> int:
-    value = clicks + IMPRESSION_WEIGHT * impressions
-    traffic = min(100.0, TRAFFIC_SCALE * math.log10(1 + value))
+def value(clicks: float, impressions: float) -> float:
+    """Click-equivalents."""
+    return (clicks or 0) + IMPRESSION_WEIGHT * (impressions or 0)
+
+
+def score(clicks: float, impressions: float, ftype: str, effort: str | None, lost_value: float = 0.0) -> int:
+    v = max(value(clicks, impressions), LOST_WEIGHT * lost_value)
+    traffic = min(100.0, TRAFFIC_SCALE * math.log10(1 + v))
     return round(traffic * SEVERITY.get(ftype, 0.2) / EFFORT.get(effort or "S", 1.0))
 
 
@@ -161,11 +172,22 @@ def snapshot_discovered(tenant) -> dict:
 
 
 def prioritize(findings: list[dict], idx: TrafficIndex, section_urls: dict | None = None,
-               sitemap_discovered: dict | None = None) -> dict:
-    """finding id -> impact dict (clicks_28d, impressions_28d, score, source, share, window)."""
+               sitemap_discovered: dict | None = None, past: TrafficIndex | None = None) -> dict:
+    """finding id -> impact dict (clicks_28d, impressions_28d, score, source, share, window; with a past index
+    also past_clicks, past_impressions, lost_clicks, lost_impressions, past_window, scored_on)."""
     out = {}
     for f in findings:
         t = finding_traffic(f, idx, section_urls, sitemap_discovered)
-        s = score(t["clicks_28d"] or 0, t["impressions_28d"] or 0, f["type"], f.get("effort"))
-        out[f["id"]] = {**t, "score": s, "window": list(idx.window) if idx.window else None}
+        now_c, now_i = t["clicks_28d"] or 0, t["impressions_28d"] or 0
+        extra, lost_v = {}, 0.0
+        if past is not None and t["source"] not in ("ga4-host", "none"):
+            p = finding_traffic(f, past, section_urls, sitemap_discovered)
+            pc, pi = p["clicks_28d"] or 0, p["impressions_28d"] or 0
+            lost_c, lost_i = max(0, pc - now_c), max(0, pi - now_i)
+            lost_v = value(lost_c, lost_i)
+            extra = {"past_clicks": pc, "past_impressions": pi, "lost_clicks": lost_c, "lost_impressions": lost_i,
+                     "past_window": list(past.window) if past.window else None,
+                     "scored_on": "lost" if LOST_WEIGHT * lost_v > value(now_c, now_i) else "at stake"}
+        s = score(now_c, now_i, f["type"], f.get("effort"), lost_v)
+        out[f["id"]] = {**t, **extra, "score": s, "window": list(idx.window) if idx.window else None}
     return out
