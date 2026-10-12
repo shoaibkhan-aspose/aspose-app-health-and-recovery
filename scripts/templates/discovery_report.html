@@ -184,6 +184,9 @@ section { scroll-margin-top: 56px }
 .ref { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 10px 14px }
 .ref > summary { cursor: pointer; font: 600 15px var(--body) } .ref > summary small { font-weight: 400; color: var(--muted) }
 .ref[open] { display: grid; gap: 12px }
+.ref .more { justify-self: start }
+.ref > summary small.need { color: var(--incorrect); font-weight: 600 } .ref > summary small.fine { color: var(--good); font-weight: 600 }
+.mk { display: inline-block; width: 1.2em; font-weight: 700 } .mk.bad { color: var(--broken) } .mk.warn { color: var(--notopt) } .mk.ok { color: var(--good) }
 .method { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px }
 .method h3 { font-size: 16px; margin-bottom: 4px } .method p { font-size: 14px; color: var(--muted); max-width: none }
 .gloss { margin: 0; display: grid; grid-template-columns: minmax(140px, 220px) 1fr; gap: 6px 16px; font-size: 14px }
@@ -291,18 +294,19 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
 
   <section aria-labelledby="s-ref" id="reference">
     <h2 id="s-ref">Reference</h2>
-    <details class="ref" id="audit" hidden><summary>Crawl audit per host <small id="audit-meta"></small></summary>
+    <p class="lede">Each table opens on the rows that need attention: ✗ broken first, then ⚠ warnings, by size. The rest is one click away.</p>
+    <details class="ref" id="audit" hidden open><summary>Crawl audit per host <small id="audit-st"></small> <small id="audit-meta"></small></summary>
       <div class="scope" id="audit-scope"></div>
       <div class="tablewrap"><table id="audit-hosts"></table></div>
     </details>
-    <details class="ref"><summary>Hosts: robots.txt and sitemaps</summary>
+    <details class="ref" open><summary>Hosts: robots.txt and sitemaps <small id="hosts-st"></small></summary>
       <div class="tablewrap"><table id="hosts"></table></div>
     </details>
-    <details class="ref"><summary>Sections <small id="sec-host"></small></summary>
+    <details class="ref" open><summary>Sections <small id="sections-st"></small> <small id="sec-host"></small></summary>
       <p class="lede">URLs listed in sitemaps per section, language variants found in the URL paths, and the share of URLs with hreflang alternates in the sitemap. "In GSC" is what Google reports as discovered from the submitted sitemaps (it counts duplicates).</p>
       <div class="tablewrap"><table id="sections"></table></div>
     </details>
-    <details class="ref"><summary>Submitted sitemaps: Search Console vs live</summary>
+    <details class="ref" open><summary>Submitted sitemaps: Search Console vs live <small id="gsc-st"></small></summary>
       <div class="tablewrap"><table id="gsc"></table></div>
     </details>
   </section>
@@ -743,6 +747,31 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
     });
   }
 
+  // reference tables: problem rows first, top 5 shown (all broken ones if more), the rest behind a button
+  const SHOWN = 5, RANK = { bad: 0, warn: 1, ok: 2 }, MARK = { bad: "✗", warn: "⚠", ok: "✓" };
+  const mk = st => `<span class="mk ${st}" aria-label="${st === "bad" ? "broken" : st === "warn" ? "warning" : "fine"}">${MARK[st]}</span>`;
+  function semi(tableId, head, rows, statusId, noun) {
+    rows.sort((a, b) => RANK[a.st] - RANK[b.st] || b.w - a.w);
+    const bad = rows.filter(r => r.st === "bad").length, need = bad + rows.filter(r => r.st === "warn").length;
+    const limit = Math.max(SHOWN, bad);
+    const table = $(tableId), details = table.closest("details");
+    const btn = document.createElement("button"); btn.type = "button"; btn.className = "more";
+    table.closest(".tablewrap").after(btn);
+    const st = $(statusId);
+    st.className = need ? "need" : "fine";
+    st.textContent = need ? `· ${need} of ${rows.length} ${noun} need attention${bad ? ` (${bad} broken)` : ""}` : `· all ${rows.length} fine`;
+    if (!need) details.open = false;
+    let all = false;
+    const render = () => {
+      const shown = all ? rows : rows.slice(0, limit);
+      table.innerHTML = head + `<tbody>${shown.map(r => r.html).join("")}</tbody>`;
+      btn.hidden = rows.length <= limit;
+      btn.textContent = all ? "Show fewer" : `Show all ${rows.length}`;
+    };
+    btn.addEventListener("click", () => { all = !all; render(); });
+    render();
+  }
+
   // crawl audit
   if (A) {
     $("audit").hidden = false;
@@ -756,11 +785,12 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
     ].join("");
     const CHECK = c => c.replace(/_/g, " ");
     const auditFindings = findings.filter(f => f.source === "crawl-audit");
-    $("audit-hosts").innerHTML = `<thead><tr><th>Host</th><th class="n">Pages</th><th class="n">HTML 200</th><th class="n">Errors</th><th class="n">Redirected</th><th class="n">Findings</th><th>Most frequent issues (pages)</th></tr></thead><tbody>` +
-      Object.entries(A.summary).sort((a, b) => b[1].pages - a[1].pages).map(([h, s]) => {
+    semi("audit-hosts", `<thead><tr><th>Host</th><th class="n">Pages</th><th class="n">HTML 200</th><th class="n">Errors</th><th class="n">Redirected</th><th class="n">Findings</th><th>Most frequent issues (pages)</th></tr></thead>`,
+      Object.entries(A.summary).map(([h, s]) => {
+        const st = s.errors ? "bad" : (s.redirected || s.blocked || s.ignored) ? "warn" : "ok";
         const top = Object.entries(s.issues).sort((a, b) => b[1] - a[1]).slice(0, 5).map(([c, n]) => `<b>${esc(CHECK(c))}</b> ${n}`).join(" · ");
-        return `<tr><td class="mono">${esc(h)}</td><td class="n">${fmt(s.pages)}${s.ignored ? ` <span class="dim" title="Skipped by a tenant rule (e.g. private pages)">(${s.ignored} ignored)</span>` : ""}</td><td class="n">${fmt(s.ok_html)}</td><td class="n ${s.errors ? "bad" : ""}">${fmt(s.errors)}</td><td class="n ${s.redirected ? "warn" : ""}">${fmt(s.redirected)}</td><td class="n">${auditFindings.filter(f => f.subdomain === h).length}</td><td class="issues">${top || '<span class="ok">none</span>'}</td></tr>`;
-      }).join("") + `</tbody>`;
+        return { st, w: s.pages, html: `<tr><td class="mono">${mk(st)}${esc(h)}</td><td class="n">${fmt(s.pages)}${s.ignored ? ` <span class="dim" title="Skipped by a tenant rule (e.g. private pages)">(${s.ignored} ignored)</span>` : ""}</td><td class="n">${fmt(s.ok_html)}</td><td class="n ${s.errors ? "bad" : ""}">${fmt(s.errors)}</td><td class="n ${s.redirected ? "warn" : ""}">${fmt(s.redirected)}</td><td class="n">${auditFindings.filter(f => f.subdomain === h).length}</td><td class="issues">${top || '<span class="ok">none</span>'}</td></tr>` };
+      }), "audit-st", "hosts");
   }
 
   // hosts
@@ -770,12 +800,14 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
     : `<span class="warn">${r.status} (missing)</span>`;
   const sectionsOf = h => Object.values((R.sections || {})[h] || {});
   const pct = (a, b) => b ? Math.round(100 * a / b) + "%" : "–";
-  $("hosts").innerHTML = `<thead><tr><th>Host</th><th>robots.txt</th><th class="n">Sitemaps OK</th><th class="n">Failed</th><th class="n">URLs</th><th class="n">With hreflang</th><th class="n">Findings</th></tr></thead><tbody>` +
-    hosts.sort((a, b) => b[1].urls - a[1].urls).map(([name, h]) => {
+  semi("hosts", `<thead><tr><th>Host</th><th>robots.txt</th><th class="n">Sitemaps OK</th><th class="n">Failed</th><th class="n">URLs</th><th class="n">With hreflang</th><th class="n">Findings</th></tr></thead>`,
+    hosts.map(([name, h]) => {
       const s = sectionsOf(name), hl = s.reduce((x, v) => x + v.hreflang_urls, 0);
       const nf = findings.filter(f => f.subdomain === name).length;
-      return `<tr><td class="mono">${esc(name)}</td><td>${robotsCell(h.robots)}</td><td class="n">${fmt(h.sitemaps_ok)}</td><td class="n ${h.sitemaps_failed.length ? "bad" : ""}">${fmt(h.sitemaps_failed.length)}</td><td class="n">${fmt(h.urls)}</td><td class="n">${pct(hl, h.urls)}</td><td class="n">${nf}</td></tr>`;
-    }).join("") + `</tbody>`;
+      const r = h.robots;
+      const st = (r.error || r.is_html || h.sitemaps_failed.length) ? "bad" : (r.status !== 200 || !r.sitemaps.length) ? "warn" : "ok";
+      return { st, w: h.urls, html: `<tr><td class="mono">${mk(st)}${esc(name)}</td><td>${robotsCell(h.robots)}</td><td class="n">${fmt(h.sitemaps_ok)}</td><td class="n ${h.sitemaps_failed.length ? "bad" : ""}">${fmt(h.sitemaps_failed.length)}</td><td class="n">${fmt(h.urls)}</td><td class="n">${pct(hl, h.urls)}</td><td class="n">${nf}</td></tr>` };
+    }), "hosts-st", "hosts");
 
   // sections: the host with the most sections that have real volume (product families)
   const secHost = Object.keys(R.sections || {}).sort((a, b) => (R.hosts[b] ? R.hosts[b].urls : 0) - (R.hosts[a] ? R.hosts[a].urls : 0))[0];
@@ -790,21 +822,28 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
     const max = Math.max(1, ...rows.map(([, s]) => s.urls));
     const fam = new Set(rows.map(([k]) => k));
     for (const k of Object.keys(gscBySec)) if (k && !fam.has(k)) rows.push([k, { urls: 0, hreflang_urls: 0, langs: {} }]);
-    $("sections").innerHTML = `<thead><tr><th>Section</th><th class="n">URLs</th><th></th><th class="n">Languages</th><th class="n">With hreflang</th><th class="n">In GSC</th></tr></thead><tbody>` +
+    semi("sections", `<thead><tr><th>Section</th><th class="n">URLs</th><th></th><th class="n">Languages</th><th class="n">With hreflang</th><th class="n">In GSC</th></tr></thead>`,
       rows.map(([k, s]) => {
         const p = s.urls ? s.hreflang_urls / s.urls : 0;
+        const langs = Object.keys(s.langs).length;
         const cls = !s.urls ? "" : p >= 0.9 ? "ok" : p > 0 ? "warn" : "bad";
-        return `<tr><td class="mono">/${esc(k)}/</td><td class="n ${s.urls ? "" : "bad"}">${fmt(s.urls)}</td><td><span class="bar" style="width:${Math.round(120 * s.urls / max)}px"></span></td><td class="n">${Object.keys(s.langs).length || "–"}</td><td class="n ${cls}">${s.urls ? pct(s.hreflang_urls, s.urls) : "–"}</td><td class="n dim">${gscBySec[k] != null ? fmt(gscBySec[k]) : "–"}</td></tr>`;
-      }).join("") + `</tbody>`;
+        // hreflang only matters where a section has more than one language
+        const st = !s.urls ? "bad" : langs > 1 && p < 0.9 ? "warn" : "ok";
+        return { st, w: s.urls || gscBySec[k] || 0, html: `<tr><td class="mono">${mk(st)}/${esc(k)}/</td><td class="n ${s.urls ? "" : "bad"}">${fmt(s.urls)}</td><td><span class="bar" style="width:${Math.round(120 * s.urls / max)}px"></span></td><td class="n">${langs || "–"}</td><td class="n ${cls}">${s.urls ? pct(s.hreflang_urls, s.urls) : "–"}</td><td class="n dim">${gscBySec[k] != null ? fmt(gscBySec[k]) : "–"}</td></tr>` };
+      }), "sections-st", "sections");
   }
 
   // GSC vs live
-  $("gsc").innerHTML = `<thead><tr><th>Submitted sitemap</th><th>GSC status</th><th class="n">GSC discovered</th><th>Live</th><th class="n">Live URLs</th></tr></thead><tbody>` +
-    (R.gsc_comparison || []).map(g => {
-      const live = g.live_status === 200 ? (g.live_urls ? `<span class="ok">200</span>` : `<span class="warn">200, 0 URLs</span>`) : `<span class="bad">${esc(g.live_status)}</span>`;
-      const gs = g.gsc_status === "Success" ? `<span class="dim">Success</span>` : `<span class="bad">${esc(g.gsc_status)}</span>`;
-      return `<tr><td class="mono">${g.url ? `<a href="${esc(g.url)}" target="_blank" rel="noopener">${esc(g.path)}</a>` : esc(g.path)}</td><td>${gs}</td><td class="n">${fmt(g.gsc_discovered)}</td><td>${live}</td><td class="n">${fmt(g.live_urls)}</td></tr>`;
-    }).join("") + `</tbody>`;
+  if ((R.gsc_comparison || []).length) {
+    semi("gsc", `<thead><tr><th>Submitted sitemap</th><th>GSC status</th><th class="n">GSC discovered</th><th>Live</th><th class="n">Live URLs</th></tr></thead>`,
+      R.gsc_comparison.map(g => {
+        const live = g.live_status === 200 ? (g.live_urls ? `<span class="ok">200</span>` : `<span class="warn">200, 0 URLs</span>`) : `<span class="bad">${esc(g.live_status)}</span>`;
+        const gs = g.gsc_status === "Success" ? `<span class="dim">Success</span>` : `<span class="bad">${esc(g.gsc_status)}</span>`;
+        const gap = g.gsc_discovered ? Math.abs(g.live_urls - g.gsc_discovered) / g.gsc_discovered : 0;
+        const st = (g.live_status !== 200 || !g.live_urls || g.gsc_status !== "Success") ? "bad" : gap > 0.1 ? "warn" : "ok";
+        return { st, w: g.gsc_discovered || g.live_urls || 0, html: `<tr><td class="mono">${mk(st)}${g.url ? `<a href="${esc(g.url)}" target="_blank" rel="noopener">${esc(g.path)}</a>` : esc(g.path)}</td><td>${gs}</td><td class="n">${fmt(g.gsc_discovered)}</td><td>${live}</td><td class="n">${fmt(g.live_urls)}</td></tr>` };
+      }), "gsc-st", "sitemaps");
+  }
 
   $("foot").textContent = `Generated from discovery run ${R.run_id}${A ? `, crawl audit run ${A.run_id}` : ""} and the findings store. Read-only audit: nothing on any site was changed. Each finding lists URLs anyone can open to re-check it. For discovery findings "pages" counts URLs in the affected sitemaps; for crawl audit findings it is an estimate from the sample. Impact from Search Console and GA4 is added in the prioritization step.`;
 })();

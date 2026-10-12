@@ -45,6 +45,7 @@ git add -A && git commit -m "..." && git push github master   # Actions rebuilds
 - Data: `core/fix_guide.py` (55 checks: plain name, means, impact, fix, verify; test keeps it in step with the auditors), `core/report_view.py` (confidence: complete / strong / partial / to confirm; merge of findings with one sitemap root cause into the worst; shared problems; top risks; grade summary; run changes; health trend), wired in `build_report.add_views`.
 - Traffic lost (built): prioritizer measures each finding's share six months earlier; score = traffic factor of max(at stake, 0.5 x lost). drawing blockers 29 -> 56. Impact table shows "Six months ago" with the loss.
 - Archive (built): `reports/archive/` + `index.json`, `scripts/build_archive.py` (Pages /archive/), `build_report.py --snapshot LABEL`; first snapshot 2026-10-12 = the report before the restructure (byte-identical to what was live). SK: snapshot before structure changes AND after every full run.
+- Reference tables are semi-collapsed (SK, N=5): open by default, each row marked ✗ broken / ⚠ warning / ✓ fine, sorted by status then size; the top 5 show (all broken rows if more), the rest behind "Show all"; a table with nothing to fix stays closed and says "all N fine".
 - Hand-written takeaways (`reports/*-notes.txt`) are no longer shown (SK: too much text); the files remain but are unused.
 
 **Open discussions (not decided or not built):**
