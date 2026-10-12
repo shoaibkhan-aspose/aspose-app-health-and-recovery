@@ -8,6 +8,43 @@ Domain-agnostic agents that audit a web property, report what is broken, not opt
 
 **Keep this file current:** when a decision is made, a fact is confirmed or a build step finishes, update the relevant section (Status, Seed findings, Open items) in the same session. New issues found by hand go into `tenants/aspose.app.seed-findings.yaml`, never only into prose.
 
+## Start here (session handoff, 2026-10-12)
+
+**State:** Phase 1 (audit only). Built and live: discovery, crawl auditor (31 checks), findings store, Prioritizer (GSC traffic + score), family scorecards (health A-F), and the published report. Next build: **priority 3, new auditors** (start with speed: PageSpeed/CrUX). Details: Status, then "Priority order agreed with SK" under Next steps.
+
+**Live:**
+- Report (public, noindex): https://shoaibkhan-aspose.github.io/aspose-app-health-and-recovery/ (rebuilt by GitHub Actions on every push to `master`)
+- Architecture page (private): https://claude.ai/artifact/3zrEcbrV1WxN9nfjvS7Kxm, source `docs/architecture/site-health-architecture.html`
+- Older shared discovery report (private, not updated since run 7): https://claude.ai/artifact/MUUTzbXEymKq4tw5mmmPA5
+
+**Latest data:** discovery run 8 (2026-10-09), full crawl audit run 9 (652 pages, all 29 families + every host), traffic window 2026-09-09..10-06 (+ previous 28 days and six months ago). 311 open findings, all scored.
+
+**Full cycle** (on the Mac, from the repo, `.venv` active):
+```bash
+set -a; source .env; set +a
+python scripts/discover.py --quiet           # 15 min; inventory + sitemap findings
+python scripts/audit_crawl.py --quiet        # 25 min; all hosts + families (or --sections a,b)
+python scripts/prioritize.py                 # traffic, scores, reports/findings.json, traffic-summary.json
+python scripts/build_report.py --notes reports/discovery-notes.txt --audit-notes reports/crawl-audit-notes.txt --out reports/discovery-latest.html
+# update reports/*-notes.txt takeaways if findings changed; delete superseded run JSONs; then
+git add -A && git commit -m "..." && git push github master   # Actions rebuilds the Pages report
+```
+
+**Working rules from SK (keep):**
+- Commits: **no `Co-Authored-By: Claude` trailer** or any Claude attribution; leave old commits as they are.
+- Commit at each logical step; push to `github` (GitLab `origin` mirrors GitHub).
+- Report changes apply to the **latest report only**; never regenerate older report pages or run JSONs.
+- Discuss before building when SK asks a question ("discuss first", "do not implement").
+- Keep the architecture diagram in its current shape; update it when the architecture changes (see "Architecture diagram" below).
+- The Pages report stays `noindex, nofollow`; traffic numbers are published as is for now (moves to a private domain later).
+
+**Open discussions (not decided or not built):**
+- Grade scale: SK noticed grade and number are the same measure (letter = band of the health number). Recommended: keep both and print the scale once ("A 90+ · B 75-89 · C 60-74 · D 40-59 · F <40") under the families intro. Not built; ask SK.
+- Sample transparency (cells question, 2026-10-12): ideas offered, none approved yet: (1) "Sample: N pages · L languages" on each card, clickable like Sitemap; (2) confidence labels (strong >= 75% failing or full population; weak = one page, "to confirm"); (3) sample per tool, not only per template, for big families; (4) bigger samples for high-traffic families.
+- Report footer link "How this audit works" to the architecture page (offered, not answered).
+- Prioritizer: score "traffic lost" (six months ago vs now) next to "traffic at stake" (offered, not decided).
+- Queue after priority 4: re-check remaining seed findings (typo/spelling check on titles and H1s), LangGraph run, scheduled runs in GitHub Actions with a new/resolved digest, report to a private domain.
+
 ## Current phase: 1, AUDIT ONLY
 
 Hard rules until SK explicitly opens Phase 2:
@@ -73,7 +110,7 @@ Everything runs on SK's Mac (macOS) from VS Code / Claude Code, which has normal
 - **Sharing reports:** `scripts/build_report.py` renders a self-contained HTML page from a run JSON. Two outlets: a private claude.ai Artifact (link shared at SK's discretion), and **GitHub Pages**: `.github/workflows/pages.yml` rebuilds the page on every push to `master` on GitHub (`build_report.py --findings reports/findings.json --standalone`: reads the committed export, since `data/` is not in git; adds doctype, viewport, `noindex, nofollow`) and deploys it to https://shoaibkhan-aspose.github.io/aspose-app-health-and-recovery/. The workflow only renders; audits still run on the Mac and must commit their run JSON, `reports/findings.json` and the notes files. **SK made the GitHub repo public (2026-10-08)**, so the code, `reports/`, findings and this file are publicly readable; never commit key material, tokens or anything SK marks confidential. SK (2026-10-09): publish traffic numbers (GSC clicks/impressions) as is for now; the report moves to a private domain later. The page must stay `noindex, nofollow`.
 - **Claude Code MCP approval:** `gsc` is pre-approved in the workspace folder's `.claude/settings.local.json` (`enabledMcpjsonServers`), personal and outside git.
 
-## Status (2026-10-08)
+## Status (2026-10-08..12)
 
 Done:
 - Brief, stack and layout confirmed by SK.
@@ -123,6 +160,8 @@ Done:
 - **Sitemaps per family in the report (2026-10-12):** discovery reports now carry `sitemaps` ({host: {section: [url, parent, depth, status, kind, urls (recursive), children, ok, error, corrected]}}): sitemaps that work or were published (robots, GSC, listed by an index); failed guesses are left out; `corrected` = a double-slash child we fetched with one slash, not listed by the index. Run 8 was backfilled from the inventory. Card status "Sitemap" opens the family's files (index first, then children; 8 shown, then "Show all"); the Submitted sitemaps table links each path. Grade bands: the letter is the health number in bands (A 90+, B 75-89, C 60-74, D 40-59, F <40); SK asked about it, explained, no change yet.
 
 - **Family cards layout (2026-10-12):** Rows (default: one family per row, three zones identity / traffic / work, grade-colour left stripe; zones stack at <960px and <600px) or Grid (compact cards), switch remembered per viewer. Global `[hidden]{display:none!important}` in the template fixed closed sitemap panels showing as empty bars.
+
+- **Readable finding details (2026-10-12):** Observed shows the sample as a Template / Failed / Sampled table (worst first, `generic:` buckets as `/fam/…/…`) plus the estimate explained; findings without a sample list observations as bullets (split before each URL); Evidence shows short paths and "canonical →"; Impact is a labelled table (priority score, traffic at stake with the GSC window, severity, fix effort S/M/L spelled out). Effort meaning: S = one template or config change, M = several templates or translations, L = rebuild or migration.
 
 Not done yet:
 - GSC properties for www and forum (none exist or none shared; the service account sees only the 5 URL-prefix properties).
@@ -367,7 +406,7 @@ Context gathered before discovery existed. The issues in it are tracked in `tena
 ## Next steps (in order)
 
 1. ~~Run `check_access.py`~~ Done 2026-10-08 (see Status). All 5 URL-prefix properties are readable. Remaining gap: www and forum (and any other hosts Discovery finds) have no GSC property; a Domain property would cover them all. Not blocking step 2.
-2. **Discovery (inventory)**: done. Latest clean run: **run 7** (2026-10-08; same results as run 6, first run in the findings store: 89 discovery + 29 seed = 118 findings, 18 unverified). Shared report: https://claude.ai/artifact/MUUTzbXEymKq4tw5mmmPA5 (private; SK shares via its Share menu). To refresh: `discover.py` / `audit_crawl.py` → `build_report.py <discovery run json> --notes reports/discovery-notes.txt --audit-notes reports/crawl-audit-notes.txt --out reports/discovery-latest.html` (picks the newest crawl-audit JSON; page now titled "aspose.app site health" with a Crawl audit section) → republish that file. For Pages: commit the new run files and `git push github master`; the workflow rebuilds and publishes. Original spec:
+2. **Discovery (inventory)**: done. Latest run: **run 8** (2026-10-09; run 7 was the first in the findings store). Shared report: https://claude.ai/artifact/MUUTzbXEymKq4tw5mmmPA5 (private; SK shares via its Share menu). To refresh: `discover.py` / `audit_crawl.py` → `build_report.py <discovery run json> --notes reports/discovery-notes.txt --audit-notes reports/crawl-audit-notes.txt --out reports/discovery-latest.html` (picks the newest crawl-audit JSON; page now titled "aspose.app site health" with a Crawl audit section) → republish that file. For Pages: commit the new run files and `git push github master`; the workflow rebuilds and publishes. Original spec:
    - Fetch robots.txt and root sitemap per host; probe `/<family>/sitemap.xml` for all 29 families plus every path in `gsc_sitemaps_snapshot`.
    - Recurse sitemap indexes; handle `.xml.gz` (words) and BOMs; record per sitemap: URL, status, type, child count, URL count, lastmod spread, hreflang presence.
    - Normalise URLs to an inventory: host, family, language (from path), tool/template pattern (`/<family>/<tool>`, `/<family>/conversion/<fmt>`, `/<family>/conversion/<src>-to-<dst>`, `/<family>/<lang>/<tool>`).
@@ -376,7 +415,7 @@ Context gathered before discovery existed. The issues in it are tracked in `tena
 3. ~~Findings store~~ Done 2026-10-08 (see Status). Report rebuilt locally from the store after run 7 (`reports/discovery-latest.html`); **republish to the shared link only when SK says so**.
 4. ~~`mcp_servers/gsc`~~ Done 2026-10-08. `python -m mcp_servers.gsc` (MCPServer, stdio). Tools, all annotated read-only: `list_properties`, `search_performance` (dimensions page/query/country/device/date/searchAppearance, ANDed filters, totals, max 1,000 rows per call), `page_performance` (picks the property from the URL), `compare_periods` (last N days vs the N before: totals, top drops/gains), `list_sitemaps`, `inspect_url` (2,000/day/property, sampling only). Logic lives in `core/gsc.py`; the server only validates input and turns errors into short `ToolError`s. Loads the key path from `.env` if `GOOGLE_APPLICATION_CREDENTIALS` is unset. Registered in `.mcp.json` in the workspace folder (absolute paths, outside git) and in the repo (relative paths); **SK must approve it once** when Claude Code next starts (`claude mcp list` shows "Pending approval"). 9 offline tests (36 total). Verified end to end over stdio with the real key.
    - First answers (window 2026-09-08..10-05 vs the 28 days before): **slides** pages 12,044 clicks vs 10,125 (+19%), impressions 176k vs 189k (-7%): the broken slides sitemap has not hurt traffic yet (pages already indexed). **`/pdf/split`** 17 clicks / 635 impressions, **`/pdf/splitter`** 0 impressions. **`/imaging/conversion/jpg-to-jp2`** is indexed with its own canonical (URL Inspection).
-5. ~~**Crawl auditor**~~ Built 2026-10-08 (see Status); run 4 covered all hosts + products barcode/html. Next: run the remaining products families when SK says so; `crawl` MCP server over `core/audit`; then the other dimensions.
+5. ~~**Crawl auditor**~~ Built 2026-10-08; all 29 families audited 2026-10-09 (latest full run 9). `crawl` MCP server over `core/audit` is in priority 4.
 6. **LangGraph** run graph once 2+ auditors exist; Reporter after that.
 
 **Priority order agreed with SK (2026-10-09):**

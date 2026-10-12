@@ -39,7 +39,9 @@ pytest                        # offline tests
 python scripts/check_access.py --tenant aspose.app
 python scripts/discover.py --hosts products.aspose.app --sections pdf,words   # sample
 python scripts/discover.py                                                  # all hosts
-python scripts/audit_crawl.py --sections barcode,html                       # crawl audit; --sections narrows products only
+python scripts/audit_crawl.py                                              # crawl audit; --sections a,b narrows products only
+python scripts/prioritize.py                                               # Search Console traffic + score per finding
+python scripts/build_report.py --notes reports/discovery-notes.txt --audit-notes reports/crawl-audit-notes.txt --out reports/discovery-latest.html
 ```
 
 Findings from every run, plus the manual ones in `tenants/<tenant>.seed-findings.yaml`, are kept in `data/findings.sqlite` with permanent ids, first/last seen and resolved status (`python scripts/findings.py summary`). `scripts/build_report.py` turns the newest discovery and crawl-audit runs plus the store (or `--findings reports/findings.json`) into the HTML report.
