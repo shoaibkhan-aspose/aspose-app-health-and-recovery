@@ -4,7 +4,7 @@ Domain-agnostic agents that audit a web property and report what is broken, not 
 
 ## Latest report
 
-**[aspose.app site health report](https://shoaibkhan-aspose.github.io/aspose-app-health-and-recovery/)**: discovery (robots.txt and sitemaps) and crawl audit (sampled pages) findings, ranked by severity.
+**[aspose.app site health report](https://shoaibkhan-aspose.github.io/aspose-app-health-and-recovery/)**: summary, product family health, priorities, shared problems, all findings with a fix guide, and changes since the last run. Previous versions: [archive](https://shoaibkhan-aspose.github.io/aspose-app-health-and-recovery/archive/).
 
 [![Publish report](https://github.com/shoaibkhan-aspose/aspose-app-health-and-recovery/actions/workflows/pages.yml/badge.svg)](https://github.com/shoaibkhan-aspose/aspose-app-health-and-recovery/actions/workflows/pages.yml)
 
@@ -41,7 +41,7 @@ python scripts/discover.py --hosts products.aspose.app --sections pdf,words   # 
 python scripts/discover.py                                                  # all hosts
 python scripts/audit_crawl.py                                              # crawl audit; --sections a,b narrows products only
 python scripts/prioritize.py                                               # Search Console traffic + score per finding
-python scripts/build_report.py --notes reports/discovery-notes.txt --audit-notes reports/crawl-audit-notes.txt --out reports/discovery-latest.html
+python scripts/build_report.py --out reports/discovery-latest.html --snapshot "After <run>"   # report + archive snapshot
 ```
 
 Findings from every run, plus the manual ones in `tenants/<tenant>.seed-findings.yaml`, are kept in `data/findings.sqlite` with permanent ids, first/last seen and resolved status (`python scripts/findings.py summary`). `scripts/build_report.py` turns the newest discovery and crawl-audit runs plus the store (or `--findings reports/findings.json`) into the HTML report.

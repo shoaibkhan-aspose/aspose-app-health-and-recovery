@@ -25,9 +25,11 @@ set -a; source .env; set +a
 python scripts/discover.py --quiet           # 15 min; inventory + sitemap findings
 python scripts/audit_crawl.py --quiet        # 25 min; all hosts + families (or --sections a,b)
 python scripts/prioritize.py                 # traffic, scores, reports/findings.json, traffic-summary.json
-python scripts/build_report.py --notes reports/discovery-notes.txt --audit-notes reports/crawl-audit-notes.txt --out reports/discovery-latest.html
-# update reports/*-notes.txt takeaways if findings changed; delete superseded run JSONs; then
-git add -A && git commit -m "..." && git push github master   # Actions rebuilds the Pages report
+python scripts/build_report.py --out reports/discovery-latest.html --snapshot "After <what changed>"
+#   --snapshot freezes this report into reports/archive/ (served at /archive/<date>/) and records family health
+#   in reports/health-history.json (trend in "Changes since the last run"); do it after every full run
+# delete superseded run JSONs; then
+git add -A && git commit -m "..." && git push github master   # Actions rebuilds the Pages report + archive
 ```
 
 **Working rules from SK (keep):**
@@ -38,14 +40,12 @@ git add -A && git commit -m "..." && git push github master   # Actions rebuilds
 - Keep the architecture diagram in its current shape; update it when the architecture changes (see "Architecture diagram" below).
 - The Pages report stays `noindex, nofollow`; traffic numbers are published as is for now (moves to a private domain later).
 
-**Report restructure (agreed with SK 2026-10-12, NOT built yet; build only when SK says go):**
-- Goal: readable, actionable, self-explanatory for management and developers. Order: short summary first, then families (SK agreed), then priorities, systemic issues, all findings, changes since last run, reference (collapsed), how this audit works (method + glossary).
-- Summary headline = **(c) grade distribution** ("9 B · 12 C · 6 D · 2 F") **plus (b) as context**: one line on traffic, e.g. "families carrying 59% of search traffic are B; cells (14%) is D". No single overall grade.
-- Replace the hand-written takeaways (too much text, SK) with 3-5 generated one-line "top risks": what · where · impact.
-- Fix guidance as a **separate Fix guide table**, one row per check (what it means · impact · how to fix · how to verify); each finding links to its row. SK does not need to review the texts. Texts in one generic file in the repo.
-- **Traffic lost** approved: proposed as score = max(at stake, lost x 0.5); confirm the weighting when building.
-- **Archive (public, noindex):** before the restructure, freeze today's built report as `reports/archive/2026-10-12.html` (never rebuilt); Pages serves `/archive/<date>/` plus an archive index; the latest report links "Previous versions". Open: snapshot only before structure changes, or after every full run.
-- Phases: A = snapshot + archive, new order, contents bar, top risks, glossary/method, reference collapsed, confidence labels; B = Fix guide table + links, systemic issues, duplicates merged by root cause; C = changes since last run, health trend, summary (c)+(b), traffic lost.
+**Report restructure (built 2026-10-12, SK said go for A+B+C):**
+- Order: header verdict -> sticky contents bar -> Summary ((c) grade distribution + (b) click share per grade and D/F families with >= 5% of clicks; key numbers; 5 top risks, one per kind of problem) -> Product families -> Priorities (top 10, plain names, how-to-fix links) -> Shared problems (same check in 3+ families) -> All findings -> Changes since the last run (new / resolved / family health trend) -> Fix guide (one row per check, area filter) -> Reference (collapsed: crawl audit per host, hosts, sections, submitted sitemaps) -> How this audit works (method, health, score, samples, glossary).
+- Data: `core/fix_guide.py` (55 checks: plain name, means, impact, fix, verify; test keeps it in step with the auditors), `core/report_view.py` (confidence: complete / strong / partial / to confirm; merge of findings with one sitemap root cause into the worst; shared problems; top risks; grade summary; run changes; health trend), wired in `build_report.add_views`.
+- Traffic lost (built): prioritizer measures each finding's share six months earlier; score = traffic factor of max(at stake, 0.5 x lost). drawing blockers 29 -> 56. Impact table shows "Six months ago" with the loss.
+- Archive (built): `reports/archive/` + `index.json`, `scripts/build_archive.py` (Pages /archive/), `build_report.py --snapshot LABEL`; first snapshot 2026-10-12 = the report before the restructure (byte-identical to what was live). SK: snapshot before structure changes AND after every full run.
+- Hand-written takeaways (`reports/*-notes.txt`) are no longer shown (SK: too much text); the files remain but are unused.
 
 **Open discussions (not decided or not built):**
 - Grade scale: SK noticed grade and number are the same measure (letter = band of the health number). Recommended: keep both and print the scale once ("A 90+ · B 75-89 · C 60-74 · D 40-59 · F <40") under the families intro. Not built; ask SK.
