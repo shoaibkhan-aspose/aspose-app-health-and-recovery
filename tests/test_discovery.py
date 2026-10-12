@@ -254,6 +254,10 @@ def test_double_slash_child_and_guessed_html_probe():
     assert not any(k.startswith("Sitemap cannot be fetched") for k in titles)
     assert not any(k.startswith("Sitemap is not a valid sitemap") for k in titles)
     assert report["hosts"]["app.example.com"]["urls"] == 1
+    pdf = report["sitemaps"]["app.example.com"]["pdf"]
+    assert pdf[0]["url"] == "https://app.example.com/pdf/sitemaps/pdf.xml" and pdf[0]["urls"] == 1
+    assert {(x["url"], x["ok"]) for x in pdf[1:]} >= {("https://app.example.com//pdf/sitemaps/p0.xml", False),
+                                                      ("https://app.example.com/pdf/sitemaps/p0.xml", True)}
 
 
 def test_section_filter_limits_probes():

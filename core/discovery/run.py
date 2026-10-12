@@ -289,22 +289,7 @@ class Discovery:
     # ---- results ----
 
     def _recursive_urls(self) -> dict[str, int]:
-        own = {r["url"]: r["url_count"] for r in self.records}
-        kids: dict = defaultdict(list)
-        for r in self.records:
-            if r["parent"]:
-                kids[r["parent"]].append(r["url"])
-        memo: dict = {}
-
-        def total(u: str, stack: frozenset = frozenset()) -> int:
-            if u in memo:
-                return memo[u]
-            if u in stack:
-                return 0
-            memo[u] = own.get(u, 0) + sum(total(k, stack | {u}) for k in kids[u])
-            return memo[u]
-
-        return {u: total(u) for u in own}
+        return recursive_urls(self.records)
 
     def summary(self) -> dict:
         by_url = {r["url"]: r for r in self.records}
@@ -344,7 +329,8 @@ class Discovery:
                 if r is None:
                     continue
                 gsc.append({
-                    "path": s["path"], "gsc_status": s.get("status"), "gsc_discovered": s.get("discovered"),
+                    "path": s["path"], "url": base + s["path"], "gsc_status": s.get("status"),
+                    "gsc_discovered": s.get("discovered"),
                     "live_status": r["status"] or r["error"], "live_kind": r["kind"],
                     "live_urls": totals.get(r["url"], 0),
                 })
@@ -355,6 +341,7 @@ class Discovery:
             "hosts": hosts,
             "sections": {h: dict(v) for h, v in sections.items()},
             "gsc_comparison": gsc,
+            "sitemaps": sitemap_list(self.records, set(self.section_cfg)),
             "new_hosts": dict(self.new_hosts.most_common()),
             "sitemaps_fetched": len(self.records),
         }
@@ -540,6 +527,49 @@ class Discovery:
                 observed=f"{n:,} URLs appear in 2+ sitemaps", expected="each URL in exactly one sitemap",
                 affected_pages=n, fix_tier=1))
         return out
+
+
+def recursive_urls(records: list[dict]) -> dict[str, int]:
+    """URLs under each sitemap, counting every child sitemap below an index."""
+    own = {r["url"]: r["url_count"] or 0 for r in records}
+    kids: dict = defaultdict(list)
+    for r in records:
+        if r["parent"]:
+            kids[r["parent"]].append(r["url"])
+    memo: dict = {}
+
+    def total(u: str, stack: frozenset = frozenset()) -> int:
+        if u in memo:
+            return memo[u]
+        if u in stack:
+            return 0
+        memo[u] = own.get(u, 0) + sum(total(k, stack | {u}) for k in kids[u])
+        return memo[u]
+
+    return {u: total(u) for u in own}
+
+
+def sitemap_list(records: list[dict], sectioned_hosts: set) -> dict:
+    """Every sitemap file per host and section (section '' on hosts without sections) that works or that was
+    published (robots.txt, GSC, or listed by an index); failed guesses are left out. For the report:
+    {host: {section: [{url, parent, depth, status, kind, urls, children, ok, error}]}}, indexes before children."""
+    totals = recursive_urls(records)
+    out: dict = defaultdict(lambda: defaultdict(list))
+    listed = REPORTED_ORIGINS | {"child-malformed"}
+    for r in sorted(records, key=lambda r: (r["depth"] or 0, r["url"])):
+        ok = r["status"] == 200 and not r["error"] and r["kind"] in ("index", "urlset", "text")
+        if not ok and not set((r["origins"] or "").split(",")) & listed:
+            continue  # a guessed location that is not there is not one of the family's sitemaps
+        host = r["host"]
+        section = path_section(r["url"]) if host in sectioned_hosts else ""
+        out[host][section].append({
+            "url": r["url"], "parent": r["parent"], "depth": r["depth"] or 0, "status": r["status"],
+            "kind": r["kind"], "urls": totals.get(r["url"], 0), "children": r["child_count"] or 0,
+            "ok": ok, "error": (r["error"] or "")[:160] or None,
+            # fetched only by us with the double slash removed; the index itself does not list this URL
+            "corrected": set((r["origins"] or "").split(",")) == {"child-corrected"},
+        })
+    return {h: dict(v) for h, v in out.items()}
 
 
 def discover(tenant, fetcher, store, **kw) -> dict:

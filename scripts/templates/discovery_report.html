@@ -69,6 +69,7 @@ details.f > summary::-webkit-details-marker { display: none }
 .fbody dt { color: var(--muted) } .fbody dd { margin: 0; min-width: 0; overflow-wrap: anywhere }
 .urls { margin: 0; padding: 0; list-style: none; display: grid; gap: 2px; font: 13px var(--mono) }
 .urls a { color: var(--accent); overflow-wrap: anywhere }
+#gsc a { color: var(--accent) }
 .locs { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px }
 .locs li { display: grid; grid-template-columns: 120px 1fr; gap: 2px 10px; font-size: 13px }
 .locs .role { font: 600 11px var(--body); letter-spacing: .04em; text-transform: uppercase; color: var(--muted); padding-top: 2px }
@@ -99,6 +100,18 @@ tr:last-child td { border-bottom: 0 }
 .ext button { all: unset; cursor: pointer; font: 500 15px var(--mono); color: var(--accent); justify-self: start }
 .ext button:hover { text-decoration: underline } .ext button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
 .ext .v { font-size: 13px; color: var(--fg); font-variant-numeric: tabular-nums }
+.statbtn { all: unset; cursor: pointer; text-decoration: underline dotted; text-underline-offset: 3px }
+.statbtn:hover { text-decoration-style: solid } .statbtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+.statbtn[aria-expanded="true"] { text-decoration-style: solid; font-weight: 600 }
+.smpanel { background: var(--tint); border-radius: 6px; padding: 8px 10px; display: grid; gap: 4px; font-size: 12px; min-width: 0 }
+.smpanel ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 3px }
+.smpanel li { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: baseline; min-width: 0 }
+.smpanel li.child { padding-left: 14px }
+.smpanel a { font-family: var(--mono); color: var(--accent); overflow-wrap: anywhere; min-width: 0 }
+.smpanel .meta { color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums }
+.smpanel .meta.bad { color: var(--broken) }
+.smpanel button { all: unset; cursor: pointer; color: var(--accent); justify-self: start; font-size: 12px }
+.smpanel button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
 .card.flash { outline: 3px solid var(--accent); outline-offset: 2px }
 .famhead { display: flex; flex-wrap: wrap; gap: 8px; align-items: center }
 .famhead .count { margin-left: auto }
@@ -286,7 +299,10 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
         <div class="line">${c.urls ? `${fmt(c.urls)} URLs in sitemaps` : `<span class="bad">no URLs in any working sitemap</span>`} · ${c.langs || "–"} languages</div>
         ${chips ? `<div class="chips">${chips}</div>` : `<div class="chips"><span class="chip ok">no open findings</span></div>`}
         ${c.top.length ? `<ol>${c.top.map(t => `<li>${t.blocker ? '<span class="blocker">BLOCKER</span>' : ""}<a href="#f-${esc(t.id)}" data-open="${esc(t.id)}">${esc(t.title)}</a></li>`).join("")}</ol>` : ""}
-        <div class="stat">${Object.entries(c.status).map(([k, v]) => `<span class="${v}">${esc(k)}</span>`).join("")}</div>
+        <div class="stat">${Object.entries(c.status).map(([k, v]) => k === "Sitemap"
+          ? `<button type="button" class="statbtn ${v}" data-sm="${esc(c.family)}" aria-expanded="false" aria-controls="sm-${esc(c.family)}" title="Show this family's sitemap files">${esc(k)}</button>`
+          : `<span class="${v}">${esc(k)}</span>`).join("")}</div>
+        <div class="smpanel" id="sm-${esc(c.family)}" hidden></div>
         ${why ? `<div class="why">Points lost: ${esc(why)}${c.cosmetic_capped ? " · cosmetic capped at 20" : ""}</div>` : ""}
         <button type="button" class="more" data-fam="${esc(c.family)}">See ${Object.values(c.counts).reduce((a, b) => a + b, 0)} findings</button>
       </article>`;
@@ -340,7 +356,45 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
     };
     $("fam-sort").addEventListener("change", renderCards);
     $("fam-more").addEventListener("click", () => { famAll = !famAll; renderCards(); });
+    // sitemap files per family, from the discovery run
+    const SM = ((R.sitemaps || {})[famHost]) || {};
+    const SM_SHOWN = 8;
+    const smRow = (x, root) => {
+      const path = x.url.replace(/^https:\/\/[^/]+/, "") || "/";
+      const meta = (x.ok ? `${fmt(x.urls)} URLs${x.children ? ` · ${x.children} files` : ""}` : `${x.status ? "HTTP " + x.status : "failed"}`)
+        + (x.corrected ? " · corrected, not listed" : "");
+      return `<li class="${x.url === root ? "" : "child"}"><a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(path)}</a><span class="meta ${x.ok ? "" : "bad"}">${x.ok ? "✓ " : "✗ "}${esc(meta)}</span></li>`;
+    };
+    const smPanel = (fam, all) => {
+      const xs = SM[fam] || [];
+      if (!xs.length) return `<span>No published sitemap found for /${esc(fam)}/.</span>`;
+      const urls = new Set(xs.map(x => x.url));
+      const roots = xs.filter(x => !x.parent || !urls.has(x.parent));
+      const kids = p => xs.filter(x => x.parent === p);
+      const ordered = [];
+      const walk = (x, root) => { ordered.push([x, root]); for (const k of kids(x.url)) walk(k, root); };
+      for (const r of roots) walk(r, r.url);
+      const shown = all ? ordered : ordered.slice(0, SM_SHOWN);
+      const listed = xs.filter(x => !x.corrected), ok = listed.filter(x => x.ok).length, fixed = xs.length - listed.length;
+      return `<span>${listed.length} sitemap file${listed.length === 1 ? "" : "s"}, ${ok} working${fixed ? `; ${fixed} corrected URLs we fetched to read the content` : ""}</span><ul>${shown.map(([x, r]) => smRow(x, r)).join("")}</ul>`
+        + (ordered.length > SM_SHOWN ? `<button type="button" data-small="${esc(fam)}">${all ? "Show fewer" : `Show all ${ordered.length} files`}</button>` : "");
+    };
+
     $("fam-cards").addEventListener("click", e => {
+      const smb = e.target.closest("button[data-sm]"), sma = e.target.closest("button[data-small]");
+      if (smb || sma) {
+        const fam = (smb || sma).dataset.sm || sma.dataset.small, panel = document.getElementById("sm-" + fam);
+        if (smb) {
+          const open = smb.getAttribute("aria-expanded") !== "true";
+          smb.setAttribute("aria-expanded", String(open));
+          panel.hidden = !open;
+          if (open) { panel.dataset.all = ""; panel.innerHTML = smPanel(fam, false); }
+        } else {
+          panel.dataset.all = panel.dataset.all ? "" : "1";
+          panel.innerHTML = smPanel(fam, !!panel.dataset.all);
+        }
+        return;
+      }
       const b = e.target.closest("button[data-fam]"), a = e.target.closest("a[data-open]");
       if (b) {
         for (const k of ["f-src", "f-type", "f-host", "f-dim"]) $(k).value = "";
@@ -503,7 +557,7 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
     (R.gsc_comparison || []).map(g => {
       const live = g.live_status === 200 ? (g.live_urls ? `<span class="ok">200</span>` : `<span class="warn">200, 0 URLs</span>`) : `<span class="bad">${esc(g.live_status)}</span>`;
       const gs = g.gsc_status === "Success" ? `<span class="dim">Success</span>` : `<span class="bad">${esc(g.gsc_status)}</span>`;
-      return `<tr><td class="mono">${esc(g.path)}</td><td>${gs}</td><td class="n">${fmt(g.gsc_discovered)}</td><td>${live}</td><td class="n">${fmt(g.live_urls)}</td></tr>`;
+      return `<tr><td class="mono">${g.url ? `<a href="${esc(g.url)}" target="_blank" rel="noopener">${esc(g.path)}</a>` : esc(g.path)}</td><td>${gs}</td><td class="n">${fmt(g.gsc_discovered)}</td><td>${live}</td><td class="n">${fmt(g.live_urls)}</td></tr>`;
     }).join("") + `</tbody>`;
 
   $("foot").textContent = `Generated from discovery run ${R.run_id}${A ? `, crawl audit run ${A.run_id}` : ""} and the findings store. Read-only audit: nothing on any site was changed. Each finding lists URLs anyone can open to re-check it. For discovery findings "pages" counts URLs in the affected sitemaps; for crawl audit findings it is an estimate from the sample. Impact from Search Console and GA4 is added in the prioritization step.`;
