@@ -33,7 +33,7 @@ git add -A && git commit -m "..." && git push github master   # Actions rebuilds
 ```
 
 **Working rules from SK (keep):**
-- Commits: SK is the only author and committer. Credit Claude with a plain last line `Assisted by Claude Code` (SK, 2026-10-12); **never a `Co-Authored-By: Claude` trailer** (GitHub would show Claude as co-author). Leave old commits as they are.
+- Commits: SK is the only author and committer. Credit Claude with a plain last line `Assisted by Claude Opus 5.5 (Claude Code)` (SK, 2026-10-12; name the model actually used); **never a `Co-Authored-By: Claude` trailer** (GitHub would show Claude as co-author). Leave old commits as they are.
 - Commit at each logical step; push to `github` (GitLab `origin` mirrors GitHub).
 - Report changes apply to the **latest report only**; never regenerate older report pages or run JSONs.
 - Discuss before building when SK asks a question ("discuss first", "do not implement").
