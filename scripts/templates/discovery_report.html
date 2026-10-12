@@ -104,12 +104,6 @@ tr:last-child td { border-bottom: 0 }
 .top li { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--sev); border-radius: 6px; padding: 10px 12px; display: grid; grid-template-columns: auto 1fr; gap: 2px 12px; align-items: baseline }
 .top li .ftitle a { color: inherit; text-decoration: none } .top li .ftitle a:hover { text-decoration: underline }
 .top li .fsub { grid-column: 2 }
-.extremes { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 8px }
-.ext { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; display: grid; gap: 2px; min-width: 0 }
-.ext .k { font: 600 11px var(--body); letter-spacing: .05em; text-transform: uppercase; color: var(--muted) }
-.ext button { all: unset; cursor: pointer; font: 500 15px var(--mono); color: var(--accent); justify-self: start }
-.ext button:hover { text-decoration: underline } .ext button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
-.ext .v { font-size: 13px; color: var(--fg); font-variant-numeric: tabular-nums }
 .statbtn { all: unset; cursor: pointer; text-decoration: underline dotted; text-underline-offset: 3px }
 .statbtn:hover { text-decoration-style: solid } .statbtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
 .statbtn[aria-expanded="true"] { text-decoration-style: solid; font-weight: 600 }
@@ -236,17 +230,16 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
 
   <section aria-labelledby="s-fam" id="families" hidden>
     <h2 id="s-fam">Product families <small id="fam-meta"></small></h2>
-    <p class="lede"><b>Health</b> (A–F) says how broken a family is, whatever its traffic. <b>Traffic</b> says how much it matters to the business. <a href="#method-health">How health is scored</a>.</p>
-    <div class="extremes" id="fam-ext"></div>
+    <p class="lede"><b>Health</b> (A–F) says how broken a family is, whatever its traffic. <b>Traffic</b> says how much it matters to the business. Sorted A to Z; change the order with Sort. <a href="#method-health">How health is scored</a>.</p>
     <div class="famhead">
       <div class="viewsw" role="group" aria-label="Layout"><button type="button" data-view="rows" aria-pressed="true">Rows</button><button type="button" data-view="grid" aria-pressed="false">Grid</button></div>
       <label for="fam-sort" class="dim">Sort</label>
       <select id="fam-sort">
-        <optgroup label="Health"><option value="health-worst">Worst health first</option><option value="health-best">Best health first</option></optgroup>
+        <optgroup label="Name"><option value="name" selected>A to Z</option></optgroup>
+        <optgroup label="Health"><option value="health-worst">Lowest health first</option><option value="health-best">Highest health first</option></optgroup>
         <optgroup label="Traffic (last 28 days)"><option value="traffic-most">Most traffic first</option><option value="traffic-least">Least traffic first</option></optgroup>
         <optgroup label="Change vs six months ago"><option value="six-drop">Biggest drop first</option><option value="six-gain">Biggest gain first</option></optgroup>
         <optgroup label="Change vs previous 28 days"><option value="prev-drop">Biggest drop first</option><option value="prev-gain">Biggest gain first</option></optgroup>
-        <optgroup label="Name"><option value="name">A to Z</option></optgroup>
       </select>
       <span class="count" id="fam-count"></span>
     </div>
@@ -513,31 +506,10 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
     setView(view);
     document.querySelector(".viewsw").addEventListener("click", e => { const b = e.target.closest("button[data-view]"); if (b) setView(b.dataset.view); });
 
-    // the extremes, one click from their card
-    const first = key => cards.slice().sort(SORTS[key])[0];
-    const firstChange = key => { const c = first(key); return c && change(c, key.startsWith("six") ? "six_months_ago" : "previous") != null ? c : null; };
-    const EXT = [
-      ["Worst health", first("health-worst"), c => `${c.grade} · ${c.health}`],
-      ["Best health", first("health-best"), c => `${c.grade} · ${c.health}`],
-      ["Most traffic", first("traffic-most"), c => `${compact(clicks(c, "current"))} clicks`],
-      ["Least traffic", first("traffic-least"), c => `${compact(clicks(c, "current"))} clicks`],
-      ["Biggest drop, 6 months", firstChange("six-drop"), c => `${signed(change(c, "six_months_ago"))} · ${compact(clicks(c, "six_months_ago"))} to ${compact(clicks(c, "current"))}`],
-      ["Biggest gain, 6 months", firstChange("six-gain"), c => `${signed(change(c, "six_months_ago"))} · ${compact(clicks(c, "six_months_ago"))} to ${compact(clicks(c, "current"))}`],
-    ].filter(([, c]) => c);
-    $("fam-ext").innerHTML = EXT.map(([k, c, v]) => `<div class="ext"><span class="k">${esc(k)}</span><button type="button" data-jump="${esc(c.family)}">/${esc(c.family)}/</button><span class="v">${esc(v(c))}</span></div>`).join("");
-    $("fam-ext").addEventListener("click", e => {
-      const b = e.target.closest("button[data-jump]"); if (!b) return;
-      const shownNow = !!document.getElementById("card-" + b.dataset.jump);
-      if (!shownNow) { famAll = true; renderCards(); }
-      const el = document.getElementById("card-" + b.dataset.jump); if (!el) return;
-      el.scrollIntoView({ behavior: "smooth", block: "center" });
-      el.classList.add("flash"); setTimeout(() => el.classList.remove("flash"), 1600);
-    });
-
     const renderCards = () => {
       const by = $("fam-sort").value;
       try { localStorage.setItem("fam-sort", by); } catch (e) {}
-      const list = cards.slice().sort(SORTS[by] || SORTS["health-worst"]);
+      const list = cards.slice().sort(SORTS[by] || SORTS.name);
       const shown = famAll ? list : list.slice(0, FAM_SHOWN);
       $("fam-cards").innerHTML = shown.map(cardHtml).join("");
       $("fam-count").textContent = `${shown.length} of ${list.length}`;
