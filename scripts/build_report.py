@@ -131,6 +131,29 @@ def add_families(report: dict, summary_path: Path = TRAFFIC_SUMMARY) -> None:
                 f["_family"] = fam
 
 
+def snapshot(page: str, label: str, report: dict) -> Path:
+    """Freeze a standalone report page into reports/archive/<date>[-n].html and list it in index.json.
+    Snapshots are never rebuilt (older reports stay as they were)."""
+    from datetime import date
+
+    archive = REPO_ROOT / "reports" / "archive"
+    archive.mkdir(parents=True, exist_ok=True)
+    day = date.today().isoformat()
+    name, n = f"{day}.html", 1
+    while (archive / name).exists():
+        n += 1
+        name = f"{day}-{n}.html"
+    (archive / name).write_text(page, encoding="utf-8")
+    index_path = archive / "index.json"
+    index = json.loads(index_path.read_text(encoding="utf-8")) if index_path.is_file() else []
+    runs = f"discovery run {report['run_id']}"
+    if report.get("_audit"):
+        runs += f", crawl audit run {report['_audit']['run_id']}"
+    index.append({"file": name, "date": day if n == 1 else f"{day} ({n})", "label": label, "runs": runs})
+    index_path.write_text(json.dumps(index, indent=2) + "\n", encoding="utf-8")
+    return archive / name
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("report", nargs="?", help="discovery JSON (default: newest in reports/)")
@@ -143,6 +166,8 @@ def main(argv: list[str] | None = None) -> int:
                     help="add doctype, charset, viewport and noindex (for GitHub Pages: --out docs/index.html)")
     ap.add_argument("--store", default=str(REPO_ROOT / "data" / "findings.sqlite"), help="findings store")
     ap.add_argument("--findings", help="read findings from this export (reports/findings.json) instead of the store")
+    ap.add_argument("--snapshot", metavar="LABEL",
+                    help="also freeze this report (standalone) into reports/archive/ with this label")
     args = ap.parse_args(argv)
 
     if args.report:
@@ -187,6 +212,8 @@ def main(argv: list[str] | None = None) -> int:
     out = Path(args.out) if args.out else src.with_suffix(".html")
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(build(report, notes, run_date, args.standalone), encoding="utf-8")
+    if args.snapshot:
+        print(f"Snapshot: {snapshot(build(report, notes, run_date, standalone=True), args.snapshot, report)}")
     print(f"Wrote {out} ({out.stat().st_size / 1024:.0f} KB) from {src.name}"
           + (f" and {len(audit_srcs)} crawl-audit runs (newest {audit_src.name})" if audit_src else ""))
     return 0
