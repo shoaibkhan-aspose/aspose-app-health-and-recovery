@@ -60,6 +60,8 @@ Stack (confirmed):
 | `langchain-mcp-adapters` | Lets LangGraph agents call our MCP servers; Claude Code calls the same servers directly |
 | SQLite → PostgreSQL | Findings store: SQLite file for the pilot, PostgreSQL when multi-tenant, scheduled or shared |
 
+**Architecture diagram (2026-10-11):** source of truth is `docs/architecture/site-health-architecture.html` (hand-drawn inline SVG data-flow diagram + run table, design rules, code layout), snapshot `docs/architecture/site-health-architecture.png` (shown in README). Published privately at https://claude.ai/artifact/3zrEcbrV1WxN9nfjvS7Kxm. SK: keep the diagram in its current shape; when the architecture changes, edit that file (dashed = planned, solid = built), re-render the PNG, and republish to the same artifact URL.
+
 ## Where things run
 
 Everything runs on SK's Mac (macOS) from VS Code / Claude Code, which has normal network access to aspose.app and Google APIs. (The earlier claude.ai cloud session could not reach aspose.app; that is why development moved here.)

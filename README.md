@@ -10,6 +10,12 @@ Domain-agnostic agents that audit a web property and report what is broken, not 
 
 The page is rebuilt and published by GitHub Actions on every push to `master`, from the run files committed in `reports/`. Audits themselves run locally (see Setup).
 
+## Architecture
+
+![Site health architecture: data flow from read-only sources through discover, crawl audit and prioritize into the findings store, then reports/ in git, GitHub Actions and the published report](docs/architecture/site-health-architecture.png)
+
+Full page with the step-by-step table, design rules and code layout: [`docs/architecture/site-health-architecture.html`](docs/architecture/site-health-architecture.html) (also published as a private claude.ai page: https://claude.ai/artifact/3zrEcbrV1WxN9nfjvS7Kxm).
+
 ## Layout
 
 ```
