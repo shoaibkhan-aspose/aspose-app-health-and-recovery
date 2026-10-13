@@ -162,11 +162,7 @@ header a, .lede a, .method a, .chg a, #sys-table a, .fixline a, .top .fsub a { c
 section { scroll-margin-top: 56px }
 .sumgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px }
 .sumcard { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; display: grid; gap: 10px; align-content: start; min-width: 0 }
-.gchips { display: flex; flex-wrap: wrap; gap: 8px 22px; align-items: center }
-.gchip { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; color: var(--muted) }
-.gchip b { font: 700 20px var(--display); color: var(--fg); font-variant-numeric: tabular-nums }
-.gb { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 6px; font: 700 15px var(--display); color: var(--surface) }
-.gb.g-A, .gb.g-B { background: var(--good) } .gb.g-C { background: var(--notopt) } .gb.g-D { background: var(--incorrect) } .gb.g-F { background: var(--broken) }
+.sumcard .big { display: flex; flex-wrap: wrap; gap: 4px 36px; font: 600 22px var(--display); word-spacing: 4px }
 .gbar { display: flex; height: 26px; border-radius: 6px; overflow: hidden; border: 1px solid var(--line) }
 .gbar span { display: grid; place-items: center; font: 700 12px var(--body); color: var(--surface); min-width: 0 }
 .gbar .g-A, .gbar .g-B { background: var(--good) } .gbar .g-C { background: var(--notopt) } .gbar .g-D { background: var(--incorrect) } .gbar .g-F { background: var(--broken) }
@@ -425,8 +421,8 @@ footer a { color: var(--accent) }
     const good = (S.click_share.A || 0) + (S.click_share.B || 0);
     const weak = S.weak_with_traffic.map(w => `/${esc(w.family)}/ (${w.share}% of clicks) is ${w.grade}`);
     $("sum-grades").innerHTML = `<span class="dim">${S.families} product families by health grade</span>
-      <div class="gchips">${dist.map(([g, n]) => `<span class="gchip" title="${n} ${n === 1 ? "family" : "families"} graded ${GRADE_NAMES[g]}"><span class="gb g-${g}">${GRADE_NAMES[g]}</span><b>${n}</b></span>`).join("")}</div>
-      <div class="gbar" role="img" aria-label="${esc(dist.map(([g, n]) => n + " families graded " + g).join(", "))}">${dist.map(([g, n]) => `<span class="g-${g}" style="flex:${n}">${GRADE_NAMES[g]} ${n}</span>`).join("")}</div>
+      <div class="big">${dist.map(([g, n]) => `<span>${n} ${GRADE_NAMES[g]}</span>`).join("")}</div>
+      <div class="gbar" role="img" aria-label="${esc(dist.map(([g, n]) => n + " families graded " + g).join(", "))}">${dist.map(([g, n]) => `<span class="g-${g}" style="flex:${n}">${n}</span>`).join("")}</div>
       <div>Families carrying <b>${good}%</b> of search clicks are graded A or B${weak.length ? `; ${weak.join(", ")}` : ""}.</div>`;
   } else { $("sum-grades").hidden = true; }
   $("sum-numbers").innerHTML = `<span class="dim">Open findings and coverage</span><div class="nums">
