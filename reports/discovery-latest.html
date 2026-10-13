@@ -365,7 +365,10 @@ footer a { color: var(--accent) }
   // finding details: readable Observed (sample table or bullets) and Impact (labelled rows)
   const EFFORT_TEXT = { S: "small: one template or config change", M: "medium: several templates or translations", L: "large: rebuild or migration" };
   const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  const day = d => { const [y, m, dd] = d.split("-").map(Number); return `${dd} ${MONTHS[m - 1]} ${y}`; };
+  const day = d => { const m0 = /^(\d{4})-(\d{2})-(\d{2})/.exec(d || ""); if (!m0) return d || "";
+    return `${Number(m0[3])} ${MONTHS[Number(m0[2]) - 1]} ${m0[1]}`; };
+  // ISO dates inside running text ("last read 2025-05-30") read as "30 May 2025"; dates inside URLs stay as they are
+  const readable = t => String(t || "").replace(/(?<![\w\/-])(\d{4}-\d{2}-\d{2})(?![\w\/-])/g, d => day(d));
   // "9 Sep 2026 to 6 Oct 2026 (28 days)": both ends count
   const span = w => `${day(w[0])} to ${day(w[1])} (${Math.round((Date.parse(w[1]) - Date.parse(w[0])) / 864e5) + 1} days)`;
   const tmplName = (t, f) => t.startsWith("generic:")
@@ -384,7 +387,7 @@ footer a { color: var(--accent) }
     }
     // items are joined with "; " before each new URL (or the "and N more" tail); notes may contain "; " too
     const parts = String(f.evidence.observed || "").split(/; (?=https?:\/\/|and \d+ more)/).filter(Boolean);
-    return parts.length > 1 ? `<ul class="obs">${parts.map(x => `<li>${esc(shortUrls(x, f))}</li>`).join("")}</ul>` : esc(shortUrls(f.evidence.observed, f));
+    return parts.length > 1 ? `<ul class="obs">${parts.map(x => `<li>${esc(readable(shortUrls(x, f)))}</li>`).join("")}</ul>` : esc(readable(shortUrls(f.evidence.observed, f)));
   };
   const impactHtml = f => {
     const i = f.impact; if (!i || !i.source) return "";
@@ -404,8 +407,8 @@ footer a { color: var(--accent) }
   // header
   $("h1").textContent = R.tenant + " site health";
   const date = (R._run_date || "");
-  $("meta").textContent = `Discovery run ${R.run_id}${date ? " · " + date : ""} · ${fmt(R.sitemaps_fetched)} sitemaps · ${fmt(R.requests)} requests · ${Math.round(R.duration_s / 60)} min`
-    + (A ? ` — Crawl audit ${(A.runs || []).length > 1 ? "runs " + A.runs.map(r => r.run_id).join(", ") : "run " + A.run_id}${A.date ? " · " + A.date : ""} · ${fmt(A.pages)} pages` : "");
+  $("meta").textContent = `Discovery run ${R.run_id}${date ? " · " + day(date) : ""} · ${fmt(R.sitemaps_fetched)} sitemaps · ${fmt(R.requests)} requests · ${Math.round(R.duration_s / 60)} min`
+    + (A ? ` — Crawl audit ${(A.runs || []).length > 1 ? "runs " + A.runs.map(r => r.run_id).join(", ") : "run " + A.run_id}${A.date ? " · " + day(A.date) : ""} · ${fmt(A.pages)} pages` : "");
 
   // summary: grade distribution + traffic context, key numbers, top risks, verdict
   const hosts = Object.entries(R.hosts);
@@ -646,13 +649,13 @@ footer a { color: var(--accent) }
           <dl>
           <dt>Check</dt><dd>${esc(f.title)}</dd>
           <dt>Observed</dt><dd>${observedHtml(f)}</dd>
-          <dt>Expected</dt><dd>${esc(f.evidence.expected)}</dd>
+          <dt>Expected</dt><dd>${esc(readable(f.evidence.expected))}</dd>
           <dt>Evidence</dt><dd>${(f.evidence.locations || []).length
-            ? `<ul class="locs">${f.evidence.locations.map(l => `<li><span class="role">${esc(l.role)}</span><a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(shortUrls(l.url, f) || l.url)}</a>${l.note ? `<span class="lnote">${esc(shortUrls(l.note, f).replace(/^canonical /, "canonical → "))}</span>` : ""}</li>`).join("")}</ul>`
+            ? `<ul class="locs">${f.evidence.locations.map(l => `<li><span class="role">${esc(l.role)}</span><a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(shortUrls(l.url, f) || l.url)}</a>${l.note ? `<span class="lnote">${esc(readable(shortUrls(l.note, f)).replace(/^canonical /, "canonical → "))}</span>` : ""}</li>`).join("")}</ul>`
             : `<ul class="urls">${f.evidence.urls.map(u => `<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(u)}</a></li>`).join("")}</ul>`}</dd>
           <dt>Template</dt><dd class="mono">${esc(f.template)}</dd>
           ${f.impact && f.impact.source ? `<dt>Impact</dt><dd>${impactHtml(f)}</dd>` : ""}
-          ${f.verification ? `<dt>Checked</dt><dd>${esc(f.verification.how)}${f.status === "unverified" ? ". Re-check: " + esc(f.verification.recheck) : ""}</dd>` : ""}
+          ${f.verification ? `<dt>Checked</dt><dd>${esc(readable(f.verification.how))}${f.status === "unverified" ? ". Re-check: " + esc(f.verification.recheck) : ""}</dd>` : ""}
           ${f.first_seen_run ? `<dt>First seen</dt><dd class="mono">${esc(f.first_seen_run)}</dd>` : ""}
           ${(f._merged || []).length ? `<dt>Same cause</dt><dd class="merged">${f._merged.map(id => byId[id] ? `${esc(byId[id].title)} <span class="mono">${esc(id)}</span>` : esc(id)).join("<br>")}</dd>` : ""}
         </dl>${(f.notes || []).map(n => `<div class="fnote"><b>Note.</b> ${esc(n)}</div>`).join("")}</div>
@@ -692,7 +695,7 @@ footer a { color: var(--accent) }
     $("chg-body").innerHTML = `<div class="chg">
       <div><b>${newF.length}</b> new finding${newF.length === 1 ? "" : "s"}${newF.length ? `:<ul>${newF.map(f => `<li><a href="#f-${esc(f.id)}" data-open="${esc(f.id)}">${esc(plain(f))}</a> · ${esc(where(f))}</li>`).join("")}</ul>` : "."}</div>
       <div><b>${(CH.resolved || []).length}</b> resolved${(CH.resolved || []).length ? `:<ul>${CH.resolved.map(f => `<li>${esc(f.title)} <span class="dim">(${esc(f.subdomain)}, ${esc(f.id)})</span></li>`).join("")}</ul>` : "."}</div>
-      <div>${T.families ? (moved.length ? `Family health since ${esc(T.date)}:<ul>${moved.map(([fam, b, a]) => `<li>/${esc(fam)}/ ${b} → <b>${a}</b> <span class="${a > b ? "ok" : "bad"}">${a > b ? "+" : "−"}${Math.abs(a - b)}</span></li>`).join("")}</ul>` : `No family's health changed since ${esc(T.date)}.`)
+      <div>${T.families ? (moved.length ? `Family health since ${esc(day(T.date))}:<ul>${moved.map(([fam, b, a]) => `<li>/${esc(fam)}/ ${b} → <b>${a}</b> <span class="${a > b ? "ok" : "bad"}">${a > b ? "+" : "−"}${Math.abs(a - b)}</span></li>`).join("")}</ul>` : `No family's health changed since ${esc(day(T.date))}.`)
         : `<span class="dim">Family health is recorded from this run on; changes show after the next full run.</span>`}</div>
     </div>`;
     $("chg-body").addEventListener("click", openFinding);
@@ -776,7 +779,7 @@ footer a { color: var(--accent) }
   if (A) {
     $("audit").hidden = false;
     const runs = A.runs || [{ run_id: A.run_id }];
-    $("audit-meta").textContent = `${runs.length > 1 ? "runs " + runs.map(r => r.run_id).join(", ") : "run " + A.run_id}${A.date ? " · " + A.date : ""} · ${fmt(A.pages)} pages · ${fmt(A.requests)} requests`;
+    $("audit-meta").textContent = `${runs.length > 1 ? "runs " + runs.map(r => r.run_id).join(", ") : "run " + A.run_id}${A.date ? " · " + day(A.date) : ""} · ${fmt(A.pages)} pages · ${fmt(A.requests)} requests`;
     const p = A.params;
     $("audit-scope").innerHTML = [
       `<div><b>Sample.</b> Per template: ${p.per_template} pages in the default language plus 1 page in each of up to ${p.other_langs} other languages, picked the same way every run. Every host's homepage and the products hub pages are added.</div>`,

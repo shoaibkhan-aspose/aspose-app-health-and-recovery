@@ -51,6 +51,19 @@ __ITEMS__
 """
 
 
+MONTHS = "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split()
+
+
+def readable_day(value: str) -> str:
+    """'2026-10-12' -> '12 Oct 2026'; a suffix such as ' (2)' is kept."""
+    head, _, rest = value.partition(" ")
+    try:
+        y, m, d = (int(x) for x in head.split("-"))
+    except ValueError:
+        return value
+    return f"{d} {MONTHS[m - 1]} {y}" + (f" {rest}" if rest else "")
+
+
 def entries() -> list[dict]:
     path = ARCHIVE / "index.json"
     return json.loads(path.read_text(encoding="utf-8")) if path.is_file() else []
@@ -65,7 +78,7 @@ def build(out: Path) -> int:
         slug = Path(e["file"]).stem
         (target / slug).mkdir(exist_ok=True)
         shutil.copyfile(ARCHIVE / e["file"], target / slug / "index.html")
-        rows.append(f'    <li><a href="{html.escape(slug)}/"><b>{html.escape(e["date"])}</b></a>'
+        rows.append(f'    <li><a href="{html.escape(slug)}/"><b>{html.escape(readable_day(e["date"]))}</b></a>'
                     f'<span>{html.escape(e.get("label", ""))}{" · " + html.escape(e["runs"]) if e.get("runs") else ""}'
                     f"</span></li>")
     (target / "index.html").write_text(PAGE.replace("__ITEMS__", "\n".join(rows)), encoding="utf-8")
