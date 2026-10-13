@@ -190,7 +190,9 @@ table.guide { font-size: 13px }
 table.guide td { white-space: normal; vertical-align: top; min-width: 140px }
 table.guide td:first-child { min-width: 180px; font-weight: 600 }
 table.guide tr.hit td { background: var(--tint) }
-table.guide tr.area th { background: var(--surface); color: var(--fg); font: 600 14px var(--display); letter-spacing: 0; text-transform: none; padding-top: 16px; border-bottom: 2px solid var(--line) }
+table.guide tr.area th { background: var(--accent-tint, var(--tint)); color: var(--fg); font: 700 17px var(--display); letter-spacing: 0; text-transform: none; padding: 12px 14px; border-top: 3px solid var(--accent); border-bottom: 1px solid var(--line) }
+table.guide tr.area th small { font: 500 13px var(--body); color: var(--muted); margin-left: 8px }
+table.guide tr.area:first-child th { border-top-width: 0 }
 table.guide td.sev { min-width: 120px; white-space: nowrap; color: var(--sev); font-weight: 600 }
 .sevdot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--sev); margin-right: 6px; vertical-align: middle }
 .conf { font: 600 11px var(--body); letter-spacing: .04em; text-transform: uppercase; padding: 1px 6px; border-radius: 4px; border: 1px dashed var(--muted); color: var(--muted) }
@@ -727,7 +729,8 @@ footer a { color: var(--accent) }
       rows.sort((a, b) => AREAS.indexOf(a[1].area) - AREAS.indexOf(b[1].area) || sevOrder(a[1].severity) - sevOrder(b[1].severity) || a[1].name.localeCompare(b[1].name));
       let lastArea = "";
       $("guide").innerHTML = `<thead><tr><th>Check</th><th>Severity</th><th>What it means</th><th>Impact</th><th>How to fix</th><th>How to verify</th></tr></thead><tbody>${rows.map(([k, g]) => {
-        const head = g.area !== lastArea ? `<tr class="area"><th colspan="6">${esc(g.area)}</th></tr>` : "";
+        const inArea = rows.filter(([, x]) => x.area === g.area);
+        const head = g.area !== lastArea ? `<tr class="area"><th colspan="6" scope="colgroup">${esc(g.area)}<small>${inArea.length} check${inArea.length === 1 ? "" : "s"}${inArea.some(([kk]) => used.has(kk)) ? ` · ${inArea.filter(([kk]) => used.has(kk)).length} with open findings` : ""}</small></th></tr>` : "";
         lastArea = g.area;
         return head + `<tr id="g-${esc(k)}"><td>${esc(g.name)}${used.has(k) ? '<br><span class="dim">has open findings</span>' : ""}</td><td class="sev sev-${esc(g.severity)}"><span class="sevdot"></span>${esc(LABEL[g.severity] || g.severity)}</td><td>${esc(g.means)}</td><td>${esc(g.impact)}</td><td>${esc(g.fix)}</td><td>${esc(g.verify)}</td></tr>`;
       }).join("")}</tbody>`;
