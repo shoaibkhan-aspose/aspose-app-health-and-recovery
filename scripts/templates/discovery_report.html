@@ -364,6 +364,8 @@ footer a { color: var(--accent) }
   const EFFORT_TEXT = { S: "small: one template or config change", M: "medium: several templates or translations", L: "large: rebuild or migration" };
   const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   const day = d => { const [y, m, dd] = d.split("-").map(Number); return `${dd} ${MONTHS[m - 1]} ${y}`; };
+  // "9 Sep 2026 to 6 Oct 2026 (28 days)": both ends count
+  const span = w => `${day(w[0])} to ${day(w[1])} (${Math.round((Date.parse(w[1]) - Date.parse(w[0])) / 864e5) + 1} days)`;
   const tmplName = (t, f) => t.startsWith("generic:")
     ? t.slice(8).replace("{section}", f._family || "…").replace(/\*/g, "…") || "/"
     : t;
@@ -385,7 +387,7 @@ footer a { color: var(--accent) }
   const impactHtml = f => {
     const i = f.impact; if (!i || !i.source) return "";
     const win = i.source === "ga4-host" ? "GA4 organic sessions, last 28 days"
-      : i.window ? `Search Console, ${day(i.window[0])} to ${day(i.window[1])} (28 days)` : "";
+      : i.window ? `Search Console, ${span(i.window)}` : "";
     const share = i.share != null && i.share < 1 ? `${Math.round(i.share * 1000) / 10}% of the ${i.source === "gsc-host" || i.source === "ga4-host" ? "host" : "family"}'s traffic` : "";
     return `<table class="kv"><tbody>
       <tr><th>Priority score</th><td><b>${sc(f)}</b> / 100 <span class="sub">traffic × severity ÷ effort</span></td></tr>
@@ -459,7 +461,7 @@ footer a { color: var(--accent) }
     const cards = FAM.hosts[famHost];
     const W = FAM.windows;
     $("families").hidden = false;
-    $("fam-meta").textContent = `${famHost} · ${cards.length} families · Search Console ${W.current[0]} to ${W.current[1]}`;
+    $("fam-meta").textContent = `${famHost} · ${cards.length} families · Search Console ${span(W.current)}`;
     const clicks = (c, w) => ((c.traffic[w] || {}).clicks) || 0;
     // A change is only ranked when the earlier window had enough clicks: 3 -> 10 is "+233%" but means nothing.
     const MIN_BASE = 100;
@@ -596,7 +598,7 @@ footer a { color: var(--accent) }
     const top = findings.slice().sort((a, b) => sc(b) - sc(a)).slice(0, 10);
     const w = top[0] && top[0].impact.window;
     $("priorities").hidden = false;
-    $("top-meta").textContent = w ? `Search Console ${day(w[0])} to ${day(w[1])}` : "";
+    $("top-meta").textContent = w ? `Search Console ${span(w)}` : "";
     $("top").innerHTML = top.map(f => `
       <li class="sev-${f.type}">${scoreBadge(f)}<span class="ftitle"><a href="#f-${esc(f.id)}" data-open="${esc(f.id)}">${esc(plain(f))}</a> · ${esc(where(f))}</span>
         <span class="fsub">${esc(LABEL[f.type])} · effort ${esc(f.effort || "S")} · <span class="traffic">${esc(riskImpact(f.impact))}</span> · ${fixLink(f)}</span></li>`).join("");
