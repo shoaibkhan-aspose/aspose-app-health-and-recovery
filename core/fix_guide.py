@@ -295,8 +295,30 @@ _ROWS = [
      "Next crawl audit has no finding."),
 ]
 
+# Severity per check, as the auditors assign it (checks only discovery's run.py names inline are listed here).
+_DISCOVERY_ONLY = {
+    "robots_unreachable": "broken", "robots_missing": "improvable", "robots_html": "incorrect",
+    "robots_no_sitemap": "improvable", "host_no_sitemap": "not_optimized", "section_no_sitemap": "broken",
+    "hreflang_none": "not_optimized", "hreflang_partial": "incorrect", "cross_sitemap_dups": "not_optimized",
+    "canonical_broken": "broken",
+}
+
+
+def _severities() -> dict[str, str]:
+    from core.audit.crawl import CHECKS
+    from core.discovery.run import SITEMAP_CHECKS
+
+    out = dict(_DISCOVERY_ONLY)
+    out.update({k: v[1] for k, v in SITEMAP_CHECKS.items()})
+    out["sitemap_redirected"] = out.pop("redirected")  # discovery's sitemap-file redirect
+    out.update({k: v[1] for k, v in CHECKS.items()})
+    return out
+
+
+_SEVERITY = _severities()
 GUIDE: dict[str, dict] = {
-    key: {"area": area, "name": name, "means": means, "impact": impact, "fix": fix, "verify": verify}
+    key: {"area": area, "name": name, "means": means, "impact": impact, "fix": fix, "verify": verify,
+          "severity": _SEVERITY[key]}
     for key, area, name, means, impact, fix, verify in _ROWS
 }
 AREAS = list(dict.fromkeys(row[1] for row in _ROWS))

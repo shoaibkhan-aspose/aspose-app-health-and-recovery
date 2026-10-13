@@ -173,7 +173,7 @@ def add_views(report: dict, all_rows: list[dict] | None = None, history_path: Pa
     families = {c["family"] for c in cards}
     merge_root_causes(findings, host, families)
     report["_systemic"] = systemic_issues(findings, host, families)
-    report["_risks"] = [{**r, "also": r["also"]} for r in top_risks(findings, host, families)]
+    report["_risks"] = top_risks(findings, host, families)
     report["_summary"] = grade_summary(cards)
     history = json.loads(history_path.read_text(encoding="utf-8")) if history_path.is_file() else []
     report["_trend"] = health_trend(cards, history, runs_label(report))

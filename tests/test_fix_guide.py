@@ -27,4 +27,5 @@ def test_every_check_has_a_guide_row():
 def test_rows_are_complete_and_short():
     for key, row in GUIDE.items():
         assert all(row[k].strip() for k in ("area", "name", "means", "impact", "fix", "verify")), key
+        assert row["severity"] in ("broken", "incorrect", "not_optimized", "improvable"), key
         assert len(row["name"]) <= 60, key

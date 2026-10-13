@@ -190,6 +190,9 @@ table.guide { font-size: 13px }
 table.guide td { white-space: normal; vertical-align: top; min-width: 140px }
 table.guide td:first-child { min-width: 180px; font-weight: 600 }
 table.guide tr.hit td { background: var(--tint) }
+table.guide tr.area th { background: var(--surface); color: var(--fg); font: 600 14px var(--display); letter-spacing: 0; text-transform: none; padding-top: 16px; border-bottom: 2px solid var(--line) }
+table.guide td.sev { min-width: 120px; white-space: nowrap; color: var(--sev); font-weight: 600 }
+.sevdot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--sev); margin-right: 6px; vertical-align: middle }
 .conf { font: 600 11px var(--body); letter-spacing: .04em; text-transform: uppercase; padding: 1px 6px; border-radius: 4px; border: 1px dashed var(--muted); color: var(--muted) }
 .fixline { font-size: 13px; background: var(--tint); border-radius: 6px; padding: 8px 10px }
 .fixline a { margin-left: 6px }
@@ -199,6 +202,7 @@ table.guide tr.hit td { background: var(--tint) }
 .issues { white-space: normal; min-width: 280px; font-size: 13px; color: var(--muted) }
 .issues b { color: var(--fg); font-weight: 500 }
 footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); padding-top: 16px; max-width: 80ch }
+footer a { color: var(--accent) }
 @media (max-width: 560px) {
   details.f > summary { grid-template-columns: 1fr auto } .pill { grid-column: 1 / 3 } .fsub { grid-column: 1 / 3 }
   .fbody dl { grid-template-columns: 1fr }
@@ -212,7 +216,6 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
     <h1 id="h1"></h1>
     <p class="verdict" id="verdict"></p>
     <div class="meta" id="meta"></div>
-    <div class="meta"><a href="#method">How this audit works</a> · <a href="archive/">Previous versions</a></div>
   </header>
 
   <nav class="toc" aria-label="Contents">
@@ -421,17 +424,31 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
       <div><b>${fmt(totalUrls)}</b><span>URLs in sitemaps</span></div>
       ${A ? `<div><b>${fmt(A.pages)}</b><span>pages audited</span></div>` : ""}
       <div><b>${findings.filter(f => f._confidence === "to confirm").length}</b><span>to confirm</span></div></div>`;
+  // Wording stays neutral: issues are named, teams are not singled out (SK).
   const RISKS = R._risks || [];
   const riskImpact = i => !i || !i.source ? "" : i.scored_on === "lost" && i.lost_clicks
     ? `${compact(i.lost_clicks)} clicks lost since six months ago` : trafficText(i) + " at stake";
+  const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
+  // where a risk occurs: one place by name, a few listed alphabetically, many as a count
+  const riskPlaces = r => {
+    const fams = r.families.map(x => `/${x}/`), all = [...fams, ...r.hosts];
+    if (all.length === 1) return `on ${all[0]}`;
+    if (all.length <= 4) return `in ${all.join(", ")}`;
+    return `in ${plural(r.families.length, "family", "families")}${r.hosts.length ? ` and ${plural(r.hosts.length, "host", "hosts")}` : ""}`;
+  };
+  const riskCount = r => r.families.length + r.hosts.length === 1 ? riskPlaces(r)
+    : `in ${r.families.length ? plural(r.families.length, "family", "families") : ""}${r.families.length && r.hosts.length ? " and " : ""}${r.hosts.length ? plural(r.hosts.length, "host", "hosts") : ""}`;
+  const riskTraffic = r => r.clicks ? `${compact(r.clicks)} clicks at stake` : r.lost_clicks ? `${compact(r.lost_clicks)} clicks lost since six months ago` : "";
   if (RISKS.length) {
     $("risks-wrap").hidden = false;
-    $("risks").innerHTML = RISKS.map(r => `<li><a href="#f-${esc(r.id)}" data-open="${esc(r.id)}">${esc(r.name)}</a> · <b>${esc(r.where)}</b>${r.also.length ? ` and ${r.also.length} more` : ""} <span>· ${esc(riskImpact(r.impact))}</span></li>`).join("");
+    $("risks").innerHTML = RISKS.map(r => `<li><a href="#f-${esc(r.id)}" data-open="${esc(r.id)}">${esc(r.name)}</a> <span>· ${esc(riskPlaces(r))}${riskTraffic(r) ? " · " + esc(riskTraffic(r)) : ""}</span></li>`).join("");
   }
   if (S) {
-    const fails = S.distribution.F, ds = S.distribution.D;
-    $("verdict").innerHTML = `${fails ? `<b>${fails} famil${fails === 1 ? "y is" : "ies are"} failing (F)</b>` : "No family is failing"}${ds ? ` and ${ds} ${ds === 1 ? "is" : "are"} weak (D)` : ""}. `
-      + (RISKS[0] ? `Biggest risk: ${esc(RISKS[0].name.toLowerCase())} on ${esc(RISKS[0].where)}.` : "");
+    const fs = S.distribution.F, ds = S.distribution.D;
+    const graded = [fs ? `${plural(fs, "family", "families")} graded F` : "", ds ? `${fs ? ds : plural(ds, "family", "families")} graded D` : ""].filter(Boolean).join(" and ");
+    const r0 = RISKS[0];
+    $("verdict").innerHTML = `${graded ? `<b>${graded}.</b> ` : "No family is graded D or F. "}`
+      + (r0 ? `Biggest risk: ${esc(r0.name.toLowerCase())} ${esc(riskCount(r0))}${riskTraffic(r0) ? ` (${esc(riskTraffic(r0))})` : ""}.` : "");
   }
 
   // product family cards
@@ -494,7 +511,7 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
       "prev-drop": byChange("previous", 1), "prev-gain": byChange("previous", -1),
       "name": (a, b) => a.family.localeCompare(b.family),
     };
-    try { const saved = localStorage.getItem("fam-sort"); if (saved && SORTS[saved]) $("fam-sort").value = saved; } catch (e) {}
+    try { const saved = localStorage.getItem("fam-sort-v2"); if (saved && SORTS[saved]) $("fam-sort").value = saved; } catch (e) {}
     // layout: rows (one family per row, default) or the compact grid; remembered per viewer
     const setView = v => {
       $("fam-cards").className = "cards " + v;
@@ -508,7 +525,7 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
 
     const renderCards = () => {
       const by = $("fam-sort").value;
-      try { localStorage.setItem("fam-sort", by); } catch (e) {}
+      try { localStorage.setItem("fam-sort-v2", by); } catch (e) {}
       const list = cards.slice().sort(SORTS[by] || SORTS.name);
       const shown = famAll ? list : list.slice(0, FAM_SHOWN);
       $("fam-cards").innerHTML = shown.map(cardHtml).join("");
@@ -704,8 +721,14 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
       const rows = Object.entries(GUIDE).filter(([, g]) => !area || g.area === area)
         .sort((a, b) => AREAS.indexOf(a[1].area) - AREAS.indexOf(b[1].area) || (used.has(b[0]) - used.has(a[0])));
       $("g-count").textContent = `${rows.length} checks · ${rows.filter(([k]) => used.has(k)).length} with open findings`;
-      $("guide").innerHTML = `<thead><tr><th>Check</th><th>What it means</th><th>Impact</th><th>How to fix</th><th>How to verify</th></tr></thead><tbody>${rows.map(([k, g]) =>
-        `<tr id="g-${esc(k)}"><td>${esc(g.name)}<br><span class="dim mono">${esc(g.area)}${used.has(k) ? " · open" : ""}</span></td><td>${esc(g.means)}</td><td>${esc(g.impact)}</td><td>${esc(g.fix)}</td><td>${esc(g.verify)}</td></tr>`).join("")}</tbody>`;
+      const sevOrder = t => ORDER.indexOf(t);
+      rows.sort((a, b) => AREAS.indexOf(a[1].area) - AREAS.indexOf(b[1].area) || sevOrder(a[1].severity) - sevOrder(b[1].severity) || a[1].name.localeCompare(b[1].name));
+      let lastArea = "";
+      $("guide").innerHTML = `<thead><tr><th>Check</th><th>Severity</th><th>What it means</th><th>Impact</th><th>How to fix</th><th>How to verify</th></tr></thead><tbody>${rows.map(([k, g]) => {
+        const head = g.area !== lastArea ? `<tr class="area"><th colspan="6">${esc(g.area)}</th></tr>` : "";
+        lastArea = g.area;
+        return head + `<tr id="g-${esc(k)}"><td>${esc(g.name)}${used.has(k) ? '<br><span class="dim">has open findings</span>' : ""}</td><td class="sev sev-${esc(g.severity)}"><span class="sevdot"></span>${esc(LABEL[g.severity] || g.severity)}</td><td>${esc(g.means)}</td><td>${esc(g.impact)}</td><td>${esc(g.fix)}</td><td>${esc(g.verify)}</td></tr>`;
+      }).join("")}</tbody>`;
     };
     $("g-area").addEventListener("change", renderGuide);
     renderGuide();
@@ -817,6 +840,6 @@ footer { color: var(--muted); font-size: 13px; border-top: 1px solid var(--line)
       }), "gsc-st", "sitemaps");
   }
 
-  $("foot").textContent = `Generated from discovery run ${R.run_id}${A ? `, crawl audit run ${A.run_id}` : ""} and the findings store. Read-only audit: nothing on any site was changed. Each finding lists URLs anyone can open to re-check it. For discovery findings "pages" counts URLs in the affected sitemaps; for crawl audit findings it is an estimate from the sample. Impact from Search Console and GA4 is added in the prioritization step.`;
+  $("foot").innerHTML = `<a href="#method">How this audit works</a> · <a href="archive/">Previous versions</a><br>` + esc(`Generated from discovery run ${R.run_id}${A ? `, crawl audit run ${A.run_id}` : ""} and the findings store. Read-only audit: nothing on any site was changed. Each finding lists URLs anyone can open to re-check it. For discovery findings "pages" counts URLs in the affected sitemaps; for crawl audit findings it is an estimate from the sample. Impact from Search Console and GA4 is added in the prioritization step.`);
 })();
 </script>

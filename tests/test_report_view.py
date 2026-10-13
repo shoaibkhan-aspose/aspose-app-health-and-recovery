@@ -52,7 +52,8 @@ def test_systemic_issues_and_top_risks():
     sys_rows = systemic_issues(rows, HOST, FAMS)
     assert [(r["check"], r["families"]) for r in sys_rows] == [("hreflang_no_self", ["cells", "omr", "pdf"])]
     risks = top_risks(rows, HOST, FAMS, limit=3)
-    assert [r["id"] for r in risks] == ["h2", "t1"] and risks[0]["also"] == ["omr", "pdf"]
+    assert [r["id"] for r in risks] == ["h2", "t1"]
+    assert risks[0]["families"] == ["cells", "omr", "pdf"] and risks[0]["clicks"] == 5000 + 5100 + 5200
 
 
 def test_grade_summary_and_trend():

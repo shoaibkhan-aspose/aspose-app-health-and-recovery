@@ -79,23 +79,30 @@ def systemic_issues(findings: list[dict], host: str, families: set) -> list[dict
 
 
 def top_risks(findings: list[dict], host: str, families: set, limit: int = 5) -> list[dict]:
-    """The highest-scoring open findings, one per kind of problem; a kind seen in several families says so."""
-    seen: dict = {}
+    """The highest-scoring open findings, one per kind of problem, with every family or host that has it and
+    the traffic totals across them. Wording stays neutral: places are listed, none is singled out."""
+    risks: dict = {}
     for f in sorted((f for f in findings if f["status"] == "open" and not f.get("_merged_into")),
                     key=lambda f: (-score_of(f), f["id"])):
         key = guide_key(f.get("check"), f.get("source")) or f["id"]
+        if key not in risks:
+            if len(risks) >= limit:
+                continue
+            risks[key] = {"id": f["id"], "name": GUIDE[key]["name"] if key in GUIDE else f["title"],
+                          "type": effective_type(f), "score": score_of(f), "families": set(), "hosts": set(),
+                          "clicks": 0, "impressions": 0, "lost_clicks": 0}
+        r = risks[key]
         fam = family_of(f, host, families)
-        if key in seen:
-            seen[key]["also"].add(fam or f["subdomain"])
-            continue
-        if len(seen) < limit:
-            seen[key] = {"id": f["id"], "name": GUIDE[key]["name"] if key in GUIDE else f["title"],
-                         "where": f"/{fam}/" if fam else f["subdomain"], "type": effective_type(f),
-                         "score": score_of(f), "impact": f.get("impact") or {}, "also": set()}
-    risks = list(seen.values())
-    for r in risks:
-        r["also"] = sorted(a for a in r["also"] if a and f"/{a}/" != r["where"] and a != r["where"])
-    return risks
+        (r["families"] if fam else r["hosts"]).add(fam or f["subdomain"])
+        i = f.get("impact") or {}
+        r["clicks"] += i.get("clicks_28d") or 0
+        r["impressions"] += i.get("impressions_28d") or 0
+        r["lost_clicks"] += i.get("lost_clicks") or 0
+    out = []
+    for r in risks.values():
+        r["families"], r["hosts"] = sorted(r["families"]), sorted(r["hosts"])
+        out.append(r)
+    return out
 
 
 def grade_summary(cards: list[dict]) -> dict:

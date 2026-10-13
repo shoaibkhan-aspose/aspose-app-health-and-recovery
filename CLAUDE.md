@@ -36,6 +36,7 @@ git add -A && git commit -m "..." && git push github master   # Actions rebuilds
 - Commits: SK is the only author and committer. Credit Claude with a plain last line `Assisted by Claude Code` (SK, 2026-10-12; exactly this wording, no model name); **never a `Co-Authored-By: Claude` trailer** (GitHub would show Claude as co-author). Leave old commits as they are.
 - Commit at each logical step; push to `github` (GitLab `origin` mirrors GitHub).
 - Report changes apply to the **latest report only**; never regenerate older report pages or run JSONs.
+- **Report wording names issues, never blames teams** (SK, 2026-10-13): no "worst", "failing", "weak"; the verdict names no family and shows totals ("2 families graded F and 6 graded D. Biggest risk: <issue> in 3 families and 1 host (13k clicks at stake)"); top risks list affected places alphabetically (or count them when more than 4). Priorities and findings stay per family (working lists for teams).
 - Discuss before building when SK asks a question ("discuss first", "do not implement").
 - Keep the architecture diagram in its current shape; update it when the architecture changes (see "Architecture diagram" below).
 - The Pages report stays `noindex, nofollow`; traffic numbers are published as is for now (moves to a private domain later).
@@ -45,6 +46,7 @@ git add -A && git commit -m "..." && git push github master   # Actions rebuilds
 - Data: `core/fix_guide.py` (55 checks: plain name, means, impact, fix, verify; test keeps it in step with the auditors), `core/report_view.py` (confidence: complete / strong / partial / to confirm; merge of findings with one sitemap root cause into the worst; shared problems; top risks; grade summary; run changes; health trend), wired in `build_report.add_views`.
 - Traffic lost (built): prioritizer measures each finding's share six months earlier; score = traffic factor of max(at stake, 0.5 x lost). drawing blockers 29 -> 56. Impact table shows "Six months ago" with the loss.
 - Archive (built): `reports/archive/` + `index.json`, `scripts/build_archive.py` (Pages /archive/), `build_report.py --snapshot LABEL`; first snapshot 2026-10-12 = the report before the restructure (byte-identical to what was live). SK: snapshot before structure changes AND after every full run.
+- Fix guide shows area headings and a severity column (severity per check comes from the auditors via `core/fix_guide._severities`). Report links (how this audit works, previous versions) live in the footer, not the header. Family sort storage key is `fam-sort-v2` (reset everyone to A-Z once).
 - Reference tables are semi-collapsed (SK, N=5): open by default, each row marked ✗ broken / ⚠ warning / ✓ fine, sorted by status then size; the top 5 show (all broken rows if more), the rest behind "Show all"; a table with nothing to fix stays closed and says "all N fine".
 - Hand-written takeaways (`reports/*-notes.txt`) are no longer shown (SK: too much text); the files remain but are unused.
 
