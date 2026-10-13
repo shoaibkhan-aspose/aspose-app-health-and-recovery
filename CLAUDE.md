@@ -8,12 +8,12 @@ Domain-agnostic agents that audit a web property, report what is broken, not opt
 
 **Keep this file current:** when a decision is made, a fact is confirmed or a build step finishes, update the relevant section (Status, Seed findings, Open items) in the same session. New issues found by hand go into `tenants/aspose.app.seed-findings.yaml`, never only into prose.
 
-## Start here (session handoff, 2026-10-12)
+## Start here (session handoff, 2026-10-13)
 
-**State:** Phase 1 (audit only). Built and live: discovery, crawl auditor (31 checks), findings store, Prioritizer (GSC traffic + score), family scorecards (health A-F), and the published report. Next build: **priority 3, new auditors** (start with speed: PageSpeed/CrUX). Details: Status, then "Priority order agreed with SK" under Next steps.
+**State:** Phase 1 (audit only). Built and live: discovery, crawl auditor (31 checks), findings store, Prioritizer (GSC traffic + score, traffic lost), family scorecards (health A-F), the restructured report (summary, families, priorities, shared problems, findings, changes, fix guide, reference, method) and its archive. Next build: **priority 3, new auditors** (start with speed: PageSpeed/CrUX). Details: Status, then "Priority order agreed with SK" under Next steps.
 
 **Live:**
-- Report (public, noindex): https://shoaibkhan-aspose.github.io/aspose-app-health-and-recovery/ (rebuilt by GitHub Actions on every push to `master`)
+- Report (public, noindex): https://shoaibkhan-aspose.github.io/aspose-app-health-and-recovery/ (rebuilt by GitHub Actions on every push to `master`); archive of frozen versions: https://shoaibkhan-aspose.github.io/aspose-app-health-and-recovery/archive/
 - Architecture page (private): https://claude.ai/artifact/3zrEcbrV1WxN9nfjvS7Kxm, source `docs/architecture/site-health-architecture.html`
 - Older shared discovery report (private, not updated since run 7): https://claude.ai/artifact/MUUTzbXEymKq4tw5mmmPA5
 
@@ -49,11 +49,12 @@ git add -A && git commit -m "..." && git push github master   # Actions rebuilds
 - Fix guide shows area headings and a severity column (severity per check comes from the auditors via `core/fix_guide._severities`). Report links (how this audit works, previous versions) live in the footer, not the header. Family sort storage key is `fam-sort-v2` (reset everyone to A-Z once).
 - Reference tables are semi-collapsed (SK, N=5): open by default, each row marked ✗ broken / ⚠ warning / ✓ fine, sorted by status then size; the top 5 show (all broken rows if more), the rest behind "Show all"; a table with nothing to fix stays closed and says "all N fine".
 - Hand-written takeaways (`reports/*-notes.txt`) are no longer shown (SK: too much text); the files remain but are unused.
+- Later polish (2026-10-13): dates read "6 Oct 2026" everywhere except inside URLs (`day()`, `readable()` in the template; archive list too); Search Console windows show their length ("9 Sep 2026 to 6 Oct 2026 (28 days)", `span()`); fix guide area headings are distinct bands (accent rule, tint, check counts); the grade summary is spaced plain text "9 B   12 C   6 D   2 F" (SK tried coloured grade chips and rejected them: keep it plain). Family cards default A to Z, extremes strip removed, health sorts named lowest/highest.
 
 **Open discussions (not decided or not built):**
-- Grade scale: SK noticed grade and number are the same measure (letter = band of the health number). Recommended: keep both and print the scale once ("A 90+ · B 75-89 · C 60-74 · D 40-59 · F <40") under the families intro. Not built; ask SK.
-- Sample transparency (cells question, 2026-10-12): ideas offered, none approved yet: (1) "Sample: N pages · L languages" on each card, clickable like Sitemap; (2) confidence labels (strong >= 75% failing or full population; weak = one page, "to confirm"); (3) sample per tool, not only per template, for big families; (4) bigger samples for high-traffic families.
-- Report footer link "How this audit works" to the architecture page (offered, not answered).
+- Shared problems severity (SK asked 2026-10-13 which row is most severe): each row's label is the worst case in the group (canonical: really broken only on /cells/, incorrect in 8; sitemaps: broken on omr and drawing, gis is a leftover; page errors: broken in all 3). Offered: show the mix ("Broken in 1 · Incorrect in 8") and sort by families really broken, then clicks. Not answered.
+- Compare this report with the Aspose.ai Website Health page (https://aspose.github.io/aspose-ai-website-health/): SK asked 2026-10-13, then interrupted before an answer. Earlier notes on that page are under "Ideas from the Aspose.ai Website Health monitor".
+- Sample transparency (cells question, 2026-10-12): still open: (1) "Sample: N pages · L languages" on each card, clickable like Sitemap; (3) sample per tool, not only per template, for big families; (4) bigger samples for high-traffic families. (Confidence labels, idea 2, are built.)
 - Queue after priority 4: re-check remaining seed findings (typo/spelling check on titles and H1s), LangGraph run, scheduled runs in GitHub Actions with a new/resolved digest, report to a private domain.
 
 ## Current phase: 1, AUDIT ONLY

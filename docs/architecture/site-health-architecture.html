@@ -171,7 +171,7 @@ td.step { font: 700 18px var(--display); color: var(--accent); width: 40px }
         <text class="d-s" x="658" y="520">crawl-audit-run9.json</text>
         <text class="d-s" x="658" y="538">findings.json</text>
         <text class="d-s" x="658" y="556">traffic-summary.json</text>
-        <text class="d-s" x="658" y="574">takeaway notes</text>
+        <text class="d-s" x="658" y="574">archive/, health history</text>
         <text class="d-s" x="658" y="594">run files from steps 1-3</text>
 
         <!-- planned and phase 2 -->
@@ -195,7 +195,7 @@ td.step { font: 700 18px var(--display); color: var(--accent); width: 40px }
 
         <rect class="d-box" x="976" y="584" width="300" height="60" rx="6"/>
         <text class="d-t" x="990" y="607">GitHub Actions</text>
-        <text class="d-s" x="990" y="626">build_report.py, family cards</text>
+        <text class="d-s" x="990" y="626">build_report.py + archive</text>
 
         <rect class="d-key" x="976" y="676" width="300" height="56" rx="8"/>
         <text class="d-t" x="990" y="699">Site health report</text>
@@ -271,8 +271,9 @@ td.step { font: 700 18px var(--display); color: var(--accent); width: 40px }
         <tbody>
           <tr><td class="step">1</td><td><code>python scripts/discover.py</code></td><td>robots.txt and every sitemap on the 12 hosts</td><td>URL inventory (<code>data/inventory.sqlite</code>), sitemap findings, <code>reports/discovery-runN.json</code></td><td>15 min</td></tr>
           <tr><td class="step">2</td><td><code>python scripts/audit_crawl.py</code></td><td>the inventory (2 English + 2 translated pages per template), each host's homepage, family hubs; top Search Console pages for families with no sitemap</td><td>page checks (<code>data/audit.sqlite</code>), page findings with evidence locations, <code>reports/crawl-audit-runN.json</code></td><td>25 min</td></tr>
-          <tr><td class="step">3</td><td><code>python scripts/prioritize.py</code></td><td>Search Console page clicks (now, previous 28 days, six months ago), GA4 organic sessions for hosts without Search Console</td><td>impact and score on every finding, <code>reports/findings.json</code>, <code>reports/traffic-summary.json</code></td><td>1 min</td></tr>
-          <tr><td class="step">4</td><td><code>git push github master</code></td><td>the committed <code>reports/</code> files</td><td>GitHub Actions runs <code>build_report.py</code> (family health cards, top priorities) and publishes the page</td><td>1 min</td></tr>
+          <tr><td class="step">3</td><td><code>python scripts/prioritize.py</code></td><td>Search Console page clicks (now, previous 28 days, six months ago), GA4 organic sessions for hosts without Search Console</td><td>impact, traffic lost since six months ago and score on every finding, <code>reports/findings.json</code>, <code>reports/traffic-summary.json</code></td><td>1 min</td></tr>
+          <tr><td class="step">4</td><td><code>python scripts/build_report.py --snapshot "…"</code></td><td>the run files, findings and traffic summary</td><td>the local report, a frozen copy in <code>reports/archive/</code>, family health in <code>reports/health-history.json</code></td><td>seconds</td></tr>
+          <tr><td class="step">5</td><td><code>git push github master</code></td><td>the committed <code>reports/</code> files</td><td>GitHub Actions rebuilds the report (summary, families, priorities, shared problems, findings, changes, fix guide) and publishes it with the archive</td><td>1 min</td></tr>
         </tbody>
       </table>
     </div>
@@ -291,12 +292,12 @@ td.step { font: 700 18px var(--display); color: var(--accent); width: 40px }
   <section>
     <h2>Code layout</h2>
     <div class="layout">
-      <div class="dir">core/</div><div>Deterministic logic: discovery, page audit, findings store, prioritizer, family scorecards, Google clients</div><div><span class="tag built">built</span></div>
-      <div class="dir">scripts/</div><div>The commands: discover, audit_crawl, prioritize, build_report, findings, check_access</div><div><span class="tag built">built</span></div>
+      <div class="dir">core/</div><div>Deterministic logic: discovery, page audit, findings store, prioritizer, family scorecards, fix guide, report views (confidence, shared problems, top risks, changes), Google clients</div><div><span class="tag built">built</span></div>
+      <div class="dir">scripts/</div><div>The commands: discover, audit_crawl, prioritize, build_report, build_archive, findings, check_access</div><div><span class="tag built">built</span></div>
       <div class="dir">mcp_servers/</div><div><code>gsc</code> is built; <code>crawl</code>, <code>findings</code>, <code>ga4</code>, <code>pagespeed</code> are next; fixers in Phase 2</div><div><span class="tag part">partly</span></div>
       <div class="dir">agents/</div><div>LangGraph agents that call the MCP servers: diagnosis, content checks, reporting</div><div><span class="tag planned">planned</span></div>
       <div class="dir">tenants/</div><div>One YAML per property, plus its manual findings</div><div><span class="tag built">built</span></div>
-      <div class="dir">reports/</div><div>Committed run files and exports the published report is built from</div><div><span class="tag built">built</span></div>
+      <div class="dir">reports/</div><div>Committed run files and exports the published report is built from, plus the archive of frozen reports and the family health history</div><div><span class="tag built">built</span></div>
       <div class="dir">data/</div><div>Local SQLite stores and Google data caches, not in git</div><div><span class="tag built">built</span></div>
     </div>
   </section>
