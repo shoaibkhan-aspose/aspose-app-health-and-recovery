@@ -293,6 +293,67 @@ _ROWS = [
      "Users with low vision cannot zoom; fails WCAG 1.4.4.",
      "Remove user-scalable=no and maximum-scale from the viewport.",
      "Next crawl audit has no finding."),
+    # --- speed (perf audit: real users from Chrome, 28 days, 75th percentile, mobile) ---
+    ("lcp_poor", "Speed", "Main content very slow to appear (LCP)",
+     "For real users, the largest image or text block takes over 4 s to show.",
+     "Core Web Vitals fail: a ranking signal, and visitors leave before the tool loads.",
+     "Serve the main image/text early: preload it, compress and size images, cut render-blocking CSS/JS, "
+     "cache at the CDN. Start with the savings listed in the finding.",
+     "PageSpeed Insights shows LCP under 2.5 s for real users (field data updates over 28 days)."),
+    ("lcp_needs_work", "Speed", "Main content slow to appear (LCP)",
+     "For real users, the largest image or text block takes 2.5 to 4 s to show.",
+     "Core Web Vitals not passed; a small ranking and conversion cost.",
+     "Same as above: preload the main element, lighter images, fewer render-blocking files.",
+     "PageSpeed Insights shows LCP under 2.5 s for real users."),
+    ("inp_poor", "Speed", "Page reacts very slowly to input (INP)",
+     "For real users, a tap or click takes over 500 ms to show a response.",
+     "Core Web Vitals fail; the tool feels broken on phones.",
+     "Break up long JavaScript tasks, defer third-party scripts, avoid heavy work in click handlers.",
+     "PageSpeed Insights shows INP under 200 ms for real users."),
+    ("inp_needs_work", "Speed", "Page reacts slowly to input (INP)",
+     "For real users, a tap or click takes 200 to 500 ms to show a response.",
+     "Core Web Vitals not passed; the page feels sluggish.",
+     "Trim JavaScript run on interaction; load non-essential scripts later.",
+     "PageSpeed Insights shows INP under 200 ms for real users."),
+    ("cls_poor", "Speed", "Layout jumps a lot while loading (CLS)",
+     "For real users, content moves around noticeably while the page loads (CLS over 0.25).",
+     "Core Web Vitals fail; users tap the wrong thing.",
+     "Give images, ads, banners and embeds fixed sizes; do not insert content above what is already shown.",
+     "PageSpeed Insights shows CLS under 0.1 for real users."),
+    ("cls_needs_work", "Speed", "Layout shifts while loading (CLS)",
+     "For real users, content moves a little while the page loads (CLS 0.1 to 0.25).",
+     "Core Web Vitals not passed.",
+     "Reserve space for late-loading elements (width/height, aspect-ratio, min-height).",
+     "PageSpeed Insights shows CLS under 0.1 for real users."),
+    ("ttfb_poor", "Speed", "Server slow to answer (TTFB)",
+     "For real users, the first byte of the page arrives after more than 1.8 s.",
+     "Every other speed metric starts late; LCP rarely passes with a slow server.",
+     "Cache HTML at the CDN, speed up the backend or origin, avoid redirects before the page.",
+     "PageSpeed Insights shows TTFB under 0.8 s for real users."),
+    ("lab_load_failed", "Speed", "Page cannot be loaded for testing",
+     "Google's page test failed twice: the server returned an error, timed out, or sent something that is "
+     "not a web page.",
+     "If Google's tester cannot load it, Googlebot and users often cannot either; slow or failing pages "
+     "drop out of search.",
+     "Check the server logs for these URLs (errors, very slow responses) and fix the backend or routing.",
+     "The URL loads in a few seconds with HTTP 200; next speed audit has no finding."),
+    ("lab_no_paint", "Speed", "Page shows nothing in Google's test",
+     "The page loads, but in Google's mobile test nothing appears on screen (twice), usually because all "
+     "content waits for JavaScript.",
+     "Google renders pages like this test does; a page that paints nothing may be indexed as empty.",
+     "Send real content in the HTML (server-side rendering or a static shell with text), and do not hide the "
+     "page until scripts finish.",
+     "PageSpeed Insights shows a screenshot with content; next speed audit has no finding."),
+    ("origin_cwv_poor", "Speed", "Whole host fails Core Web Vitals",
+     "Across all pages of the host, real users see a poor LCP, INP or CLS.",
+     "Google uses host-level data for pages with too few visits of their own, so every page carries it.",
+     "Fix the shared parts first (layout, fonts, scripts every page loads), then the busiest templates.",
+     "PageSpeed Insights origin data shows all three metrics good."),
+    ("origin_cwv_needs_work", "Speed", "Whole host needs work on Core Web Vitals",
+     "Across all pages of the host, real users see LCP, INP or CLS in the 'needs improvement' range.",
+     "Pages without their own data inherit this assessment.",
+     "Fix the shared parts first (layout, fonts, scripts every page loads), then the busiest templates.",
+     "PageSpeed Insights origin data shows all three metrics good."),
 ]
 
 # Severity per check, as the auditors assign it (checks only discovery's run.py names inline are listed here).
@@ -306,12 +367,14 @@ _DISCOVERY_ONLY = {
 
 def _severities() -> dict[str, str]:
     from core.audit.crawl import CHECKS
+    from core.audit.perf import CHECKS as PERF_CHECKS
     from core.discovery.run import SITEMAP_CHECKS
 
     out = dict(_DISCOVERY_ONLY)
     out.update({k: v[1] for k, v in SITEMAP_CHECKS.items()})
     out["sitemap_redirected"] = out.pop("redirected")  # discovery's sitemap-file redirect
     out.update({k: v[1] for k, v in CHECKS.items()})
+    out.update({k: v[1] for k, v in PERF_CHECKS.items()})
     return out
 
 

@@ -297,6 +297,10 @@ footer a { color: var(--accent) }
       <div class="scope" id="audit-scope"></div>
       <div class="tablewrap"><table id="audit-hosts"></table></div>
     </details>
+    <details class="ref" id="speed" hidden open><summary>Speed per host <small id="speed-st"></small> <small id="speed-meta"></small></summary>
+      <p class="lede">Whole host: real Chrome users over 28 days, 75th percentile, mobile (good: LCP ≤ 2.5 s, INP ≤ 200 ms, CLS ≤ 0.1). Pages: the most-visited pages per template; "real-user data" counts pages with enough visits for their own numbers. The lab score (Lighthouse, 0-100) varies by up to ~20 points between runs, so it is shown here only, never as a finding.</p>
+      <div class="tablewrap"><table id="speed-hosts"></table></div>
+    </details>
     <details class="ref" open><summary>Hosts: robots.txt and sitemaps <small id="hosts-st"></small></summary>
       <div class="tablewrap"><table id="hosts"></table></div>
     </details>
@@ -312,7 +316,7 @@ footer a { color: var(--accent) }
   <section aria-labelledby="s-method" id="method">
     <h2 id="s-method">How this audit works</h2>
     <div class="method">
-      <div><h3>What runs</h3><p><b>Discovery</b> reads every host's robots.txt and every sitemap file (all of them, no sampling). The <b>crawl audit</b> then fetches a sample of pages per URL pattern (template): 2 English pages and 1 page in each of 2 other languages, plus every homepage and family hub, and runs 31 checks on each. Both only read: GET requests, robots.txt respected, one request per host per second. The <b>prioritizer</b> adds Search Console traffic. Manual review findings come from people and are marked until a check confirms them.</p></div>
+      <div><h3>What runs</h3><p><b>Discovery</b> reads every host's robots.txt and every sitemap file (all of them, no sampling). The <b>crawl audit</b> then fetches a sample of pages per URL pattern (template): 2 English pages and 1 page in each of 2 other languages, plus every homepage and family hub, and runs 31 checks on each. Both only read: GET requests, robots.txt respected, one request per host per second. The <b>speed audit</b> asks Google PageSpeed Insights about the 2 most-visited pages of each template (mobile): Core Web Vitals from real Chrome users over 28 days (75th percentile), plus a Lighthouse lab run that names the biggest savings. Google loads each page once; pages with too few visits have no real-user data and count neither way. The <b>prioritizer</b> adds Search Console traffic. Manual review findings come from people and are marked until a check confirms them.</p></div>
       <div id="method-health"><h3>Family health (A–F)</h3><p>Starts at 100. Each open finding costs broken 40, incorrect 20, not optimized 6 or improvable 2 points, times the share of the family it affects (at least a quarter). Findings with one root cause count once, cosmetic issues cost at most 20 in total, and a canonical that points at a missing page counts as broken. A 90+, B 75–89, C 60–74, D 40–59, F below 40. Traffic is not part of health.</p></div>
       <div id="method-score"><h3>Priority score (0–100)</h3><p>Search Console clicks on the affected pages over 28 days (impressions count 1% of a click), on a log scale, × severity (broken 1, incorrect 0.7, not optimized 0.4, improvable 0.2) ÷ effort (S 1, M 1.5, L 2.5). If the same pages lost traffic since six months ago, half of that loss counts when it is larger than today's traffic. Hosts without Search Console use GA4 organic sessions.</p></div>
       <div><h3>Samples and estimates</h3><p>"~N pages affected" applies each template's failing share of the sample to its number of URLs in the sitemaps. Confidence labels say how solid that is; findings marked <b>to confirm</b> rest on one page.</p></div>
@@ -342,7 +346,7 @@ footer a { color: var(--accent) }
   const R = JSON.parse(document.getElementById("data").textContent);
   const ORDER = ["broken", "incorrect", "not_optimized", "improvable"];
   const LABEL = { broken: "Broken", incorrect: "Incorrect", not_optimized: "Not optimized", improvable: "Improvable",
-    discovery: "Discovery", seed: "Manual review", "crawl-audit": "Crawl audit" };
+    discovery: "Discovery", seed: "Manual review", "crawl-audit": "Crawl audit", "perf-audit": "Speed audit" };
   const A = R._audit || null;
   const CH = R._run_changes || { new: [], resolved: [], runs: [] };
   const NEW = new Set(CH.new || []);
@@ -641,7 +645,7 @@ footer a { color: var(--accent) }
         <summary>
           ${scored ? scoreBadge(f) : `<span class="pill">${LABEL[f.type]}</span>`}
           <span class="ftitle">${esc(plain(f))} · ${esc(where(f))} ${NEW.has(f.id) ? '<span class="tag new">new</span>' : ""} ${f._confidence === "to confirm" || f._confidence === "partial" ? `<span class="conf">${esc(f._confidence)}</span>` : ""}</span>
-          <span class="fpages">${f.affected_pages ? (f.source === "crawl-audit" ? "~" : "") + fmt(f.affected_pages) + " pages affected" : ""}</span>
+          <span class="fpages">${f.affected_pages ? (["crawl-audit", "perf-audit"].includes(f.source) ? "~" : "") + fmt(f.affected_pages) + " pages affected" : ""}</span>
           <span class="fsub">${esc(f.subdomain)} · ${esc(f.dimension)} · ${esc(LABEL[f.source || "discovery"])} · confidence: ${esc(f._confidence || "–")} · <span class="mono">${esc(f.id)}</span>${trafficText(f.impact) ? ` · <span class="traffic">${esc(trafficText(f.impact))}</span>` : ""}</span>
         </summary>
         <div class="fbody">
@@ -796,6 +800,25 @@ footer a { color: var(--accent) }
       }), "audit-st", "hosts");
   }
 
+  // speed audit
+  const P = R._perf || null;
+  if (P) {
+    $("speed").hidden = false;
+    $("speed-meta").textContent = `run ${P.run_id}${P.date ? " · " + day(P.date) : ""} · ${fmt(P.pages)} pages · ${esc(P.params.strategy)}`;
+    const TH = { lcp: [2500, 4000], inp: [200, 500], cls: [0.1, 0.25] };
+    const rate = (k, v) => v <= TH[k][0] ? "ok" : v > TH[k][1] ? "bad" : "warn";
+    const val = (k, v) => k === "cls" ? v.toFixed(2) : v >= 1000 ? (v / 1000).toFixed(1) + " s" : Math.round(v) + " ms";
+    const perfFindings = findings.filter(f => f.source === "perf-audit");
+    semi("speed-hosts", `<thead><tr><th>Host</th><th>Whole host, real users (LCP · INP · CLS)</th><th class="n">Pages</th><th class="n">Real-user data</th><th class="n">Not loaded</th><th class="n">Median lab score</th><th class="n">Findings</th></tr></thead>`,
+      Object.entries(P.summary).map(([h, s]) => {
+        const m = ((P.origins || {})[h] || {}).metrics || {};
+        const rates = ["lcp", "inp", "cls"].filter(k => m[k] != null).map(k => rate(k, m[k]));
+        const st = s.not_loaded || rates.includes("bad") ? "bad" : rates.includes("warn") ? "warn" : "ok";
+        const origin = ["lcp", "inp", "cls"].filter(k => m[k] != null).map(k => `<span class="${rate(k, m[k]) === "ok" ? "" : rate(k, m[k])}">${k.toUpperCase()} ${val(k, m[k])}</span>`).join(" · ");
+        return { st, w: s.pages, html: `<tr><td class="mono">${mk(st)}${esc(h)}</td><td>${origin || '<span class="dim">too few visits for host data</span>'}</td><td class="n">${fmt(s.pages)}</td><td class="n">${fmt(s.field)}</td><td class="n ${s.not_loaded ? "bad" : ""}">${fmt(s.not_loaded || 0)}</td><td class="n">${s.median_score == null ? "–" : s.median_score}</td><td class="n">${perfFindings.filter(f => f.subdomain === h).length}</td></tr>` };
+      }), "speed-st", "hosts");
+  }
+
   // hosts
   const robotsCell = r => r.error ? `<span class="bad">${esc(r.error)}</span>`
     : r.is_html ? `<span class="bad">200, HTML page</span>`
@@ -848,6 +871,6 @@ footer a { color: var(--accent) }
       }), "gsc-st", "sitemaps");
   }
 
-  $("foot").innerHTML = `<a href="#method">How this audit works</a> · <a href="archive/">Previous versions</a><br>` + esc(`Generated from discovery run ${R.run_id}${A ? `, crawl audit run ${A.run_id}` : ""} and the findings store. Read-only audit: nothing on any site was changed. Each finding lists URLs anyone can open to re-check it. For discovery findings "pages" counts URLs in the affected sitemaps; for crawl audit findings it is an estimate from the sample. Impact from Search Console and GA4 is added in the prioritization step.`);
+  $("foot").innerHTML = `<a href="#method">How this audit works</a> · <a href="archive/">Previous versions</a><br>` + esc(`Generated from discovery run ${R.run_id}${A ? `, crawl audit run ${A.run_id}` : ""}${R._perf ? `, speed audit run ${R._perf.run_id}` : ""} and the findings store. Read-only audit: nothing on any site was changed. Each finding lists URLs anyone can open to re-check it. For discovery findings "pages" counts URLs in the affected sitemaps; for crawl audit findings it is an estimate from the sample. Impact from Search Console and GA4 is added in the prioritization step.`);
 })();
 </script>

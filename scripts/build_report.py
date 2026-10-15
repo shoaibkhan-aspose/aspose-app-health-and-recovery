@@ -1,4 +1,4 @@
-"""Render the site health report (discovery run + latest crawl audit) as one self-contained HTML page.
+"""Render the site health report (discovery, crawl audits, latest speed audit) as one self-contained HTML page.
 
     python scripts/build_report.py                                   # newest discovery report + newest crawl audit
     python scripts/build_report.py --findings reports/findings.json  # without the store (GitHub Actions)
@@ -146,7 +146,17 @@ def runs_label(report: dict) -> str:
     runs = f"discovery run {report['run_id']}"
     if report.get("_audit"):
         runs += f", crawl audit run {report['_audit']['run_id']}"
+    if report.get("_perf"):
+        runs += f", speed audit run {report['_perf']['run_id']}"
     return runs
+
+
+def perf_summary(path: Path) -> dict:
+    """What the page shows of a speed-audit run: run id, date, scope, per-host summary, whole-host field data."""
+    a = json.loads(path.read_text(encoding="utf-8"))
+    return {"run_id": a["run_id"], "date": run_date_of(path, "perf-audit-"), "params": a["params"],
+            "pages": len(a["pages"]), "summary": a["summary"], "origins": a["origins"],
+            "stopped_early": a["stopped_early"], "incomplete": a.get("incomplete", False)}
 
 
 def add_views(report: dict, all_rows: list[dict] | None = None, history_path: Path = HEALTH_HISTORY) -> None:
@@ -160,6 +170,8 @@ def add_views(report: dict, all_rows: list[dict] | None = None, history_path: Pa
     refs = [f"discovery-run{report['run_id']}"]
     if report.get("_audit"):
         refs.append(f"crawl-audit-run{report['_audit']['run_id']}")
+    if report.get("_perf"):
+        refs.append(f"perf-audit-run{report['_perf']['run_id']}")
     changes = run_changes(all_rows or findings, refs)
     titles = {f["id"]: f for f in (all_rows or findings)}
     changes["resolved"] = [{"id": i, "title": titles[i]["title"], "subdomain": titles[i]["subdomain"]}
@@ -224,6 +236,7 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--audit", help="comma-separated crawl-audit JSONs, merged oldest first "
                     "(default: every crawl-audit run in reports/; '' to leave out)")
     ap.add_argument("--audit-notes", help="text file, one crawl-audit takeaway per line")
+    ap.add_argument("--perf", help="speed-audit JSON (default: newest perf-audit run in reports/; '' to leave out)")
     ap.add_argument("--out", help="output HTML path")
     ap.add_argument("--standalone", action="store_true",
                     help="add doctype, charset, viewport and noindex (for GitHub Pages: --out docs/index.html)")
@@ -253,12 +266,17 @@ def main(argv: list[str] | None = None) -> int:
     audit_src = audit_srcs[-1] if audit_srcs else None
     if audit_srcs:
         report["_audit"] = audit_summary(audit_srcs, read_notes(args.audit_notes))
+    perf_src = Path(args.perf) if args.perf else newest("perf-audit-*-run*.json") if args.perf is None else None
+    if perf_src:
+        report["_perf"] = perf_summary(perf_src)
     if args.findings:
         rows = json.loads(Path(args.findings).read_text(encoding="utf-8"))
         all_rows = rows
         report["findings"], report["_changes"] = from_export(rows, f"discovery-run{report['run_id']}")
         if not audit_src:
             report["findings"] = [f for f in report["findings"] if f["source"] != "crawl-audit"]
+        if not perf_src:
+            report["findings"] = [f for f in report["findings"] if f["source"] != "perf-audit"]
     elif Path(args.store).is_file():
         store = FindingsStore(args.store)
         run_ref = f"discovery-run{report['run_id']}"
@@ -271,6 +289,8 @@ def main(argv: list[str] | None = None) -> int:
         report["_changes"] = store.changes(run_ref)
         if not audit_src:
             report["findings"] = [f for f in report["findings"] if f["source"] != "crawl-audit"]
+        if not perf_src:
+            report["findings"] = [f for f in report["findings"] if f["source"] != "perf-audit"]
     else:
         print(f"No findings store at {args.store}; using the run's own findings.", file=sys.stderr)
     add_families(report)
@@ -284,7 +304,8 @@ def main(argv: list[str] | None = None) -> int:
         print(f"Snapshot: {snapshot(build(report, notes, run_date, standalone=True), args.snapshot, report)}")
         record_health(report)
     print(f"Wrote {out} ({out.stat().st_size / 1024:.0f} KB) from {src.name}"
-          + (f" and {len(audit_srcs)} crawl-audit runs (newest {audit_src.name})" if audit_src else ""))
+          + (f" and {len(audit_srcs)} crawl-audit runs (newest {audit_src.name})" if audit_src else "")
+          + (f" and {perf_src.name}" if perf_src else ""))
     return 0
 
 
