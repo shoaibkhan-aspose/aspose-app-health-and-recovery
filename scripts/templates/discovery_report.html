@@ -150,8 +150,16 @@ tr:last-child td { border-bottom: 0 }
 .card ol { margin: 0; padding-left: 18px; display: grid; gap: 3px; font-size: 13px }
 .card ol a { color: var(--fg); text-decoration-color: var(--line); text-underline-offset: 2px } .card ol a:hover { color: var(--accent); text-decoration-color: currentColor }
 .blocker { font: 700 10px var(--body); letter-spacing: .05em; color: var(--surface); background: var(--broken); border-radius: 3px; padding: 1px 4px; margin-right: 4px }
-.stat { display: flex; flex-wrap: wrap; gap: 10px; font-size: 12px }
-.stat .ok::before { content: "✓ " } .stat .warn::before { content: "⚠ " } .stat .bad::before { content: "✗ " }
+.stat { display: flex; flex-wrap: wrap; gap: 6px; font-size: 12px }
+/* status pills: same shape for every state, soft tint + dark text; red tinted a bit stronger so problems lead */
+.stat .pill { display: inline-flex; align-items: center; gap: 4px; padding: 2px 9px; border-radius: 999px; font: 600 12px/1.5 var(--body);
+  text-transform: none; letter-spacing: 0; color: var(--fg); --pc: var(--muted); background: color-mix(in srgb, var(--pc) 13%, var(--surface)); border: 1px solid color-mix(in srgb, var(--pc) 45%, var(--surface)) }
+.stat .pill.ok { --pc: var(--good) } .stat .pill.warn { --pc: var(--notopt) }
+.stat .pill.bad { --pc: var(--broken); background: color-mix(in srgb, var(--pc) 18%, var(--surface)) }
+.stat .pill::before { color: var(--pc); font-weight: 700 }
+.stat .pill.ok::before { content: "✓" } .stat .pill.warn::before { content: "⚠" } .stat .pill.bad::before { content: "✗" }
+.stat .statbtn.pill { cursor: pointer; text-decoration: underline dotted; text-underline-offset: 3px }
+.stat .statbtn.pill[aria-expanded="true"] { text-decoration-style: solid; box-shadow: 0 0 0 1.5px var(--pc) }
 .why { font-size: 12px; color: var(--muted) }
 .card .more { font-size: 13px; padding: 5px 10px }
 .verdict { font-size: 17px; max-width: 75ch; margin: 0 }
@@ -500,8 +508,8 @@ footer a { color: var(--accent) }
         <div class="zone z-work">
           ${c.top.length ? `<ol>${c.top.map(t => `<li>${t.blocker ? '<span class="blocker">BLOCKER</span>' : ""}<a href="#f-${esc(t.id)}" data-open="${esc(t.id)}">${esc(t.title)}</a></li>`).join("")}</ol>` : ""}
           <div class="stat">${Object.entries(c.status).map(([k, v]) => k === "Sitemap"
-            ? `<button type="button" class="statbtn ${v}" data-sm="${esc(c.family)}" aria-expanded="false" aria-controls="sm-${esc(c.family)}" title="Show this family's sitemap files">${esc(k)}</button>`
-            : `<span class="${v}">${esc(k)}</span>`).join("")}</div>
+            ? `<button type="button" class="statbtn pill ${v}" data-sm="${esc(c.family)}" aria-expanded="false" aria-controls="sm-${esc(c.family)}" title="Show this family's sitemap files">${esc(k)}</button>`
+            : `<span class="pill ${v}" title="${esc(k)}: ${v === "bad" ? "broken" : v === "warn" ? "needs attention" : "fine"}">${esc(k)}</span>`).join("")}</div>
           ${why ? `<div class="why">Points lost: ${esc(why)}${c.cosmetic_capped ? " · cosmetic capped at 20" : ""}</div>` : ""}
           <button type="button" class="more" data-fam="${esc(c.family)}">See ${Object.values(c.counts).reduce((a, b) => a + b, 0)} findings</button>
         </div>
