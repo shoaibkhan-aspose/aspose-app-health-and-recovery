@@ -8,16 +8,23 @@ Domain-agnostic agents that audit a web property, report what is broken, not opt
 
 **Keep this file current:** when a decision is made, a fact is confirmed or a build step finishes, update the relevant section (Status, Seed findings, Open items) in the same session. New issues found by hand go into `tenants/aspose.app.seed-findings.yaml`, never only into prose.
 
-## Start here (session handoff, 2026-10-13)
+## Start here (session handoff, 2026-10-15)
 
-**State:** Phase 1 (audit only). Built and live: discovery, crawl auditor (31 checks), findings store, Prioritizer (GSC traffic + score, traffic lost), family scorecards (health A-F), the restructured report (summary, families, priorities, shared problems, findings, changes, fix guide, reference, method) and its archive. Priority 3 in progress: **speed auditor built and run 2026-10-15** (see Status); then ai and functional auditors. Details: Status, then "Priority order agreed with SK" under Next steps.
+**State:** Phase 1 (audit only). Built and live: discovery, crawl auditor (31 checks), **speed auditor** (PageSpeed Insights: real-user Core Web Vitals + lab, built and first run 2026-10-15), findings store, Prioritizer (GSC traffic + score, traffic lost), family scorecards (health A-F, status pills), the report (summary, families, priorities, shared problems, findings, changes, fix guide, reference incl. "Speed per host", method) and its archive. Last commit `ca3d824` (status pills), pushed to `github`, Pages live; working tree clean.
+
+**Next session, start with** (priority 3 continues; see "Priority order agreed with SK"):
+1. **AI-readiness auditor** (dimension `ai`): AI crawler access in robots.txt (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, CCBot ...), llms.txt per host, answer-ready structure. Build it like `core/audit/perf.py` (checks dict, fix-guide rows, scorecard group, report label, tests), discuss scope with SK first.
+2. Then the functional auditor (apps upload/convert/download), then priority 4 (`crawl`, `findings` MCP servers).
+3. Watch: **ocr is intermittently failing** (HTTP 500 / ~22 s first byte on most sampled ocr app pages on 2026-10-15; Google loaded them in run 12). The next full crawl audit should show it as `http_error`; if it does not, raise it with SK as a manual finding.
+4. Open questions for SK are under "Open discussions" below (shared problems severity, Aspose.ai comparison, sample transparency, a "Speed" pill on family cards, tenant 2, Pages rename).
 
 **Live:**
 - Report (public, noindex): https://shoaibkhan-aspose.github.io/aspose-app-health-and-recovery/ (rebuilt by GitHub Actions on every push to `master`); archive of frozen versions: https://shoaibkhan-aspose.github.io/aspose-app-health-and-recovery/archive/
-- Architecture page (private): https://claude.ai/artifact/3zrEcbrV1WxN9nfjvS7Kxm, source `docs/architecture/site-health-architecture.html`
+- Architecture page (private, version 3 = speed step added 2026-10-15): https://claude.ai/artifact/3zrEcbrV1WxN9nfjvS7Kxm, source `docs/architecture/site-health-architecture.html`
+- Archive: 2026-10-12 (before the restructure), 2026-10-15 (restructured report, before the speed audit), 2026-10-15-2 (after the speed audit). Pages serve them at `/archive/<file without .html>/`.
 - Older shared discovery report (private, not updated since run 7): https://claude.ai/artifact/MUUTzbXEymKq4tw5mmmPA5
 
-**Latest data:** discovery run 8 (2026-10-09), full crawl audit run 9 (652 pages, all 29 families + every host), speed audit run 12 (2026-10-15, 353 pages), traffic window 2026-09-09..10-06 (+ previous 28 days and six months ago). 326 open findings, all scored.
+**Latest data:** discovery run 8 (2026-10-09), full crawl audit run 9 (652 pages, all 29 families + every host), speed audit run 12 (2026-10-15, 353 pages), traffic window 2026-09-09..10-06 (+ previous 28 days and six months ago). 326 open findings (311 open + 15 unverified: crawl audit 198, discovery 88, seed 25, speed 15), all scored. Run 12 was scored with `prioritize.py --offline` (same traffic window as before); the next full cycle fetches a new window.
 
 **Full cycle** (on the Mac, from the repo, `.venv` active):
 ```bash
@@ -64,6 +71,7 @@ git add -A && git commit -m "..." && git push github master   # Actions rebuilds
 - Compare this report with the Aspose.ai Website Health page (https://aspose.github.io/aspose-ai-website-health/): SK asked 2026-10-13, then interrupted before an answer. Earlier notes on that page are under "Ideas from the Aspose.ai Website Health monitor".
 - Sample transparency (cells question, 2026-10-12): still open: (1) "Sample: N pages · L languages" on each card, clickable like Sitemap; (3) sample per tool, not only per template, for big families; (4) bigger samples for high-traffic families. (Confidence labels, idea 2, are built.)
 - Tenant 2 `blog.conholdate.cloud` (SK asked 2026-10-14, discussed, not started): core is ready; gaps are no GSC/GA4 access for the service account, report outputs are single-tenant (`reports/findings.json`, `traffic-summary.json`, aspose.app wording), blog needs `url_templates`/sample config, and the "standalone, not blog-team-tools" scope note. Plan offered: per-tenant subfolders on the same Pages site (one deploy builds all tenants). Open: separate vs combined report, other Conholdate blogs, Conholdate data public.
+- "Speed" pill on family cards (offered 2026-10-15, not decided): a fifth status from the `speed` scorecard group.
 - Pages URL rename (SK 2026-10-15: later): rename repo to e.g. `websites-health-and-recovery`, then a tiny repo with the old name whose `index.html` + `404.html` redirect (meta refresh + JS keeping path and hash) to the new URL; update the `github` remote, docs, archive and architecture links. Browser storage keys survive (same origin).
 - Queue after priority 4: re-check remaining seed findings (typo/spelling check on titles and H1s), LangGraph run, scheduled runs in GitHub Actions with a new/resolved digest, report to a private domain.
 
