@@ -10,20 +10,21 @@ Domain-agnostic agents that audit a web property, report what is broken, not opt
 
 ## Start here (session handoff, 2026-10-13)
 
-**State:** Phase 1 (audit only). Built and live: discovery, crawl auditor (31 checks), findings store, Prioritizer (GSC traffic + score, traffic lost), family scorecards (health A-F), the restructured report (summary, families, priorities, shared problems, findings, changes, fix guide, reference, method) and its archive. Next build: **priority 3, new auditors** (start with speed: PageSpeed/CrUX). Details: Status, then "Priority order agreed with SK" under Next steps.
+**State:** Phase 1 (audit only). Built and live: discovery, crawl auditor (31 checks), findings store, Prioritizer (GSC traffic + score, traffic lost), family scorecards (health A-F), the restructured report (summary, families, priorities, shared problems, findings, changes, fix guide, reference, method) and its archive. Priority 3 in progress: **speed auditor built and run 2026-10-15** (see Status); then ai and functional auditors. Details: Status, then "Priority order agreed with SK" under Next steps.
 
 **Live:**
 - Report (public, noindex): https://shoaibkhan-aspose.github.io/aspose-app-health-and-recovery/ (rebuilt by GitHub Actions on every push to `master`); archive of frozen versions: https://shoaibkhan-aspose.github.io/aspose-app-health-and-recovery/archive/
 - Architecture page (private): https://claude.ai/artifact/3zrEcbrV1WxN9nfjvS7Kxm, source `docs/architecture/site-health-architecture.html`
 - Older shared discovery report (private, not updated since run 7): https://claude.ai/artifact/MUUTzbXEymKq4tw5mmmPA5
 
-**Latest data:** discovery run 8 (2026-10-09), full crawl audit run 9 (652 pages, all 29 families + every host), traffic window 2026-09-09..10-06 (+ previous 28 days and six months ago). 311 open findings, all scored.
+**Latest data:** discovery run 8 (2026-10-09), full crawl audit run 9 (652 pages, all 29 families + every host), speed audit run 12 (2026-10-15, 353 pages), traffic window 2026-09-09..10-06 (+ previous 28 days and six months ago). 326 open findings, all scored.
 
 **Full cycle** (on the Mac, from the repo, `.venv` active):
 ```bash
 set -a; source .env; set +a
 python scripts/discover.py --quiet           # 15 min; inventory + sitemap findings
 python scripts/audit_crawl.py --quiet        # 25 min; all hosts + families (or --sections a,b)
+python scripts/audit_perf.py --quiet         # ~40 min; speed (PageSpeed Insights), 2 top-traffic pages per template
 python scripts/prioritize.py                 # traffic, scores, reports/findings.json, traffic-summary.json
 python scripts/build_report.py --out reports/discovery-latest.html --snapshot "After <what changed>"
 #   --snapshot freezes this report into reports/archive/ (served at /archive/<date>/) and records family health
@@ -36,6 +37,7 @@ git add -A && git commit -m "..." && git push github master   # Actions rebuilds
 - Commits: SK is the only author and committer. Credit Claude with a plain last line `Assisted by Claude Code` (SK, 2026-10-12; exactly this wording, no model name); **never a `Co-Authored-By: Claude` trailer** (GitHub would show Claude as co-author). Leave old commits as they are.
 - Commit at each logical step; push to `github` (GitLab `origin` mirrors GitHub).
 - Report changes apply to the **latest report only**; never regenerate older report pages or run JSONs.
+- **Archive before anything replaces the live report (SK, 2026-10-15: "store in archive whatever is necessary and don't forget it"):** before pushing a report whose structure or data changed, check `reports/archive/index.json`. If the version live on Pages is not archived yet, download it (`curl` the Pages URL into `reports/archive/<date>.html`, add an index entry "…, before <change>"; it equals a build of the last commit), then build the new report with `--snapshot "After <change>"`. Every version that was ever live must end up in the archive.
 - **Report wording names issues, never blames teams** (SK, 2026-10-13): no "worst", "failing", "weak"; the verdict names no family and shows totals ("2 families graded F and 6 graded D. Biggest risk: <issue> in 3 families and 1 host (13k clicks at stake)"); top risks list affected places alphabetically (or count them when more than 4). Priorities and findings stay per family (working lists for teams).
 - Discuss before building when SK asks a question ("discuss first", "do not implement").
 - Keep the architecture diagram in its current shape; update it when the architecture changes (see "Architecture diagram" below).
@@ -61,6 +63,8 @@ git add -A && git commit -m "..." && git push github master   # Actions rebuilds
 - Shared problems severity (SK asked 2026-10-13 which row is most severe): each row's label is the worst case in the group (canonical: really broken only on /cells/, incorrect in 8; sitemaps: broken on omr and drawing, gis is a leftover; page errors: broken in all 3). Offered: show the mix ("Broken in 1 · Incorrect in 8") and sort by families really broken, then clicks. Not answered.
 - Compare this report with the Aspose.ai Website Health page (https://aspose.github.io/aspose-ai-website-health/): SK asked 2026-10-13, then interrupted before an answer. Earlier notes on that page are under "Ideas from the Aspose.ai Website Health monitor".
 - Sample transparency (cells question, 2026-10-12): still open: (1) "Sample: N pages · L languages" on each card, clickable like Sitemap; (3) sample per tool, not only per template, for big families; (4) bigger samples for high-traffic families. (Confidence labels, idea 2, are built.)
+- Tenant 2 `blog.conholdate.cloud` (SK asked 2026-10-14, discussed, not started): core is ready; gaps are no GSC/GA4 access for the service account, report outputs are single-tenant (`reports/findings.json`, `traffic-summary.json`, aspose.app wording), blog needs `url_templates`/sample config, and the "standalone, not blog-team-tools" scope note. Plan offered: per-tenant subfolders on the same Pages site (one deploy builds all tenants). Open: separate vs combined report, other Conholdate blogs, Conholdate data public.
+- Pages URL rename (SK 2026-10-15: later): rename repo to e.g. `websites-health-and-recovery`, then a tiny repo with the old name whose `index.html` + `404.html` redirect (meta refresh + JS keeping path and hash) to the new URL; update the `github` remote, docs, archive and architecture links. Browser storage keys survive (same origin).
 - Queue after priority 4: re-check remaining seed findings (typo/spelling check on titles and H1s), LangGraph run, scheduled runs in GitHub Actions with a new/resolved digest, report to a private domain.
 
 ## Current phase: 1, AUDIT ONLY
@@ -180,6 +184,15 @@ Done:
 - **Family cards layout (2026-10-12):** Rows (default: one family per row, three zones identity / traffic / work, grade-colour left stripe; zones stack at <960px and <600px) or Grid (compact cards), switch remembered per viewer. Global `[hidden]{display:none!important}` in the template fixed closed sitemap panels showing as empty bars.
 
 - **Readable finding details (2026-10-12):** Observed shows the sample as a Template / Failed / Sampled table (worst first, `generic:` buckets as `/fam/…/…`) plus the estimate explained; findings without a sample list observations as bullets (split before each URL); Evidence shows short paths and "canonical →"; Impact is a labelled table (priority score, traffic at stake with the GSC window, severity, fix effort S/M/L spelled out). Effort meaning: S = one template or config change, M = several templates or translations, L = rebuild or migration.
+
+- **Speed auditor (2026-10-15, priority 3):** `core/pagespeed.py` (PSI v5 client: retries on 429/5xx; a Lighthouse "cannot load" answer raises `PageLoadError` (a result about the page), other failures `PageSpeedError` (not measured); `extract()` keeps URL field data (None when PSI falls back to origin), origin field data, lab score/metrics, top 3 Lighthouse savings), `core/audit/perf.py` (`select_pages`: per crawl-audit group the 2 pages with most GSC clicks from clean HTML 200 crawl pages + GSC pages of the same group; 353 pages / 206 groups / 11 hosts, `--plan` lists them), CLI `scripts/audit_perf.py` (mobile, 4 parallel, ~40 min with retries, report `reports/perf-audit-<date>-run<id>.json`, source `perf-audit`). Pages that fail are retried once at the end; only a second failure counts.
+  - Checks (dimension `perf`): `lcp/inp/cls_poor` (not_optimized), `lcp/inp/cls_needs_work` (improvable), `ttfb_poor` (not_optimized), `lab_load_failed` (broken: server error, timeout, not HTML, twice; scorecard group "page errors"), `lab_no_paint` (incorrect: page loads but paints nothing in Google's mobile test, twice; e.g. JS-only shells), host-level `origin_cwv_poor` / `origin_cwv_needs_work` (template `origin`, whole-scope in the prioritizer). Real-user checks use CrUX p75 over 28 days and Google's thresholds; pages without URL-level data count neither way. A run with >10% API errors (after retry) is `incomplete` and resolves nothing.
+  - **Lab score is information only (SK, 2026-10-15):** it moved by a median 4 and p90 19 points between two runs of the same pages, so "score below 50" findings flipped every run. It stays in finding notes ("lab 6.1 s, lab score 42; biggest savings: ...") and in the report's Reference table "Speed per host" (whole-host LCP/INP/CLS, pages, real-user coverage, not loaded, median lab score).
+  - Wiring: fix guide area "Speed", scorecard group `speed` (counts once per family, cosmetic cap applies), report label "Speed audit", method text, footer, run changes and health-history label. Tests in `tests/test_perf_audit.py`.
+  - **Auth:** PSI works with the service account (identity-only `openid` scope, allowed by `assert_readonly`); SK enabled the API in project `629629479690` on 2026-10-15. `PAGESPEED_API_KEY` in `.env` also works. The keyless quota is shared and exhausted. The CrUX API itself rejects service-account tokens (needs an API key); only needed later for CrUX history (trends).
+  - First findings (tuning runs 10-11, 2026-10-15): **ocr app pages fail** (8 of 8 sampled: HTTP 500 or ~22 s to first byte, confirmed with curl); websites `/fr/groupdocs/`-type pages paint nothing (JS shell); cells CLS 0.12-0.13 on 8 of 9 pages with data; barcode CLS > 0.25 and INP > 500 ms; gis LCP > 4 s; INP 200-500 ms on pdf, video, font, omr; dashboard host LCP 3.3 s. Whole-host data passes on products, www, about, purchase, websites, forum. Tuning runs were removed from the findings store (backup in the session scratchpad) before the first real run.
+  - **First real run: speed audit run 12 (2026-10-15):** 353 pages, 15 findings, scored with the cached traffic window (`prioritize.py --offline`). Top: barcode CLS > 0.25 (#35, score 40, 81k clicks) and INP > 500 ms; cells CLS 0.1-0.25 (202k clicks); gis LCP > 4 s (gis health 64 -> 58, C -> D). ocr loaded for Google in this run, but curl still got HTTP 500 on 2 of 3 ocr pages afterwards: **ocr is intermittently failing**; the next crawl audit (http_error) should confirm it. Report rebuilt with the Reference table "Speed per host"; archive now holds 2026-10-12, 2026-10-15 (restructured report, before the speed audit; downloaded from Pages, byte-identical to a build of the last commit) and 2026-10-15-2 (after the speed audit). Architecture diagram updated (step 3 audit_perf, PageSpeed source, steps renumbered 1-6 in the run table), PNG re-rendered, artifact republished (version 3).
+  - Still to do: consider a "Speed" status on family cards (discuss with SK).
 
 Not done yet:
 - GSC properties for www and forum (none exist or none shared; the service account sees only the 5 URL-prefix properties).
@@ -439,7 +452,7 @@ Context gathered before discovery existed. The issues in it are tracked in `tena
 **Priority order agreed with SK (2026-10-09):**
 1. ~~**Prioritizer**~~ Done 2026-10-09 (see Status).
 2. ~~**Crawl audit of the other 27 products families**~~ Done 2026-10-09 (runs 6-8, see Status).
-3. **New auditors**: perf (PageSpeed/CrUX), ai (llms.txt, AI bot access), functional (apps upload/convert/download).
+3. **New auditors**: perf (PageSpeed/CrUX; built and run 2026-10-15), ai (llms.txt, AI bot access), functional (apps upload/convert/download).
 4. **MCP servers**: `crawl`, `findings` (then `ga4`, `pagespeed`).
 
 **Ideas from the Aspose.ai Website Health monitor** (https://aspose.github.io/aspose-ai-website-health/, reviewed 2026-10-09). It is an ops/uptime monitor (7 hosts, availability, priority links, Playwright smoke + screenshots, daily/weekly digests, static `dashboard.json` + `app.js` on Pages), complementary to this SEO/GEO audit. Worth adopting:
