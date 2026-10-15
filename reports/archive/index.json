@@ -4,5 +4,17 @@
     "date": "2026-10-12",
     "label": "Before the report restructure",
     "runs": "discovery run 8, crawl audit run 9"
+  },
+  {
+    "file": "2026-10-15.html",
+    "date": "2026-10-15",
+    "label": "Restructured report, before the speed audit",
+    "runs": "discovery run 8, crawl audit run 9"
+  },
+  {
+    "file": "2026-10-15-2.html",
+    "date": "2026-10-15 (2)",
+    "label": "After the speed audit",
+    "runs": "discovery run 8, crawl audit run 9, speed audit run 12"
   }
 ]

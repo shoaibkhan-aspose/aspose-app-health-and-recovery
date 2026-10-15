@@ -22714,6 +22714,1020 @@
     "notes": []
   },
   {
+    "id": "perf-0001",
+    "key": "perf/cls_needs_work/products.aspose.app/page:cells",
+    "source": "perf-audit",
+    "tenant": "aspose.app",
+    "subdomain": "products.aspose.app",
+    "template": "page:cells",
+    "dimension": "perf",
+    "type": "improvable",
+    "title": "Layout shifts while the page loads (CLS 0.1-0.25) (/cells/)",
+    "evidence": {
+      "urls": [
+        "https://products.aspose.app/cells/fa/conversion/html",
+        "https://products.aspose.app/cells/conversion/excel-to-json",
+        "https://products.aspose.app/cells/conversion/xlsb-to-xlsx",
+        "https://products.aspose.app/cells/viewer",
+        "https://products.aspose.app/cells/merger",
+        "https://products.aspose.app/cells/web-converter/web-to-zip",
+        "https://products.aspose.app/cells/es/merger/excel",
+        "https://products.aspose.app/cells/pt/viewer/xlsx"
+      ],
+      "observed": "8 of 9 pages with real-user data (by template: conversion-format 1/1, conversion-pair 2/2, tool 2/2, tool-pair 1/2, tool-variant 2/2). e.g. https://products.aspose.app/cells/fa/conversion/html: CLS 0.12 (real users, p75); lab 0.15, lab score 93; https://products.aspose.app/cells/conversion/excel-to-json: CLS 0.12 (real users, p75); lab 0.07, lab score 73; https://products.aspose.app/cells/conversion/xlsb-to-xlsx: CLS 0.13 (real users, p75); lab 0.00, lab score 70; https://products.aspose.app/cells/viewer: CLS 0.12 (real users, p75); lab 0.00, lab score 69; https://products.aspose.app/cells/merger: CLS 0.13 (real users, p75); lab 0.07, lab score 70",
+      "expected": "CLS at most 0.1 for 75% of visits",
+      "locations": [
+        {
+          "role": "page",
+          "url": "https://products.aspose.app/cells/fa/conversion/html",
+          "note": "CLS 0.12 (real users, p75); lab 0.15, lab score 93"
+        },
+        {
+          "role": "page",
+          "url": "https://products.aspose.app/cells/conversion/excel-to-json",
+          "note": "CLS 0.12 (real users, p75); lab 0.07, lab score 73"
+        },
+        {
+          "role": "page",
+          "url": "https://products.aspose.app/cells/conversion/xlsb-to-xlsx",
+          "note": "CLS 0.13 (real users, p75); lab 0.00, lab score 70"
+        },
+        {
+          "role": "page",
+          "url": "https://products.aspose.app/cells/viewer",
+          "note": "CLS 0.12 (real users, p75); lab 0.00, lab score 69"
+        },
+        {
+          "role": "page",
+          "url": "https://products.aspose.app/cells/merger",
+          "note": "CLS 0.13 (real users, p75); lab 0.07, lab score 70"
+        }
+      ],
+      "sample": {
+        "conversion-format": [
+          1,
+          1
+        ],
+        "conversion-pair": [
+          2,
+          2
+        ],
+        "tool": [
+          2,
+          2
+        ],
+        "tool-pair": [
+          1,
+          2
+        ],
+        "tool-variant": [
+          2,
+          2
+        ]
+      }
+    },
+    "affected_pages": 159304,
+    "impact": {
+      "clicks_28d": 202084,
+      "impressions_28d": 1889477,
+      "source": "gsc-template",
+      "share": null,
+      "past_clicks": 214634,
+      "past_impressions": 1801526,
+      "lost_clicks": 12550,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
+      "score": 20,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
+    },
+    "effort": "S",
+    "fix_tier": 2,
+    "fix_channel": "git-pr",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-15",
+    "first_seen_run": "perf-audit-run12",
+    "last_seen_run": "perf-audit-run12",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "cls_needs_work",
+    "notes": []
+  },
+  {
+    "id": "perf-0002",
+    "key": "perf/cls_needs_work/products.aspose.app/page:font",
+    "source": "perf-audit",
+    "tenant": "aspose.app",
+    "subdomain": "products.aspose.app",
+    "template": "page:font",
+    "dimension": "perf",
+    "type": "improvable",
+    "title": "Layout shifts while the page loads (CLS 0.1-0.25) (/font/)",
+    "evidence": {
+      "urls": [
+        "https://products.aspose.app/font/fa/morse-code-translator"
+      ],
+      "observed": "1 of 5 pages with real-user data (by template: tool 1/2). e.g. https://products.aspose.app/font/fa/morse-code-translator: CLS 0.13 (real users, p75); lab 0.00, lab score 75",
+      "expected": "CLS at most 0.1 for 75% of visits",
+      "locations": [
+        {
+          "role": "page",
+          "url": "https://products.aspose.app/font/fa/morse-code-translator",
+          "note": "CLS 0.13 (real users, p75); lab 0.00, lab score 75"
+        }
+      ],
+      "sample": {
+        "tool": [
+          1,
+          2
+        ]
+      }
+    },
+    "affected_pages": 224,
+    "impact": {
+      "clicks_28d": 1164,
+      "impressions_28d": 39592,
+      "source": "gsc-template",
+      "share": null,
+      "past_clicks": 1104,
+      "past_impressions": 40398,
+      "lost_clicks": 0,
+      "lost_impressions": 806,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
+      "score": 13,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
+    },
+    "effort": "S",
+    "fix_tier": 2,
+    "fix_channel": "git-pr",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-15",
+    "first_seen_run": "perf-audit-run12",
+    "last_seen_run": "perf-audit-run12",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "cls_needs_work",
+    "notes": []
+  },
+  {
+    "id": "perf-0003",
+    "key": "perf/cls_needs_work/products.aspose.app/page:svg",
+    "source": "perf-audit",
+    "tenant": "aspose.app",
+    "subdomain": "products.aspose.app",
+    "template": "page:svg",
+    "dimension": "perf",
+    "type": "improvable",
+    "title": "Layout shifts while the page loads (CLS 0.1-0.25) (/svg/)",
+    "evidence": {
+      "urls": [
+        "https://products.aspose.app/svg/fa/image-vectorization"
+      ],
+      "observed": "1 of 1 pages with real-user data (by template: tool 1/1). e.g. https://products.aspose.app/svg/fa/image-vectorization: CLS 0.13 (real users, p75); lab 0.00, lab score 86",
+      "expected": "CLS at most 0.1 for 75% of visits",
+      "locations": [
+        {
+          "role": "page",
+          "url": "https://products.aspose.app/svg/fa/image-vectorization",
+          "note": "CLS 0.13 (real users, p75); lab 0.00, lab score 86"
+        }
+      ],
+      "sample": {
+        "tool": [
+          1,
+          1
+        ]
+      }
+    },
+    "affected_pages": 252,
+    "impact": {
+      "clicks_28d": 4106,
+      "impressions_28d": 52787,
+      "source": "gsc-template",
+      "share": null,
+      "past_clicks": 5715,
+      "past_impressions": 68016,
+      "lost_clicks": 1609,
+      "lost_impressions": 15229,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
+      "score": 15,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
+    },
+    "effort": "S",
+    "fix_tier": 2,
+    "fix_channel": "git-pr",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-15",
+    "first_seen_run": "perf-audit-run12",
+    "last_seen_run": "perf-audit-run12",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "cls_needs_work",
+    "notes": []
+  },
+  {
+    "id": "perf-0004",
+    "key": "perf/cls_poor/products.aspose.app/page:barcode",
+    "source": "perf-audit",
+    "tenant": "aspose.app",
+    "subdomain": "products.aspose.app",
+    "template": "page:barcode",
+    "dimension": "perf",
+    "type": "not_optimized",
+    "title": "Layout jumps while the page loads (CLS over 0.25) (/barcode/)",
+    "evidence": {
+      "urls": [
+        "https://products.aspose.app/barcode/fa/scan"
+      ],
+      "observed": "1 of 4 pages with real-user data (by template: tool 1/2). e.g. https://products.aspose.app/barcode/fa/scan: CLS 0.55 (real users, p75); lab 0.17, lab score 89",
+      "expected": "CLS at most 0.1 for 75% of visits",
+      "locations": [
+        {
+          "role": "page",
+          "url": "https://products.aspose.app/barcode/fa/scan",
+          "note": "CLS 0.55 (real users, p75); lab 0.17, lab score 89"
+        }
+      ],
+      "sample": {
+        "tool": [
+          1,
+          2
+        ]
+      }
+    },
+    "affected_pages": 104,
+    "impact": {
+      "clicks_28d": 81351,
+      "impressions_28d": 675942,
+      "source": "gsc-template",
+      "share": null,
+      "past_clicks": 48152,
+      "past_impressions": 538118,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
+      "score": 40,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
+    },
+    "effort": "S",
+    "fix_tier": 2,
+    "fix_channel": "git-pr",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-15",
+    "first_seen_run": "perf-audit-run12",
+    "last_seen_run": "perf-audit-run12",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "cls_poor",
+    "notes": []
+  },
+  {
+    "id": "perf-0005",
+    "key": "perf/inp_needs_work/products.aspose.app/page:font",
+    "source": "perf-audit",
+    "tenant": "aspose.app",
+    "subdomain": "products.aspose.app",
+    "template": "page:font",
+    "dimension": "perf",
+    "type": "improvable",
+    "title": "Pages react sluggishly to taps and clicks (INP 200-500 ms) (/font/)",
+    "evidence": {
+      "urls": [
+        "https://products.aspose.app/font/fa/morse-code-translator"
+      ],
+      "observed": "1 of 1 pages with real-user data (by template: tool 1/1). e.g. https://products.aspose.app/font/fa/morse-code-translator: INP 234 ms (real users, p75), lab score 75",
+      "expected": "INP at most 200 ms for 75% of visits",
+      "locations": [
+        {
+          "role": "page",
+          "url": "https://products.aspose.app/font/fa/morse-code-translator",
+          "note": "INP 234 ms (real users, p75), lab score 75"
+        }
+      ],
+      "sample": {
+        "tool": [
+          1,
+          1
+        ]
+      }
+    },
+    "affected_pages": 448,
+    "impact": {
+      "clicks_28d": 2329,
+      "impressions_28d": 79185,
+      "source": "gsc-template",
+      "share": null,
+      "past_clicks": 2208,
+      "past_impressions": 80797,
+      "lost_clicks": 0,
+      "lost_impressions": 1612,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
+      "score": 9,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
+    },
+    "effort": "M",
+    "fix_tier": 2,
+    "fix_channel": "git-pr",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-15",
+    "first_seen_run": "perf-audit-run12",
+    "last_seen_run": "perf-audit-run12",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "inp_needs_work",
+    "notes": []
+  },
+  {
+    "id": "perf-0006",
+    "key": "perf/inp_needs_work/products.aspose.app/page:omr",
+    "source": "perf-audit",
+    "tenant": "aspose.app",
+    "subdomain": "products.aspose.app",
+    "template": "page:omr",
+    "dimension": "perf",
+    "type": "improvable",
+    "title": "Pages react sluggishly to taps and clicks (INP 200-500 ms) (/omr/)",
+    "evidence": {
+      "urls": [
+        "https://products.aspose.app/omr/ru/grade-calculator",
+        "https://products.aspose.app/omr/es/grade-calculator"
+      ],
+      "observed": "2 of 2 pages with real-user data (by template: tool 2/2). e.g. https://products.aspose.app/omr/ru/grade-calculator: INP 324 ms (real users, p75), lab score 50; biggest savings: Reduce unused JavaScript (3.9 s); Reduce unused CSS (1.4 s); Use efficient cache lifetimes (200 ms); https://products.aspose.app/omr/es/grade-calculator: INP 329 ms (real users, p75), lab score 45; biggest savings: Reduce unused JavaScript (3.8 s); Reduce unused CSS (1.2 s); Reduce JavaScript execution time (550 ms)",
+      "expected": "INP at most 200 ms for 75% of visits",
+      "locations": [
+        {
+          "role": "page",
+          "url": "https://products.aspose.app/omr/ru/grade-calculator",
+          "note": "INP 324 ms (real users, p75), lab score 50; biggest savings: Reduce unused JavaScript (3.9 s); Reduce unused CSS (1.4 s); Use efficient cache lifetimes (200 ms)"
+        },
+        {
+          "role": "page",
+          "url": "https://products.aspose.app/omr/es/grade-calculator",
+          "note": "INP 329 ms (real users, p75), lab score 45; biggest savings: Reduce unused JavaScript (3.8 s); Reduce unused CSS (1.2 s); Reduce JavaScript execution time (550 ms)"
+        }
+      ],
+      "sample": {
+        "tool": [
+          2,
+          2
+        ]
+      }
+    },
+    "affected_pages": 57,
+    "impact": {
+      "clicks_28d": 12882,
+      "impressions_28d": 1584410,
+      "source": "gsc-template",
+      "share": null,
+      "past_clicks": 27993,
+      "past_impressions": 1605473,
+      "lost_clicks": 15111,
+      "lost_impressions": 21063,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
+      "score": 12,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
+    },
+    "effort": "M",
+    "fix_tier": 2,
+    "fix_channel": "git-pr",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-15",
+    "first_seen_run": "perf-audit-run12",
+    "last_seen_run": "perf-audit-run12",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "inp_needs_work",
+    "notes": []
+  },
+  {
+    "id": "perf-0007",
+    "key": "perf/inp_needs_work/products.aspose.app/page:pdf",
+    "source": "perf-audit",
+    "tenant": "aspose.app",
+    "subdomain": "products.aspose.app",
+    "template": "page:pdf",
+    "dimension": "perf",
+    "type": "improvable",
+    "title": "Pages react sluggishly to taps and clicks (INP 200-500 ms) (/pdf/)",
+    "evidence": {
+      "urls": [
+        "https://products.aspose.app/pdf/ru/split/image"
+      ],
+      "observed": "1 of 4 pages with real-user data (by template: tool-variant 1/1). e.g. https://products.aspose.app/pdf/ru/split/image: INP 262 ms (real users, p75), lab score 78; biggest savings: Render-blocking requests (1.6 s); Reduce unused JavaScript (600 ms)",
+      "expected": "INP at most 200 ms for 75% of visits",
+      "locations": [
+        {
+          "role": "page",
+          "url": "https://products.aspose.app/pdf/ru/split/image",
+          "note": "INP 262 ms (real users, p75), lab score 78; biggest savings: Render-blocking requests (1.6 s); Reduce unused JavaScript (600 ms)"
+        }
+      ],
+      "sample": {
+        "tool-variant": [
+          1,
+          1
+        ]
+      }
+    },
+    "affected_pages": 1673,
+    "impact": {
+      "clicks_28d": 49324,
+      "impressions_28d": 470514,
+      "source": "gsc-template",
+      "share": null,
+      "past_clicks": 43160,
+      "past_impressions": 381624,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
+      "score": 13,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
+    },
+    "effort": "M",
+    "fix_tier": 2,
+    "fix_channel": "git-pr",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-15",
+    "first_seen_run": "perf-audit-run12",
+    "last_seen_run": "perf-audit-run12",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "inp_needs_work",
+    "notes": []
+  },
+  {
+    "id": "perf-0008",
+    "key": "perf/inp_needs_work/products.aspose.app/page:video",
+    "source": "perf-audit",
+    "tenant": "aspose.app",
+    "subdomain": "products.aspose.app",
+    "template": "page:video",
+    "dimension": "perf",
+    "type": "improvable",
+    "title": "Pages react sluggishly to taps and clicks (INP 200-500 ms) (/video/)",
+    "evidence": {
+      "urls": [
+        "https://products.aspose.app/video/fa/conversion"
+      ],
+      "observed": "1 of 2 pages with real-user data (by template: tool 1/2). e.g. https://products.aspose.app/video/fa/conversion: INP 226 ms (real users, p75), lab score 49; biggest savings: Reduce JavaScript execution time (750 ms); Minimize main-thread work (500 ms); Render-blocking requests (150 ms)",
+      "expected": "INP at most 200 ms for 75% of visits",
+      "locations": [
+        {
+          "role": "page",
+          "url": "https://products.aspose.app/video/fa/conversion",
+          "note": "INP 226 ms (real users, p75), lab score 49; biggest savings: Reduce JavaScript execution time (750 ms); Minimize main-thread work (500 ms); Render-blocking requests (150 ms)"
+        }
+      ],
+      "sample": {
+        "tool": [
+          1,
+          2
+        ]
+      }
+    },
+    "affected_pages": 452,
+    "impact": {
+      "clicks_28d": 5670,
+      "impressions_28d": 114700,
+      "source": "gsc-template",
+      "share": null,
+      "past_clicks": 6227,
+      "past_impressions": 114612,
+      "lost_clicks": 557,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
+      "score": 10,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
+    },
+    "effort": "M",
+    "fix_tier": 2,
+    "fix_channel": "git-pr",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-15",
+    "first_seen_run": "perf-audit-run12",
+    "last_seen_run": "perf-audit-run12",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "inp_needs_work",
+    "notes": []
+  },
+  {
+    "id": "perf-0009",
+    "key": "perf/inp_poor/products.aspose.app/page:barcode",
+    "source": "perf-audit",
+    "tenant": "aspose.app",
+    "subdomain": "products.aspose.app",
+    "template": "page:barcode",
+    "dimension": "perf",
+    "type": "not_optimized",
+    "title": "Pages react slowly to taps and clicks (INP over 500 ms) (/barcode/)",
+    "evidence": {
+      "urls": [
+        "https://products.aspose.app/barcode/fa/scan"
+      ],
+      "observed": "1 of 4 pages with real-user data (by template: tool 1/2). e.g. https://products.aspose.app/barcode/fa/scan: INP 571 ms (real users, p75), lab score 89; biggest savings: Render-blocking requests (900 ms); Reduce unused CSS (490 ms); Reduce unused JavaScript (150 ms)",
+      "expected": "INP at most 200 ms for 75% of visits",
+      "locations": [
+        {
+          "role": "page",
+          "url": "https://products.aspose.app/barcode/fa/scan",
+          "note": "INP 571 ms (real users, p75), lab score 89; biggest savings: Render-blocking requests (900 ms); Reduce unused CSS (490 ms); Reduce unused JavaScript (150 ms)"
+        }
+      ],
+      "sample": {
+        "tool": [
+          1,
+          2
+        ]
+      }
+    },
+    "affected_pages": 104,
+    "impact": {
+      "clicks_28d": 81351,
+      "impressions_28d": 675942,
+      "source": "gsc-template",
+      "share": null,
+      "past_clicks": 48152,
+      "past_impressions": 538118,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
+      "score": 26,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
+    },
+    "effort": "M",
+    "fix_tier": 2,
+    "fix_channel": "git-pr",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-15",
+    "first_seen_run": "perf-audit-run12",
+    "last_seen_run": "perf-audit-run12",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "inp_poor",
+    "notes": []
+  },
+  {
+    "id": "perf-0010",
+    "key": "perf/lab_no_paint/websites.aspose.app/page",
+    "source": "perf-audit",
+    "tenant": "aspose.app",
+    "subdomain": "websites.aspose.app",
+    "template": "page",
+    "dimension": "perf",
+    "type": "incorrect",
+    "title": "Page shows no content in Google's mobile test (nothing painted)",
+    "evidence": {
+      "urls": [
+        "https://websites.aspose.app/fr/groupdocs/",
+        "https://websites.aspose.app/ru/codeporting/"
+      ],
+      "observed": "2 of 6 pages with a lab attempt (each failed twice) (by template: generic:/{section} 2/2). e.g. https://websites.aspose.app/fr/groupdocs/: NO_FCP. The page did not paint any content. Please ensure you keep the browser window in the foreground during the load and try again. (NO_FCP); https://websites.aspose.app/ru/codeporting/: NO_FCP. The page did not paint any content. Please ensure you keep the browser window in the foreground during the load and try again. (NO_FCP)",
+      "expected": "visible content within a few seconds, without user action",
+      "locations": [
+        {
+          "role": "page",
+          "url": "https://websites.aspose.app/fr/groupdocs/",
+          "note": "NO_FCP. The page did not paint any content. Please ensure you keep the browser window in the foreground during the load and try again. (NO_FCP)"
+        },
+        {
+          "role": "page",
+          "url": "https://websites.aspose.app/ru/codeporting/",
+          "note": "NO_FCP. The page did not paint any content. Please ensure you keep the browser window in the foreground during the load and try again. (NO_FCP)"
+        }
+      ],
+      "sample": {
+        "generic:/{section}": [
+          2,
+          2
+        ]
+      }
+    },
+    "affected_pages": 31,
+    "impact": {
+      "clicks_28d": 0,
+      "impressions_28d": 293,
+      "source": "gsc-template",
+      "share": null,
+      "past_clicks": 0,
+      "past_impressions": 3,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
+      "score": 6,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
+    },
+    "effort": "M",
+    "fix_tier": 2,
+    "fix_channel": "git-pr",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-15",
+    "first_seen_run": "perf-audit-run12",
+    "last_seen_run": "perf-audit-run12",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "lab_no_paint",
+    "notes": []
+  },
+  {
+    "id": "perf-0011",
+    "key": "perf/lcp_needs_work/products.aspose.app/page:ebook",
+    "source": "perf-audit",
+    "tenant": "aspose.app",
+    "subdomain": "products.aspose.app",
+    "template": "page:ebook",
+    "dimension": "perf",
+    "type": "improvable",
+    "title": "Main content appears slowly for real users (LCP 2.5-4 s) (/ebook/)",
+    "evidence": {
+      "urls": [
+        "https://products.aspose.app/ebook/conversion/pdf-to-kindle"
+      ],
+      "observed": "1 of 2 pages with real-user data (by template: conversion-pair 1/1). e.g. https://products.aspose.app/ebook/conversion/pdf-to-kindle: LCP 2.6 s (real users, p75); lab 4.4 s, lab score 76; biggest savings: Render-blocking requests (450 ms); Reduce unused JavaScript (450 ms); Reduce unused CSS (150 ms)",
+      "expected": "LCP at most 2.5 s for 75% of visits",
+      "locations": [
+        {
+          "role": "page",
+          "url": "https://products.aspose.app/ebook/conversion/pdf-to-kindle",
+          "note": "LCP 2.6 s (real users, p75); lab 4.4 s, lab score 76; biggest savings: Render-blocking requests (450 ms); Reduce unused JavaScript (450 ms); Reduce unused CSS (150 ms)"
+        }
+      ],
+      "sample": {
+        "conversion-pair": [
+          1,
+          1
+        ]
+      }
+    },
+    "affected_pages": 1480,
+    "impact": {
+      "clicks_28d": 3576,
+      "impressions_28d": 85282,
+      "source": "gsc-template",
+      "share": null,
+      "past_clicks": 2884,
+      "past_impressions": 51322,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
+      "score": 10,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
+    },
+    "effort": "M",
+    "fix_tier": 2,
+    "fix_channel": "git-pr",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-15",
+    "first_seen_run": "perf-audit-run12",
+    "last_seen_run": "perf-audit-run12",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "lcp_needs_work",
+    "notes": []
+  },
+  {
+    "id": "perf-0012",
+    "key": "perf/lcp_needs_work/products.aspose.app/page:imaging",
+    "source": "perf-audit",
+    "tenant": "aspose.app",
+    "subdomain": "products.aspose.app",
+    "template": "page:imaging",
+    "dimension": "perf",
+    "type": "improvable",
+    "title": "Main content appears slowly for real users (LCP 2.5-4 s) (/imaging/)",
+    "evidence": {
+      "urls": [
+        "https://products.aspose.app/imaging/ar/image-merge",
+        "https://products.aspose.app/imaging/image-merge"
+      ],
+      "observed": "2 of 4 pages with real-user data (by template: tool 2/2). e.g. https://products.aspose.app/imaging/ar/image-merge: LCP 2.8 s (real users, p75); lab 4.8 s, lab score 79; biggest savings: Reduce unused JavaScript (900 ms); Render-blocking requests (700 ms); Reduce unused CSS (430 ms); https://products.aspose.app/imaging/image-merge: LCP 2.6 s (real users, p75); lab 2.2 s, lab score 96; biggest savings: Render-blocking requests (750 ms); Reduce unused CSS (240 ms)",
+      "expected": "LCP at most 2.5 s for 75% of visits",
+      "locations": [
+        {
+          "role": "page",
+          "url": "https://products.aspose.app/imaging/ar/image-merge",
+          "note": "LCP 2.8 s (real users, p75); lab 4.8 s, lab score 79; biggest savings: Reduce unused JavaScript (900 ms); Render-blocking requests (700 ms); Reduce unused CSS (430 ms)"
+        },
+        {
+          "role": "page",
+          "url": "https://products.aspose.app/imaging/image-merge",
+          "note": "LCP 2.6 s (real users, p75); lab 2.2 s, lab score 96; biggest savings: Render-blocking requests (750 ms); Reduce unused CSS (240 ms)"
+        }
+      ],
+      "sample": {
+        "tool": [
+          2,
+          2
+        ]
+      }
+    },
+    "affected_pages": 1196,
+    "impact": {
+      "clicks_28d": 8756,
+      "impressions_28d": 169595,
+      "source": "gsc-template",
+      "share": null,
+      "past_clicks": 13460,
+      "past_impressions": 220828,
+      "lost_clicks": 4704,
+      "lost_impressions": 51233,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
+      "score": 11,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
+    },
+    "effort": "M",
+    "fix_tier": 2,
+    "fix_channel": "git-pr",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-15",
+    "first_seen_run": "perf-audit-run12",
+    "last_seen_run": "perf-audit-run12",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "lcp_needs_work",
+    "notes": []
+  },
+  {
+    "id": "perf-0013",
+    "key": "perf/lcp_needs_work/products.aspose.app/page:omr",
+    "source": "perf-audit",
+    "tenant": "aspose.app",
+    "subdomain": "products.aspose.app",
+    "template": "page:omr",
+    "dimension": "perf",
+    "type": "improvable",
+    "title": "Main content appears slowly for real users (LCP 2.5-4 s) (/omr/)",
+    "evidence": {
+      "urls": [
+        "https://products.aspose.app/omr/ru/grade-calculator"
+      ],
+      "observed": "1 of 2 pages with real-user data (by template: tool 1/2). e.g. https://products.aspose.app/omr/ru/grade-calculator: LCP 2.6 s (real users, p75); lab 18.6 s, lab score 50; biggest savings: Reduce unused JavaScript (3.9 s); Reduce unused CSS (1.4 s); Use efficient cache lifetimes (200 ms)",
+      "expected": "LCP at most 2.5 s for 75% of visits",
+      "locations": [
+        {
+          "role": "page",
+          "url": "https://products.aspose.app/omr/ru/grade-calculator",
+          "note": "LCP 2.6 s (real users, p75); lab 18.6 s, lab score 50; biggest savings: Reduce unused JavaScript (3.9 s); Reduce unused CSS (1.4 s); Use efficient cache lifetimes (200 ms)"
+        }
+      ],
+      "sample": {
+        "tool": [
+          1,
+          2
+        ]
+      }
+    },
+    "affected_pages": 28,
+    "impact": {
+      "clicks_28d": 6441,
+      "impressions_28d": 792205,
+      "source": "gsc-template",
+      "share": null,
+      "past_clicks": 13996,
+      "past_impressions": 802736,
+      "lost_clicks": 7555,
+      "lost_impressions": 10531,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
+      "score": 11,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
+    },
+    "effort": "M",
+    "fix_tier": 2,
+    "fix_channel": "git-pr",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-15",
+    "first_seen_run": "perf-audit-run12",
+    "last_seen_run": "perf-audit-run12",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "lcp_needs_work",
+    "notes": []
+  },
+  {
+    "id": "perf-0014",
+    "key": "perf/lcp_poor/products.aspose.app/page:gis",
+    "source": "perf-audit",
+    "tenant": "aspose.app",
+    "subdomain": "products.aspose.app",
+    "template": "page:gis",
+    "dimension": "perf",
+    "type": "not_optimized",
+    "title": "Main content takes over 4 s to appear for real users (LCP) (/gis/)",
+    "evidence": {
+      "urls": [
+        "https://products.aspose.app/gis/ru/coordinates/map-location/find-place-by-coordinates"
+      ],
+      "observed": "1 of 2 pages with real-user data (by template: generic:/{section}/*/*/* 1/1). e.g. https://products.aspose.app/gis/ru/coordinates/map-location/find-place-by-coordinates: LCP 4.2 s (real users, p75); lab 8.7 s, lab score 67; biggest savings: Render-blocking requests (1.9 s); Use efficient cache lifetimes (1.1 s); Reduce unused JavaScript (450 ms)",
+      "expected": "LCP at most 2.5 s for 75% of visits",
+      "locations": [
+        {
+          "role": "page",
+          "url": "https://products.aspose.app/gis/ru/coordinates/map-location/find-place-by-coordinates",
+          "note": "LCP 4.2 s (real users, p75); lab 8.7 s, lab score 67; biggest savings: Render-blocking requests (1.9 s); Use efficient cache lifetimes (1.1 s); Reduce unused JavaScript (450 ms)"
+        }
+      ],
+      "sample": {
+        "generic:/{section}/*/*/*": [
+          1,
+          1
+        ]
+      }
+    },
+    "affected_pages": 22,
+    "impact": {
+      "clicks_28d": 1703,
+      "impressions_28d": 29087,
+      "source": "gsc-template",
+      "share": null,
+      "past_clicks": 1229,
+      "past_impressions": 18395,
+      "lost_clicks": 0,
+      "lost_impressions": 0,
+      "past_window": [
+        "2026-03-11",
+        "2026-04-07"
+      ],
+      "scored_on": "at stake",
+      "score": 18,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
+    },
+    "effort": "M",
+    "fix_tier": 2,
+    "fix_channel": "git-pr",
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-15",
+    "first_seen_run": "perf-audit-run12",
+    "last_seen_run": "perf-audit-run12",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "lcp_poor",
+    "notes": []
+  },
+  {
+    "id": "perf-0015",
+    "key": "perf/origin_cwv_needs_work/dashboard.aspose.app/origin",
+    "source": "perf-audit",
+    "tenant": "aspose.app",
+    "subdomain": "dashboard.aspose.app",
+    "template": "origin",
+    "dimension": "perf",
+    "type": "improvable",
+    "title": "Host needs work on Core Web Vitals (whole host)",
+    "evidence": {
+      "urls": [
+        "https://dashboard.aspose.app/"
+      ],
+      "observed": "Whole host, real users over 28 days, 75th percentile (mobile): LCP 3.3 s (needs work), INP 117 ms (good), CLS 0.00 (good); TTFB 1.6 s",
+      "expected": "LCP, INP and CLS good for 75% of visits across the host"
+    },
+    "affected_pages": 0,
+    "impact": {
+      "clicks_28d": 3658,
+      "impressions_28d": null,
+      "source": "ga4-host",
+      "share": 1.0,
+      "score": 6,
+      "window": [
+        "2026-09-09",
+        "2026-10-06"
+      ]
+    },
+    "effort": "L",
+    "fix_tier": 2,
+    "fix_channel": null,
+    "status": "open",
+    "verification": null,
+    "superseded_by": null,
+    "detected_at": "2026-10-15",
+    "first_seen_run": "perf-audit-run12",
+    "last_seen_run": "perf-audit-run12",
+    "resolved_run": null,
+    "resolved_at": null,
+    "check": "origin_cwv_needs_work",
+    "notes": []
+  },
+  {
     "id": "seed-ai-01",
     "key": "seed/seed-ai-01",
     "source": "seed",
@@ -22764,7 +23778,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-09",
+    "last_seen_run": "seed-2026-10-15",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -22823,7 +23837,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-09",
+    "last_seen_run": "seed-2026-10-15",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -22880,7 +23894,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-09",
+    "last_seen_run": "seed-2026-10-15",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -22938,7 +23952,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-09",
+    "last_seen_run": "seed-2026-10-15",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -22996,7 +24010,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-09",
+    "last_seen_run": "seed-2026-10-15",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -23043,7 +24057,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-09",
+    "last_seen_run": "seed-2026-10-15",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -23099,7 +24113,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-09",
+    "last_seen_run": "seed-2026-10-15",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -23156,7 +24170,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-09",
+    "last_seen_run": "seed-2026-10-15",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -23213,7 +24227,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-09",
+    "last_seen_run": "seed-2026-10-15",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -23262,7 +24276,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-09",
+    "last_seen_run": "seed-2026-10-15",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -23318,7 +24332,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-09",
+    "last_seen_run": "seed-2026-10-15",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -23374,7 +24388,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-09",
+    "last_seen_run": "seed-2026-10-15",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -23433,7 +24447,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-09",
+    "last_seen_run": "seed-2026-10-15",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -23475,7 +24489,7 @@
     "superseded_by": "intl-0034",
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-09",
+    "last_seen_run": "seed-2026-10-15",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -23534,7 +24548,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-09",
+    "last_seen_run": "seed-2026-10-15",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -23582,7 +24596,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-09",
+    "last_seen_run": "seed-2026-10-15",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -23639,7 +24653,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-09",
+    "last_seen_run": "seed-2026-10-15",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -23695,7 +24709,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-09",
+    "last_seen_run": "seed-2026-10-15",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -23752,7 +24766,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-09",
+    "last_seen_run": "seed-2026-10-15",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -23809,7 +24823,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-09",
+    "last_seen_run": "seed-2026-10-15",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -23865,7 +24879,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-09",
+    "last_seen_run": "seed-2026-10-15",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -23921,7 +24935,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-09",
+    "last_seen_run": "seed-2026-10-15",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -23963,7 +24977,7 @@
     "superseded_by": "crawl-0068",
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-09",
+    "last_seen_run": "seed-2026-10-15",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -24006,7 +25020,7 @@
     "superseded_by": "onpage-0012",
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-09",
+    "last_seen_run": "seed-2026-10-15",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -24062,7 +25076,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-09",
+    "last_seen_run": "seed-2026-10-15",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -24120,7 +25134,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-09",
+    "last_seen_run": "seed-2026-10-15",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -24176,7 +25190,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-09",
+    "last_seen_run": "seed-2026-10-15",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -24223,7 +25237,7 @@
     "superseded_by": null,
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-09",
+    "last_seen_run": "seed-2026-10-15",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
@@ -24267,7 +25281,7 @@
     "superseded_by": "ux-0005",
     "detected_at": "2026-10-08",
     "first_seen_run": "seed-2026-10-08",
-    "last_seen_run": "seed-2026-10-09",
+    "last_seen_run": "seed-2026-10-15",
     "resolved_run": null,
     "resolved_at": null,
     "check": null,
