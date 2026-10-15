@@ -33,7 +33,7 @@ SEVERITY = {"broken": 1.0, "incorrect": 0.7, "not_optimized": 0.4, "improvable":
 EFFORT = {"S": 1.0, "M": 1.5, "L": 2.5}
 # Discovery checks whose scope is the whole host/section even when no page count is attached.
 WHOLE_SCOPE_CHECKS = {"robots_missing", "robots_html", "robots_no_sitemap", "robots_unreachable",
-                      "host_no_sitemap", "section_no_sitemap"}
+                      "host_no_sitemap", "section_no_sitemap", "origin_cwv_poor", "origin_cwv_needs_work"}
 IMPRESSION_WEIGHT = 0.01  # ~1% CTR: 100 impressions count like one click
 TRAFFIC_SCALE = 20  # score points per decade of click-equivalents
 LOST_WEIGHT = 0.5

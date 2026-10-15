@@ -7,6 +7,8 @@ import os
 GSC_READONLY = "https://www.googleapis.com/auth/webmasters.readonly"
 GA4_READONLY = "https://www.googleapis.com/auth/analytics.readonly"
 READONLY_SCOPES = (GSC_READONLY, GA4_READONLY)
+# PageSpeed Insights accepts any token and only needs to know the calling project: an identity-only scope.
+IDENTITY_SCOPES = ("openid",)
 
 
 class CredentialsError(RuntimeError):
@@ -14,7 +16,7 @@ class CredentialsError(RuntimeError):
 
 
 def assert_readonly(scopes: tuple[str, ...] | list[str]) -> None:
-    bad = [s for s in scopes if not s.endswith(".readonly")]
+    bad = [s for s in scopes if not s.endswith(".readonly") and s not in IDENTITY_SCOPES]
     if bad:
         raise CredentialsError(f"Phase 1 is read-only; refusing write-capable scopes: {bad}")
 
