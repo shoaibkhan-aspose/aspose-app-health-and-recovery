@@ -87,12 +87,12 @@ td.step { font: 700 18px var(--display); color: var(--accent); width: 40px }
   <header>
     <div class="eyebrow">Site Health &amp; Recovery · Phase 1, audit only</div>
     <h1>Site Health Architecture</h1>
-    <p class="lede">How the audit for aspose.app runs today: four read-only steps on the Mac collect sitemaps, page checks, page speed and search traffic into one findings store, and every push to GitHub rebuilds the published report. Dashed parts are planned and not built yet.</p>
+    <p class="lede">How the audit for aspose.app runs today: five read-only steps on the Mac collect sitemaps, page checks, AI crawler access, page speed and search traffic into one findings store, and every push to GitHub rebuilds the published report. Dashed parts are planned and not built yet.</p>
   </header>
 
   <figure>
     <div class="scroll">
-      <svg viewBox="0 0 1292 750" role="img" aria-label="Data flow: live sites, PageSpeed Insights, Search Console and GA4 feed four steps on the Mac (discover, crawl audit, speed audit, prioritize); their findings go into one findings store, which is exported to the reports folder in git; a push to GitHub triggers GitHub Actions to rebuild and publish the site health report on GitHub Pages. Planned auditors and Phase 2 fixer servers are drawn dashed.">
+      <svg viewBox="0 0 1292 750" role="img" aria-label="Data flow: live sites, PageSpeed Insights, Search Console and GA4 feed five steps on the Mac (discover, crawl audit, AI audit, speed audit, prioritize); their findings go into one findings store, which is exported to the reports folder in git; a push to GitHub triggers GitHub Actions to rebuild and publish the site health report on GitHub Pages. Planned auditors and Phase 2 fixer servers are drawn dashed.">
         <defs>
           <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="d-head"/></marker>
           <marker id="ahk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="d-head key"/></marker>
@@ -141,17 +141,21 @@ td.step { font: 700 18px var(--display); color: var(--accent); width: 40px }
         <text class="d-t" x="328" y="169">Inventory</text>
         <text class="d-s" x="328" y="186">794k URLs, by template</text>
 
-        <rect class="d-box" x="316" y="224" width="216" height="60" rx="6"/>
-        <text class="d-t" x="328" y="247">2  audit_crawl.py</text>
-        <text class="d-s" x="328" y="266">31 checks per page</text>
+        <rect class="d-box" x="316" y="212" width="216" height="48" rx="6"/>
+        <text class="d-t" x="328" y="233">2  audit_crawl.py</text>
+        <text class="d-s" x="328" y="250">33 checks per page</text>
 
-        <rect class="d-box" x="316" y="300" width="216" height="52" rx="6"/>
-        <text class="d-t" x="328" y="322">3  audit_perf.py</text>
-        <text class="d-s" x="328" y="340">Core Web Vitals per template</text>
+        <rect class="d-box" x="316" y="270" width="216" height="48" rx="6"/>
+        <text class="d-t" x="328" y="291">3  audit_ai.py</text>
+        <text class="d-s" x="328" y="308">AI crawler access, llms.txt</text>
 
-        <rect class="d-box" x="316" y="372" width="216" height="56" rx="6"/>
-        <text class="d-t" x="328" y="394">4  prioritize.py</text>
-        <text class="d-s" x="328" y="412">traffic + score</text>
+        <rect class="d-box" x="316" y="328" width="216" height="48" rx="6"/>
+        <text class="d-t" x="328" y="349">4  audit_perf.py</text>
+        <text class="d-s" x="328" y="366">CWV, top pages per template</text>
+
+        <rect class="d-box" x="316" y="386" width="216" height="52" rx="6"/>
+        <text class="d-t" x="328" y="407">5  prioritize.py</text>
+        <text class="d-s" x="328" y="425">traffic + score</text>
 
         <rect class="d-box" x="316" y="470" width="216" height="52" rx="6"/>
         <text class="d-t" x="328" y="492">gsc MCP server</text>
@@ -162,7 +166,7 @@ td.step { font: 700 18px var(--display); color: var(--accent); width: 40px }
         <text class="d-s" x="328" y="586">asks ad-hoc questions</text>
 
         <!-- stores -->
-        <rect class="d-key" x="644" y="148" width="220" height="244" rx="8"/>
+        <rect class="d-key" x="644" y="148" width="220" height="288" rx="8"/>
         <text class="d-t" x="658" y="172">Findings store</text>
         <text class="d-s" x="658" y="191">findings.sqlite</text>
         <text class="d-l" x="658" y="222">one permanent id each</text>
@@ -170,23 +174,24 @@ td.step { font: 700 18px var(--display); color: var(--accent); width: 40px }
         <text class="d-l" x="658" y="262">evidence + locations</text>
         <text class="d-l" x="658" y="282">impact + score</text>
         <text class="d-l" x="658" y="302">notes from manual review</text>
-        <text class="d-s" x="658" y="372">key: dimension/check/</text>
-        <text class="d-s" x="658" y="386">host/template</text>
+        <text class="d-s" x="658" y="410">key: dimension/check/</text>
+        <text class="d-s" x="658" y="424">host/template</text>
 
-        <rect class="d-store" x="644" y="456" width="220" height="168" rx="6"/>
-        <text class="d-t" x="658" y="479">reports/ · in git</text>
-        <text class="d-s" x="658" y="502">discovery-run8.json</text>
-        <text class="d-s" x="658" y="520">crawl-audit-run9.json</text>
-        <text class="d-s" x="658" y="538">perf-audit-run12.json</text>
-        <text class="d-s" x="658" y="556">findings.json</text>
-        <text class="d-s" x="658" y="574">traffic-summary.json</text>
-        <text class="d-s" x="658" y="592">archive/, health history</text>
-        <text class="d-s" x="658" y="612">run files from steps 1-4</text>
+        <rect class="d-store" x="644" y="456" width="220" height="176" rx="6"/>
+        <text class="d-t" x="658" y="478">reports/ · in git</text>
+        <text class="d-s" x="658" y="498">discovery-run8.json</text>
+        <text class="d-s" x="658" y="514">crawl-audit-run15.json</text>
+        <text class="d-s" x="658" y="530">ai-audit-run16.json</text>
+        <text class="d-s" x="658" y="546">perf-audit-run12.json</text>
+        <text class="d-s" x="658" y="562">findings.json</text>
+        <text class="d-s" x="658" y="578">traffic-summary.json</text>
+        <text class="d-s" x="658" y="594">archive/, health history</text>
+        <text class="d-s" x="658" y="620">run files from steps 1-5</text>
 
         <!-- planned and phase 2 -->
         <rect class="d-plan" x="976" y="56" width="300" height="176" rx="6"/>
         <text class="d-pt" x="990" y="79">Planned · priorities 3-4</text>
-        <text class="d-ps" x="990" y="106">AI-readiness auditor</text>
+        <text class="d-ps" x="990" y="106">AI answers: quality (LLM), citations</text>
         <text class="d-ps" x="990" y="128">Functional auditor (browser)</text>
         <text class="d-ps" x="990" y="150">crawl + findings MCP servers</text>
         <text class="d-ps" x="990" y="172">LangGraph run, scheduled runs</text>
@@ -214,17 +219,19 @@ td.step { font: 700 18px var(--display); color: var(--accent); width: 40px }
         <line class="d-a" x1="192" y1="88" x2="314" y2="88" marker-end="url(#ah)"/>
         <text class="d-lab" x="254" y="80" text-anchor="middle">sitemaps</text>
 
-        <polyline class="d-a" points="192,112 236,112 236,254 314,254" marker-end="url(#ah)"/>
-        <text class="d-lab" x="276" y="246" text-anchor="middle">pages</text>
+        <polyline class="d-a" points="192,112 236,112 236,294 314,294" marker-end="url(#ah)"/>
+        <line class="d-a" x1="236" y1="236" x2="314" y2="236" marker-end="url(#ah)"/>
+        <text class="d-lab" x="276" y="228" text-anchor="middle">pages</text>
+        <text class="d-lab" x="276" y="286" text-anchor="middle">AI access</text>
 
-        <polyline class="d-a" points="192,188 220,188 220,326 314,326" marker-end="url(#ah)"/>
-        <text class="d-lab" x="268" y="318" text-anchor="middle">CWV, lab</text>
+        <polyline class="d-a" points="192,188 220,188 220,352 314,352" marker-end="url(#ah)"/>
+        <text class="d-lab" x="268" y="344" text-anchor="middle">CWV, lab</text>
 
-        <polyline class="d-a" points="192,366 254,366 254,386 314,386" marker-end="url(#ah)"/>
-        <text class="d-lab" x="254" y="358" text-anchor="middle">organic sessions</text>
+        <polyline class="d-a" points="192,366 254,366 254,400 314,400" marker-end="url(#ah)"/>
+        <text class="d-lab" x="284" y="393" text-anchor="middle">organic</text>
 
-        <line class="d-a" x1="192" y1="416" x2="314" y2="416" marker-end="url(#ah)"/>
-        <text class="d-lab" x="254" y="408" text-anchor="middle">clicks, 3 windows</text>
+        <line class="d-a" x1="192" y1="426" x2="314" y2="426" marker-end="url(#ah)"/>
+        <text class="d-lab" x="284" y="419" text-anchor="middle">clicks</text>
 
         <polyline class="d-a" points="192,444 208,444 208,496 314,496" marker-end="url(#ah)"/>
         <text class="d-lab" x="262" y="488" text-anchor="middle">on demand</text>
@@ -232,29 +239,30 @@ td.step { font: 700 18px var(--display); color: var(--accent); width: 40px }
         <!-- arrows: within the steps column -->
         <line class="d-a" x1="424" y1="120" x2="424" y2="146" marker-end="url(#ah)"/>
         <text class="d-lab" x="432" y="138">writes URLs</text>
-        <line class="d-a" x1="424" y1="196" x2="424" y2="222" marker-end="url(#ah)"/>
-        <text class="d-lab" x="432" y="214">sample per template</text>
-        <line class="d-a" x1="424" y1="284" x2="424" y2="298" marker-end="url(#ah)"/>
+        <line class="d-a" x1="424" y1="196" x2="424" y2="210" marker-end="url(#ah)"/>
+        <text class="d-lab" x="432" y="207">sample per template</text>
         <line class="d-a" x1="424" y1="522" x2="424" y2="546" marker-end="url(#ah)"/>
         <text class="d-lab" x="432" y="538">tools over stdio</text>
 
         <!-- arrows: steps to findings store -->
         <polyline class="d-a key" points="532,100 588,100 588,172 642,172" marker-end="url(#ahk)"/>
         <text class="d-lab" x="616" y="164" text-anchor="middle">findings</text>
-        <line class="d-a key" x1="532" y1="254" x2="642" y2="254" marker-end="url(#ahk)"/>
-        <text class="d-lab" x="588" y="246" text-anchor="middle">findings</text>
-        <line class="d-a key" x1="532" y1="326" x2="642" y2="326" marker-end="url(#ahk)"/>
-        <text class="d-lab" x="588" y="318" text-anchor="middle">findings</text>
-        <line class="d-a key" x1="534" y1="384" x2="642" y2="384" marker-start="url(#ahk)" marker-end="url(#ahk)"/>
-        <text class="d-lab" x="588" y="402" text-anchor="middle">reads findings,</text>
-        <text class="d-lab" x="588" y="415" text-anchor="middle">writes score</text>
+        <line class="d-a key" x1="532" y1="236" x2="642" y2="236" marker-end="url(#ahk)"/>
+        <text class="d-lab" x="588" y="228" text-anchor="middle">findings</text>
+        <line class="d-a key" x1="532" y1="294" x2="642" y2="294" marker-end="url(#ahk)"/>
+        <text class="d-lab" x="588" y="286" text-anchor="middle">findings</text>
+        <line class="d-a key" x1="532" y1="352" x2="642" y2="352" marker-end="url(#ahk)"/>
+        <text class="d-lab" x="588" y="344" text-anchor="middle">findings</text>
+        <line class="d-a key" x1="534" y1="412" x2="642" y2="412" marker-start="url(#ahk)" marker-end="url(#ahk)"/>
+        <text class="d-lab" x="588" y="380" text-anchor="middle">reads findings,</text>
+        <text class="d-lab" x="588" y="393" text-anchor="middle">writes score</text>
 
-        <polyline class="d-a" points="192,620 600,620 600,420 720,420 720,394" marker-end="url(#ah)"/>
+        <polyline class="d-a" points="192,620 600,620 600,446 720,446 720,438" marker-end="url(#ah)"/>
         <text class="d-lab" x="420" y="612" text-anchor="middle">imported on every run</text>
 
         <!-- store to reports to publish -->
-        <line class="d-a key" x1="800" y1="392" x2="800" y2="454" marker-end="url(#ahk)"/>
-        <text class="d-lab" x="808" y="428">export</text>
+        <line class="d-a key" x1="800" y1="436" x2="800" y2="454" marker-end="url(#ahk)"/>
+        <text class="d-lab" x="808" y="450">export</text>
         <line class="d-a key" x1="864" y1="526" x2="974" y2="526" marker-end="url(#ahk)"/>
         <text class="d-lab" x="920" y="518" text-anchor="middle">git push</text>
         <line class="d-a key" x1="1126" y1="552" x2="1126" y2="582" marker-end="url(#ahk)"/>
@@ -286,10 +294,11 @@ td.step { font: 700 18px var(--display); color: var(--accent); width: 40px }
         <tbody>
           <tr><td class="step">1</td><td><code>python scripts/discover.py</code></td><td>robots.txt and every sitemap on the 12 hosts</td><td>URL inventory (<code>data/inventory.sqlite</code>), sitemap findings, <code>reports/discovery-runN.json</code></td><td>15 min</td></tr>
           <tr><td class="step">2</td><td><code>python scripts/audit_crawl.py</code></td><td>the inventory (2 English + 2 translated pages per template), each host's homepage, family hubs; top Search Console pages for families with no sitemap</td><td>page checks (<code>data/audit.sqlite</code>), page findings with evidence locations, <code>reports/crawl-audit-runN.json</code></td><td>25 min</td></tr>
-          <tr><td class="step">3</td><td><code>python scripts/audit_perf.py</code></td><td>PageSpeed Insights for the 2 most-visited pages of each crawl-audit template (mobile): Core Web Vitals from real Chrome users (28 days, 75th percentile) and a Lighthouse lab run</td><td>speed findings (real-user LCP, INP, CLS, TTFB; pages that do not load or paint nothing; whole-host Core Web Vitals), <code>reports/perf-audit-runN.json</code></td><td>40 min</td></tr>
-          <tr><td class="step">4</td><td><code>python scripts/prioritize.py</code></td><td>Search Console page clicks (now, previous 28 days, six months ago), GA4 organic sessions for hosts without Search Console</td><td>impact, traffic lost since six months ago and score on every finding, <code>reports/findings.json</code>, <code>reports/traffic-summary.json</code></td><td>1 min</td></tr>
-          <tr><td class="step">5</td><td><code>python scripts/build_report.py --snapshot "…"</code></td><td>the run files, findings and traffic summary</td><td>the local report, a frozen copy in <code>reports/archive/</code>, family health in <code>reports/health-history.json</code></td><td>seconds</td></tr>
-          <tr><td class="step">6</td><td><code>git push github master</code></td><td>the committed <code>reports/</code> files</td><td>GitHub Actions rebuilds the report (summary, families, priorities, shared problems, findings, changes, fix guide) and publishes it with the archive</td><td>1 min</td></tr>
+          <tr><td class="step">3</td><td><code>python scripts/audit_ai.py</code></td><td>each host's robots.txt (rules for AI search and training crawlers), its homepage as each AI crawler, /llms.txt per host and per product family</td><td>AI access findings (AI search crawlers blocked by robots.txt or the firewall, missing or broken llms.txt), <code>reports/ai-audit-runN.json</code></td><td>5 min</td></tr>
+          <tr><td class="step">4</td><td><code>python scripts/audit_perf.py</code></td><td>PageSpeed Insights for the 2 most-visited pages of each crawl-audit template (mobile): Core Web Vitals from real Chrome users (28 days, 75th percentile) and a Lighthouse lab run</td><td>speed findings (real-user LCP, INP, CLS, TTFB; pages that do not load or paint nothing; whole-host Core Web Vitals), <code>reports/perf-audit-runN.json</code></td><td>40 min</td></tr>
+          <tr><td class="step">5</td><td><code>python scripts/prioritize.py</code></td><td>Search Console page clicks (now, previous 28 days, six months ago), GA4 organic sessions for hosts without Search Console</td><td>impact, traffic lost since six months ago and score on every finding, <code>reports/findings.json</code>, <code>reports/traffic-summary.json</code></td><td>1 min</td></tr>
+          <tr><td class="step">6</td><td><code>python scripts/build_report.py --snapshot "…"</code></td><td>the run files, findings and traffic summary</td><td>the local report, a frozen copy in <code>reports/archive/</code>, family health in <code>reports/health-history.json</code></td><td>seconds</td></tr>
+          <tr><td class="step">7</td><td><code>git push github master</code></td><td>the committed <code>reports/</code> files</td><td>GitHub Actions rebuilds the report (summary, families, priorities, shared problems, findings, changes, fix guide) and publishes it with the archive</td><td>1 min</td></tr>
         </tbody>
       </table>
     </div>
@@ -308,8 +317,8 @@ td.step { font: 700 18px var(--display); color: var(--accent); width: 40px }
   <section>
     <h2>Code layout</h2>
     <div class="layout">
-      <div class="dir">core/</div><div>Deterministic logic: discovery, page audit, speed audit (PageSpeed Insights), findings store, prioritizer, family scorecards, fix guide, report views (confidence, shared problems, top risks, changes), Google clients</div><div><span class="tag built">built</span></div>
-      <div class="dir">scripts/</div><div>The commands: discover, audit_crawl, audit_perf, prioritize, build_report, build_archive, findings, check_access</div><div><span class="tag built">built</span></div>
+      <div class="dir">core/</div><div>Deterministic logic: discovery, page audit, AI-readiness audit, speed audit (PageSpeed Insights), findings store, prioritizer, family scorecards, fix guide, report views (confidence, shared problems, top risks, changes), Google clients</div><div><span class="tag built">built</span></div>
+      <div class="dir">scripts/</div><div>The commands: discover, audit_crawl, audit_ai, audit_perf, prioritize, build_report, build_archive, findings, check_access</div><div><span class="tag built">built</span></div>
       <div class="dir">mcp_servers/</div><div><code>gsc</code> is built; <code>crawl</code>, <code>findings</code>, <code>ga4</code>, <code>pagespeed</code> are next; fixers in Phase 2</div><div><span class="tag part">partly</span></div>
       <div class="dir">agents/</div><div>LangGraph agents that call the MCP servers: diagnosis, content checks, reporting</div><div><span class="tag planned">planned</span></div>
       <div class="dir">tenants/</div><div>One YAML per property, plus its manual findings</div><div><span class="tag built">built</span></div>

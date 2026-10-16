@@ -4,7 +4,7 @@ Domain-agnostic agents that audit a web property and report what is broken, not 
 
 ## Latest report
 
-**[aspose.app site health report](https://shoaibkhan-aspose.github.io/aspose-app-health-and-recovery/)**: summary, product family health, priorities, shared problems, all findings with a fix guide, page speed (Core Web Vitals), and changes since the last run. Previous versions: [archive](https://shoaibkhan-aspose.github.io/aspose-app-health-and-recovery/archive/).
+**[aspose.app site health report](https://shoaibkhan-aspose.github.io/aspose-app-health-and-recovery/)**: summary, product family health, priorities, shared problems, all findings with a fix guide, page speed (Core Web Vitals), AI readiness (AI crawler access, llms.txt), and changes since the last run. Previous versions: [archive](https://shoaibkhan-aspose.github.io/aspose-app-health-and-recovery/archive/).
 
 [![Publish report](https://github.com/shoaibkhan-aspose/aspose-app-health-and-recovery/actions/workflows/pages.yml/badge.svg)](https://github.com/shoaibkhan-aspose/aspose-app-health-and-recovery/actions/workflows/pages.yml)
 
@@ -12,7 +12,7 @@ The page is rebuilt and published by GitHub Actions on every push to `master`, f
 
 ## Architecture
 
-![Site health architecture: data flow from read-only sources through discover, crawl audit, speed audit and prioritize into the findings store, then reports/ in git, GitHub Actions and the published report](docs/architecture/site-health-architecture.png)
+![Site health architecture: data flow from read-only sources through discover, crawl audit, AI audit, speed audit and prioritize into the findings store, then reports/ in git, GitHub Actions and the published report](docs/architecture/site-health-architecture.png)
 
 Full page with the step-by-step table, design rules and code layout: [`docs/architecture/site-health-architecture.html`](docs/architecture/site-health-architecture.html) (also published as a private claude.ai page: https://claude.ai/artifact/3zrEcbrV1WxN9nfjvS7Kxm).
 
@@ -40,13 +40,14 @@ python scripts/check_access.py --tenant aspose.app
 python scripts/discover.py --hosts products.aspose.app --sections pdf,words   # sample
 python scripts/discover.py                                                  # all hosts
 python scripts/audit_crawl.py                                              # crawl audit; --sections a,b narrows products only
+python scripts/audit_ai.py                                                 # AI readiness: AI crawler access, llms.txt (~5 min)
 python scripts/audit_perf.py --plan                                        # speed audit: list the pages it would measure
 python scripts/audit_perf.py                                               # speed audit via PageSpeed Insights (~40 min)
 python scripts/prioritize.py                                               # Search Console traffic + score per finding
 python scripts/build_report.py --out reports/discovery-latest.html --snapshot "After <run>"   # report + archive snapshot
 ```
 
-Findings from every run, plus the manual ones in `tenants/<tenant>.seed-findings.yaml`, are kept in `data/findings.sqlite` with permanent ids, first/last seen and resolved status (`python scripts/findings.py summary`). `scripts/build_report.py` turns the newest discovery, crawl-audit and speed-audit runs plus the store (or `--findings reports/findings.json`) into the HTML report.
+Findings from every run, plus the manual ones in `tenants/<tenant>.seed-findings.yaml`, are kept in `data/findings.sqlite` with permanent ids, first/last seen and resolved status (`python scripts/findings.py summary`). `scripts/build_report.py` turns the newest discovery, crawl-audit, speed-audit and AI-audit runs plus the store (or `--findings reports/findings.json`) into the HTML report.
 
 ## MCP servers
 
