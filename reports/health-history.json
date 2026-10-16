@@ -68,5 +68,40 @@
    "barcode": 85,
    "diagram": 85
   }
+ },
+ {
+  "date": "2026-10-16",
+  "runs": "discovery run 8, crawl audit run 15, speed audit run 12, AI audit run 16",
+  "families": {
+   "drawing": 20,
+   "omr": 36,
+   "cells": 45,
+   "slides": 48,
+   "cad": 53,
+   "svg": 55,
+   "total": 56,
+   "ocr": 56,
+   "gis": 58,
+   "finance": 68,
+   "3d": 69,
+   "psd": 69,
+   "html": 70,
+   "tasks": 70,
+   "note": 70,
+   "font": 72,
+   "pub": 72,
+   "tex": 72,
+   "zip": 73,
+   "page": 73,
+   "email": 76,
+   "ebook": 78,
+   "words": 79,
+   "pdf": 79,
+   "imaging": 82,
+   "diagram": 83,
+   "audio": 84,
+   "video": 84,
+   "barcode": 85
+  }
  }
 ]

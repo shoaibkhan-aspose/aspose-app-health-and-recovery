@@ -796,12 +796,15 @@ findings:
   effort: M
   fix_tier: 2
   fix_channel: null
-  status: unverified
+  status: open
+  superseded_by: ai-0004
   detected_at: '2026-10-08'
   verification:
-    verified: false
-    how: page fetches; other hosts not probed
+    verified: true
+    how: page fetches; AI audit run 16 probed every host and products family
     recheck: 'ai auditor: probe /llms.txt per host and section'
+    reproduced: 'AI audit run 16 (2026-10-16): only about has /llms.txt; products has /pdf/llms.txt only (ai-0004 lists
+      the other families); www, blog, forum, websites, releases, metrics, status and purchase have none (ai-0001..0009)'
 notes:
 - applies_to: crawl/robots_missing/products.aspose.app/robots.txt
   note: 'Likely root cause (was seed-crawl-01): the products Hugo build generates robots.txt (config.toml enableRobotsTXT=true), but its template themes/lutsk-aspose-theme/layouts/robots.txt emits only

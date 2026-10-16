@@ -16,5 +16,17 @@
     "date": "2026-10-15 (2)",
     "label": "After the speed audit",
     "runs": "discovery run 8, crawl audit run 9, speed audit run 12"
+  },
+  {
+    "file": "2026-10-16.html",
+    "date": "2026-10-16",
+    "label": "Status pills on family cards, before the AI audit",
+    "runs": "discovery run 8, crawl audit run 9, speed audit run 12"
+  },
+  {
+    "file": "2026-10-16-2.html",
+    "date": "2026-10-16 (2)",
+    "label": "After the AI audit and a new crawl audit",
+    "runs": "discovery run 8, crawl audit run 15, speed audit run 12, AI audit run 16"
   }
 ]

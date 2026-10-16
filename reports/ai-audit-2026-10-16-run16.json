@@ -1,0 +1,1035 @@
+{
+  "tenant": "aspose.app",
+  "auditor": "ai-audit",
+  "run_id": 16,
+  "params": {
+    "hosts": [
+      "www.aspose.app",
+      "products.aspose.app",
+      "about.aspose.app",
+      "blog.aspose.app",
+      "forum.aspose.app",
+      "websites.aspose.app",
+      "releases.aspose.app",
+      "purchase.aspose.app",
+      "dashboard.aspose.app",
+      "metrics.aspose.app",
+      "status.aspose.app",
+      "api.products.aspose.app"
+    ]
+  },
+  "requests": 188,
+  "duration_s": 286.7,
+  "stopped_early": false,
+  "summary": {
+    "www.aspose.app": {
+      "robots": 200,
+      "answer_blocked": [],
+      "training_blocked": [],
+      "firewall_blocked": {},
+      "firewall_training": {},
+      "llms": {
+        "state": "missing",
+        "note": "HTTP 404",
+        "url": "https://www.aspose.app/llms.txt"
+      },
+      "sections": 0,
+      "sections_covered": 0,
+      "section_files": []
+    },
+    "products.aspose.app": {
+      "robots": 404,
+      "answer_blocked": [],
+      "training_blocked": [],
+      "firewall_blocked": {},
+      "firewall_training": {},
+      "llms": {
+        "state": "missing",
+        "note": "HTTP 404",
+        "url": "https://products.aspose.app/llms.txt"
+      },
+      "sections": 29,
+      "sections_covered": 1,
+      "section_files": [
+        "pdf"
+      ]
+    },
+    "about.aspose.app": {
+      "robots": 404,
+      "answer_blocked": [],
+      "training_blocked": [],
+      "firewall_blocked": {},
+      "firewall_training": {},
+      "llms": {
+        "state": "ok",
+        "note": "17 links, 3,923 characters",
+        "url": "https://about.aspose.app/llms.txt"
+      },
+      "sections": 0,
+      "sections_covered": 0,
+      "section_files": []
+    },
+    "blog.aspose.app": {
+      "robots": 200,
+      "answer_blocked": [],
+      "training_blocked": [],
+      "firewall_blocked": {},
+      "firewall_training": {},
+      "llms": {
+        "state": "missing",
+        "note": "HTTP 404",
+        "url": "https://blog.aspose.app/llms.txt"
+      },
+      "sections": 0,
+      "sections_covered": 0,
+      "section_files": []
+    },
+    "forum.aspose.app": {
+      "robots": 200,
+      "answer_blocked": [],
+      "training_blocked": [],
+      "firewall_blocked": {},
+      "firewall_training": {},
+      "llms": {
+        "state": "missing",
+        "note": "HTTP 404",
+        "url": "https://forum.aspose.app/llms.txt"
+      },
+      "sections": 0,
+      "sections_covered": 0,
+      "section_files": []
+    },
+    "websites.aspose.app": {
+      "robots": 404,
+      "answer_blocked": [],
+      "training_blocked": [],
+      "firewall_blocked": {},
+      "firewall_training": {},
+      "llms": {
+        "state": "missing",
+        "note": "HTTP 404",
+        "url": "https://websites.aspose.app/llms.txt"
+      },
+      "sections": 0,
+      "sections_covered": 0,
+      "section_files": []
+    },
+    "releases.aspose.app": {
+      "robots": 200,
+      "answer_blocked": [],
+      "training_blocked": [],
+      "firewall_blocked": {},
+      "firewall_training": {},
+      "llms": {
+        "state": "missing",
+        "note": "HTTP 404",
+        "url": "https://releases.aspose.app/llms.txt"
+      },
+      "sections": 0,
+      "sections_covered": 0,
+      "section_files": []
+    },
+    "purchase.aspose.app": {
+      "robots": 200,
+      "answer_blocked": [],
+      "training_blocked": [],
+      "firewall_blocked": {},
+      "firewall_training": {},
+      "llms": {
+        "state": "missing",
+        "note": "HTTP 200 with a web page (HTML), not a text file",
+        "url": "https://purchase.aspose.app/llms.txt"
+      },
+      "sections": 0,
+      "sections_covered": 0,
+      "section_files": []
+    },
+    "dashboard.aspose.app": {
+      "robots": 404,
+      "answer_blocked": [],
+      "training_blocked": [],
+      "firewall_blocked": {},
+      "firewall_training": {},
+      "llms": {
+        "state": "skipped",
+        "note": "not expected on this host (tenant audit.ai)",
+        "url": null
+      },
+      "sections": 0,
+      "sections_covered": 0,
+      "section_files": []
+    },
+    "metrics.aspose.app": {
+      "robots": 200,
+      "answer_blocked": [],
+      "training_blocked": [],
+      "firewall_blocked": {},
+      "firewall_training": {},
+      "llms": {
+        "state": "missing",
+        "note": "HTTP 403",
+        "url": "https://metrics.aspose.app/llms.txt"
+      },
+      "sections": 0,
+      "sections_covered": 0,
+      "section_files": []
+    },
+    "status.aspose.app": {
+      "robots": 200,
+      "answer_blocked": [],
+      "training_blocked": [],
+      "firewall_blocked": {},
+      "firewall_training": {},
+      "llms": {
+        "state": "missing",
+        "note": "HTTP 404",
+        "url": "https://status.aspose.app/llms.txt"
+      },
+      "sections": 0,
+      "sections_covered": 0,
+      "section_files": []
+    },
+    "api.products.aspose.app": {
+      "robots": 404,
+      "answer_blocked": [],
+      "training_blocked": [],
+      "firewall_blocked": {},
+      "firewall_training": {},
+      "llms": {
+        "state": "skipped",
+        "note": "not expected on this host (tenant audit.ai)",
+        "url": null
+      },
+      "sections": 0,
+      "sections_covered": 0,
+      "section_files": []
+    }
+  },
+  "findings": [
+    {
+      "id": "ai-0001",
+      "tenant": "aspose.app",
+      "subdomain": "blog.aspose.app",
+      "template": "llms.txt",
+      "dimension": "ai",
+      "check": "llms_txt_missing",
+      "type": "improvable",
+      "title": "No llms.txt for AI assistants",
+      "evidence": {
+        "urls": [
+          "https://blog.aspose.app/llms.txt"
+        ],
+        "observed": "https://blog.aspose.app/llms.txt: HTTP 404",
+        "expected": "/llms.txt as plain text or Markdown: an H1 with the site name, a short summary and links to the key pages",
+        "locations": [
+          {
+            "role": "page",
+            "url": "https://blog.aspose.app/llms.txt",
+            "note": "HTTP 404"
+          }
+        ]
+      },
+      "affected_pages": 0,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": "wordpress-api",
+      "status": "open",
+      "detected_at": "2026-10-16"
+    },
+    {
+      "id": "ai-0002",
+      "tenant": "aspose.app",
+      "subdomain": "forum.aspose.app",
+      "template": "llms.txt",
+      "dimension": "ai",
+      "check": "llms_txt_missing",
+      "type": "improvable",
+      "title": "No llms.txt for AI assistants",
+      "evidence": {
+        "urls": [
+          "https://forum.aspose.app/llms.txt"
+        ],
+        "observed": "https://forum.aspose.app/llms.txt: HTTP 404",
+        "expected": "/llms.txt as plain text or Markdown: an H1 with the site name, a short summary and links to the key pages",
+        "locations": [
+          {
+            "role": "page",
+            "url": "https://forum.aspose.app/llms.txt",
+            "note": "HTTP 404"
+          }
+        ]
+      },
+      "affected_pages": 0,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": "discourse-admin",
+      "status": "open",
+      "detected_at": "2026-10-16"
+    },
+    {
+      "id": "ai-0003",
+      "tenant": "aspose.app",
+      "subdomain": "metrics.aspose.app",
+      "template": "llms.txt",
+      "dimension": "ai",
+      "check": "llms_txt_missing",
+      "type": "improvable",
+      "title": "No llms.txt for AI assistants",
+      "evidence": {
+        "urls": [
+          "https://metrics.aspose.app/llms.txt"
+        ],
+        "observed": "https://metrics.aspose.app/llms.txt: HTTP 403",
+        "expected": "/llms.txt as plain text or Markdown: an H1 with the site name, a short summary and links to the key pages",
+        "locations": [
+          {
+            "role": "page",
+            "url": "https://metrics.aspose.app/llms.txt",
+            "note": "HTTP 403"
+          }
+        ]
+      },
+      "affected_pages": 0,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-16"
+    },
+    {
+      "id": "ai-0004",
+      "tenant": "aspose.app",
+      "subdomain": "products.aspose.app",
+      "template": "llms.txt",
+      "dimension": "ai",
+      "check": "llms_txt_missing",
+      "type": "improvable",
+      "title": "No llms.txt for AI assistants",
+      "evidence": {
+        "urls": [
+          "https://products.aspose.app/llms.txt"
+        ],
+        "observed": "https://products.aspose.app/llms.txt: HTTP 404. 27 of 29 sections have no llms.txt of their own (3d, audio, barcode, cad, cells, diagram, drawing, ebook, email, finance, font, gis, ...); own file: pdf; not checked (no response): ocr",
+        "expected": "/llms.txt as plain text or Markdown: an H1 with the site name, a short summary and links to the key pages",
+        "locations": [
+          {
+            "role": "page",
+            "url": "https://products.aspose.app/llms.txt",
+            "note": "HTTP 404"
+          },
+          {
+            "role": "section file",
+            "url": "https://products.aspose.app/pdf/llms.txt",
+            "note": "valid"
+          }
+        ]
+      },
+      "affected_pages": 0,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": "git-pr",
+      "status": "open",
+      "detected_at": "2026-10-16"
+    },
+    {
+      "id": "ai-0005",
+      "tenant": "aspose.app",
+      "subdomain": "purchase.aspose.app",
+      "template": "llms.txt",
+      "dimension": "ai",
+      "check": "llms_txt_missing",
+      "type": "improvable",
+      "title": "No llms.txt for AI assistants",
+      "evidence": {
+        "urls": [
+          "https://purchase.aspose.app/llms.txt"
+        ],
+        "observed": "https://purchase.aspose.app/llms.txt: HTTP 200 with a web page (HTML), not a text file",
+        "expected": "/llms.txt as plain text or Markdown: an H1 with the site name, a short summary and links to the key pages",
+        "locations": [
+          {
+            "role": "page",
+            "url": "https://purchase.aspose.app/llms.txt",
+            "note": "HTTP 200 with a web page (HTML), not a text file"
+          }
+        ]
+      },
+      "affected_pages": 0,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-16"
+    },
+    {
+      "id": "ai-0006",
+      "tenant": "aspose.app",
+      "subdomain": "releases.aspose.app",
+      "template": "llms.txt",
+      "dimension": "ai",
+      "check": "llms_txt_missing",
+      "type": "improvable",
+      "title": "No llms.txt for AI assistants",
+      "evidence": {
+        "urls": [
+          "https://releases.aspose.app/llms.txt"
+        ],
+        "observed": "https://releases.aspose.app/llms.txt: HTTP 404",
+        "expected": "/llms.txt as plain text or Markdown: an H1 with the site name, a short summary and links to the key pages",
+        "locations": [
+          {
+            "role": "page",
+            "url": "https://releases.aspose.app/llms.txt",
+            "note": "HTTP 404"
+          }
+        ]
+      },
+      "affected_pages": 0,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-16"
+    },
+    {
+      "id": "ai-0007",
+      "tenant": "aspose.app",
+      "subdomain": "status.aspose.app",
+      "template": "llms.txt",
+      "dimension": "ai",
+      "check": "llms_txt_missing",
+      "type": "improvable",
+      "title": "No llms.txt for AI assistants",
+      "evidence": {
+        "urls": [
+          "https://status.aspose.app/llms.txt"
+        ],
+        "observed": "https://status.aspose.app/llms.txt: HTTP 404",
+        "expected": "/llms.txt as plain text or Markdown: an H1 with the site name, a short summary and links to the key pages",
+        "locations": [
+          {
+            "role": "page",
+            "url": "https://status.aspose.app/llms.txt",
+            "note": "HTTP 404"
+          }
+        ]
+      },
+      "affected_pages": 0,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-16"
+    },
+    {
+      "id": "ai-0008",
+      "tenant": "aspose.app",
+      "subdomain": "websites.aspose.app",
+      "template": "llms.txt",
+      "dimension": "ai",
+      "check": "llms_txt_missing",
+      "type": "improvable",
+      "title": "No llms.txt for AI assistants",
+      "evidence": {
+        "urls": [
+          "https://websites.aspose.app/llms.txt"
+        ],
+        "observed": "https://websites.aspose.app/llms.txt: HTTP 404",
+        "expected": "/llms.txt as plain text or Markdown: an H1 with the site name, a short summary and links to the key pages",
+        "locations": [
+          {
+            "role": "page",
+            "url": "https://websites.aspose.app/llms.txt",
+            "note": "HTTP 404"
+          }
+        ]
+      },
+      "affected_pages": 0,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": "git-pr",
+      "status": "open",
+      "detected_at": "2026-10-16"
+    },
+    {
+      "id": "ai-0009",
+      "tenant": "aspose.app",
+      "subdomain": "www.aspose.app",
+      "template": "llms.txt",
+      "dimension": "ai",
+      "check": "llms_txt_missing",
+      "type": "improvable",
+      "title": "No llms.txt for AI assistants",
+      "evidence": {
+        "urls": [
+          "https://www.aspose.app/llms.txt"
+        ],
+        "observed": "https://www.aspose.app/llms.txt: HTTP 404",
+        "expected": "/llms.txt as plain text or Markdown: an H1 with the site name, a short summary and links to the key pages",
+        "locations": [
+          {
+            "role": "page",
+            "url": "https://www.aspose.app/llms.txt",
+            "note": "HTTP 404"
+          }
+        ]
+      },
+      "affected_pages": 0,
+      "impact": {
+        "clicks_28d": 0,
+        "impressions_28d": 0,
+        "score": 0
+      },
+      "effort": "S",
+      "fix_tier": 1,
+      "fix_channel": null,
+      "status": "open",
+      "detected_at": "2026-10-16"
+    }
+  ],
+  "hosts": {
+    "www.aspose.app": {
+      "robots": {
+        "status": 200,
+        "error": null,
+        "answer_blocked": {},
+        "training_blocked": {}
+      },
+      "firewall": {
+        "url": "https://www.aspose.app/",
+        "baseline": 200,
+        "bytes": 52041,
+        "blocked": {}
+      },
+      "llms": {
+        "url": "https://www.aspose.app/llms.txt",
+        "state": "missing",
+        "note": "HTTP 404",
+        "links": []
+      }
+    },
+    "products.aspose.app": {
+      "robots": {
+        "status": 404,
+        "error": null,
+        "answer_blocked": {},
+        "training_blocked": {},
+        "note": "HTTP 404"
+      },
+      "firewall": {
+        "url": "https://products.aspose.app/",
+        "baseline": 200,
+        "bytes": 49687,
+        "blocked": {}
+      },
+      "llms": {
+        "url": "https://products.aspose.app/llms.txt",
+        "state": "missing",
+        "note": "HTTP 404",
+        "links": []
+      },
+      "sections": {
+        "total": {
+          "url": "https://products.aspose.app/total/llms.txt",
+          "state": "missing",
+          "note": "redirects to https://products.aspose.app/total/merger",
+          "links": [],
+          "covered_by_host_file": false
+        },
+        "words": {
+          "url": "https://products.aspose.app/words/llms.txt",
+          "state": "missing",
+          "note": "HTTP 404",
+          "links": [],
+          "covered_by_host_file": false
+        },
+        "pdf": {
+          "url": "https://products.aspose.app/pdf/llms.txt",
+          "state": "ok",
+          "note": "37 links, 4,563 characters",
+          "links": [
+            "https://products.aspose.app/pdf/merger/index.md",
+            "https://products.aspose.app/pdf/conversion/index.md",
+            "https://products.aspose.app/pdf/hash-generator/index.md",
+            "https://products.aspose.app/pdf/split/index.md",
+            "https://products.aspose.app/pdf/unlock/index.md",
+            "https://products.aspose.app/pdf/viewer/index.md",
+            "https://products.aspose.app/pdf/editor/index.md",
+            "https://products.aspose.app/pdf/compress/index.md",
+            "https://products.aspose.app/pdf/lock/index.md",
+            "https://products.aspose.app/pdf/page-number/index.md",
+            "https://products.aspose.app/pdf/metadata/index.md",
+            "https://products.aspose.app/pdf/search/index.md",
+            "https://products.aspose.app/pdf/rotate/index.md",
+            "https://products.aspose.app/pdf/comparison/index.md",
+            "https://products.aspose.app/pdf/redaction/index.md",
+            "https://products.aspose.app/pdf/organize/index.md",
+            "https://products.aspose.app/pdf/watermark/index.md",
+            "https://products.aspose.app/pdf/crop/index.md",
+            "https://products.aspose.app/pdf/resize/index.md",
+            "https://products.aspose.app/pdf/parser/index.md",
+            "https://products.aspose.app/pdf/remove-pages/index.md",
+            "https://products.aspose.app/pdf/annotation/index.md",
+            "https://products.aspose.app/pdf/signature/index.md",
+            "https://products.aspose.app/pdf/xfa/index.md",
+            "https://products.aspose.app/pdf/table-extraction/index.md",
+            "https://products.aspose.app/pdf/gif-maker/index.md",
+            "https://products.aspose.app/pdf/word-counter/index.md",
+            "https://products.aspose.app/pdf/repair/index.md",
+            "https://products.aspose.app/pdf/password-generator/index.md",
+            "https://products.aspose.app/pdf/url-encoder/index.md",
+            "https://products.aspose.app/pdf/url-decoder/index.md",
+            "https://products.aspose.app/pdf/remove-watermark/index.md",
+            "https://products.aspose.app/pdf/change-fonts/index.md",
+            "https://products.aspose.com/pdf/family",
+            "https://docs.aspose.com/pdf",
+            "https://products.aspose.cloud/pdf/family",
+            "https://releases.aspose.com/pdf"
+          ],
+          "covered_by_host_file": false
+        },
+        "cells": {
+          "url": "https://products.aspose.app/cells/llms.txt",
+          "state": "missing",
+          "note": "HTTP 404",
+          "links": [],
+          "covered_by_host_file": false
+        },
+        "email": {
+          "url": "https://products.aspose.app/email/llms.txt",
+          "state": "missing",
+          "note": "redirects to https://products.aspose.app/email/error?code=404",
+          "links": [],
+          "covered_by_host_file": false
+        },
+        "slides": {
+          "url": "https://products.aspose.app/slides/llms.txt",
+          "state": "missing",
+          "note": "redirects to https://products.aspose.app/slides/errors/notfound",
+          "links": [],
+          "covered_by_host_file": false
+        },
+        "imaging": {
+          "url": "https://products.aspose.app/imaging/llms.txt",
+          "state": "missing",
+          "note": "HTTP 404",
+          "links": [],
+          "covered_by_host_file": false
+        },
+        "barcode": {
+          "url": "https://products.aspose.app/barcode/llms.txt",
+          "state": "missing",
+          "note": "HTTP 404",
+          "links": [],
+          "covered_by_host_file": false
+        },
+        "diagram": {
+          "url": "https://products.aspose.app/diagram/llms.txt",
+          "state": "missing",
+          "note": "HTTP 404",
+          "links": [],
+          "covered_by_host_file": false
+        },
+        "tasks": {
+          "url": "https://products.aspose.app/tasks/llms.txt",
+          "state": "missing",
+          "note": "redirects to https://products.aspose.app/tasks/applications",
+          "links": [],
+          "covered_by_host_file": false
+        },
+        "ocr": {
+          "url": "https://products.aspose.app/ocr/llms.txt",
+          "state": "error",
+          "note": "ReadTimeout: The read operation timed out",
+          "links": [],
+          "covered_by_host_file": false
+        },
+        "note": {
+          "url": "https://products.aspose.app/note/llms.txt",
+          "state": "missing",
+          "note": "redirects to https://products.aspose.app/note/applications",
+          "links": [],
+          "covered_by_host_file": false
+        },
+        "cad": {
+          "url": "https://products.aspose.app/cad/llms.txt",
+          "state": "missing",
+          "note": "HTTP 500",
+          "links": [],
+          "covered_by_host_file": false
+        },
+        "3d": {
+          "url": "https://products.aspose.app/3d/llms.txt",
+          "state": "missing",
+          "note": "HTTP 404",
+          "links": [],
+          "covered_by_host_file": false
+        },
+        "html": {
+          "url": "https://products.aspose.app/html/llms.txt",
+          "state": "missing",
+          "note": "redirects to https://products.aspose.app/html/applications",
+          "links": [],
+          "covered_by_host_file": false
+        },
+        "gis": {
+          "url": "https://products.aspose.app/gis/llms.txt",
+          "state": "missing",
+          "note": "HTTP 200 with a web page (HTML), not a text file",
+          "links": [],
+          "covered_by_host_file": false
+        },
+        "zip": {
+          "url": "https://products.aspose.app/zip/llms.txt",
+          "state": "missing",
+          "note": "redirects to https://products.aspose.app/zip/applications",
+          "links": [],
+          "covered_by_host_file": false
+        },
+        "page": {
+          "url": "https://products.aspose.app/page/llms.txt",
+          "state": "missing",
+          "note": "redirects to https://products.aspose.app/page/applications",
+          "links": [],
+          "covered_by_host_file": false
+        },
+        "psd": {
+          "url": "https://products.aspose.app/psd/llms.txt",
+          "state": "missing",
+          "note": "redirects to https://products.aspose.app/psd/page404?url=/psd/llms.txt",
+          "links": [],
+          "covered_by_host_file": false
+        },
+        "omr": {
+          "url": "https://products.aspose.app/omr/llms.txt",
+          "state": "missing",
+          "note": "HTTP 404",
+          "links": [],
+          "covered_by_host_file": false
+        },
+        "svg": {
+          "url": "https://products.aspose.app/svg/llms.txt",
+          "state": "missing",
+          "note": "redirects to https://products.aspose.app/svg/applications",
+          "links": [],
+          "covered_by_host_file": false
+        },
+        "finance": {
+          "url": "https://products.aspose.app/finance/llms.txt",
+          "state": "missing",
+          "note": "HTTP 404",
+          "links": [],
+          "covered_by_host_file": false
+        },
+        "font": {
+          "url": "https://products.aspose.app/font/llms.txt",
+          "state": "missing",
+          "note": "redirects to https://products.aspose.app/font/applications",
+          "links": [],
+          "covered_by_host_file": false
+        },
+        "tex": {
+          "url": "https://products.aspose.app/tex/llms.txt",
+          "state": "missing",
+          "note": "redirects to https://products.aspose.app/tex/applications",
+          "links": [],
+          "covered_by_host_file": false
+        },
+        "pub": {
+          "url": "https://products.aspose.app/pub/llms.txt",
+          "state": "missing",
+          "note": "redirects to https://products.aspose.app/pub/applications",
+          "links": [],
+          "covered_by_host_file": false
+        },
+        "drawing": {
+          "url": "https://products.aspose.app/drawing/llms.txt",
+          "state": "missing",
+          "note": "HTTP 503",
+          "links": [],
+          "covered_by_host_file": false
+        },
+        "audio": {
+          "url": "https://products.aspose.app/audio/llms.txt",
+          "state": "missing",
+          "note": "HTTP 404",
+          "links": [],
+          "covered_by_host_file": false
+        },
+        "video": {
+          "url": "https://products.aspose.app/video/llms.txt",
+          "state": "missing",
+          "note": "HTTP 404",
+          "links": [],
+          "covered_by_host_file": false
+        },
+        "ebook": {
+          "url": "https://products.aspose.app/ebook/llms.txt",
+          "state": "missing",
+          "note": "HTTP 404",
+          "links": [],
+          "covered_by_host_file": false
+        }
+      }
+    },
+    "about.aspose.app": {
+      "robots": {
+        "status": 404,
+        "error": null,
+        "answer_blocked": {},
+        "training_blocked": {},
+        "note": "HTTP 404"
+      },
+      "firewall": {
+        "url": "https://about.aspose.app/",
+        "baseline": 200,
+        "bytes": 22382,
+        "blocked": {}
+      },
+      "llms": {
+        "url": "https://about.aspose.app/llms.txt",
+        "state": "ok",
+        "note": "17 links, 3,923 characters",
+        "links": [
+          "https://about.aspose.app/legal/acceptable-use.md",
+          "https://about.aspose.app/acquisition.md",
+          "https://about.aspose.app/affiliates.md",
+          "https://about.aspose.app/contact.md",
+          "https://about.aspose.app/legal/copyright-notice.md",
+          "https://about.aspose.app/legal/dmca-policy.md",
+          "https://about.aspose.app/events.md",
+          "https://about.aspose.app/contact/complaint.md",
+          "https://about.aspose.app/legal/file-retention-policy.md",
+          "https://about.aspose.app/legal/gdpr.md",
+          "https://about.aspose.app/legal.md",
+          "https://about.aspose.app/legal/paperless-policy.md",
+          "https://about.aspose.app/legal/privacy-policy.md",
+          "https://about.aspose.app/legal/security.md",
+          "https://about.aspose.app/security.md",
+          "https://about.aspose.app/legal/subprocessors.md",
+          "https://about.aspose.app/legal/tos.md"
+        ]
+      }
+    },
+    "blog.aspose.app": {
+      "robots": {
+        "status": 200,
+        "error": null,
+        "answer_blocked": {},
+        "training_blocked": {}
+      },
+      "firewall": {
+        "url": "https://blog.aspose.app/",
+        "baseline": 200,
+        "bytes": 49416,
+        "blocked": {}
+      },
+      "llms": {
+        "url": "https://blog.aspose.app/llms.txt",
+        "state": "missing",
+        "note": "HTTP 404",
+        "links": []
+      }
+    },
+    "forum.aspose.app": {
+      "robots": {
+        "status": 200,
+        "error": null,
+        "answer_blocked": {},
+        "training_blocked": {}
+      },
+      "firewall": {
+        "url": "https://forum.aspose.app/",
+        "baseline": 200,
+        "bytes": 32121,
+        "blocked": {}
+      },
+      "llms": {
+        "url": "https://forum.aspose.app/llms.txt",
+        "state": "missing",
+        "note": "HTTP 404",
+        "links": []
+      }
+    },
+    "websites.aspose.app": {
+      "robots": {
+        "status": 404,
+        "error": null,
+        "answer_blocked": {},
+        "training_blocked": {},
+        "note": "HTTP 404"
+      },
+      "firewall": {
+        "url": "https://websites.aspose.app/",
+        "baseline": 200,
+        "bytes": 15648,
+        "blocked": {}
+      },
+      "llms": {
+        "url": "https://websites.aspose.app/llms.txt",
+        "state": "missing",
+        "note": "HTTP 404",
+        "links": []
+      }
+    },
+    "releases.aspose.app": {
+      "robots": {
+        "status": 200,
+        "error": null,
+        "answer_blocked": {},
+        "training_blocked": {}
+      },
+      "firewall": {
+        "url": "https://releases.aspose.app/",
+        "baseline": 200,
+        "bytes": 16558,
+        "blocked": {}
+      },
+      "llms": {
+        "url": "https://releases.aspose.app/llms.txt",
+        "state": "missing",
+        "note": "HTTP 404",
+        "links": []
+      }
+    },
+    "purchase.aspose.app": {
+      "robots": {
+        "status": 200,
+        "error": null,
+        "answer_blocked": {},
+        "training_blocked": {},
+        "note": "HTML page"
+      },
+      "firewall": {
+        "url": "https://purchase.aspose.app/",
+        "baseline": 200,
+        "bytes": 17979,
+        "blocked": {}
+      },
+      "llms": {
+        "url": "https://purchase.aspose.app/llms.txt",
+        "state": "missing",
+        "note": "HTTP 200 with a web page (HTML), not a text file",
+        "links": []
+      }
+    },
+    "dashboard.aspose.app": {
+      "robots": {
+        "status": 404,
+        "error": null,
+        "answer_blocked": {},
+        "training_blocked": {},
+        "note": "HTTP 404"
+      },
+      "firewall": {
+        "url": "https://dashboard.aspose.app/",
+        "baseline": 200,
+        "bytes": 43295,
+        "blocked": {}
+      },
+      "llms": {
+        "state": "skipped",
+        "note": "not expected on this host (tenant audit.ai)"
+      }
+    },
+    "metrics.aspose.app": {
+      "robots": {
+        "status": 200,
+        "error": null,
+        "answer_blocked": {},
+        "training_blocked": {}
+      },
+      "firewall": {
+        "url": "https://metrics.aspose.app/",
+        "baseline": 200,
+        "bytes": 34673,
+        "blocked": {}
+      },
+      "llms": {
+        "url": "https://metrics.aspose.app/llms.txt",
+        "state": "missing",
+        "note": "HTTP 403",
+        "links": []
+      }
+    },
+    "status.aspose.app": {
+      "robots": {
+        "status": 200,
+        "error": null,
+        "answer_blocked": {},
+        "training_blocked": {}
+      },
+      "firewall": {
+        "url": "https://status.aspose.app/",
+        "baseline": 200,
+        "bytes": 15486,
+        "blocked": {}
+      },
+      "llms": {
+        "url": "https://status.aspose.app/llms.txt",
+        "state": "missing",
+        "note": "HTTP 404",
+        "links": []
+      }
+    },
+    "api.products.aspose.app": {
+      "robots": {
+        "status": 404,
+        "error": null,
+        "answer_blocked": {},
+        "training_blocked": {},
+        "note": "HTTP 404"
+      },
+      "firewall": {
+        "url": "https://api.products.aspose.app/",
+        "baseline": 404,
+        "bytes": 386,
+        "blocked": {}
+      },
+      "llms": {
+        "state": "skipped",
+        "note": "not expected on this host (tenant audit.ai)"
+      }
+    }
+  }
+}
