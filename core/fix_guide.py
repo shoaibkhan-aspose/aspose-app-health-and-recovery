@@ -354,6 +354,52 @@ _ROWS = [
      "Pages without their own data inherit this assessment.",
      "Fix the shared parts first (layout, fonts, scripts every page loads), then the busiest templates.",
      "PageSpeed Insights origin data shows all three metrics good."),
+    # --- AI readiness (AI search and answer engines: ChatGPT, Perplexity, Claude, Google AI Overviews, Copilot) ---
+    ("content_needs_js", "AI readiness", "Page is empty without JavaScript",
+     "The HTML holds almost no text: either scripts add the content in the browser, or the page itself is "
+     "nearly empty (e.g. a one-line status note).",
+     "AI crawlers (ChatGPT, Claude, Perplexity) do not run JavaScript, so they see an empty page and cannot "
+     "quote or cite it. Google renders scripts, but later and not always.",
+     "If scripts add the content, send the main text in the HTML (server-side or static rendering, or at least "
+     "a shell with the heading, summary and steps). If the page is just short, add a sentence of context or "
+     "keep it out of the sitemap.",
+     "View the page source (not the inspector): the main text is there; next crawl audit has no finding."),
+    ("no_structured_data", "AI readiness", "No structured data on the page",
+     "The page has no JSON-LD describing what it is (an app, an article, a FAQ) and who publishes it.",
+     "Search and answer engines must guess the page's type and publisher; rich results and clear "
+     "attribution in AI answers are less likely.",
+     "Add JSON-LD in the template: WebApplication or SoftwareApplication for tools, Article for posts, "
+     "FAQPage or HowTo where the page has them, plus Organization.",
+     "Google's Rich Results Test shows the items; next crawl audit has no finding."),
+    ("ai_bot_blocked", "AI readiness", "robots.txt blocks AI search crawlers",
+     "robots.txt disallows a crawler that AI search and answer engines use to fetch and cite pages "
+     "(OAI-SearchBot, ChatGPT-User, PerplexityBot, Claude-SearchBot, Googlebot, Bingbot).",
+     "Blocked pages cannot be shown or cited in those AI answers. Blocking training crawlers (GPTBot, "
+     "ClaudeBot, CCBot, Google-Extended) is a separate business choice and is not reported here.",
+     "Remove the Disallow rules for these crawlers (or add Allow rules for public pages).",
+     "Test the URL for each crawler in a robots.txt tester; next AI audit has no finding."),
+    ("ai_bot_firewalled", "AI readiness", "Firewall blocks AI search crawlers",
+     "The site answers normal visitors, but returns an error, a challenge page or much less content when "
+     "the request names an AI search crawler.",
+     "Same effect as a robots.txt block: the AI engine cannot read or cite the pages, whatever robots.txt says.",
+     "Check the CDN/firewall bot rules (e.g. 'block AI bots' toggles) and allow verified AI search crawlers. "
+     "A CDN that verifies crawler IP addresses may block only our imitation: confirm in its logs that the "
+     "real crawler gets 200.",
+     "CDN logs show 200 for the verified crawlers; next AI audit has no finding."),
+    ("llms_txt_missing", "AI readiness", "No llms.txt",
+     "The host (or product family) has no /llms.txt: a short Markdown file that tells AI assistants what "
+     "the site is and links its key pages (llmstxt.org). The URL answers with an error, a redirect or a web page.",
+     "A proposed convention, not a standard: some AI tools and agents read it, major engines have not "
+     "confirmed using it. Cheap to add, small expected gain.",
+     "Publish /llms.txt: '# Site name', a one-paragraph summary, then sections of links to the key pages. "
+     "On products, link every family (or give each family its own /<family>/llms.txt).",
+     "https://<host>/llms.txt returns plain text with an H1 and links; next AI audit has no finding."),
+    ("llms_txt_invalid", "AI readiness", "llms.txt is broken",
+     "/llms.txt is a text file, but empty, without an H1 line or links, or its links lead to pages that fail.",
+     "Tools that read llms.txt get nothing usable, or are sent to broken pages.",
+     "Fix the file (H1, summary, links to live pages) or regenerate it with the site build; remove it if no "
+     "one maintains it.",
+     "The URL shows plain text with working links; next AI audit has no finding."),
 ]
 
 # Severity per check, as the auditors assign it (checks only discovery's run.py names inline are listed here).
@@ -366,6 +412,7 @@ _DISCOVERY_ONLY = {
 
 
 def _severities() -> dict[str, str]:
+    from core.audit.ai import CHECKS as AI_CHECKS
     from core.audit.crawl import CHECKS
     from core.audit.perf import CHECKS as PERF_CHECKS
     from core.discovery.run import SITEMAP_CHECKS
@@ -375,6 +422,7 @@ def _severities() -> dict[str, str]:
     out["sitemap_redirected"] = out.pop("redirected")  # discovery's sitemap-file redirect
     out.update({k: v[1] for k, v in CHECKS.items()})
     out.update({k: v[1] for k, v in PERF_CHECKS.items()})
+    out.update({k: v[1] for k, v in AI_CHECKS.items()})
     return out
 
 

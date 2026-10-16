@@ -30,7 +30,8 @@ def html(title="Convert PDF files online", canonical=None, hreflang=(), lang="en
         head.append(f'<meta name="viewport" content="{viewport}">')
     if robots:
         head.append(f'<meta name="robots" content="{robots}">')
-    body = "".join(f"<h1>{h}</h1>" for h in h1)
+    head.append('<script type="application/ld+json">{"@type": "WebApplication"}</script>')
+    body = "".join(f"<h1>{h}</h1>" for h in h1) + "<main>" + "Convert your files online for free. " * 10 + "</main>"
     lang_attr = f' lang="{lang}"' if lang else ""
     return f"<!doctype html><html{lang_attr}><head>{''.join(head)}</head><body>{body}</body></html>".encode()
 

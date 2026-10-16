@@ -99,10 +99,11 @@ class PoliteFetcher:
         self.robots(origin)
         return self._robots[origin][1].can_fetch(self.user_agent, url)
 
-    def get(self, url: str) -> FetchResult:
+    def get(self, url: str, headers: dict | None = None) -> FetchResult:
+        """GET within robots.txt. `headers` override the client's for this request (e.g. another User-Agent)."""
         if not self.allowed(url):
             return FetchResult(url=url, status=None, error="disallowed by robots.txt", blocked_by_robots=True)
-        return self._get(url)
+        return self._get(url, headers)
 
     def _wait(self, host: str) -> None:
         last = self._last.get(host)
@@ -112,23 +113,23 @@ class PoliteFetcher:
                 self._sleep(remaining)
         self._last[host] = self._clock()
 
-    def _get(self, url: str) -> FetchResult:
+    def _get(self, url: str, headers: dict | None = None) -> FetchResult:
         host = urlsplit(url).netloc
         attempt = 0
         while True:
             self._wait(host)
-            res = self._once(url)
+            res = self._once(url, headers)
             attempt += 1
             retryable = res.status in RETRY_STATUSES or (res.status is None and res.error is not None)
             if attempt > self.retries or not retryable:
                 return res
             self._sleep(min(res.retry_after or 2.0**attempt, MAX_RETRY_WAIT))
 
-    def _once(self, url: str) -> FetchResult:
+    def _once(self, url: str, headers: dict | None = None) -> FetchResult:
         start = self._clock()
         self.requests += 1
         try:
-            with self._client.stream("GET", url) as resp:
+            with self._client.stream("GET", url, **({"headers": headers} if headers else {})) as resp:
                 chunks, size, truncated = [], 0, False
                 for chunk in resp.iter_bytes():
                     size += len(chunk)

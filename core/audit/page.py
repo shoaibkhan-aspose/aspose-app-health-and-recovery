@@ -1,4 +1,5 @@
-"""Parse the SEO-relevant facts of one HTML page: title, meta description, H1, canonical, robots, hreflang.
+"""Parse the SEO-relevant facts of one HTML page: title, meta description, H1, canonical, robots, hreflang,
+and for AI readiness the text a crawler sees without JavaScript and the JSON-LD types.
 
 Head-only signals (canonical, hreflang, robots meta) are read from <head> only, as search engines do.
 HTTP headers add `Link: rel=canonical` and `X-Robots-Tag`.
@@ -6,6 +7,7 @@ HTTP headers add `Link: rel=canonical` and `X-Robots-Tag`.
 
 from __future__ import annotations
 
+import json
 import re
 from dataclasses import asdict, dataclass, field
 from urllib.parse import urljoin
@@ -26,6 +28,9 @@ class PageFacts:
     viewport: str | None = None
     generator: str | None = None
     refresh: str | None = None  # <meta http-equiv=refresh> content
+    text_chars: int | None = None  # visible main text in the raw HTML (no scripts, nav, header, footer), no spaces
+    jsonld_types: list[str] = field(default_factory=list)  # @type of each JSON-LD item (incl. @graph)
+    jsonld_invalid: int = 0  # JSON-LD blocks that do not parse
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -95,4 +100,20 @@ def parse_page(html: bytes | str, base_url: str, headers: dict | None = None) ->
     if headers.get("x-robots-tag"):
         facts.robots.append(headers["x-robots-tag"].lower())
     facts.h1 = [_clean(n.text(deep=True)) for n in tree.css("h1")]
+
+    for n in tree.css('script[type="application/ld+json"]'):
+        try:
+            data = json.loads(n.text() or "")
+        except ValueError:
+            facts.jsonld_invalid += 1
+            continue
+        for item in data if isinstance(data, list) else data.get("@graph", [data]) if isinstance(data, dict) else []:
+            t = item.get("@type") if isinstance(item, dict) else None
+            facts.jsonld_types += [str(x) for x in t] if isinstance(t, list) else [str(t)] if t else []
+
+    # What a crawler that does not run JavaScript reads: body text without code, page chrome and hidden templates.
+    if tree.body is not None:
+        for n in tree.body.css("script, style, noscript, template, svg, header, nav, footer"):
+            n.decompose()
+        facts.text_chars = len("".join(tree.body.text(separator=" ").split()))
     return facts

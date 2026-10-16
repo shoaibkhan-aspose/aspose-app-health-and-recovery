@@ -65,6 +65,10 @@ audit:
   extra_urls:
     - https://products.aspose.app/pdf/split       # seed-crawl-03: sitemap lists /split, hub links /splitter
     - https://products.aspose.app/pdf/splitter
+  ai:                                             # AI-readiness audit (scripts/audit_ai.py)
+    llms_txt_skip_hosts:                          # no llms.txt expected: account app and API, not content for answers
+      - dashboard.aspose.app
+      - api.products.aspose.app
 
 # URL templates per host, matched in order against the path with the language segment removed.
 url_templates:

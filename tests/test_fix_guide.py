@@ -7,6 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
+from core.audit.ai import CHECKS as AI_CHECKS  # noqa: E402
 from core.audit.crawl import CHECKS  # noqa: E402
 from core.audit.perf import CHECKS as PERF_CHECKS  # noqa: E402
 from core.discovery.run import SITEMAP_CHECKS  # noqa: E402
@@ -19,6 +20,7 @@ def test_every_check_has_a_guide_row():
     discovery |= {"hreflang_none", "hreflang_partial"}  # set via a variable
     missing = [c for c in CHECKS if guide_key(c, "crawl-audit") is None]
     missing += [c for c in PERF_CHECKS if guide_key(c, "perf-audit") is None]
+    missing += [c for c in AI_CHECKS if guide_key(c, "ai-audit") is None]
     missing += [c for c in discovery if guide_key(c, "discovery") is None]
     assert not missing, missing
     assert guide_key("redirected", "discovery") == "sitemap_redirected"

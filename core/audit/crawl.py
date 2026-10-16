@@ -1,5 +1,6 @@
 """Crawl auditor: fetch a sample of pages per template and check status, redirects, indexability, canonical,
-hreflang and the basic head tags (title, meta description, H1, html lang, viewport).
+hreflang, the basic head tags (title, meta description, H1, html lang, viewport) and, for AI readiness, the
+text a crawler sees without JavaScript and the presence of structured data.
 
 All checks are deterministic code. Pages come from a discovery inventory run (see core.audit.sample), plus
 each host's homepage and the tenant's `audit.extra_urls`. Findings are grouped like discovery findings: per
@@ -31,6 +32,7 @@ HREFLANG_RE = re.compile(r"^(x-default|[a-z]{2,3}(-[a-z]{4})?(-([a-z]{2}|\d{3}))
 SOFT_404_URL_RE = re.compile(r"(^|[/?&=_.-])(404|not-?found|notfound|error)([/?&=_.-]|$)", re.I)
 SOFT_404_TITLE_RE = re.compile(r"\b(404|page not found|not found)\b", re.I)
 NO_ZOOM_RE = re.compile(r"user-scalable\s*=\s*(no|0)\b|maximum-scale\s*=\s*1(\.0*)?\b", re.I)
+MIN_TEXT_CHARS = 250  # visible characters (no spaces) in the raw HTML below which a page reads as empty to AI crawlers
 
 # check -> (dimension, type, title, expected, fix_tier, effort)
 CHECKS = {
@@ -89,6 +91,12 @@ CHECKS = {
                          "<meta name=viewport content='width=device-width, initial-scale=1'>", 1, "S"),
     "viewport_no_zoom": ("ux", "not_optimized", "Viewport disables zoom (user-scalable=no or maximum-scale=1)",
                          "zoom allowed (WCAG 1.4.4)", 1, "S"),
+    "content_needs_js": ("ai", "incorrect", "Pages show almost no text without JavaScript",
+                         f"the main text in the HTML itself (at least {MIN_TEXT_CHARS} characters); AI crawlers "
+                         "do not run JavaScript", 2, "M"),
+    "no_structured_data": ("ai", "improvable", "Pages have no structured data (JSON-LD)",
+                           "JSON-LD naming what the page is (e.g. WebApplication, Article, FAQPage) and who "
+                           "publishes it", 2, "S"),
 }
 
 
@@ -206,6 +214,13 @@ def page_issues(rec: dict, facts, localized: bool) -> list[tuple[str, str]]:
         issues.append(("viewport_missing", "no meta viewport"))
     elif NO_ZOOM_RE.search(facts.viewport):
         issues.append(("viewport_no_zoom", facts.viewport))
+
+    if not facts.noindex:  # AI readiness: what an answer engine can read and attribute
+        if facts.text_chars is not None and facts.text_chars < MIN_TEXT_CHARS:
+            issues.append(("content_needs_js", f"{facts.text_chars} characters of main text in the HTML"))
+        if not facts.jsonld_types:
+            issues.append(("no_structured_data", f"{facts.jsonld_invalid} JSON-LD blocks, none valid"
+                           if facts.jsonld_invalid else "no JSON-LD"))
     return issues
 
 
